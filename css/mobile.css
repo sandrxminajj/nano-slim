@@ -1,0 +1,336 @@
+/* ==========================================================
+   MOBILE OPTIMIZATIONS — COPALEGO
+   Inclui: touch targets, safe-area (iPhone notch), tap highlights,
+   font-sizes anti-zoom iOS, scroll smooth, accessibility
+   ========================================================== */
+
+/* ── Base mobile fixes ─────────────────────────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.08);
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+}
+
+/* iPhone notch safe-area support */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  .ck-bottom-bar,
+  .fixed-bottom,
+  [class*="bottom-bar"] {
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  }
+}
+
+/* Touch-friendly tap targets mínimos */
+button,
+a.btn,
+.btn,
+input[type="submit"],
+input[type="button"],
+.clickable {
+  min-height: 44px;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
+}
+
+/* Evitar zoom automático no iOS quando foca inputs (>= 16px) */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea,
+  .ck-input,
+  .ck-phone-input {
+    font-size: 16px !important;
+  }
+}
+
+/* Imagens responsivas por defeito */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  -webkit-user-drag: none;
+}
+
+/* Scroll suave em elementos overflow */
+.scroll-x,
+[style*="overflow-x"],
+[style*="overflow: auto"] {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+/* Prevenir seleção acidental em elementos clicáveis */
+button,
+.btn,
+.card,
+.product-card,
+.ck-method-card,
+.ck-bump-card {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Texto continua selecionável em campos úteis */
+p, h1, h2, h3, h4, h5, h6, span, label, input, textarea {
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+
+/* ── Fix comum: sticky bottom bar sobre conteúdo ──────── */
+body {
+  padding-bottom: 0;
+}
+
+/* Se existir bottom bar, cria padding para evitar que cubra conteúdo */
+body:has(.ck-bottom-bar) { padding-bottom: 120px; }
+body:has(.fixed-bottom)  { padding-bottom: 100px; }
+
+/* ── Melhoria mobile em produtos / listas ─────────────── */
+@media (max-width: 768px) {
+  /* Grid de produtos mais compacto em mobile */
+  .product-grid,
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 0 12px !important;
+  }
+
+  /* Cards menores em mobile */
+  .product-card {
+    padding: 10px !important;
+  }
+
+  .product-card h3 {
+    font-size: .95rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .product-card .price {
+    font-size: 1.05rem !important;
+  }
+
+  .product-desc {
+    font-size: .8rem !important;
+    line-height: 1.35 !important;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Hero compacto em mobile */
+  .hero {
+    min-height: 45vh !important;
+    padding: 32px 16px !important;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.15 !important;
+  }
+
+  .hero p {
+    font-size: .95rem !important;
+  }
+
+  /* Header mais fino */
+  .header {
+    min-height: 52px !important;
+  }
+
+  .header-inner {
+    padding: 10px 14px !important;
+  }
+
+  /* Botões de categoria com scroll horizontal */
+  .filter-btn-row,
+  .category-filters {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    flex-wrap: nowrap !important;
+    padding: 0 12px !important;
+  }
+
+  .filter-btn-row::-webkit-scrollbar,
+  .category-filters::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    font-size: .8rem !important;
+    padding: 8px 14px !important;
+  }
+
+  /* Modal legais ocupa mais da tela em mobile */
+  .lgl-modal {
+    max-height: 92vh !important;
+    margin: 8px !important;
+  }
+
+  /* Cart sidebar ocupa quase tudo */
+  .cart-panel,
+  .cart-sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ── Mobile muito pequeno (Android antigo, iPhone SE 1) ─ */
+@media (max-width: 360px) {
+  .product-grid,
+  .products-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem !important;
+  }
+
+  .filter-btn {
+    font-size: .75rem !important;
+  }
+
+  .ck-header-secure { display: none !important; }
+}
+
+/* ── Acessibilidade: respeitar "reduzir animações" ───── */
+/* Reduce-motion DESATIVADO — site tem roleta + animações essenciais pra UX
+   Ativar seletivamente no futuro se necessário, NUNCA global.
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+*/
+
+/* ── Fix: iframes responsivos ────────────────────────── */
+iframe {
+  max-width: 100%;
+}
+
+/* ── Fix: tabelas responsivas ────────────────────────── */
+@media (max-width: 600px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── Melhoria contador regressivo em mobile ──────────── */
+@media (max-width: 480px) {
+  .timer-box {
+    gap: 8px !important;
+    padding: 12px !important;
+  }
+
+  .timer-box .box {
+    padding: 8px !important;
+    min-width: 52px !important;
+  }
+
+  .timer-box span {
+    font-size: 1.3rem !important;
+  }
+
+  .timer-box p {
+    font-size: .65rem !important;
+  }
+}
+
+/* ── Landscape em mobile: corta header sticky ────────── */
+@media (max-height: 500px) and (orientation: landscape) {
+  .header,
+  .ck-header {
+    position: relative !important;
+  }
+
+  .hero {
+    min-height: auto !important;
+    padding: 20px 16px !important;
+  }
+}
+
+/* ── Loading states (previne flashes) ────────────────── */
+img[loading="lazy"] {
+  background: #f3f4f6;
+  min-height: 60px;
+}
+
+/* ── Mobile: checkout inputs mais confortáveis ───────── */
+@media (max-width: 640px) {
+  .ck-input,
+  .ck-phone-input {
+    padding: 14px 16px !important;
+    border-radius: 10px !important;
+  }
+
+  .ck-card-body {
+    padding: 14px !important;
+  }
+
+  .ck-btn-cta {
+    padding: 16px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Sticky bottom bar com menos padding */
+  .ck-bottom-bar {
+    padding: 10px 12px !important;
+  }
+
+  /* Steps mais compactos */
+  .ck-step-label {
+    font-size: 9px !important;
+  }
+
+  .ck-step-circle {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: .75rem !important;
+  }
+}
+
+/* ── Prevenção de texto que quebra layout ────────────── */
+.product-name,
+.product-card h3,
+.ck-method-name,
+.cart-item-name {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ── Melhor suporte Dark Mode (respeita preferências) ─ */
+@media (prefers-color-scheme: dark) {
+  /* Mantém branco em e-commerce pra não quebrar branding.
+     Mas poderia adaptar modais legais se quisesses. */
+}
+
+/* ── Performance: hint para browser ──────────────────── */
+.card,
+.product-card,
+.hero,
+.ck-card {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 300px;
+}
