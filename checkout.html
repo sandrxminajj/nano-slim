@@ -128,6 +128,48 @@
     }
 
     /* ── PROGRESS STEPPER ── */
+    /* Resumo pedido (passo 3) */
+    .ck-order-summary {
+      background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px;
+      padding: 14px 16px; margin-bottom: 16px;
+    }
+    .ck-order-summary-title {
+      font-size: .75rem; font-weight: 800; color: #475569;
+      text-transform: uppercase; letter-spacing: .6px; margin-bottom: 10px;
+    }
+    .ck-order-summary-row {
+      display: flex; justify-content: space-between; gap: 12px;
+      padding: 6px 0; border-top: 1px dashed #E2E8F0; font-size: .85rem;
+    }
+    .ck-order-summary-row:first-of-type { border-top: none; padding-top: 0; }
+    .ck-order-summary-label { color: #64748B; flex-shrink: 0; font-weight: 600; }
+    .ck-order-summary-value { color: #0F172A; text-align: right; font-weight: 600; word-break: break-word; }
+    .ck-order-summary-total { border-top: 1px solid #CBD5E1; margin-top: 6px; padding-top: 10px; }
+    .ck-order-summary-total .ck-order-summary-label,
+    .ck-order-summary-total .ck-order-summary-value { color: #16A34A; font-weight: 900; font-size: 1rem; }
+
+    .ck-method-label {
+      font-size: .8rem; font-weight: 700; color: #475569;
+      margin: 6px 0 8px; text-transform: uppercase; letter-spacing: .4px;
+    }
+
+    /* Checkbox T&C */
+    .ck-terms-wrap {
+      margin: 14px 0 8px; padding: 12px 14px;
+      background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px;
+    }
+    .ck-terms-label {
+      display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
+      font-size: .82rem; line-height: 1.45; color: #0F172A;
+    }
+    .ck-terms-checkbox {
+      width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;
+      accent-color: #22C55E; margin-top: 2px;
+    }
+    .ck-terms-text a { color: #1E40AF; font-weight: 700; text-decoration: underline; }
+    .ck-terms-wrap.err { background: #FEF2F2; border-color: #FECACA; }
+    .ck-terms-wrap.err .ck-terms-text { color: #991B1B; }
+
     .ck-stepper {
       background: var(--card);
       border-bottom: 1px solid var(--border);
@@ -670,8 +712,11 @@
           </div>
 
           <div class="ck-field">
-            <label>NIF <em>(opcional)</em></label>
+            <label>NIF <em>(opcional — necessário para fatura com contribuinte)</em></label>
             <input class="ck-input" type="text" id="ck-doc" placeholder="000000000" maxlength="9" inputmode="numeric">
+            <div style="font-size:.72rem;color:#6b7280;margin-top:4px;line-height:1.4;">
+              Se quiser fatura com NIF, introduza-o agora. Após a finalização não é possível alterar.
+            </div>
           </div>
 
           <div class="ck-field">
@@ -743,6 +788,33 @@
         <div class="ck-card-body">
           <div class="ck-error" id="ckError3"><span></span>&nbsp;<span id="ckErrorMsg3"></span></div>
 
+          <!-- Resumo do pedido -->
+          <div class="ck-order-summary" id="ckOrderSummary">
+            <div class="ck-order-summary-title">Resumo da encomenda</div>
+            <div class="ck-order-summary-row">
+              <div class="ck-order-summary-label">Produto</div>
+              <div class="ck-order-summary-value" id="sumProduct">—</div>
+            </div>
+            <div class="ck-order-summary-row">
+              <div class="ck-order-summary-label">Cliente</div>
+              <div class="ck-order-summary-value" id="sumCustomer">—</div>
+            </div>
+            <div class="ck-order-summary-row">
+              <div class="ck-order-summary-label">Entrega</div>
+              <div class="ck-order-summary-value" id="sumAddress">—</div>
+            </div>
+            <div class="ck-order-summary-row">
+              <div class="ck-order-summary-label">Contacto</div>
+              <div class="ck-order-summary-value" id="sumContact">—</div>
+            </div>
+            <div class="ck-order-summary-row ck-order-summary-total">
+              <div class="ck-order-summary-label">Total</div>
+              <div class="ck-order-summary-value" id="sumTotal">0,00 €</div>
+            </div>
+          </div>
+
+          <div class="ck-method-label">Escolher método de pagamento:</div>
+
           <!-- MBWay -->
           <div class="ck-method-card mbway-selected" id="method-mbway" onclick="selectMethod('mbway')">
             <div class="ck-method-icon-box">
@@ -771,19 +843,32 @@
             </div>
           </div>
 
+          <!-- Checkbox T&C — obrigatório RGPD -->
+          <div class="ck-terms-wrap">
+            <label class="ck-terms-label">
+              <input type="checkbox" id="ck-terms" class="ck-terms-checkbox">
+              <span class="ck-terms-text">
+                Li e aceito os
+                <a href="#" onclick="openCkLegal('termos');return false;">Termos &amp; Condições</a>
+                e a
+                <a href="#" onclick="openCkLegal('privacidade');return false;">Política de Privacidade</a>.
+              </span>
+            </label>
+          </div>
+
           <div style="text-align:center;margin-top:4px;">
             <button class="ck-btn-back-sm" onclick="goStep(2)">← Voltar</button>
           </div>
 
           <div class="ck-trust">
             <div class="ck-trust-item">
-              <span class="material-symbols-outlined">lock</span> SSL Seguro
+              <span class="material-symbols-outlined">lock</span> Encriptação SSL 256-bit
             </div>
             <div class="ck-trust-item">
-              <span class="material-symbols-outlined">verified</span> Pagamento Seguro
+              <span class="material-symbols-outlined">verified</span> WayMB · Gateway PT
             </div>
             <div class="ck-trust-item">
-              <span class="material-symbols-outlined">check_circle</span> Envio 24-48h
+              <span class="material-symbols-outlined">check_circle</span> Envio CTT 24-48h
             </div>
             <div class="ck-trust-item">
               <span class="material-symbols-outlined">workspace_premium</span> Garantia 30 dias
@@ -806,7 +891,7 @@
                 VISA
               </span>
             </div>
-            <a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener"
+            <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener"
                style="display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:#1e40af;text-decoration:none;font-weight:700;">
               <span class="material-symbols-outlined" style="font-size:14px;">open_in_new</span>
               Livro de Reclamações
@@ -1008,7 +1093,39 @@
     currentStep = n;
     updateProgressBar(n);
     updateCtaButton(n);
+    if (n === 3) populateOrderSummary();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Popular resumo do pedido (passo 3)
+  function populateOrderSummary() {
+    const name    = document.getElementById('ck-name').value.trim();
+    const email   = document.getElementById('ck-email').value.trim();
+    const phone   = document.getElementById('ck-phone').value.trim();
+    const nif     = document.getElementById('ck-doc').value.trim();
+    const postal  = document.getElementById('ck-postal').value.trim();
+    const address = document.getElementById('ck-address').value.trim();
+    const number  = document.getElementById('ck-number').value.trim();
+    const complement = document.getElementById('ck-complement').value.trim();
+    const city    = document.getElementById('ck-city').value.trim();
+
+    const bumpsSel = Object.entries(bumps).filter(([,b]) => b.selected).map(([,b]) => b);
+    const bumpTotal = bumpsSel.reduce((s,b) => s + b.price, 0);
+    const total = (productData?.price || 0) + bumpTotal;
+
+    const prodName = productData?.name || '—';
+    const prodDesc = productData?.descricao ? ' · ' + productData.descricao : '';
+    const bumpList = bumpsSel.length ? ' + ' + bumpsSel.map(b => b.name).join(', ') : '';
+
+    document.getElementById('sumProduct').textContent  = prodName + prodDesc + bumpList;
+    document.getElementById('sumCustomer').textContent = name + (nif ? ' · NIF ' + nif : '');
+    document.getElementById('sumAddress').textContent  =
+      address + (number ? ', ' + number : '') +
+      (complement ? ', ' + complement : '') +
+      (postal ? ' · ' + postal : '') +
+      (city ? ' · ' + city : '');
+    document.getElementById('sumContact').textContent = email + (phone ? ' · +351 ' + phone : '');
+    document.getElementById('sumTotal').textContent   = fmtEUR(total);
   }
 
   function updateProgressBar(active) {
@@ -1059,6 +1176,10 @@
     if (v.length > 4) v = v.slice(0,4) + '-' + v.slice(4,7);
     this.value = v;
   });
+  // Remove erro do checkbox T&C ao marcar
+  document.getElementById('ck-terms')?.addEventListener('change', function() {
+    this.closest('.ck-terms-wrap').classList.remove('err');
+  });
   document.getElementById('ck-doc').addEventListener('input', function() {
     this.value = this.value.replace(/\D/g,'').slice(0,9);
   });
@@ -1081,8 +1202,26 @@
     }
   });
 
+  // ── Modal legal dentro do checkout (re-usa config do index) ─────
+  window.openCkLegal = function(key) {
+    // Redireciona pra index.html#abc-legal com key pra abrir modal lá
+    // Alternativa: abrir nova aba com a landing e scroll pro footer
+    window.open('index.html?legal=' + key + '#footer', '_blank');
+  };
+
   // ── Submit ────────────────────────────────────────────────────
   async function submitCheckout() {
+    // Validação T&C checkbox obrigatório
+    const termsEl = document.getElementById('ck-terms');
+    const termsWrap = termsEl.closest('.ck-terms-wrap');
+    if (!termsEl.checked) {
+      termsWrap.classList.add('err');
+      termsEl.focus();
+      showErr('ckError3','ckErrorMsg3','Aceite os Termos e a Política de Privacidade para continuar.');
+      return;
+    }
+    termsWrap.classList.remove('err');
+
     const name       = document.getElementById('ck-name').value.trim();
     const email      = document.getElementById('ck-email').value.trim();
     const rawPhone   = document.getElementById('ck-phone').value.trim();
