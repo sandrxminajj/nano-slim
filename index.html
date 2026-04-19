@@ -378,6 +378,15 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 .guar-badge-num { font-size: 2.3rem; font-weight: 900; letter-spacing: -2px; color: #FEF3C7; }
 .guar-badge-lbl { font-size: .58rem; font-weight: 900; letter-spacing: 2.5px; color: #FCD34D; margin-top: 1px; }
+.guar-eyebrow {
+  position: relative; z-index: 2;
+  display: inline-block;
+  padding: 6px 14px; margin-bottom: 16px;
+  background: rgba(69, 26, 3, .85); color: #FDE68A;
+  border-radius: 999px;
+  font-size: .72rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15);
+}
 .guar-card h2 { position: relative; z-index: 2; color: #451A03; margin-bottom: 10px; font-size: clamp(1.8rem, 2.2vw + 1rem, 2.4rem); text-shadow: 0 1px 2px rgba(255,255,255,.4); }
 .guar-card .guar-sub { position: relative; z-index: 2; color: #78350F; font-weight: 700; font-size: clamp(1rem, .3vw + .95rem, 1.15rem); margin-bottom: 16px; }
 .guar-card p { position: relative; z-index: 2; color: #451A03; font-size: .98rem; line-height: 1.65; max-width: 420px; margin: 0 auto 22px; font-weight: 500; }
@@ -912,13 +921,29 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="guar-grid">
       <div class="guar-card">
-        <img src="images/selo-garantia-30-dias.png" alt="Selo Garantia 30 dias" width="140" height="140" loading="lazy" style="width:140px;height:140px;margin-bottom:16px;display:block;">
-        <h2>Garantia de 30 dias</h2>
+        <div class="guar-eyebrow">Compromisso Nano Slim</div>
+        <h2>Garantia Total de 30 Dias</h2>
+        <div class="guar-sub">A sua satisfação, ou o seu dinheiro de volta.</div>
         <p>
-          Se não ficar satisfeita com o Nano Slim nos primeiros 30 dias de uso,
-          <strong>devolvemos 100% do valor pago</strong>. Sem perguntas. Sem ginástica.
-          Enviamos instruções simples por e-mail, tratamos da devolução pelos CTT.
+          Experimente o Nano Slim durante 30 dias. Se não ficar completamente satisfeita, <strong>devolvemos 100% do valor pago</strong>, até ao último cêntimo.
         </p>
+        <div class="guar-chips">
+          <span class="guar-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Sem perguntas
+          </span>
+          <span class="guar-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Devolução por CTT
+          </span>
+          <span class="guar-chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Reembolso em 14 dias úteis
+          </span>
+        </div>
+        <div class="guar-footnote">
+          Feito para portuguesas que exigem confiança.
+        </div>
       </div>
       <div>
         <span class="pill hot">⚡ ENVIO IMEDIATO</span>
