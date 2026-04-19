@@ -107,7 +107,19 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 /* HERO */
 .hero { background: radial-gradient(ellipse at top right, var(--brand-soft) 0%, #fff 70%); padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 8vw, 110px); position: relative; overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
-@media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+@media (max-width: 920px) {
+  .hero-grid {
+    display: flex; flex-direction: column; text-align: center; gap: 18px;
+  }
+  .hero-grid > div:first-child { display: contents; }
+  .hero-grid > div:first-child > * { width: 100%; }
+  .hero-grid > div:first-child h1 { order: 1; }
+  .hero-img-wrap { order: 2; margin-bottom: 10px; }
+  .hero-grid > div:first-child .hero-sub { order: 3; }
+  .hero-grid > div:first-child .hero-ctas { order: 4; }
+  .hero-grid > div:first-child .hero-trust { order: 5; }
+  .hero-grid > div:first-child .pill { order: 0; display: inline-block !important; align-self: center; }
+}
 .hero h1 .hl { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-sub { font-size: clamp(1.05rem, .5vw + .95rem, 1.3rem); color: var(--ink-2); margin-top: 20px; max-width: 560px; }
 @media (max-width: 920px) { .hero-sub { margin-inline: auto; } }
@@ -730,13 +742,6 @@ body.modal-open { overflow: hidden; }
         <h1 style="margin-top: 16px;">
           Cetose rápida <span class="hl">em pó</span>,<br>sem passar fome.
         </h1>
-        <div class="hero-ship-badge">
-          <span class="hero-ship-icon">⚡</span>
-          <div>
-            <strong>Envio GRÁTIS e IMEDIATO</strong>
-            <span>Encomendas MB Way até 16h saem HOJE pelos CTT</span>
-          </div>
-        </div>
         <p class="hero-sub">
           Nano Slim com sais BHB, crómio e vitaminas B6/B12, apoia o processo
           de cetose e contribui para a <strong>redução do cansaço</strong>. Zero açúcar.
