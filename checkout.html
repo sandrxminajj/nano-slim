@@ -684,8 +684,8 @@
 
 <!-- MAIN -->
 <div class="ck-main">
-  <a class="ck-back-link" href="index.html" id="backToShop">
-    ← Voltar à loja
+  <a class="ck-back-link" href="#" id="backToShop" onclick="goBackSmart(event)">
+    ← <span id="backLabel">Voltar à loja</span>
   </a>
 
   <!-- RESULT (shown after payment) -->
@@ -1130,6 +1130,7 @@
   }
 
   function updateCtaButton(step) {
+    updateBackLabel(step);
     const btn = document.getElementById('btnCta');
     if (step === 3) {
       btn.textContent = 'Confirmar encomenda →';
