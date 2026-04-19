@@ -127,6 +127,157 @@
     padding: 12px; background: #F8FAFC; border-radius: 12px;
   }
   .kit-payments strong { color: #16A34A; font-weight: 800; }
+
+  /* ============================================================
+     FIX bloco de kits dentro do block_11 (isola das decos absolutas)
+  ============================================================ */
+  .block_11 { position: relative; background: #fff !important; padding: 40px 0 !important; overflow: hidden; }
+  .block_11 .block_11-title,
+  .block_11 .block_11-subtitle { position: relative; z-index: 2; }
+  .block_11 .kits-wrap { position: relative; z-index: 3; background: #fff; padding: 30px 16px 16px; }
+  .block_11 .block_11-prod,
+  .block_11 .block_11-metric-line,
+  .block_11 .block_11-girl,
+  .block_11 .block_11-leaf,
+  .block_11 .block_11-bg-leafs { display: none !important; }
+
+  /* Block_9: mesma proteção */
+  .block_9 .kits-wrap { background: #fff; padding: 30px 16px 16px; border-radius: 20px; position: relative; z-index: 3; }
+
+  /* ============================================================
+     RESPONSIVIDADE AGRESSIVA — todos os dispositivos
+  ============================================================ */
+  html, body { overflow-x: hidden !important; max-width: 100vw !important; }
+  * { box-sizing: border-box; }
+  img { max-width: 100%; height: auto; }
+
+  /* Container-fluid — forçar padding lateral em todos os breakpoints */
+  .container-fluid { max-width: 1200px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+
+  /* Mobile — esconder decos absolutas que tapam conteúdo */
+  @media (max-width: 767px) {
+    .block_1 { min-height: auto !important; padding: 40px 16px !important; }
+    .block_1-title { font-size: clamp(22px, 6vw, 40px) !important; line-height: 1.15 !important; }
+    .block_1-subtitle { font-size: clamp(14px, 4vw, 20px) !important; }
+    .logo { font-size: clamp(28px, 7vw, 48px) !important; }
+    .sublogo_text { font-size: clamp(12px, 3.5vw, 18px) !important; }
+    .block_2-top-title, .block_3-title, .block_4-title, .block_5-title,
+    .block_6-title, .block_7-title, .block_8-title, .block_9-title, .block_10-title,
+    .block_11-title { font-size: clamp(22px, 6vw, 36px) !important; line-height: 1.2 !important; padding: 0 8px; text-align: center; }
+    .block_2-list-item, .block_3-list-item { width: 100% !important; margin-bottom: 20px; text-align: center; }
+    .block_3-girl, .block_3-leafs, .block_3-moleculs,
+    .block_7-peoples, .block_7-leafs, .block_8-fish,
+    .block_5-moleculs, .block_6-polygons,
+    .block_11-prod, .block_11-metric-line, .block_11-girl, .block_11-leaf, .block_11-bg-leafs { display: none !important; }
+    .btn, .pre_toform { width: 90% !important; max-width: 320px !important; margin: 10px auto !important; display: block !important; text-align: center !important; }
+    .form_wrap, .kits-wrap { width: 100% !important; margin: 20px auto !important; max-width: 100% !important; }
+    .background_video, .avid { object-fit: cover; }
+    .slick-slider, .slick-list, .slick-track { width: 100% !important; max-width: 100% !important; }
+    .slick-slide { width: 100% !important; max-width: 100% !important; }
+    .slide_wrap { width: 100% !important; max-width: 340px !important; margin: 0 auto !important; }
+    .review_photo img { width: 100% !important; height: auto !important; }
+    .block_2-list-img, .block_3-list-img { max-width: 100px !important; height: auto !important; }
+    .block_4 img, .block_5 img, .block_6 img { max-width: 100% !important; height: auto !important; }
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .block_3-girl, .block_11-girl { display: none !important; }
+    .block_7-peoples { max-width: 60%; }
+    .container-fluid { padding: 0 24px; }
+  }
+
+  /* Desktop pequeno */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .container-fluid { max-width: 1100px; }
+  }
+
+  /* Touch targets mobile */
+  @media (hover: none) and (pointer: coarse) {
+    .btn, .kit-btn, .kit-tab, .question_button, .legal-modal-close { min-height: 48px; }
+  }
+
+  /* Safe area iPhone */
+  @supports (padding: max(0px)) {
+    body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  }
+
+  /* ============================================================
+     FOOTER compliance (Google Ads, DGAV, ASAE)
+  ============================================================ */
+  .ns-footer {
+    background: #0F172A; color: #CBD5E1;
+    padding: 40px 16px 24px; margin-top: 40px;
+    font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.65;
+  }
+  .ns-footer-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+  .ns-disclaimer { text-align: left; max-width: 720px; margin: 0 auto 28px; }
+  .ns-disclaimer p { margin: 0 0 12px; font-size: 13px; color: #CBD5E1; }
+  .ns-disclaimer strong { color: #F1F5F9; }
+  .ns-disclaimer a { color: #60A5FA; text-decoration: underline; }
+  .ns-legal-nav {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+    gap: 6px 10px; padding: 18px 0; border-top: 1px solid #334155; border-bottom: 1px solid #334155;
+    font-size: 13px;
+  }
+  .ns-legal-nav a { color: #F1F5F9; text-decoration: none; padding: 4px 4px; }
+  .ns-legal-nav a:hover { color: #60A5FA; text-decoration: underline; }
+  .ns-legal-nav span { color: #475569; font-size: 10px; }
+  .ns-company {
+    margin: 22px 0 14px; font-size: 12px; color: #94A3B8; line-height: 1.9;
+  }
+  .ns-company strong { color: #F1F5F9; font-size: 13px; }
+  .ns-company a { color: #60A5FA; }
+  .ns-copyright { font-size: 11px; color: #64748B; margin-top: 12px; }
+  @media (max-width: 640px) {
+    .ns-footer { padding: 30px 14px 20px; }
+    .ns-legal-nav { gap: 4px 8px; }
+    .ns-legal-nav a { padding: 8px 6px; }
+    .ns-legal-nav span { display: none; }
+  }
+
+  /* ============================================================
+     MODAL legal (termos, privacidade, etc)
+  ============================================================ */
+  .legal-modal[hidden] { display: none; }
+  .legal-modal {
+    position: fixed; inset: 0; z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px;
+  }
+  .legal-modal-bg {
+    position: absolute; inset: 0;
+    background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
+  }
+  .legal-modal-card {
+    position: relative; background: #fff; border-radius: 18px;
+    max-width: 720px; width: 100%; max-height: 85vh;
+    overflow-y: auto; padding: 28px 28px 24px;
+    box-shadow: 0 30px 60px -15px rgba(0,0,0,.5);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .legal-modal-close {
+    position: absolute; top: 12px; right: 14px;
+    background: #F1F5F9; border: none; width: 36px; height: 36px;
+    border-radius: 50%; font-size: 24px; cursor: pointer; line-height: 1;
+    color: #475569; transition: all .15s;
+  }
+  .legal-modal-close:hover { background: #E2E8F0; color: #0F172A; }
+  .legal-modal-title {
+    font-size: 22px; font-weight: 800; color: #0F172A; margin: 0 0 16px;
+    padding-right: 40px;
+  }
+  .legal-modal-body { font-size: 14px; color: #334155; line-height: 1.7; }
+  .legal-modal-body p { margin: 0 0 14px; }
+  .legal-modal-body h3 { font-size: 16px; font-weight: 700; color: #0F172A; margin: 20px 0 8px; }
+  .legal-modal-body ul { padding-left: 22px; margin: 0 0 14px; }
+  .legal-modal-body li { margin-bottom: 6px; }
+  .legal-modal-body a { color: #2BB3E8; }
+  @media (max-width: 640px) {
+    .legal-modal { padding: 0; align-items: flex-end; }
+    .legal-modal-card { max-height: 92vh; border-radius: 18px 18px 0 0; padding: 22px 18px 18px; }
+  }
+  body.legal-open { overflow: hidden; }
 </style>
 
   </head>
@@ -1186,13 +1337,72 @@
             MB Way · Multibanco · Cartão · <strong>Pagamento na entrega</strong> ✓ · Garantia 30 dias
           </div>
         </div>
-        <img alt="" class="block_11-prod" src="images/pack2.png">
-        <img alt="" class="block_11-metric-line" src="images/metric_line2.png">
-        <img alt="" class="block_11-girl" src="images/block_11-girl.png">
-        <img alt="" class="block_11-leaf" src="images/block_11-leaf.png">
       </div>
     </div>
     <!-- BLOCK_11-END -->
+
+    <!-- ============================================================
+     FOOTER COMPLIANCE — Google Ads / DGAV / ASAE
+    ============================================================ -->
+    <footer class="ns-footer">
+      <div class="ns-footer-inner">
+
+        <div class="ns-disclaimer">
+          <p>
+            <strong>Este produto é um suplemento alimentar.</strong>
+            Não deve exceder a dose diária recomendada.
+            Os suplementos alimentares não devem ser utilizados como substitutos
+            de um regime alimentar variado e equilibrado e de um modo de vida saudável.
+            Manter fora do alcance das crianças.
+          </p>
+          <p>
+            O Nano Slim não se destina a diagnosticar, tratar, curar ou prevenir
+            qualquer doença. Os resultados podem variar de pessoa para pessoa e
+            dependem de uma alimentação equilibrada e actividade física regular.
+          </p>
+          <p>
+            Produzido em conformidade com os regulamentos da União Europeia e
+            com o Decreto-Lei n.º 118/2015. Informações adicionais sobre
+            suplementos alimentares em
+            <a href="https://www.dgav.pt" target="_blank" rel="noopener nofollow">www.dgav.pt</a>.
+          </p>
+        </div>
+
+        <nav class="ns-legal-nav" aria-label="Links legais">
+          <a href="#" onclick="openLegal('termos');return false;">Termos &amp; Condições</a>
+          <span>·</span>
+          <a href="#" onclick="openLegal('privacidade');return false;">Política de Privacidade</a>
+          <span>·</span>
+          <a href="#" onclick="openLegal('cookies');return false;">Política de Cookies</a>
+          <span>·</span>
+          <a href="#" onclick="openLegal('reembolso');return false;">Reembolsos &amp; Devoluções</a>
+          <span>·</span>
+          <a href="#" onclick="openLegal('envios');return false;">Política de Envios</a>
+          <span>·</span>
+          <a href="#" onclick="openLegal('contacto');return false;">Contacto</a>
+        </nav>
+
+        <div class="ns-company">
+          <div><strong>MULTISERVICOS EMPREENDIMENTOS LTDA</strong></div>
+          <div>CNPJ: 42.383.196/0001-90</div>
+          <div>Contacto: <a href="mailto:contacto@nano-slim.pt">contacto@nano-slim.pt</a></div>
+        </div>
+
+        <div class="ns-copyright">
+          © 2026 Nano Slim · Todos os direitos reservados
+        </div>
+      </div>
+    </footer>
+
+    <!-- Modal de páginas legais -->
+    <div id="legal-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
+      <div class="legal-modal-bg" onclick="closeLegal()"></div>
+      <div class="legal-modal-card">
+        <button type="button" class="legal-modal-close" onclick="closeLegal()" aria-label="Fechar">×</button>
+        <h2 id="legal-modal-title" class="legal-modal-title"></h2>
+        <div id="legal-modal-body" class="legal-modal-body"></div>
+      </div>
+    </div>
 
     <script>
       $(document).ready(function (e) {
@@ -1346,6 +1556,162 @@
     var checkoutPath = inSubfolder ? '../checkout.html' : 'checkout.html';
     window.location.href = checkoutPath + window.location.search;
   };
+})();
+</script>
+
+<!-- ============================================================
+ PÁGINAS LEGAIS — abrir em modal (Termos, Privacidade, Cookies, etc.)
+============================================================ -->
+<script>
+(function(){
+  var NOME = 'Nano Slim';
+  var RAZAO = 'MULTISERVICOS EMPREENDIMENTOS LTDA';
+  var CNPJ  = '42.383.196/0001-90';
+  var EMAIL = 'contacto@nano-slim.pt';
+  var EMAIL_PRIV = 'privacidade@nano-slim.pt';
+  var EMAIL_REEMB = 'reembolso@nano-slim.pt';
+  var ANO = '2026';
+
+  var LEGAL = {
+    termos: {
+      title: 'Termos e Condições',
+      body: '' +
+        '<p>Os presentes Termos e Condições aplicam-se à utilização do website e à aquisição de produtos ' + NOME + '. Ao utilizar o website ou efectuar uma encomenda, o utilizador declara aceitar integralmente estes termos.</p>' +
+        '<h3>1. Responsável</h3>' +
+        '<p><strong>' + RAZAO + '</strong><br>CNPJ: ' + CNPJ + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+        '<h3>2. Produto</h3>' +
+        '<p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
+        '<h3>3. Encomendas e pagamento</h3>' +
+        '<p>As encomendas são processadas após confirmação do pagamento (MB Way, Multibanco, Cartão) ou em regime de pagamento na entrega (COD). Os preços apresentados incluem IVA à taxa legal em vigor.</p>' +
+        '<h3>4. Entrega</h3>' +
+        '<p>Envio por CTT: 24-48h em Portugal continental; 3-5 dias úteis para Madeira e Açores. Portes gratuitos nos kits de 3 e 5 potes.</p>' +
+        '<h3>5. Direito de livre resolução</h3>' +
+        '<p>Nos termos do Decreto-Lei n.º 24/2014, o consumidor tem o direito de resolver o contrato no prazo de 14 dias a contar da recepção, sem necessidade de justificação. Adicionalmente oferecemos garantia de satisfação de 30 dias — ver secção Reembolsos.</p>' +
+        '<h3>6. Propriedade intelectual</h3>' +
+        '<p>Todos os conteúdos (textos, imagens, marca ' + NOME + ') estão protegidos por direitos de autor e propriedade industrial. É proibida a reprodução sem autorização escrita.</p>' +
+        '<h3>7. Lei aplicável</h3>' +
+        '<p>Os presentes termos regem-se pela lei portuguesa. Em caso de litígio, o consumidor pode recorrer às entidades de resolução alternativa de conflitos de consumo registadas na DGC.</p>'
+    },
+
+    privacidade: {
+      title: 'Política de Privacidade',
+      body: '' +
+        '<p>A privacidade dos utilizadores é uma prioridade. Esta política descreve como recolhemos, utilizamos e protegemos os dados pessoais no âmbito do RGPD (Regulamento UE 2016/679) e da Lei n.º 58/2019.</p>' +
+        '<h3>Responsável pelo tratamento</h3>' +
+        '<p><strong>' + RAZAO + '</strong> — CNPJ ' + CNPJ + '<br>Contacto: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
+        '<h3>Dados recolhidos</h3>' +
+        '<ul>' +
+        '<li>Nome, morada, código postal, telemóvel, e-mail — necessários para processar a encomenda e envio</li>' +
+        '<li>Dados de pagamento — processados em ambiente seguro pela WayMB / entidade gateway; não armazenamos dados de cartão</li>' +
+        '<li>Dados de navegação (cookies, IP, comportamento de página) — ver Política de Cookies</li>' +
+        '</ul>' +
+        '<h3>Finalidades</h3>' +
+        '<ul>' +
+        '<li>Processamento de encomendas e cumprimento contratual</li>' +
+        '<li>Cumprimento de obrigações legais e fiscais</li>' +
+        '<li>Apoio ao cliente e gestão de reembolsos</li>' +
+        '<li>Marketing directo (apenas com consentimento)</li>' +
+        '<li>Análise estatística anónima para melhoria do website</li>' +
+        '</ul>' +
+        '<h3>Partilha com terceiros</h3>' +
+        '<p>Partilhamos dados apenas com processadores necessários: WayMB (pagamentos), CTT (envio), Google / Meta / TikTok (análise e remarketing — apenas dados agregados/pseudonimizados). Não vendemos dados pessoais a terceiros.</p>' +
+        '<h3>Conservação</h3>' +
+        '<p>Os dados de encomenda são conservados pelo período legal mínimo de 10 anos (obrigações fiscais). Dados de marketing são conservados enquanto existir consentimento.</p>' +
+        '<h3>Direitos do titular</h3>' +
+        '<p>Acesso, rectificação, apagamento, limitação, portabilidade, oposição e retirada de consentimento. Para exercer, contactar <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a>. Direito de reclamação à CNPD (<a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>).</p>'
+    },
+
+    cookies: {
+      title: 'Política de Cookies',
+      body: '' +
+        '<p>Utilizamos cookies próprios e de terceiros para melhorar a experiência de navegação, analisar tráfego e personalizar publicidade. Ao continuar a navegar, aceita a utilização de cookies.</p>' +
+        '<h3>Tipos de cookies utilizados</h3>' +
+        '<ul>' +
+        '<li><strong>Essenciais</strong> — sessão, carrinho, preferências (sem estes o site não funciona)</li>' +
+        '<li><strong>Analíticos</strong> — Google Analytics, Microsoft Clarity (medição anónima de uso)</li>' +
+        '<li><strong>Marketing</strong> — Meta Pixel, Google Ads, TikTok Pixel (remarketing e conversões)</li>' +
+        '</ul>' +
+        '<h3>Gerir cookies</h3>' +
+        '<p>Pode gerir ou eliminar cookies nas definições do seu navegador. A desactivação de cookies analíticos/marketing não afecta a funcionalidade base do website.</p>' +
+        '<p>Mais informação em <a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>.</p>'
+    },
+
+    reembolso: {
+      title: 'Reembolsos e Devoluções',
+      body: '' +
+        '<h3>Garantia de satisfação 30 dias</h3>' +
+        '<p>Se não ficar satisfeita/o com o ' + NOME + ' nos primeiros 30 dias após recepção, devolvemos 100% do valor pago. Sem perguntas, sem burocracia.</p>' +
+        '<h3>Direito legal de livre resolução (14 dias)</h3>' +
+        '<p>Nos termos do Decreto-Lei n.º 24/2014, tem direito a resolver o contrato no prazo de 14 dias a contar da recepção, sem justificação.</p>' +
+        '<h3>Como proceder</h3>' +
+        '<ol>' +
+        '<li>Envie e-mail para <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a> com o número de encomenda</li>' +
+        '<li>Receberá instruções para devolução por CTT</li>' +
+        '<li>Reembolso efectuado em até 14 dias após recepção da devolução</li>' +
+        '</ol>' +
+        '<h3>Excepções</h3>' +
+        '<p>Produtos abertos, com selo violado ou em condições de higiene comprometidas poderão não ser aceites para devolução, excepto em caso de defeito comprovado.</p>'
+    },
+
+    envios: {
+      title: 'Política de Envios',
+      body: '' +
+        '<h3>Operador</h3>' +
+        '<p>Todos os envios são efectuados por <strong>CTT – Correios de Portugal</strong>.</p>' +
+        '<h3>Prazos</h3>' +
+        '<ul>' +
+        '<li><strong>Portugal continental:</strong> 24 a 48 horas úteis após confirmação do pagamento</li>' +
+        '<li><strong>Regiões Autónomas (Madeira e Açores):</strong> 3 a 5 dias úteis</li>' +
+        '</ul>' +
+        '<h3>Portes</h3>' +
+        '<ul>' +
+        '<li>Kit 1 pote: 9,90€</li>' +
+        '<li>Kit 2+1 grátis (3 potes): <strong>portes gratuitos</strong></li>' +
+        '<li>Kit 3+2 grátis (5 potes): <strong>portes gratuitos</strong></li>' +
+        '</ul>' +
+        '<h3>Rastreamento</h3>' +
+        '<p>Receberá o código de rastreamento CTT por e-mail assim que a encomenda for expedida.</p>' +
+        '<h3>Pagamento na entrega (COD)</h3>' +
+        '<p>Disponível para Portugal continental. O pagamento é efectuado directamente ao estafeta no momento da entrega.</p>'
+    },
+
+    contacto: {
+      title: 'Contacto',
+      body: '' +
+        '<h3>Apoio ao cliente</h3>' +
+        '<p>Estamos disponíveis 24/7 por e-mail:</p>' +
+        '<ul>' +
+        '<li>Geral: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
+        '<li>Privacidade / RGPD: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></li>' +
+        '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li>' +
+        '</ul>' +
+        '<h3>Responsável</h3>' +
+        '<p><strong>' + RAZAO + '</strong><br>CNPJ: ' + CNPJ + '</p>' +
+        '<p>Respondemos a todos os contactos em 24 horas úteis.</p>'
+    }
+  };
+
+  window.openLegal = function(key) {
+    var entry = LEGAL[key];
+    if (!entry) return;
+    document.getElementById('legal-modal-title').textContent = entry.title;
+    document.getElementById('legal-modal-body').innerHTML = entry.body;
+    var modal = document.getElementById('legal-modal');
+    modal.hidden = false;
+    document.body.classList.add('legal-open');
+    modal.querySelector('.legal-modal-close').focus();
+  };
+
+  window.closeLegal = function() {
+    var modal = document.getElementById('legal-modal');
+    if (modal) modal.hidden = true;
+    document.body.classList.remove('legal-open');
+  };
+
+  // ESC para fechar
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closeLegal();
+  });
 })();
 </script>
 
