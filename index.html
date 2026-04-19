@@ -134,6 +134,20 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 @media (max-width: 560px) { .hero-badge-float, .hero-badge-float-2 { display: none; } }
 
+/* Hero lifestyle banner logo abaixo do H1 */
+.hero-lifestyle-img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  margin-top: 24px;
+  border-radius: var(--r-md);
+  box-shadow: 0 20px 40px -10px rgba(15,23,42,.18);
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+@media (max-width: 920px) { .hero-lifestyle-img { margin: 20px auto 0; } }
+
 /* ANCORAGEM (problema) */
 .problem { background: var(--bg-alt); }
 .problem h2 { text-align: center; margin-bottom: 16px; }
@@ -639,6 +653,7 @@ body.modal-open { overflow: hidden; }
         <h1 style="margin-top: 16px;">
           Cetose rápida <span class="hl">em pó</span>,<br>sem passar fome.
         </h1>
+        <img src="images/hero-lifestyle.jpg" alt="Nano Slim com copo e ingredientes" class="hero-lifestyle-img" loading="eager" decoding="async" width="1200" height="896">
         <p class="hero-sub">
           Nano Slim com sais BHB, crómio e vitaminas B6/B12, apoia o processo
           de cetose e contribui para a <strong>redução do cansaço</strong>. Zero açúcar.
