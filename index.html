@@ -305,11 +305,17 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kit-bonus { text-align: center; font-size: .78rem; color: var(--brand-dk); margin-top: 6px; font-weight: 600; }
 .kit-off {
   align-self: center; display: inline-block; margin: 10px auto 16px;
-  padding: 5px 14px; font-size: .74rem; font-weight: 900; border-radius: 999px;
-  background: #DCFCE7; color: #15803D; letter-spacing: .3px;
+  padding: 6px 16px; font-size: .78rem; font-weight: 900; border-radius: 999px;
+  background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
+  color: #fff; letter-spacing: .3px;
+  box-shadow: 0 4px 12px -2px rgba(30,136,229,.4);
 }
-.kit-best .kit-off { background: var(--cta); color: #fff; }
-.kit-pro .kit-off { background: var(--brand-dk); color: #fff; }
+.kit-best .kit-off,
+.kit-pro .kit-off {
+  background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
+  color: #fff;
+  box-shadow: 0 4px 12px -2px rgba(30,136,229,.4);
+}
 .kit-mbway-flag {
   display: inline-flex; align-items: center; gap: 6px; justify-content: center;
   font-size: .74rem; font-weight: 800; color: #14532D; background: #DCFCE7;
