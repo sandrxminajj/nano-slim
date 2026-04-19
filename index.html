@@ -334,15 +334,26 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.2);
   display: grid; place-items: center; margin-bottom: 16px; font-size: 2.2rem;
 }
-.envio-list { list-style: none; padding: 0; display: grid; gap: 14px; }
-.envio-list li { display: flex; gap: 14px; align-items: flex-start; }
-.envio-list-icon {
-  flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
-  background: var(--brand-soft); color: var(--brand-dk);
-  display: grid; place-items: center; font-size: 1.2rem;
+.envio-cards { display: grid; gap: 12px; }
+.envio-card {
+  display: flex; gap: 14px; align-items: center;
+  padding: 16px 18px; background: #fff;
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  transition: transform .15s, box-shadow .2s, border-color .2s;
 }
-.envio-list h3 { font-size: 1rem; margin-bottom: 2px; }
-.envio-list p { font-size: .92rem; color: var(--mute); }
+.envio-card:hover { transform: translateX(3px); box-shadow: var(--shadow); border-color: var(--brand-soft); }
+.envio-card-hl {
+  border-color: #86EFAC;
+  background: linear-gradient(135deg,#F0FDF4 0%, #fff 100%);
+  box-shadow: 0 10px 22px -8px rgba(34,197,94,.2);
+}
+.envio-card-icon {
+  flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px;
+  background: var(--brand-soft); color: var(--brand-dk);
+  display: grid; place-items: center;
+}
+.envio-card h3 { font-size: 1rem; margin-bottom: 2px; line-height: 1.2; color: var(--ink); }
+.envio-card p { font-size: .88rem; color: var(--mute); line-height: 1.45; margin: 0; }
 
 /* FAQ */
 .faq { background: var(--bg-alt); }
@@ -492,9 +503,9 @@ body.modal-open { overflow: hidden; }
     .guar-card { text-align: center; }
     .guar-card img, .guar-card .seal { margin-inline: auto; display: block; }
 
-    /* Envio lista tambem centralizada */
-    .envio-list { max-width: 360px; margin-inline: auto; }
-    .envio-list li { text-align: left; }
+    /* Envio cards centralizados */
+    .envio-cards { max-width: 440px; margin-inline: auto; }
+    .envio-card { text-align: left; }
   }
 
   /* Sempre — overflow-wrap seguro */
@@ -715,29 +726,6 @@ body.modal-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- ESPECIALISTA -->
-<section class="expert reveal">
-  <div class="container">
-    <div class="expert-grid">
-      <div>
-        <div class="expert-avatar" aria-hidden="true">PS</div>
-      </div>
-      <div>
-        <span class="pill" style="background:#fff;">O QUE DIZ O ESPECIALISTA</span>
-        <blockquote style="margin-top:16px;">
-          "Recomendo o Nano Slim a pacientes que optam por uma alimentação cetogénica.
-          O BHB exógeno torna a fase de adaptação <strong>mais confortável</strong> —
-          menos fome, menos fadiga, sem aquela névoa mental das primeiras semanas."
-        </blockquote>
-        <div>
-          <h3>Dr. Paulo Simões</h3>
-          <div class="expert-role">Nutricionista · Cédula profissional 4562N · Clínica Lisboa Saúde</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- DEPOIMENTOS -->
 <section id="depoimentos" class="testi reveal">
   <div class="container">
@@ -790,7 +778,7 @@ body.modal-open { overflow: hidden; }
 <section id="kits" class="kits reveal">
   <div class="container">
     <div class="kits-center">
-      <span class="kits-urgency">MB Way: encomendas até 16h são expedidas HOJE</span>
+      <span class="kits-urgency">Encomendas MB Way até 16h · Envio HOJE</span>
     </div>
     <h2 style="text-align:center;">Escolha o seu kit</h2>
     <p class="kits-lead">Quanto maior o kit, menor o preço por pote. Portes grátis nos kits 2+1 e 3+2.</p>
@@ -865,38 +853,49 @@ body.modal-open { overflow: hidden; }
         </p>
       </div>
       <div>
-        <span class="pill">COMO RECEBE</span>
-        <h2 style="margin:14px 0 24px;">Entrega confiável pelos CTT</h2>
-        <ul class="envio-list">
-          <li>
-            <div class="envio-list-icon">⚡</div>
-            <div>
-              <h3>MB Way: expedição HOJE até 16h</h3>
-              <p>Encomendas com MB Way confirmadas até às 16h00 saem no próprio dia.</p>
+        <span class="pill hot">⚡ ENVIO IMEDIATO</span>
+        <h2 style="margin:14px 0 10px;">Recebe em casa <em style="font-style:normal;color:var(--cta-dk);">em 24h</em></h2>
+        <p style="color:var(--ink-2);margin-bottom:22px;font-size:.98rem;">
+          Encomendas confirmadas por MB Way até às 16h00 saem no mesmo dia pelos CTT.
+        </p>
+        <div class="envio-cards">
+          <div class="envio-card envio-card-hl">
+            <div class="envio-card-icon" style="background:linear-gradient(135deg,#22C55E,#16A34A);color:#fff;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg>
             </div>
-          </li>
-          <li>
-            <div class="envio-list-icon">📦</div>
             <div>
-              <h3>Continente em 24-48h</h3>
-              <p>Receba em casa em 1-2 dias úteis. Código de rastreio por SMS.</p>
+              <h3>Envio no próprio dia</h3>
+              <p>MB Way até às 16h → sai hoje dos nossos armazéns</p>
             </div>
-          </li>
-          <li>
-            <div class="envio-list-icon">🏝️</div>
+          </div>
+          <div class="envio-card">
+            <div class="envio-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10H3M16 3v4M8 3v4M4 7h16v13H4z"/><path d="M8 14h3v3H8z"/></svg>
+            </div>
             <div>
-              <h3>Madeira & Açores em 3-5 dias</h3>
-              <p>Envios para as Regiões Autónomas pelos CTT Expresso.</p>
+              <h3>24-48h no Continente</h3>
+              <p>Entrega em casa com SMS de rastreio CTT</p>
             </div>
-          </li>
-          <li>
-            <div class="envio-list-icon">💶</div>
+          </div>
+          <div class="envio-card">
+            <div class="envio-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1z"/></svg>
+            </div>
             <div>
-              <h3>Pagamento na entrega</h3>
-              <p>Prefere ver antes de pagar? Paga ao estafeta, em numerário.</p>
+              <h3>3-5 dias Ilhas</h3>
+              <p>Madeira e Açores via CTT Expresso</p>
             </div>
-          </li>
-        </ul>
+          </div>
+          <div class="envio-card">
+            <div class="envio-card-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+            </div>
+            <div>
+              <h3>Paga na entrega</h3>
+              <p>Vê antes de pagar. Paga ao estafeta em numerário.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
