@@ -2,25 +2,20 @@
 <html lang="pt-PT">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nano Slim — Pó azul solúvel com BHB que apoia o processo natural de cetose. Sem fome, sem dietas. Pagamento na entrega disponível. Envio CTT 24-48h.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Nano Slim · O método para perda de peso que nunca experimentou</title>
+<meta name="description" content="Nano Slim — suplemento em pó que apoia o processo de cetose natural. Sem açúcar, sabor futurista. Envio 24-48h. Pagamento na entrega disponível.">
 <meta name="theme-color" content="#2BB3E8">
-
-<title>Nano Slim — O pó azul que está a mudar a balança dos portugueses</title>
-
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Nano Slim — O método que está a mudar a balança dos portugueses">
-<meta property="og:description" content="Pó azul com BHB que apoia a cetose. Sem fome, sem dietas impossíveis. Garantia 30 dias. Pagamento na entrega.">
+<meta property="og:title" content="Nano Slim · Novo em Portugal">
+<meta property="og:description" content="O método para perda de peso que nunca experimentou. Novo em Portugal.">
 <meta property="og:image" content="images/hero-produto.png">
-<meta property="og:locale" content="pt_PT">
-
-<link rel="icon" href="favicon.ico">
+<meta property="og:type" content="website">
+<link rel="icon" href="images/produto-thumb.png" type="image/png">
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Manrope:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- Tailwind CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -29,14 +24,19 @@
     theme: {
       extend: {
         colors: {
-          primary: '#2BB3E8',
-          'primary-dark': '#1E88E5',
-          'primary-light': '#E3F6FD',
-          cta: '#22C55E',
-          'cta-hover': '#16A34A'
+          primary:      '#2BB3E8',
+          'primary-dk': '#1E88E5',
+          'primary-lt': '#E3F6FD',
+          cta:          '#22C55E',
+          'cta-hk':     '#16A34A',
+          accent:       '#F97316',
+          coral:        '#EC4899',
+          ink:          '#0B1F33',
+          slate900:     '#0F172A'
         },
         fontFamily: {
-          sans: ['Inter', 'system-ui', 'sans-serif']
+          display: ['Manrope', 'system-ui', 'sans-serif'],
+          sans:    ['Inter',   'system-ui', 'sans-serif']
         }
       }
     }
@@ -45,528 +45,391 @@
 
 <style>
   html { scroll-behavior: smooth; }
-  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #0F172A; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
-
-  .btn-cta {
-    background: linear-gradient(180deg, #22C55E 0%, #16A34A 100%);
-    color: #FFFFFF;
-    transition: all .18s ease;
-    box-shadow: 0 6px 14px rgba(34,197,94,.28), inset 0 -2px 0 rgba(0,0,0,.12);
-  }
-  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(34,197,94,.4), inset 0 -2px 0 rgba(0,0,0,.12); }
+  body { font-family: Inter, system-ui, sans-serif; color: #0F172A; background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+  h1,h2,h3,h4,h5,h6 { font-family: Manrope, system-ui, sans-serif; letter-spacing: -0.01em; }
+  .heading-serif { font-family: Manrope, serif; }
+  .text-cta { color: #22C55E; }
+  .bg-cta { background: #22C55E; }
+  .btn-cta { background: linear-gradient(135deg,#22C55E 0%, #16A34A 100%); color:#fff; transition: transform .12s ease, box-shadow .2s ease, filter .2s ease; box-shadow: 0 8px 24px -8px rgba(22,163,74,.45); }
+  .btn-cta:hover { transform: translateY(-1px); filter: brightness(1.06); box-shadow: 0 14px 28px -10px rgba(22,163,74,.6); }
   .btn-cta:active { transform: translateY(0); }
 
-  .btn-pulse { animation: pulseCta 2.4s ease-in-out infinite; }
-  @keyframes pulseCta {
-    0%,100% { box-shadow: 0 6px 14px rgba(34,197,94,.28), inset 0 -2px 0 rgba(0,0,0,.12), 0 0 0 0 rgba(34,197,94,.55); }
-    50% { box-shadow: 0 6px 14px rgba(34,197,94,.28), inset 0 -2px 0 rgba(0,0,0,.12), 0 0 0 14px rgba(34,197,94,0); }
+  .btn-pulse { animation: pulse-cta 2s ease-in-out infinite; }
+  @keyframes pulse-cta {
+    0%,100% { box-shadow: 0 8px 24px -8px rgba(22,163,74,.45); }
+    50%     { box-shadow: 0 8px 24px -4px rgba(22,163,74,.7), 0 0 0 6px rgba(34,197,94,.15); }
   }
 
-  .gradient-primary { background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%); }
-  .gradient-soft { background: linear-gradient(180deg, #E3F6FD 0%, #FFFFFF 100%); }
-  .text-gradient { background: linear-gradient(90deg, #2BB3E8, #1E88E5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+  .bg-section-light { background: linear-gradient(180deg,#ffffff 0%, #E3F6FD 100%); }
+  .bg-section-accent { background: linear-gradient(135deg,#E3F6FD 0%, #ffffff 60%, #E3F6FD 100%); }
+  .bg-section-dark { background: linear-gradient(180deg,#0F172A 0%, #0B1F33 100%); color: #F1F5F9; }
+  .bg-polygons { background-image: url('images/ref/white_polygons.png'); background-size: cover; background-position: center; }
 
-  details > summary { list-style: none; cursor: pointer; }
-  details > summary::-webkit-details-marker { display: none; }
-  details[open] > summary .faq-icon { transform: rotate(180deg); }
-  .faq-icon { transition: transform .2s ease; }
+  .kit-card { transition: transform .2s ease, box-shadow .3s ease; }
+  .kit-card:hover { transform: translateY(-4px); }
+  .kit-hi { border: 3px solid #22C55E; box-shadow: 0 24px 48px -12px rgba(34,197,94,.35); }
 
-  .fade-up { opacity: 0; transform: translateY(18px); animation: fadeUp .6s ease-out forwards; }
-  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .section-divider { height: 1px; background: linear-gradient(90deg,transparent,#CBD5E1,transparent); }
 
-  .stripe-top { background: linear-gradient(90deg, #2BB3E8, #1E88E5); }
+  .faq details[open] summary .faq-chev { transform: rotate(180deg); }
+  .faq-chev { transition: transform .2s ease; }
+
+  .price-strike { text-decoration: line-through; color:#94A3B8; font-weight: 600; }
+
+  .scroll-bounce { animation: bounce 2s ease-in-out infinite; }
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(8px); }
+  }
+
+  .emoji-bubble { width: 28px; height: 28px; display: inline-block; vertical-align: middle; }
+
+  /* Hero gradient */
+  .hero-bg { background: radial-gradient(ellipse at top, #E3F6FD 0%, #ffffff 60%); }
+
+  /* Badge novidade */
+  .badge-new {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #FEF3C7; color: #92400E; font-weight: 700;
+    padding: 6px 14px; border-radius: 999px; font-size: 13px;
+    box-shadow: 0 2px 8px -2px rgba(245,158,11,.3);
+  }
+
+  /* Avatar SVG fallback */
+  .avatar-init {
+    width: 48px; height: 48px; border-radius: 50%; color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight: 800; font-size: 15px; flex-shrink:0;
+  }
 
   /* Sticky CTA mobile */
-  .sticky-cta { transition: transform .3s ease; }
   @media (min-width: 768px) { .sticky-cta { display: none; } }
 
-  /* Avatar iniciais */
-  .avatar-initials {
-    width: 56px; height: 56px; border-radius: 9999px;
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 700; font-size: 1.05rem; letter-spacing: .5px;
-    flex-shrink: 0;
+  .check-icon { width:24px; height:24px; color:#22C55E; flex-shrink:0; margin-top:2px; }
+
+  .floating-deco {
+    position: absolute; pointer-events: none; opacity: .5;
   }
 
-  .divider-wave {
-    display: block; width: 100%; height: 40px;
-    background: linear-gradient(180deg, #E3F6FD 0%, #FFFFFF 100%);
+  .gradient-text {
+    background: linear-gradient(135deg,#2BB3E8,#1E88E5);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
   }
 
-  /* Touch target */
-  button, a.btn-cta, .btn-cta { min-height: 48px; }
+  /* Tabs de kits (aba de compra) */
+  .kit-tabs { display: inline-flex; padding: 4px; background: #F1F5F9; border-radius: 999px; }
+  .kit-tab { padding: 8px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; cursor: pointer; color:#475569; transition: all .15s; }
+  .kit-tab.active { background: #2BB3E8; color: #fff; box-shadow: 0 4px 10px -2px rgba(43,179,232,.4); }
 
-  /* Body has sticky bar, add space */
-  @media (max-width: 767px) { body { padding-bottom: 76px; } }
+  img { max-width: 100%; height: auto; }
 </style>
 
-<!--
-  Tracking placeholders — api-configurator-pt vai activar.
-  Microsoft Clarity
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "{{CLARITY_ID}}");
-  </script>
-
-  Google Ads
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_ADS_ID}}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{GOOGLE_ADS_ID}}');
-  </script>
-
-  Meta Pixel
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '{{META_PIXEL_ID}}');
-    fbq('track', 'PageView');
-  </script>
-
-  TikTok Pixel
-  <script>
-    !function (w, d, t) { w.TiktokAnalyticsObject=t; var ttq=w[t]=w[t]||[]; ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
-      ttq.load('{{TIKTOK_PIXEL_ID}}');
-      ttq.page();
-    }(window, document, 'ttq');
-  </script>
-
-  Utmify (sempre)
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
--->
-
-<!-- Legal modals (Privacidade/Termos/Reembolso/Envios/Contacto + footer line) -->
-<script src="js/legal.js" defer></script>
+<!-- Tracking placeholders -->
+<!-- GTM: {{GTM_ID}} -->
+<!-- Meta Pixel: {{META_PIXEL_ID}} -->
+<!-- Google Ads: {{GOOGLE_ADS_ID}} -->
+<!-- TikTok Pixel: {{TIKTOK_PIXEL_ID}} -->
+<!-- Microsoft Clarity: {{CLARITY_ID}} -->
 </head>
-
-<body class="antialiased">
+<body>
 
 <!-- ============================================================
  TOP BAR
 ============================================================ -->
-<div class="stripe-top text-white text-xs md:text-sm">
-  <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap justify-center items-center gap-x-6 gap-y-1 text-center">
-    <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Entrega CTT 24-48h</span>
-    <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Portes grátis nos kits</span>
-    <span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Pagamento na entrega</span>
-    <span class="hidden sm:inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>Garantia 30 dias</span>
+<div class="bg-slate900 text-white text-xs sm:text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-center gap-x-6 gap-y-1 font-semibold text-center">
+    <span class="inline-flex items-center gap-1.5">✓ Envio grátis nos kits</span>
+    <span class="hidden sm:inline-flex items-center gap-1.5">✓ Pagamento na entrega</span>
+    <span class="inline-flex items-center gap-1.5">✓ Garantia 30 dias</span>
+    <span class="hidden md:inline-flex items-center gap-1.5">✓ Entrega 24-48h</span>
   </div>
 </div>
 
 <!-- ============================================================
- NAV
+ HEADER NAV
 ============================================================ -->
-<nav class="bg-white border-b border-slate-100">
+<header class="bg-white sticky top-0 z-30 shadow-sm">
   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
     <a href="#" class="flex items-center gap-2">
-      <div class="w-9 h-9 rounded-full gradient-primary flex items-center justify-center text-white font-extrabold text-sm">NS</div>
-      <span class="font-extrabold text-lg tracking-tight text-slate-900">Nano<span class="text-primary">Slim</span></span>
+      <img src="images/hero-produto.png" alt="Nano Slim" class="w-10 h-10 object-contain">
+      <span class="font-display font-extrabold text-xl text-primary-dk">Nano Slim</span>
     </a>
-    <a href="#kits" class="btn-cta font-bold text-sm px-4 py-2.5 rounded-lg">Ver ofertas</a>
-  </div>
-</nav>
-
-<!-- ============================================================
- HERO
-============================================================ -->
-<header class="relative overflow-hidden gradient-soft">
-  <div class="max-w-6xl mx-auto px-4 pt-10 pb-14 md:pt-16 md:pb-20 md:grid md:grid-cols-2 md:gap-10 md:items-center">
-
-    <div class="fade-up">
-      <div class="inline-flex items-center gap-2 bg-white border border-primary/30 text-primary-dark px-3 py-1.5 rounded-full text-xs font-semibold mb-5 shadow-sm">
-        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-        Novo em Portugal · Co-Created with AI
-      </div>
-
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.1] text-slate-900 mb-5">
-        O método de bem-estar que está a mudar a forma como os portugueses olham para a <span class="text-gradient">balança</span>.
-      </h1>
-
-      <p class="text-base md:text-lg text-slate-600 leading-relaxed mb-7 max-w-xl">
-        Um pó azul, com sabor fresco e <strong class="text-slate-900">zero açúcar</strong>, que se dissolve num copo de água e apoia o processo natural de <strong class="text-slate-900">cetose</strong> — sem passar fome, sem contar calorias, sem dietas impossíveis.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-3 mb-5">
-        <button onclick="irCheckout(2); return false;" class="btn-cta btn-pulse font-extrabold text-base md:text-lg px-7 py-4 rounded-xl inline-flex items-center justify-center gap-2">
-          Encomendar agora
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-        </button>
-        <a href="#como-funciona" class="inline-flex items-center justify-center gap-2 text-slate-700 font-semibold px-5 py-4 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
-          Ver como funciona
-        </a>
-      </div>
-
-      <div class="flex items-center gap-5 text-xs text-slate-500">
-        <div class="flex items-center gap-1.5">
-          <span class="text-amber-400 text-base">★★★★★</span>
-          <span><strong class="text-slate-700">4,8</strong> · 2.347 avaliações</span>
-        </div>
-        <div class="h-4 w-px bg-slate-200"></div>
-        <span>+12.000 clientes em PT</span>
-      </div>
-    </div>
-
-    <div class="mt-10 md:mt-0 relative">
-      <div class="absolute inset-0 gradient-primary rounded-full blur-3xl opacity-20 scale-90"></div>
-      <img src="images/hero-produto.png"
-           alt="Nano Slim — boião azul 200g"
-           width="560" height="560"
-           fetchpriority="high"
-           class="relative w-full max-w-md mx-auto drop-shadow-2xl">
-
-      <div class="absolute top-4 right-2 md:top-8 md:right-6 bg-white rounded-xl shadow-xl px-3 py-2 text-xs font-bold text-slate-900">
-        <div class="text-[10px] text-slate-500 font-medium">Até</div>
-        <div class="text-primary text-lg leading-none">-60%</div>
-      </div>
-
-      <div class="absolute bottom-4 left-2 md:bottom-8 md:left-0 bg-white rounded-xl shadow-xl px-3 py-2 text-xs font-semibold text-slate-900 flex items-center gap-2">
-        <svg class="w-4 h-4 text-cta" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-        Paga na entrega
-      </div>
-    </div>
-
+    <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+      <a href="#como-funciona" class="hover:text-primary">Como funciona</a>
+      <a href="#depoimentos" class="hover:text-primary">Testemunhos</a>
+      <a href="#faq" class="hover:text-primary">FAQ</a>
+    </nav>
+    <button onclick="scrollToKits()" class="btn-cta font-extrabold text-sm px-4 py-2 rounded-full hidden sm:inline-flex">
+      Encomendar
+    </button>
   </div>
 </header>
 
 <!-- ============================================================
- BARRA DE SELOS DE CONFIANÇA
+ 1. HERO — "Novo em Portugal"
 ============================================================ -->
-<section class="bg-white border-y border-slate-100">
-  <div class="max-w-6xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-xs md:text-sm text-slate-600">
-    <div class="flex flex-col items-center gap-1.5">
-      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-      <strong class="text-slate-900">CTT 24-48h</strong>
-      <span>Portugal continental</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-      <strong class="text-slate-900">Garantia 30 dias</strong>
-      <span>Devolução total</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
-      <strong class="text-slate-900">MB Way · Multibanco</strong>
-      <span>COD · Cartão</span>
-    </div>
-    <div class="flex flex-col items-center gap-1.5">
-      <svg class="w-6 h-6 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-      <strong class="text-slate-900">4,8/5 · 2.347</strong>
-      <span>avaliações PT</span>
-    </div>
-  </div>
-</section>
+<section class="hero-bg relative overflow-hidden pt-10 pb-12 md:pt-16 md:pb-20">
+  <img src="images/ref/block_3-leafs.png" alt="" class="floating-deco top-4 right-4 w-32 md:w-48" aria-hidden="true">
+  <img src="images/ref/moleculs.png" alt="" class="floating-deco bottom-8 left-4 w-20 md:w-28 opacity-30" aria-hidden="true">
 
-<!-- ============================================================
- BLOCO DE DOR
-============================================================ -->
-<section class="py-14 md:py-20 bg-white">
-  <div class="max-w-3xl mx-auto px-4">
-    <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
-      Já se viu presa neste ciclo?
-    </h2>
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="text-center md:text-left">
+        <span class="badge-new mb-4">
+          <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l2.4 5 5.6.8-4 4 1 5.6L10 14.8 5 17.4l1-5.6-4-4 5.6-.8z"/></svg>
+          NOVO EM PORTUGAL
+        </span>
 
-    <div class="space-y-5 text-slate-700 text-base md:text-lg leading-relaxed">
-      <p>Começa a segunda-feira cheia de vontade. Pequeno-almoço leve, almoço "controlado", salada ao jantar. A meio da semana já anda a sonhar com pão quente. Ao fim de duas semanas, abriu o frigorífico às 23h00 porque não aguentava mais.</p>
-
-      <p>E depois vem sempre a mesma coisa: a culpa, a sensação de ter falhado outra vez, aquele peso em cima do peito quando se prova uma peça de roupa que já não fecha. O espelho deixou de ser amigo. A balança passou a ser inimiga.</p>
-
-      <div class="bg-primary-light border-l-4 border-primary p-5 md:p-6 rounded-r-xl my-8">
-        <p class="text-slate-800 font-semibold text-lg leading-snug">Se já passou por isto mais do que uma vez, quero que saiba uma coisa: <span class="text-primary-dark">o problema não é a sua força de vontade.</span></p>
-        <p class="text-slate-600 text-sm mt-2">O problema são as dietas tradicionais que lhe pedem sacrifícios que o corpo humano não foi feito para aguentar a longo prazo.</p>
-      </div>
-
-      <p>E é exactamente aqui que entra o <strong class="text-primary-dark">Nano Slim</strong>.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
- MECANISMO — CETOSE
-============================================================ -->
-<section class="py-14 md:py-20 gradient-soft">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <span class="inline-block bg-primary/10 text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">O mecanismo</span>
-      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
-        Porque é que a maior parte das dietas falha
-      </h2>
-      <p class="text-slate-600 max-w-2xl mx-auto">Enquanto o corpo tem hidratos disponíveis, queima-os primeiro. A gordura acumulada fica onde está.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-5">
-      <!-- Passo 1 -->
-      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-        <div class="w-14 h-14 rounded-xl bg-red-50 flex items-center justify-center mb-4">
-          <svg class="w-7 h-7 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div class="text-xs font-bold text-red-500 mb-1">ANTES</div>
-        <h3 class="font-bold text-slate-900 mb-2">Só dieta = 7 a 10 dias</h3>
-        <p class="text-sm text-slate-600">Entrar em cetose apenas com alimentação demora, em média, uma semana a dez dias. Com cansaço, fome e irritação pelo caminho.</p>
-      </div>
-
-      <!-- Passo 2 (destaque) -->
-      <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-2xl p-6 shadow-xl md:-translate-y-2">
-        <div class="w-14 h-14 rounded-xl bg-white/15 backdrop-blur flex items-center justify-center mb-4">
-          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <div class="text-xs font-bold opacity-80 mb-1">COM NANO SLIM</div>
-        <h3 class="font-bold text-xl mb-2">BHB exógeno desde o primeiro copo</h3>
-        <p class="text-sm opacity-95">Fornece ao organismo corpos cetónicos (BHB) prontos a usar. O apoio ao processo de cetose acontece logo nas primeiras tomas.</p>
-      </div>
-
-      <!-- Passo 3 -->
-      <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
-        <div class="w-14 h-14 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
-          <svg class="w-7 h-7 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div class="text-xs font-bold text-cta mb-1">DEPOIS</div>
-        <h3 class="font-bold text-slate-900 mb-2">Resultado sustentável</h3>
-        <p class="text-sm text-slate-600">O corpo passa a aceder à gordura armazenada como fonte de energia, em vez de depender dos hidratos.</p>
-      </div>
-    </div>
-
-    <p class="text-center text-sm text-slate-500 mt-8 italic">Não é magia. É bioquímica aplicada.</p>
-  </div>
-</section>
-
-<!-- ============================================================
- O QUE É NANO SLIM — BENEFÍCIOS
-============================================================ -->
-<section class="py-14 md:py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="md:grid md:grid-cols-2 md:gap-12 md:items-center">
-      <div class="mb-10 md:mb-0">
-        <img src="images/produto-aberto.jpg"
-             alt="Nano Slim — 3 potes e pó azul no scoop"
-             width="600" height="450"
-             loading="lazy"
-             class="w-full rounded-2xl shadow-lg">
-      </div>
-
-      <div>
-        <span class="inline-block bg-primary/10 text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">O produto</span>
-        <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-5">
-          O que é o Nano Slim
-        </h2>
-        <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-6">
-          Suplemento alimentar em pó, solúvel em água, apresentado num boião de <strong class="text-slate-900">200g (cerca de 30 doses — um mês completo)</strong>.
+        <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ink mt-4">
+          O método para perda de peso que <span class="gradient-text">nunca experimentou</span>
+        </h1>
+        <p class="mt-5 text-lg md:text-xl text-slate-700 font-semibold">
+          Não precisa de passar fome — a sua dieta cetogénica <span class="text-primary-dk">em pó</span>, com sabor agradável e zero açúcar.
         </p>
 
-        <ul class="space-y-3 text-slate-700">
-          <li class="flex gap-3"><svg class="w-6 h-6 text-cta flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Cor azul ciano natural</strong>, agradável à vista</span></li>
-          <li class="flex gap-3"><svg class="w-6 h-6 text-cta flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Sabor <em>Future Flavored</em></strong> — fresco, ligeiro, sem travo químico</span></li>
-          <li class="flex gap-3"><svg class="w-6 h-6 text-cta flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Zero açúcar</strong>, adoçado com estévia</span></li>
-          <li class="flex gap-3"><svg class="w-6 h-6 text-cta flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Vegano</strong> — sem componentes de origem animal</span></li>
-          <li class="flex gap-3"><svg class="w-6 h-6 text-cta flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Co-Created with AI</strong> — formulação optimizada por análise computacional</span></li>
-        </ul>
-
-        <div class="mt-8">
-          <button onclick="irCheckout(2); return false;" class="btn-cta font-bold text-base px-6 py-3.5 rounded-xl inline-flex items-center gap-2">
-            Quero experimentar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <button onclick="scrollToKits()" class="btn-cta btn-pulse font-extrabold text-lg px-8 py-4 rounded-full inline-flex items-center justify-center gap-2">
+            Ver ofertas
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
           </button>
+          <div class="flex items-center justify-center gap-2 text-sm text-slate-600 font-semibold px-3">
+            <svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            4,8/5 · <span class="text-primary-dk">2.347 avaliações</span>
+          </div>
         </div>
+      </div>
+
+      <div class="relative">
+        <img src="images/hero-produto.png" alt="Nano Slim — pó em boião azul" width="520" height="520" fetchpriority="high" class="relative z-10 w-full max-w-sm mx-auto drop-shadow-2xl">
+        <div class="absolute inset-0 bg-primary-lt rounded-full blur-3xl opacity-60 -z-0"></div>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-10">
+      <img src="images/ref/mouse_scroll.png" alt="" class="scroll-bounce w-6 md:w-8 opacity-70" aria-hidden="true">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 2. DIET CETOGÉNICA — 4 macros
+============================================================ -->
+<section class="bg-white py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-center font-display font-black text-2xl md:text-4xl text-ink mb-2">A sua dieta cetogénica</h2>
+    <p class="text-center text-slate-600 text-lg mb-12">A proporção ideal de macronutrientes para entrar em cetose</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="text-center">
+        <img src="images/ref/block_2-list1.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">75%</div>
+        <div class="font-bold text-slate-900 mt-1">Gordura</div>
+        <div class="text-xs text-slate-500">consumo alimentar diário</div>
+      </div>
+      <div class="text-center">
+        <img src="images/ref/block_2-list2.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">20%</div>
+        <div class="font-bold text-slate-900 mt-1">Proteínas</div>
+        <div class="text-xs text-slate-500">consumo alimentar diário</div>
+      </div>
+      <div class="text-center">
+        <img src="images/ref/block_2-list3.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">5%</div>
+        <div class="font-bold text-slate-900 mt-1">Hidratos de carbono</div>
+        <div class="text-xs text-slate-500">consumo alimentar diário</div>
+      </div>
+      <div class="text-center relative">
+        <div class="absolute -top-2 -right-2 bg-amber-400 text-white text-[10px] font-black rounded-full w-7 h-7 flex items-center justify-center">!</div>
+        <img src="images/ref/block_2-list4.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <div class="font-display font-black text-xl md:text-2xl text-accent">+ Nano Slim</div>
+        <div class="font-bold text-slate-900 mt-1">Elemento-chave</div>
+        <div class="text-xs text-slate-500">para acelerar a cetose</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
- COMO USAR (3 passos)
+ 3. CETOSE EXPLICAÇÃO
 ============================================================ -->
-<section id="como-funciona" class="py-14 md:py-20 bg-primary-light">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="text-center mb-12">
-      <span class="inline-block bg-white text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Como usar</span>
-      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight">
-        3 passos. Sem complicação.
-      </h2>
+<section id="como-funciona" class="bg-section-accent relative py-14 md:py-20 overflow-hidden">
+  <img src="images/ref/block_3-moleculs.png" alt="" class="floating-deco right-0 top-8 w-40 md:w-64 opacity-70" aria-hidden="true">
+  <img src="images/ref/block_3-leafs.png" alt="" class="floating-deco left-0 bottom-8 w-28 md:w-40 opacity-60" aria-hidden="true">
+
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <h2 class="font-display font-black text-2xl md:text-4xl text-center text-ink mb-10">
+      A cetose quebra os <span class="text-primary-dk">estereótipos</span> das dietas
+    </h2>
+
+    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10 max-w-4xl mx-auto">
+      <p class="text-lg md:text-xl font-bold text-slate-900 leading-relaxed">
+        Quando o corpo deixa de receber energia proveniente dos hidratos de carbono, começa a utilizar a gordura como a principal fonte de energia.
+      </p>
+      <p class="mt-4 text-slate-700 leading-relaxed">
+        Este é um processo natural, conhecido como <strong class="text-primary-dk">cetose</strong>. Na dieta cetogénica tradicional, podem ser necessários entre <strong>7 a 10 dias</strong> para o corpo entrar neste estado. É um período difícil: fome, fadiga, dores de cabeça.
+      </p>
+      <p class="mt-4 text-slate-700 leading-relaxed">
+        O <strong class="text-primary-dk">Nano Slim</strong> foi desenvolvido para apoiar este processo — contém sais de beta-hidroxibutirato (BHB), um corpo cetónico naturalmente produzido pelo organismo, tornando esta fase menos intensa.
+      </p>
     </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 4. PRODUTO — BENEFÍCIOS
+============================================================ -->
+<section class="bg-white relative py-14 md:py-20 overflow-hidden">
+  <img src="images/ref/block_3-girl.png" alt="" class="hidden md:block absolute right-0 top-8 w-60 opacity-90" aria-hidden="true">
+
+  <div class="max-w-6xl mx-auto px-4 relative">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div class="text-center md:text-left order-2 md:order-1">
+        <h2 class="font-display font-black text-3xl md:text-5xl text-primary-dk">Nano Slim</h2>
+        <p class="mt-3 text-xl font-bold text-ink">
+          Pó solúvel · Zero açúcar · Future Flavored
+        </p>
+        <p class="mt-4 text-slate-700 leading-relaxed">
+          Fornece ao organismo BHB exógeno e extratos vegetais selecionados, para uma dieta cetogénica mais confortável.
+        </p>
+
+        <ul class="mt-6 space-y-3 text-left max-w-md mx-auto md:mx-0">
+          <li class="flex gap-3">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span><strong>Crómio:</strong> contribui para a manutenção de níveis normais de glicose no sangue*</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span><strong>Vitamina B6:</strong> contribui para a redução do cansaço e da fadiga*</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span><strong>Vitamina B12:</strong> contribui para o metabolismo energético normal*</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 5.3a1 1 0 010 1.4l-8 8a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L8 12.6l7.3-7.3a1 1 0 011.4 0z"/></svg>
+            <span><strong>Sem</strong> produtos sintéticos, psicotrópicos ou hormonais</span>
+          </li>
+        </ul>
+        <p class="mt-4 text-xs text-slate-500">*Claims autorizados pelo Regulamento (UE) n.º 432/2012.</p>
+
+        <button onclick="scrollToKits()" class="btn-cta btn-pulse font-extrabold text-lg px-7 py-3.5 rounded-full mt-7 inline-flex items-center gap-2">
+          Ver as ofertas
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+        </button>
+      </div>
+
+      <div class="order-1 md:order-2 relative">
+        <img src="images/hero-produto.png" alt="Nano Slim — pó em boião azul" class="mx-auto max-w-xs md:max-w-sm drop-shadow-2xl relative z-10">
+        <img src="images/ref/moleculs.png" alt="" class="absolute -top-4 -left-4 w-24 opacity-60" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 5. COMO FUNCIONA
+============================================================ -->
+<section class="bg-section-light relative py-14 md:py-20 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="font-display font-black text-3xl md:text-5xl text-center text-ink mb-4">
+      Como funciona o <span class="gradient-text">Nano Slim</span>
+    </h2>
+    <p class="text-center text-slate-600 text-lg mb-12 max-w-2xl mx-auto">
+      3 passos simples para integrar na sua rotina diária, de manhã ou antes do treino.
+    </p>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Step 1 -->
-      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-        <img src="images/como-usar-2.jpg" alt="Mão a segurar pote com scoop" width="400" height="280" loading="lazy" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white font-extrabold text-lg mb-3">1</div>
-          <h3 class="font-bold text-slate-900 mb-2">Dissolve</h3>
-          <p class="text-sm text-slate-600">Uma colher medida (6g) de Nano Slim em 250ml de água fria.</p>
-        </div>
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white font-black text-sm w-8 h-8 rounded-full flex items-center justify-center shadow-lg">1</div>
+        <img src="images/ref/block_4-skin.png" alt="" class="w-32 h-32 object-cover rounded-xl mx-auto my-3" aria-hidden="true">
+        <h3 class="font-bold text-xl text-ink">Dissolver</h3>
+        <p class="text-sm text-slate-600 mt-2">1 colher medida (6g) em 250ml de água fresca.</p>
       </div>
-
-      <!-- Step 2 -->
-      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-        <img src="images/como-usar-1.jpg" alt="Copo com mistura rosa e scoop" width="400" height="280" loading="lazy" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white font-extrabold text-lg mb-3">2</div>
-          <h3 class="font-bold text-slate-900 mb-2">Bebe</h3>
-          <p class="text-sm text-slate-600">Em jejum, ao pequeno-almoço ou antes do treino. Pode repetir a meio da tarde.</p>
-        </div>
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white font-black text-sm w-8 h-8 rounded-full flex items-center justify-center shadow-lg">2</div>
+        <img src="images/como-usar-1.jpg" alt="Mistura Nano Slim com água" class="w-32 h-32 object-cover rounded-xl mx-auto my-3">
+        <h3 class="font-bold text-xl text-ink">Beber</h3>
+        <p class="text-sm text-slate-600 mt-2">1 a 2 vezes por dia, de manhã ou antes do exercício.</p>
       </div>
-
-      <!-- Step 3 -->
-      <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
-        <img src="images/lifestyle-janela.jpg" alt="Pote na janela" width="400" height="280" loading="lazy" class="w-full h-48 object-cover">
-        <div class="p-6">
-          <div class="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white font-extrabold text-lg mb-3">3</div>
-          <h3 class="font-bold text-slate-900 mb-2">Deixa o organismo trabalhar</h3>
-          <p class="text-sm text-slate-600">Os ingredientes activos entram em acção ao longo do dia. 1 a 2 doses diárias.</p>
-        </div>
+      <div class="bg-white rounded-2xl shadow-lg p-6 text-center relative">
+        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white font-black text-sm w-8 h-8 rounded-full flex items-center justify-center shadow-lg">3</div>
+        <img src="images/ref/block_4-glass.png" alt="" class="w-32 h-32 object-cover rounded-xl mx-auto my-3" aria-hidden="true">
+        <h3 class="font-bold text-xl text-ink">Sentir a diferença</h3>
+        <p class="text-sm text-slate-600 mt-2">Apoio à dieta cetogénica, toma após toma.</p>
       </div>
     </div>
 
-    <p class="text-center text-xs text-slate-500 mt-6">Não exceder a dose diária recomendada.</p>
-  </div>
-</section>
-
-<!-- ============================================================
- INGREDIENTES — grid com SVG icons
-============================================================ -->
-<section class="py-14 md:py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-12">
-      <span class="inline-block bg-primary/10 text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Composição</span>
-      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
-        O que está lá dentro — e porquê
-      </h2>
-      <p class="text-slate-600 max-w-2xl mx-auto text-sm md:text-base">Activos reconhecidos, em doses estudadas, com <strong class="text-slate-900">claims autorizados pela EFSA</strong> onde aplicável.</p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-
-      <!-- BHB -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.24 17 7.341 18.168 10.021 18.069 15.533 17.657 18.657z"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">BHB — Beta-hidroxibutirato</h3>
-        <p class="text-xs text-slate-500 mb-2">Sais de cálcio, sódio e magnésio</p>
-        <p class="text-sm text-slate-600">Corpo cetónico na forma exógena, tradicionalmente utilizado em preparações associadas a abordagens alimentares cetogénicas.</p>
-      </div>
-
-      <!-- MCT -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">MCT em pó</h3>
-        <p class="text-xs text-slate-500 mb-2">Triglicéridos de cadeia média</p>
-        <p class="text-sm text-slate-600">Tradicionalmente utilizados em dietas cetogénicas. Incorporados em fórmulas low-carb.</p>
-      </div>
-
-      <!-- Garcinia -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2L8 6h8l-4-4zM4 9h16l-1.5 11.25A2 2 0 0116.5 22h-9a2 2 0 01-1.99-1.75L4 9z"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Garcinia Cambogia</h3>
-        <p class="text-xs text-slate-500 mb-2">Extrato</p>
-        <p class="text-sm text-slate-600">Planta tradicionalmente associada à <strong>sensação de saciedade</strong>. Usada há décadas em fórmulas de gestão de peso.</p>
-      </div>
-
-      <!-- Chá verde -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Chá Verde</h3>
-        <p class="text-xs text-slate-500 mb-2">Extrato</p>
-        <p class="text-sm text-slate-600">Tradicionalmente utilizado em preparações para apoio ao bem-estar geral. Reconhecido há séculos.</p>
-      </div>
-
-      <!-- L-Carnitina -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">L-Carnitina</h3>
-        <p class="text-xs text-slate-500 mb-2">Aminoácido</p>
-        <p class="text-sm text-slate-600">Naturalmente presente no organismo. Utilizada em suplementos desportivos e fórmulas para pessoas fisicamente activas.</p>
-      </div>
-
-      <!-- Cromo -->
-      <div class="bg-white border-2 border-primary/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition relative">
-        <span class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">EFSA</span>
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Cromo</h3>
-        <p class="text-sm text-slate-600 italic">"O crómio contribui para a <strong>manutenção de níveis normais de glicose no sangue</strong>."</p>
-      </div>
-
-      <!-- B6 -->
-      <div class="bg-white border-2 border-primary/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition relative">
-        <span class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">EFSA</span>
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Vitamina B6</h3>
-        <p class="text-sm text-slate-600 italic">"A vitamina B6 contribui para a <strong>redução do cansaço e da fadiga</strong>."</p>
-      </div>
-
-      <!-- B12 -->
-      <div class="bg-white border-2 border-primary/30 rounded-2xl p-5 shadow-sm hover:shadow-md transition relative">
-        <span class="absolute top-3 right-3 bg-primary text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">EFSA</span>
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Vitamina B12</h3>
-        <p class="text-sm text-slate-600 italic">"A vitamina B12 contribui para o <strong>metabolismo energético normal</strong>."</p>
-      </div>
-
-      <!-- Estévia -->
-      <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm hover:shadow-md transition">
-        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-3">
-          <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 11l5-5m0 0l5 5m-5-5v12"/></svg>
-        </div>
-        <h3 class="font-bold text-slate-900 mb-1">Estévia</h3>
-        <p class="text-xs text-slate-500 mb-2">Adoçante natural</p>
-        <p class="text-sm text-slate-600">Origem vegetal. Dá o sabor — sem calorias, sem açúcar, sem adoçantes artificiais suspeitos.</p>
-      </div>
-
+    <div class="mt-10 bg-primary-dk text-white rounded-3xl p-6 md:p-10 text-center shadow-xl max-w-3xl mx-auto">
+      <p class="font-display font-black text-2xl md:text-3xl leading-tight">
+        Método de aplicação
+      </p>
+      <p class="mt-3 text-lg md:text-xl">
+        Dissolver <strong>1 colher medida em 250 ml de água</strong>, 1-2 vezes ao dia.
+      </p>
+      <button onclick="scrollToKits()" class="btn-cta font-extrabold text-lg px-8 py-3.5 rounded-full mt-5 inline-flex items-center gap-2">
+        Encomendar agora
+      </button>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
- ESPECIALISTA
+ 6. IMPORTANTE — Livre de sintéticos
 ============================================================ -->
-<section class="py-14 md:py-20 gradient-soft">
-  <div class="max-w-4xl mx-auto px-4">
-    <div class="bg-white rounded-3xl shadow-xl p-6 md:p-10 border border-slate-100">
-      <div class="flex flex-col md:flex-row gap-6 items-start">
-        <!-- Avatar SVG com iniciais -->
-        <div class="flex-shrink-0 mx-auto md:mx-0">
-          <svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="grad-rc" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#2BB3E8"/>
-                <stop offset="100%" stop-color="#1E88E5"/>
-              </linearGradient>
-            </defs>
-            <circle cx="60" cy="60" r="58" fill="url(#grad-rc)"/>
-            <text x="60" y="72" font-family="Inter, sans-serif" font-size="38" font-weight="800" fill="#fff" text-anchor="middle">RC</text>
-          </svg>
-        </div>
+<section class="relative py-14 md:py-20 bg-amber-50 overflow-hidden">
+  <img src="images/ref/moleculs.png" alt="" class="floating-deco right-6 top-6 w-32 md:w-48 opacity-60" aria-hidden="true">
 
-        <div class="flex-1">
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-amber-400">★★★★★</span>
-            <span class="text-xs text-slate-500 font-medium">Opinião profissional</span>
+  <div class="max-w-4xl mx-auto px-4 relative">
+    <div class="flex items-start gap-4">
+      <div class="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-amber-500 rounded-full flex items-center justify-center text-white font-black text-2xl md:text-3xl shadow-lg">!</div>
+      <div>
+        <h2 class="font-display font-black text-2xl md:text-3xl text-amber-900">Importante</h2>
+        <p class="mt-3 text-lg md:text-xl text-slate-800 leading-relaxed">
+          O <strong>Nano Slim está livre de substâncias sintéticas, psicotrópicas ou hormonais</strong> — apenas BHB exógeno e extratos vegetais selecionados.
+        </p>
+        <p class="mt-2 text-slate-700">
+          Fórmula <strong>Vegan</strong>, produzida em conformidade com regulamentos da União Europeia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 7. ESPECIALISTA — Nutricionista
+============================================================ -->
+<section class="bg-white py-14 md:py-20">
+  <div class="max-w-5xl mx-auto px-4">
+    <h2 class="text-center font-display font-black text-2xl md:text-4xl text-ink mb-3">
+      O que dizem os especialistas sobre o <span class="gradient-text">Nano Slim</span>
+    </h2>
+
+    <div class="mt-10 bg-primary-lt rounded-3xl p-6 md:p-10 shadow-xl">
+      <div class="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10 items-start">
+        <div class="text-center md:text-left">
+          <img src="images/ref/doc_ellipse.png" alt="Dr. Tiago Almeida, Nutricionista" width="240" height="240" class="mx-auto md:mx-0 w-44 md:w-60 rounded-full bg-white shadow-lg">
+          <div class="mt-3 text-center md:text-left">
+            <div class="font-display font-extrabold text-lg text-ink">Dr. Tiago Almeida</div>
+            <div class="text-sm text-slate-600">Nutricionista · Cédula 4562N</div>
+            <div class="text-xs text-slate-500 mt-1">Clínica Lisboa Saúde</div>
           </div>
+          <img src="images/ref/block_6-stamp.png" alt="Certificação" class="mx-auto md:mx-0 mt-4 w-20 md:w-24" aria-hidden="true">
+        </div>
 
-          <blockquote class="text-slate-700 text-base md:text-lg leading-relaxed italic mb-5">
-            "Durante muitos anos vi pacientes a entrarem em dietas rigorosas, a perderem peso depressa e a recuperarem tudo em meses. O ciclo é desgastante. Quando comecei a acompanhar fórmulas com BHB exógeno associado a extratos como o chá verde e a garcinia, os resultados passaram a ser mais estáveis e sustentáveis. O Nano Slim encaixa nesta categoria. Não substitui alimentação equilibrada nem exercício físico — nada substitui. Mas é uma ferramenta útil no dia-a-dia."
-          </blockquote>
-
-          <div class="border-t border-slate-100 pt-4">
-            <div class="font-bold text-slate-900">Dra. Rita Carvalho</div>
-            <div class="text-sm text-slate-600">Nutricionista · Cédula profissional 2874N</div>
-            <div class="text-xs text-slate-500">Clínica Lisboa Saúde</div>
-          </div>
+        <div class="text-slate-700 leading-relaxed">
+          <p class="text-lg">
+            "Durante anos, a dieta cetogénica foi associada a sacrifício: fome, fadiga, dores de cabeça nas primeiras semanas. O que poucos sabem é que o próprio corpo produz <strong>corpos cetónicos</strong> como fonte alternativa de energia — basta dar-lhe as condições certas."
+          </p>
+          <p class="mt-4 text-lg">
+            "O <strong class="text-primary-dk">Nano Slim</strong> fornece BHB exógeno, a mesma molécula que o organismo produz. Apoiando a dieta com extratos vegetais e vitaminas do complexo B que contribuem para o <strong>metabolismo energético normal</strong>, os pacientes reportam maior conforto durante as primeiras semanas de adaptação."
+          </p>
+          <p class="mt-4 font-bold text-ink">
+            "Recomendo o Nano Slim aos meus pacientes que optam por uma alimentação cetogénica."
+          </p>
+          <div class="mt-6 h-px bg-slate-300"></div>
+          <p class="mt-4 text-slate-600 italic">
+            "Eis a história de uma das minhas pacientes."
+          </p>
         </div>
       </div>
     </div>
@@ -574,462 +437,518 @@
 </section>
 
 <!-- ============================================================
- DEPOIMENTOS
+ 8. CASE STUDY LISA
 ============================================================ -->
-<section class="py-14 md:py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
+<section class="bg-polygons relative py-14 md:py-20">
+  <div class="absolute inset-0 bg-white/70"></div>
+  <div class="max-w-6xl mx-auto px-4 relative">
     <div class="text-center mb-10">
-      <span class="inline-block bg-primary/10 text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Histórias reais</span>
-      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight mb-3">
-        Quem já experimentou
+      <div class="inline-block bg-white rounded-full px-5 py-2 shadow-md text-sm font-bold text-slate-600 mb-3">Lisa, 37 anos · 169 cm</div>
+      <h2 class="font-display font-black text-2xl md:text-4xl text-ink">
+        Testemunho de uma paciente acompanhada
       </h2>
-      <div class="flex items-center justify-center gap-2 mb-2">
-        <span class="text-amber-400 text-xl">★★★★★</span>
-        <span class="text-slate-700"><strong class="text-slate-900">4,8</strong> · 2.347 avaliações em Portugal</span>
-      </div>
-      <p class="text-xs text-slate-500 italic max-w-xl mx-auto">Resultados individuais. Não constituem promessa. O Nano Slim deve ser combinado com alimentação variada e actividade física regular.</p>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-
-      <!-- Maria -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#F472B6,#EC4899)">MF</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">Maria F.</div>
-            <div class="text-xs text-slate-500">47 anos · Braga · <span class="text-cta font-semibold">Verificado ✓</span></div>
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-10 items-center max-w-4xl mx-auto">
+      <!-- Before -->
+      <div class="bg-white rounded-2xl shadow-xl p-5 text-center">
+        <div class="text-xs font-bold uppercase text-slate-500 tracking-wider mb-2">Antes</div>
+        <img src="images/ref/before.jpg" alt="Antes do Nano Slim" width="400" height="500" class="w-full rounded-xl object-cover">
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <div class="bg-slate-50 rounded-lg p-3">
+            <div class="text-xs text-slate-500">Peso</div>
+            <div class="font-black text-2xl text-slate-900">89 kg</div>
+          </div>
+          <div class="bg-slate-50 rounded-lg p-3">
+            <div class="text-xs text-slate-500">Cetonas</div>
+            <div class="font-black text-2xl text-slate-900">0,8 mol</div>
           </div>
         </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"Tenho três filhos e depois da última gravidez o peso nunca mais desceu. Comecei em Setembro, uma colher ao pequeno-almoço. Em <strong>quatro meses perdi 11 kg</strong>, sem passar fome e sem cortar os jantares em família. A minha filha até me perguntou se estava a usar um vestido novo."</p>
+      </div>
+
+      <!-- Arrow/progress -->
+      <div class="flex md:flex-col items-center justify-center gap-2 text-primary-dk">
+        <img src="images/ref/metric_line.png" alt="" class="hidden md:block w-14" aria-hidden="true">
+        <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+      </div>
+
+      <!-- After -->
+      <div class="bg-white rounded-2xl shadow-xl p-5 text-center ring-4 ring-cta/30">
+        <div class="text-xs font-bold uppercase text-cta tracking-wider mb-2">Após 3 meses</div>
+        <img src="images/ref/after.jpg" alt="Após 3 meses com Nano Slim" width="400" height="500" class="w-full rounded-xl object-cover">
+        <div class="mt-4 grid grid-cols-2 gap-2">
+          <div class="bg-green-50 rounded-lg p-3">
+            <div class="text-xs text-cta-hk">Peso</div>
+            <div class="font-black text-2xl text-cta-hk">77 kg</div>
+            <div class="text-xs font-bold text-cta">−12 kg</div>
+          </div>
+          <div class="bg-green-50 rounded-lg p-3">
+            <div class="text-xs text-cta-hk">Cetonas</div>
+            <div class="font-black text-2xl text-cta-hk">3,2 mol</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8 border-l-4 border-primary">
+      <p class="italic text-slate-700 leading-relaxed">
+        "Tinha tentado várias dietas ao longo dos anos. Quando comecei a cetogénica, as primeiras semanas foram duríssimas — fome, cansaço, dores de cabeça. O Dr. Almeida sugeriu o Nano Slim como apoio. A diferença foi notória logo na primeira semana. Continuei com a alimentação e caminhadas diárias. Três meses depois, 12 kg mais leve e com muito mais energia."
+      </p>
+      <p class="mt-4 text-sm font-semibold text-slate-500">— Lisa, Lisboa</p>
+    </div>
+    <p class="text-center text-xs text-slate-500 mt-4 italic">Resultados individuais. O Nano Slim deve ser combinado com alimentação equilibrada e actividade física.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+ 9. TRANSFORMAÇÃO — Mensagens
+============================================================ -->
+<section class="bg-section-accent relative py-14 md:py-20 overflow-hidden">
+  <img src="images/ref/block_7-leafs.png" alt="" class="floating-deco left-0 top-10 w-32 md:w-52 opacity-70" aria-hidden="true">
+
+  <div class="max-w-5xl mx-auto px-4 relative">
+    <h2 class="text-center font-display font-black text-2xl md:text-4xl text-ink leading-tight">
+      Está na hora de <span class="gradient-text">se livrar das inseguranças</span>
+    </h2>
+    <p class="text-center text-slate-700 text-lg md:text-xl font-semibold mt-3 max-w-3xl mx-auto">
+      Tenha um corpo em que se sinta confiante. Volte a usar aquela roupa que estava guardada.
+    </p>
+
+    <div class="mt-10 grid md:grid-cols-3 gap-4">
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/heart.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"Sinto-me tão bem! As minhas roupas finalmente me servem outra vez."</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/flower.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"És incrivelmente linda, Ana! Parabéns pelo teu percurso."</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/wow.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"Fogo, como comes tanto e mantens a linha?"</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/love.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"Olá! As tuas fotos estão incríveis — pareces mais jovem."</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/kiss.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"Qual é o teu segredo? Preciso fazer também."</p>
+      </div>
+      <div class="bg-white rounded-2xl shadow-md p-5 flex items-start gap-3">
+        <img src="images/ref/heart.png" alt="" class="emoji-bubble" aria-hidden="true">
+        <p class="text-sm text-slate-700">"Que corpo incrível! Dava tudo para estar assim."</p>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <img src="images/ref/block_7-peoples.png" alt="Pessoas felizes" class="mx-auto max-w-4xl w-full rounded-2xl">
+    </div>
+
+    <div class="text-center mt-8">
+      <button onclick="scrollToKits()" class="btn-cta btn-pulse font-extrabold text-lg px-8 py-4 rounded-full">
+        Eu também quero — ver ofertas
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 10. KITS — PRIMEIRA SECÇÃO DE COMPRA
+============================================================ -->
+<section id="kits" class="bg-white py-14 md:py-20 border-t border-slate-100">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-3">
+      <span class="badge-new">
+        <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor"><path d="M10 2l2.4 5 5.6.8-4 4 1 5.6L10 14.8 5 17.4l1-5.6-4-4 5.6-.8z"/></svg>
+        PROMO EXCLUSIVA · Até 60% off
+      </span>
+    </div>
+    <h2 class="font-display font-black text-3xl md:text-5xl text-center text-ink mt-3">
+      Nano Slim <span class="gradient-text">acelera os resultados</span>
+    </h2>
+    <p class="text-center text-slate-600 text-lg mt-3 max-w-xl mx-auto">
+      Escolha o seu kit. Quanto maior, maior a poupança e melhor a continuidade da toma.
+    </p>
+
+    <!-- TAB BAR (aba de compra) -->
+    <div class="flex justify-center mt-8 mb-8">
+      <div class="kit-tabs" role="tablist" aria-label="Escolher kit">
+        <button class="kit-tab" role="tab" aria-selected="false" onclick="scrollToKitCard(1)">1 Pote</button>
+        <button class="kit-tab active" role="tab" aria-selected="true" onclick="scrollToKitCard(2)">2+1 Grátis ⭐</button>
+        <button class="kit-tab" role="tab" aria-selected="false" onclick="scrollToKitCard(3)">3+2 Grátis 🏆</button>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+      <!-- KIT 1 -->
+      <article id="kit-card-1" class="kit-card bg-white rounded-3xl p-6 shadow-xl flex flex-col">
+        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">KIT BÁSICO</div>
+        <h3 class="font-display font-black text-2xl text-ink">1 POTE</h3>
+        <p class="text-sm text-slate-500 mt-1">1 mês de toma</p>
+        <img src="images/hero-produto.png" alt="1 pote Nano Slim" width="200" height="200" loading="lazy" class="w-36 h-36 object-contain mx-auto my-3">
+        <div class="text-center flex-grow">
+          <div class="price-strike text-sm">78,00€</div>
+          <div class="font-display font-black text-4xl text-ink">39,00€</div>
+          <div class="text-sm text-slate-500 mt-1">+ portes 9,90€</div>
+          <div class="inline-block mt-2 bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full">-50%</div>
+        </div>
+        <button onclick="irCheckout(1)" class="btn-cta font-extrabold text-base py-3.5 rounded-xl mt-5 w-full">
+          Encomendar agora
+        </button>
       </article>
 
+      <!-- KIT 2 (destaque) -->
+      <article id="kit-card-2" class="kit-card bg-white rounded-3xl p-6 shadow-2xl kit-hi relative flex flex-col transform md:scale-105">
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-cta text-white font-black text-xs px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
+          MAIS ESCOLHIDO ⭐
+        </div>
+        <div class="text-xs font-bold uppercase tracking-wider text-cta-hk mb-2">MELHOR CUSTO-BENEFÍCIO</div>
+        <h3 class="font-display font-black text-2xl text-ink">2 POTES + 1 GRÁTIS</h3>
+        <p class="text-sm text-slate-500 mt-1">3 potes · 3 meses de toma</p>
+        <img src="images/produto-trio.jpg" alt="3 potes Nano Slim" width="260" height="200" loading="lazy" class="w-44 h-36 object-cover mx-auto my-3 rounded-xl shadow-lg">
+        <div class="text-center flex-grow">
+          <div class="price-strike text-sm">198,00€</div>
+          <div class="font-display font-black text-5xl text-cta-hk">89,00€</div>
+          <div class="text-sm font-bold text-cta">29,67€ por pote</div>
+          <div class="text-sm text-slate-700 mt-1">Portes <strong class="text-cta">GRÁTIS</strong></div>
+          <div class="inline-block mt-2 bg-cta text-white font-bold text-xs px-3 py-1 rounded-full">POUPE 55%</div>
+        </div>
+        <button onclick="irCheckout(2)" class="btn-cta btn-pulse font-extrabold text-base py-4 rounded-xl mt-5 w-full">
+          Encomendar agora ✓
+        </button>
+      </article>
+
+      <!-- KIT 3 -->
+      <article id="kit-card-3" class="kit-card bg-white rounded-3xl p-6 shadow-xl flex flex-col">
+        <div class="absolute -top-3 right-4 bg-primary text-white font-black text-xs px-3 py-1 rounded-full shadow-md">🏆 MELHOR VALOR</div>
+        <div class="text-xs font-bold uppercase tracking-wider text-primary-dk mb-2">KIT COMPLETO</div>
+        <h3 class="font-display font-black text-2xl text-ink">3 POTES + 2 GRÁTIS</h3>
+        <p class="text-sm text-slate-500 mt-1">5 potes · 5 meses de toma</p>
+        <img src="images/produto-pack5.jpg" alt="5 potes Nano Slim" width="260" height="200" loading="lazy" class="w-44 h-36 object-cover mx-auto my-3 rounded-xl shadow-md">
+        <div class="text-center flex-grow">
+          <div class="price-strike text-sm">323,00€</div>
+          <div class="font-display font-black text-4xl text-primary-dk">129,00€</div>
+          <div class="text-sm font-bold text-primary-dk">25,80€ por pote</div>
+          <div class="text-sm text-slate-700 mt-1">Portes <strong class="text-cta">GRÁTIS</strong></div>
+          <div class="text-xs mt-1 text-slate-600">+ Ebook "Plano alimentar cetogénico 30 dias"</div>
+          <div class="inline-block mt-2 bg-primary text-white font-bold text-xs px-3 py-1 rounded-full">POUPE 60%</div>
+        </div>
+        <button onclick="irCheckout(3)" class="btn-cta font-extrabold text-base py-3.5 rounded-xl mt-5 w-full">
+          Encomendar agora
+        </button>
+      </article>
+    </div>
+
+    <!-- Métodos pagamento -->
+    <div class="mt-10 bg-slate-50 rounded-2xl p-6 text-center">
+      <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Métodos de pagamento aceites</div>
+      <div class="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+        <img src="images/logo-mbway.svg" alt="MB Way" class="h-6 md:h-8" loading="lazy">
+        <img src="images/logo-multibanco.svg" alt="Multibanco" class="h-6 md:h-8" loading="lazy">
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-slate-700">
+          <svg class="w-8 h-5" viewBox="0 0 40 25" fill="none"><rect width="40" height="25" rx="3" fill="#1A1F71"/><text x="20" y="16" fill="#fff" font-size="8" font-weight="900" text-anchor="middle">VISA</text></svg>
+          Visa
+        </span>
+        <span class="inline-flex items-center gap-1 text-sm font-bold text-slate-700">
+          <svg class="w-8 h-5" viewBox="0 0 40 25" fill="none"><rect width="40" height="25" rx="3" fill="#000"/><circle cx="16" cy="12.5" r="6" fill="#EB001B"/><circle cx="24" cy="12.5" r="6" fill="#F79E1B" fill-opacity=".9"/></svg>
+          MasterCard
+        </span>
+        <span class="inline-flex items-center gap-1.5 text-sm font-bold text-cta-hk bg-green-50 px-3 py-1.5 rounded-full">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9z"/></svg>
+          Pagamento na entrega ✓
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 11. TRABALHAMOS PARA SI 24/7
+============================================================ -->
+<section class="bg-section-dark py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-center font-display font-black text-2xl md:text-4xl mb-10">
+      Trabalhamos para si <span class="text-primary">24/7</span>
+    </h2>
+
+    <div class="grid md:grid-cols-4 gap-5">
+      <div class="bg-slate-800/50 rounded-2xl p-5 backdrop-blur">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-black text-xl mb-3">1</div>
+        <h3 class="font-bold text-lg text-white">Faça a encomenda</h3>
+        <p class="text-sm text-slate-300 mt-2">Escolha o kit e preencha apenas o necessário — rápido e seguro.</p>
+      </div>
+      <div class="bg-slate-800/50 rounded-2xl p-5 backdrop-blur">
+        <img src="images/ref/delivery.png" alt="" class="h-10 mb-2 filter brightness-200" aria-hidden="true">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-black text-xl mb-3">2</div>
+        <h3 class="font-bold text-lg text-white">Envio rápido</h3>
+        <p class="text-sm text-slate-300 mt-2">Expedido por CTT — 24-48h em Portugal continental; 3-5 dias nas Ilhas.</p>
+      </div>
+      <div class="bg-slate-800/50 rounded-2xl p-5 backdrop-blur">
+        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-black text-xl mb-3">3</div>
+        <h3 class="font-bold text-lg text-white">Pagamento</h3>
+        <p class="text-sm text-slate-300 mt-2">MB Way, Multibanco, Cartão ou <strong class="text-cta">pagamento na entrega</strong>.</p>
+      </div>
+      <div class="bg-slate-800/50 rounded-2xl p-5 backdrop-blur">
+        <div class="w-12 h-12 bg-cta rounded-full flex items-center justify-center text-white font-black text-xl mb-3">✓</div>
+        <h3 class="font-bold text-lg text-white">Garantia 30 dias</h3>
+        <p class="text-sm text-slate-300 mt-2">Se não ficar satisfeita, devolvemos 100% do valor — sem burocracia.</p>
+      </div>
+    </div>
+
+    <p class="text-center text-slate-400 text-sm mt-8">
+      Apoio ao cliente: <a href="mailto:contacto@nano-slim.pt" class="text-primary underline">contacto@nano-slim.pt</a> · <a href="tel:+351300400500" class="text-primary">300 400 500</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+ 12. FAQ
+============================================================ -->
+<section id="faq" class="bg-white py-14 md:py-20">
+  <div class="max-w-3xl mx-auto px-4">
+    <h2 class="text-center font-display font-black text-2xl md:text-4xl text-ink">Ainda tem dúvidas?</h2>
+    <p class="text-center text-slate-600 mt-2">Trabalhamos para si — aqui estão as perguntas mais frequentes.</p>
+
+    <div class="faq mt-10 space-y-3">
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          O Nano Slim é adequado para vegetarianos?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          Sim. A fórmula é 100% vegan — não contém ingredientes de origem animal, não foi testado em animais, e respeita as exigências de alimentação vegetariana e vegana.
+        </div>
+      </details>
+
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          Influencia o equilíbrio hormonal?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          Não. O Nano Slim não contém substâncias causadoras de distúrbios hormonais — nem sintéticos, nem psicotrópicos, nem hormonais. Em caso de condição clínica, recomendamos consultar o seu médico antes de iniciar qualquer suplementação.
+        </div>
+      </details>
+
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          Quanto tempo deve durar a toma?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          Recomenda-se uma toma mínima de 30 dias para avaliar a adaptação do organismo. Para resultados mais consistentes, o kit de 3 potes (3 meses) é a escolha mais frequente entre os nossos clientes.
+        </div>
+      </details>
+
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          Tenho de seguir uma dieta rigorosa?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          O Nano Slim foi desenvolvido para apoiar a adaptação ao estado cetogénico. Os melhores resultados surgem quando combinado com uma alimentação mais rica em gorduras boas e moderada em hidratos de carbono, juntamente com actividade física regular.
+        </div>
+      </details>
+
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          Posso mesmo pagar na entrega?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          Sim. Oferecemos <strong>pagamento contra-reembolso (COD)</strong>: só paga quando a encomenda chega à sua porta e confirma que está tudo certo. Também aceitamos MB Way, Multibanco e cartão Visa/Mastercard.
+        </div>
+      </details>
+
+      <details class="group bg-slate-50 rounded-2xl overflow-hidden border border-slate-200">
+        <summary class="cursor-pointer list-none p-5 flex items-center justify-between font-bold text-ink">
+          E se não resultar comigo?
+          <svg class="faq-chev w-5 h-5 text-slate-400" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 11.06l3.71-3.83a.75.75 0 111.08 1.04l-4.25 4.39a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z"/></svg>
+        </summary>
+        <div class="px-5 pb-5 text-slate-700 leading-relaxed">
+          Temos <strong>30 dias de garantia de satisfação</strong>. Se não ficar satisfeita com o Nano Slim, devolvemos 100% do valor pago — sem perguntas, sem ginástica. Basta contactar-nos em <a href="mailto:reembolso@nano-slim.pt" class="text-primary underline">reembolso@nano-slim.pt</a>.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 13. CTA #2 — preço destacado
+============================================================ -->
+<section class="bg-gradient-to-br from-primary-lt via-white to-primary-lt py-14 md:py-20 relative overflow-hidden">
+  <img src="images/ref/metric_line2.png" alt="" class="absolute bottom-0 left-0 w-full opacity-40" aria-hidden="true">
+  <div class="max-w-4xl mx-auto px-4 relative">
+    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
+      <div class="text-center">
+        <img src="images/hero-produto.png" alt="Nano Slim" class="w-48 md:w-64 mx-auto drop-shadow-xl">
+      </div>
+      <div class="text-center md:text-left">
+        <span class="badge-new mb-3">PROMO ACTIVA</span>
+        <h2 class="font-display font-black text-3xl md:text-4xl text-ink mt-3 leading-tight">
+          Nano Slim — Zero açúcar, Future Flavored
+        </h2>
+        <div class="mt-4 flex items-baseline gap-3 justify-center md:justify-start">
+          <span class="price-strike text-xl">78€</span>
+          <span class="font-display font-black text-5xl md:text-6xl text-primary-dk">39€</span>
+          <span class="bg-amber-100 text-amber-800 font-bold text-sm px-3 py-1 rounded-full">-50%</span>
+        </div>
+        <p class="text-sm text-slate-500 mt-2">Por 1 pote · portes 9,90€ · ou kits a partir de 89€ com portes grátis</p>
+        <button onclick="scrollToKits()" class="btn-cta btn-pulse font-extrabold text-lg px-8 py-4 rounded-full mt-6 w-full md:w-auto">
+          Escolher kit →
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+ 14. DEPOIMENTOS — mulheres que já experimentaram
+============================================================ -->
+<section id="depoimentos" class="bg-white py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="font-display font-black text-2xl md:text-4xl text-center text-ink">
+      Testemunhos de mulheres que já <span class="gradient-text">experimentaram o Nano Slim</span>
+    </h2>
+    <p class="text-center text-slate-600 text-lg mt-3 max-w-2xl mx-auto">
+      Cada percurso é único. Aqui estão algumas das histórias que nos chegaram.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
       <!-- Helena -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#60A5FA,#3B82F6)">HS</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">Helena S.</div>
-            <div class="text-xs text-slate-500">39 anos · Porto · <span class="text-cta font-semibold">Verificado ✓</span></div>
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+        <img src="images/ref/review1.jpg" alt="Helena S. — Porto" class="w-full h-64 object-cover" loading="lazy">
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="flex text-amber-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+            <span class="text-xs text-slate-500">há 2 meses</span>
+          </div>
+          <div class="font-bold text-ink">Helena S. — Porto, 39 anos</div>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed italic">
+            "Tinha tentado de tudo. O que me surpreendeu foi não ter aquela fome constante que me parava noutras dietas. Com 3 meses, 7 kg menos e muito mais disposição para treinar."
+          </p>
+          <div class="mt-3 flex gap-2 text-xs">
+            <span class="bg-green-50 text-cta-hk font-bold px-2 py-1 rounded">−7 kg em 3 meses</span>
           </div>
         </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"O que eu gosto mais é o sabor. Já tomei outros suplementos e muitos sabiam mesmo mal. Este parece um sumo fresco. Em <strong>dois meses e meio perdi 7 kg</strong> e deixei de ter aquela fome de ansiedade ao final da tarde."</p>
       </article>
 
       <!-- Vânia -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6)">VR</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">Vânia R.</div>
-            <div class="text-xs text-slate-500">52 anos · Lisboa · <span class="text-cta font-semibold">Verificado ✓</span></div>
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+        <img src="images/ref/review2.jpg" alt="Vânia R. — Lisboa" class="w-full h-64 object-cover" loading="lazy">
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="flex text-amber-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+            <span class="text-xs text-slate-500">há 4 meses</span>
+          </div>
+          <div class="font-bold text-ink">Vânia R. — Lisboa, 52 anos</div>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed italic">
+            "Na minha idade, parecia impossível voltar ao peso dos 40. Juntei o Nano Slim à alimentação mais limpa e caminhadas. 9 kg em 4 meses — e a pele não ficou flácida."
+          </p>
+          <div class="mt-3 flex gap-2 text-xs">
+            <span class="bg-green-50 text-cta-hk font-bold px-2 py-1 rounded">−9 kg em 4 meses</span>
           </div>
         </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"Entrei na menopausa e o metabolismo parou. Uma amiga falou-me do Nano Slim. Passados <strong>três meses tinha menos 9 kg</strong> e voltei a caber em calças que estavam guardadas há dois anos. Estou no segundo pote."</p>
       </article>
 
       <!-- Lara -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#34D399,#10B981)">LM</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">Lara M.</div>
-            <div class="text-xs text-slate-500">34 anos · Coimbra · <span class="text-cta font-semibold">Verificado ✓</span></div>
+      <article class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-100">
+        <img src="images/ref/review3.jpg" alt="Lara M. — Coimbra" class="w-full h-64 object-cover object-top" loading="lazy">
+        <div class="p-5">
+          <div class="flex items-center gap-2 mb-2">
+            <div class="flex text-amber-400"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.176 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></div>
+            <span class="text-xs text-slate-500">há 2 meses</span>
+          </div>
+          <div class="font-bold text-ink">Lara M. — Coimbra, 34 anos</div>
+          <p class="mt-2 text-sm text-slate-700 leading-relaxed italic">
+            "Depois do segundo filho, não conseguia voltar à forma. O sabor é muito bom — tomo ao pequeno-almoço como se fosse um batido. 6 kg menos em 2 meses e muita mais energia."
+          </p>
+          <div class="mt-3 flex gap-2 text-xs">
+            <span class="bg-green-50 text-cta-hk font-bold px-2 py-1 rounded">−6 kg em 2 meses</span>
           </div>
         </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"Sou preguiçosa para cozinhar e para ir ao ginásio. Comecei mais como experiência. Combinei com caminhadas de 30 minutos, três vezes por semana. Em <strong>dez semanas perdi 6 kg</strong>. Para quem não gosta de complicações, resolve muito."</p>
       </article>
-
-      <!-- João -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#FB923C,#F97316)">JP</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">João P.</div>
-            <div class="text-xs text-slate-500">45 anos · Aveiro · <span class="text-cta font-semibold">Verificado ✓</span></div>
-          </div>
-        </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"Não é só para mulheres. Tenho trabalho sedentário, oito horas sentado ao computador. Em <strong>quatro meses perdi 14 kg</strong> com Nano Slim e ajustes simples na alimentação. Voltei a jogar à bola com os miúdos ao sábado."</p>
-      </article>
-
-      <!-- Catarina -->
-      <article class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="avatar-initials" style="background:linear-gradient(135deg,#F87171,#EF4444)">CA</div>
-          <div>
-            <div class="font-bold text-slate-900 text-sm">Catarina A.</div>
-            <div class="text-xs text-slate-500">58 anos · Setúbal · <span class="text-cta font-semibold">Verificado ✓</span></div>
-          </div>
-        </div>
-        <div class="text-amber-400 mb-2">★★★★★</div>
-        <p class="text-sm text-slate-700 leading-relaxed">"A minha nora falou-me deste produto. Fui desconfiada, nesta idade já vi de tudo. O sabor agradou-me. Em <strong>três meses e meio tirei 8 kg</strong> e sinto-me com mais disposição para levar os netos ao parque."</p>
-      </article>
-
     </div>
 
-    <div class="text-center mt-10">
-      <button onclick="scrollToKits(); return false;" class="btn-cta font-bold text-base px-7 py-4 rounded-xl inline-flex items-center gap-2">
-        Ver kits disponíveis <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-      </button>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
- SELOS DE QUALIDADE
-============================================================ -->
-<section class="py-12 md:py-16 bg-primary-light">
-  <div class="max-w-5xl mx-auto px-4">
-    <div class="bg-white rounded-3xl shadow-sm p-6 md:p-10 border border-slate-100">
-      <h3 class="text-center text-xl md:text-2xl font-extrabold text-slate-900 mb-6">Selos de qualidade</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
-        <div class="flex flex-col items-center gap-2 p-3">
-          <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center">
-            <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </div>
-          <strong class="text-slate-900">Zero açúcar</strong>
-        </div>
-        <div class="flex flex-col items-center gap-2 p-3">
-          <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center">
-            <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h14a1 1 0 001-1V10"/></svg>
-          </div>
-          <strong class="text-slate-900">Vegano</strong>
-        </div>
-        <div class="flex flex-col items-center gap-2 p-3">
-          <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center">
-            <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          </div>
-          <strong class="text-slate-900">Sem glúten · Sem OGM</strong>
-        </div>
-        <div class="flex flex-col items-center gap-2 p-3">
-          <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center">
-            <svg class="w-6 h-6 text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-          </div>
-          <strong class="text-slate-900">Regulamentos UE · GMP</strong>
-        </div>
-      </div>
-      <p class="text-center text-xs text-slate-500 mt-4">Sem substâncias sintéticas, hormonais ou psicotrópicas. Produzido em conformidade com os regulamentos da União Europeia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
- KITS / OFERTAS
-============================================================ -->
-<section id="kits" class="py-14 md:py-20 bg-white">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <span class="inline-block bg-cta/10 text-cta-hover text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">Promoção activa</span>
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 leading-tight mb-3">
-        Escolha o seu kit
-      </h2>
-      <p class="text-slate-600 max-w-2xl mx-auto">Kits maiores = maior poupança por pote + portes grátis + resultados consistentes</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-6 md:gap-5 mb-10">
-
-      <!-- KIT 1 -->
-      <div class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-7 flex flex-col relative">
-        <div class="text-center mb-4">
-          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Kit 1</div>
-          <h3 class="text-xl font-extrabold text-slate-900">1 POTE</h3>
-          <p class="text-xs text-slate-500 mt-1">1 mês de toma</p>
-        </div>
-
-        <img src="images/hero-produto.png" alt="1 pote Nano Slim" width="200" height="200" loading="lazy" class="w-36 h-36 object-contain mx-auto my-3">
-
-        <div class="text-center mb-5">
-          <div class="flex items-baseline justify-center gap-2 mb-1">
-            <span class="text-slate-400 line-through text-sm">78,00€</span>
-            <span class="bg-red-100 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded">-50%</span>
-          </div>
-          <div class="text-4xl font-extrabold text-slate-900">39,00<span class="text-2xl">€</span></div>
-          <div class="text-xs text-slate-500 mt-1">+ portes 9,90€</div>
-        </div>
-
-        <ul class="text-sm text-slate-600 space-y-2 mb-6 flex-1">
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>1 pote · 30 doses</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Garantia 30 dias</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Pagamento na entrega</li>
-        </ul>
-
-        <button onclick="irCheckout(1); return false;" class="btn-cta font-bold text-base px-5 py-3.5 rounded-xl w-full">
-          Encomendar
-        </button>
-        <p class="text-[11px] text-slate-400 text-center mt-2">Ideal para experimentar</p>
-      </div>
-
-      <!-- KIT 2 — DESTAQUE -->
-      <div class="bg-gradient-to-br from-primary to-primary-dark text-white rounded-3xl shadow-2xl p-6 md:p-7 flex flex-col relative md:-translate-y-3 ring-4 ring-primary/20">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-cta text-white text-xs font-extrabold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
-          ★ MAIS ESCOLHIDO
-        </div>
-
-        <div class="text-center mb-4 mt-2">
-          <div class="text-xs font-bold uppercase tracking-wider opacity-80 mb-1">Kit 2</div>
-          <h3 class="text-xl font-extrabold">2 POTES + 1 GRÁTIS</h3>
-          <p class="text-xs opacity-90 mt-1">3 potes · 3 meses de toma</p>
-        </div>
-
-        <img src="images/produto-trio.jpg" alt="3 potes Nano Slim" width="260" height="200" loading="lazy" class="w-44 h-36 object-cover mx-auto my-3 rounded-xl shadow-lg">
-
-        <div class="text-center mb-5">
-          <div class="flex items-baseline justify-center gap-2 mb-1">
-            <span class="opacity-70 line-through text-sm">198,00€</span>
-            <span class="bg-white text-primary-dark text-[10px] font-bold px-2 py-0.5 rounded">-55%</span>
-          </div>
-          <div class="text-5xl font-extrabold">89,00<span class="text-2xl">€</span></div>
-          <div class="text-xs opacity-90 mt-1">ou <strong>29,67€ / pote</strong></div>
-        </div>
-
-        <ul class="text-sm space-y-2 mb-6 flex-1">
-          <li class="flex gap-2"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>3 potes · 90 doses</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><strong>Portes GRÁTIS</strong></li>
-          <li class="flex gap-2"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Garantia 30 dias</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Pagamento na entrega</li>
-        </ul>
-
-        <button onclick="irCheckout(2); return false;" class="btn-cta btn-pulse font-extrabold text-base px-5 py-4 rounded-xl w-full">
-          ENCOMENDAR AGORA
-        </button>
-        <p class="text-[11px] opacity-80 text-center mt-2">Resultados consistentes</p>
-      </div>
-
-      <!-- KIT 3 -->
-      <div class="bg-white rounded-3xl border-2 border-amber-300 p-6 md:p-7 flex flex-col relative">
-        <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-extrabold px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap">
-          ♛ MELHOR VALOR
-        </div>
-
-        <div class="text-center mb-4 mt-2">
-          <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">Kit 3</div>
-          <h3 class="text-xl font-extrabold text-slate-900">3 POTES + 2 GRÁTIS</h3>
-          <p class="text-xs text-slate-500 mt-1">5 potes · 5 meses de toma</p>
-        </div>
-
-        <img src="images/produto-aberto.jpg" alt="5 potes Nano Slim" width="260" height="200" loading="lazy" class="w-44 h-36 object-cover mx-auto my-3 rounded-xl shadow-md">
-
-        <div class="text-center mb-5">
-          <div class="flex items-baseline justify-center gap-2 mb-1">
-            <span class="text-slate-400 line-through text-sm">323,00€</span>
-            <span class="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded">-60%</span>
-          </div>
-          <div class="text-4xl font-extrabold text-slate-900">129,00<span class="text-2xl">€</span></div>
-          <div class="text-xs text-slate-500 mt-1">ou <strong>25,80€ / pote</strong></div>
-        </div>
-
-        <ul class="text-sm text-slate-600 space-y-2 mb-6 flex-1">
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>5 potes · 150 doses</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><strong>Portes GRÁTIS</strong></li>
-          <li class="flex gap-2"><svg class="w-4 h-4 text-amber-500 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg><strong>BÓNUS:</strong> Ebook "Plano cetogénico 30 dias" (PDF 48 páginas)</li>
-          <li class="flex gap-2"><svg class="w-4 h-4 text-cta flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>Garantia 30 dias</li>
-        </ul>
-
-        <button onclick="irCheckout(3); return false;" class="btn-cta font-bold text-base px-5 py-3.5 rounded-xl w-full">
-          Encomendar
-        </button>
-        <p class="text-[11px] text-slate-400 text-center mt-2">Maior poupança por pote</p>
-      </div>
-
-    </div>
-
-    <!-- Métodos de pagamento -->
-    <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-100">
-      <p class="text-sm font-semibold text-slate-700 mb-4">Pagamento 100% seguro em Portugal:</p>
-      <div class="flex flex-wrap gap-3 justify-center items-center">
-        <span class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-sm">PAGA NA ENTREGA</span>
-        <span class="bg-blue-500 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-sm">MB WAY</span>
-        <span class="bg-slate-800 text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-sm">MULTIBANCO</span>
-        <span class="bg-white border-2 border-slate-200 text-slate-800 px-3 py-1.5 rounded-lg font-bold text-xs">VISA</span>
-        <span class="bg-white border-2 border-slate-200 text-slate-800 px-3 py-1.5 rounded-lg font-bold text-xs">MASTERCARD</span>
-      </div>
-      <p class="text-xs text-slate-500 mt-3">Envio CTT · Portugal continental 24-48h · Ilhas 3-5 dias úteis</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
- GARANTIA
-============================================================ -->
-<section class="py-14 md:py-20 gradient-primary text-white">
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    <div class="inline-flex items-center justify-center w-28 h-28 md:w-32 md:h-32 bg-white/15 backdrop-blur rounded-full mb-6 border-4 border-white/30">
-      <svg class="w-14 h-14 md:w-16 md:h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
-    </div>
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-4 leading-tight">
-      30 dias de garantia — sem perguntas.
-    </h2>
-    <p class="text-lg md:text-xl opacity-95 mb-4 leading-relaxed max-w-2xl mx-auto">
-      Se, nos primeiros 30 dias após receber o Nano Slim, não ficar satisfeita com a experiência, devolvemos <strong>100% do valor pago</strong>.
-    </p>
-    <p class="text-sm opacity-85 mb-2">Basta enviar-nos um email para <strong>reembolso@nano-slim.pt</strong> e tratamos de tudo.</p>
-    <p class="text-sm opacity-90 font-semibold italic">"Nós é que assumimos o risco por si."</p>
-    <p class="text-xs opacity-75 mt-6 pt-6 border-t border-white/20 max-w-xl mx-auto">
-      Direito de livre resolução de 14 dias conforme Decreto-Lei n.º 24/2014.
+    <p class="text-center text-xs text-slate-500 mt-8 italic max-w-2xl mx-auto">
+      Resultados individuais. O Nano Slim é um suplemento alimentar que apoia uma alimentação equilibrada e actividade física regular — não substitui nenhum destes elementos.
     </p>
   </div>
 </section>
 
 <!-- ============================================================
- FAQ
+ 15. GARANTIA 30 DIAS
 ============================================================ -->
-<section class="py-14 md:py-20 bg-white">
+<section class="bg-white py-10">
   <div class="max-w-3xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <span class="inline-block bg-primary/10 text-primary-dark text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3">FAQ</span>
-      <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 leading-tight">
-        Perguntas frequentes
-      </h2>
-    </div>
-
-    <div class="space-y-3">
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>É adequado para vegetarianos e veganos?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Sim. O Nano Slim não contém componentes de origem animal e não é testado em animais. Pode ser consumido por vegetarianos e veganos sem reservas.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Quem tem diabetes pode tomar?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Se tem diabetes (tipo 1 ou tipo 2), está a tomar medicação para controlo da glicemia ou tem qualquer condição metabólica, <strong>consulte o seu médico</strong> antes de iniciar a toma. O Nano Slim é um suplemento alimentar e não substitui qualquer prescrição médica.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Posso tomar na gravidez ou amamentação?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed"><strong>Não recomendamos</strong> o uso durante a gravidez, amamentação ou em crianças com menos de 18 anos, sem acompanhamento médico.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Tem efeitos secundários?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Nenhum efeito secundário significativo foi reportado em utilizadores saudáveis que respeitem a dose recomendada. Em caso de dúvida, consulte o seu médico, especialmente se tiver alguma condição de saúde ou estiver a tomar medicação.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Em quanto tempo vejo resultados?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Os resultados variam de pessoa para pessoa e dependem da alimentação, actividade física e constituição de cada um. A maior parte dos utilizadores refere sentir-se com mais energia e saciedade nas primeiras duas a três semanas. Alterações mais visíveis costumam surgir a partir do segundo mês de toma regular.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Quantas doses devo tomar por dia?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Uma a duas colheres medidas por dia (6g cada), dissolvidas em 250ml de água. Nunca exceder a dose diária recomendada.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Posso pagar na entrega?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Sim. O pagamento na entrega (COD) está disponível em todo o Portugal continental. Paga em dinheiro ao estafeta dos CTT quando receber o produto em casa, sem pagar nada antecipadamente.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>Quanto tempo demora a entrega?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed"><strong>24 a 48 horas</strong> em Portugal continental. <strong>3 a 5 dias úteis</strong> nas ilhas (Madeira e Açores). Todas as encomendas são enviadas pelos CTT com código de seguimento.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>E se o produto não funcionar para mim?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Tem <strong>30 dias de garantia de satisfação</strong>. Basta enviar um email para reembolso@nano-slim.pt e devolvemos a totalidade do valor pago. Nós assumimos o risco.</p>
-      </details>
-
-      <details class="bg-slate-50 rounded-xl p-5 group border border-slate-100">
-        <summary class="flex justify-between items-center font-semibold text-slate-900 text-base">
-          <span>É um produto natural?</span>
-          <span class="faq-icon text-2xl text-primary">⌄</span>
-        </summary>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">Sim. O Nano Slim é formulado com extratos vegetais, vitaminas, minerais e sais de BHB. Sem substâncias sintéticas, hormonais ou psicotrópicas. Sem OGM. Sem glúten. Sem açúcar.</p>
-      </details>
-
+    <div class="bg-gradient-to-br from-cta to-cta-hk text-white rounded-3xl shadow-2xl p-6 md:p-10 text-center">
+      <div class="inline-flex items-center justify-center w-20 h-20 bg-white/20 rounded-full mb-4">
+        <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      </div>
+      <h2 class="font-display font-black text-3xl md:text-4xl">Garantia de Satisfação 30 Dias</h2>
+      <p class="mt-4 text-lg text-white/95 max-w-xl mx-auto">
+        Se não ficar satisfeita com o Nano Slim nos primeiros 30 dias de uso, devolvemos <strong>100% do valor pago</strong>. Sem perguntas. Sem ginástica.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
- CTA FINAL — ÚLTIMA CHAMADA
+ 16. RELAXE — Closing
 ============================================================ -->
-<section class="relative py-16 md:py-24 overflow-hidden" style="background:linear-gradient(135deg,#1E88E5 0%,#2BB3E8 100%)">
-  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 30%,#fff 2px,transparent 2px),radial-gradient(circle at 80% 70%,#fff 2px,transparent 2px);background-size:60px 60px"></div>
+<section class="relative py-14 md:py-20 overflow-hidden bg-section-accent">
+  <img src="images/ref/block_11-leaf.png" alt="" class="floating-deco top-6 right-4 w-28 md:w-40 opacity-70" aria-hidden="true">
 
-  <div class="relative max-w-4xl mx-auto px-4 text-center text-white">
-    <h2 class="text-3xl md:text-5xl font-extrabold mb-5 leading-tight">
-      Isto não é uma dieta.<br>
-      <span class="opacity-80">É uma forma diferente de dar ao seu corpo aquilo de que ele precisa.</span>
-    </h2>
-
-    <p class="text-lg opacity-95 mb-8 max-w-2xl mx-auto leading-relaxed">
-      A cada dia que passa, uma segunda-feira fica para trás. Outro pequeno-almoço culpado. Outra vez na balança sem resposta. O Nano Slim é um apoio real, testado por milhares de portugueses, com garantia de 30 dias para que possa experimentar <strong>sem risco nenhum</strong>.
+  <div class="max-w-4xl mx-auto px-4 text-center relative">
+    <h2 class="font-display font-black text-3xl md:text-6xl gradient-text">Relaxe.</h2>
+    <p class="mt-4 text-xl md:text-2xl text-slate-800 font-semibold max-w-2xl mx-auto leading-snug">
+      O Nano Slim vai cuidar da sua figura <em>enquanto</em> aproveita a sua vida.
     </p>
 
-    <!-- Card kit destaque -->
-    <div class="bg-white rounded-3xl p-6 md:p-8 max-w-lg mx-auto shadow-2xl text-slate-900 mb-6">
-      <div class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Kit mais escolhido</div>
-      <h3 class="text-2xl font-extrabold mb-3">2 POTES + 1 GRÁTIS</h3>
-      <div class="flex items-baseline justify-center gap-2 mb-2">
-        <span class="text-slate-400 line-through">198,00€</span>
-        <span class="bg-red-100 text-red-700 text-xs font-bold px-2 py-1 rounded">-55%</span>
+    <div class="mt-8 bg-white rounded-3xl shadow-2xl p-6 md:p-8 max-w-2xl mx-auto">
+      <div class="flex items-center justify-center gap-4 mb-4">
+        <img src="images/hero-produto.png" alt="Nano Slim" class="w-28 md:w-36">
+        <div class="text-left">
+          <div class="price-strike text-lg">78€</div>
+          <div class="font-display font-black text-5xl text-primary-dk">39€</div>
+          <div class="inline-block bg-amber-100 text-amber-800 font-bold text-xs px-3 py-1 rounded-full mt-1">-50%</div>
+        </div>
       </div>
-      <div class="text-5xl font-extrabold text-slate-900 mb-1">89,00<span class="text-3xl">€</span></div>
-      <div class="text-sm text-cta font-bold mb-5">✓ Portes grátis · ✓ Paga na entrega · ✓ 30 dias garantia</div>
-
-      <button onclick="irCheckout(2); return false;" class="btn-cta btn-pulse font-extrabold text-lg px-8 py-4 rounded-xl w-full">
-        ENCOMENDAR AGORA →
+      <button onclick="scrollToKits()" class="btn-cta btn-pulse font-extrabold text-xl px-8 py-4 rounded-full w-full">
+        Escolher o meu kit →
       </button>
-      <p class="text-xs text-slate-500 mt-3 italic">Stock da promoção limitado. Os preços actuais só se mantêm enquanto houver unidades reservadas.</p>
-    </div>
-
-    <div class="flex items-center justify-center gap-4 text-xs opacity-85 flex-wrap">
-      <span>🔒 Compra segura</span>
-      <span>·</span>
-      <span>🚚 Envio grátis</span>
-      <span>·</span>
-      <span>↩️ 30 dias garantia</span>
-      <span>·</span>
-      <span>💰 Paga na entrega</span>
+      <p class="mt-3 text-xs text-slate-500">Ou kits 2+1 a 89€ / 3+2 a 129€ · portes grátis · garantia 30 dias</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
- DISCLAIMER LEGAL DL 118/2015
+ FOOTER
 ============================================================ -->
-<section class="py-10 bg-slate-50 border-t border-slate-200">
-  <div class="max-w-4xl mx-auto px-4">
-    <div class="bg-white rounded-xl p-6 text-xs leading-relaxed text-slate-600 border border-slate-200">
-      <p class="font-bold text-slate-900 mb-2">Aviso importante</p>
-      <p class="mb-2">Este produto é um <strong>suplemento alimentar</strong>. Não deve exceder a dose diária recomendada. Os suplementos alimentares não devem ser utilizados como substitutos de um regime alimentar variado e equilibrado e de um modo de vida saudável. Manter fora do alcance das crianças.</p>
-      <p class="mb-2">Este produto <strong>não é um medicamento</strong> e não se destina a prevenir, tratar ou curar quaisquer doenças. Em caso de dúvida, consulte o seu médico, especialmente se estiver grávida, a amamentar, a tomar medicação ou se tiver alguma condição de saúde.</p>
-      <p class="mb-2">Os resultados podem variar de pessoa para pessoa. O Nano Slim deve ser combinado com uma alimentação equilibrada e actividade física regular.</p>
-      <p>Produzido em conformidade com os regulamentos da União Europeia e com o Decreto-Lei n.º 118/2015. Informações adicionais sobre suplementos alimentares em <a href="https://www.dgav.pt" target="_blank" rel="noopener" class="text-primary underline">www.dgav.pt</a>.</p>
+<section class="bg-slate-900 text-slate-300 py-10 text-sm">
+  <div class="max-w-5xl mx-auto px-4 text-center space-y-4">
+    <p class="italic">
+      <strong>Este produto é um suplemento alimentar.</strong> Não deve exceder a dose diária recomendada. Os suplementos alimentares não devem ser utilizados como substitutos de um regime alimentar variado e equilibrado e de um modo de vida saudável. Manter fora do alcance das crianças.
+    </p>
+    <p>
+      Os resultados podem variar de pessoa para pessoa. O Nano Slim deve ser combinado com uma alimentação equilibrada e actividade física regular.
+    </p>
+    <p>
+      Produzido em conformidade com os regulamentos da União Europeia e com o Decreto-Lei n.º 118/2015. Informação adicional sobre suplementos alimentares em <a href="https://www.dgav.pt" target="_blank" rel="noopener" class="text-primary underline">www.dgav.pt</a>.
+    </p>
+    <div class="pt-4 border-t border-slate-700 mt-6 text-xs flex flex-wrap justify-center gap-x-4 gap-y-2">
+      <a href="#" onclick="openLegal('privacidade');return false;" class="hover:text-primary">Política de Privacidade</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('termos');return false;" class="hover:text-primary">Termos &amp; Condições</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('reembolso');return false;" class="hover:text-primary">Política de Reembolso</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('envios');return false;" class="hover:text-primary">Envios</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('contacto');return false;" class="hover:text-primary">Contacto</a>
     </div>
+    <p class="text-xs text-slate-500 pt-2">© 2026 Nano Slim · Todos os direitos reservados</p>
   </div>
 </section>
 
@@ -1039,7 +958,7 @@
 <div class="sticky-cta fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-2xl p-3 z-40 md:hidden">
   <button onclick="irCheckout(2); return false;" class="btn-cta btn-pulse font-extrabold text-base px-4 py-3.5 rounded-xl w-full flex items-center justify-between gap-2">
     <span class="text-left leading-tight">
-      <span class="block text-[10px] font-semibold opacity-90">2+1 GRÁTIS · 55% OFF</span>
+      <span class="block text-[10px] font-semibold opacity-90">2+1 GRÁTIS · POUPE 55%</span>
       <span class="block text-base">Encomendar · 89,00€</span>
     </span>
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
@@ -1050,50 +969,27 @@
  SCRIPT — irCheckout via sessionStorage
 ============================================================ -->
 <script>
-  // Produtos disponíveis (espelham oferta.config.json)
   const NANO_SLIM_PRODUTOS = {
-    1: { id: 1, nome: "Nano Slim · 1 POTE", preco: 39.00, preco_original: 78.00, portes: 9.90, img: "images/hero-produto.png", descricao: "1 mês de toma" },
-    2: { id: 2, nome: "Nano Slim · 2 POTES + 1 GRÁTIS", preco: 89.00, preco_original: 198.00, portes: 0, img: "images/hero-produto.png", descricao: "3 potes · 3 meses de toma" },
-    3: { id: 3, nome: "Nano Slim · 3 POTES + 2 GRÁTIS", preco: 129.00, preco_original: 323.00, portes: 0, img: "images/hero-produto.png", descricao: "5 potes · 5 meses de toma · Ebook bónus" }
+    1: { id: 1, nome: "Nano Slim · 1 POTE",              preco: 39.00, preco_original: 78.00,  portes: 9.90, img: "images/hero-produto.png", descricao: "1 mês de toma" },
+    2: { id: 2, nome: "Nano Slim · 2 POTES + 1 GRÁTIS",  preco: 89.00, preco_original: 198.00, portes: 0,    img: "images/produto-trio.jpg", descricao: "3 potes · 3 meses de toma" },
+    3: { id: 3, nome: "Nano Slim · 3 POTES + 2 GRÁTIS",  preco: 129.00,preco_original: 323.00, portes: 0,    img: "images/produto-pack5.jpg", descricao: "5 potes · 5 meses de toma · Ebook bónus" }
   };
 
   function irCheckout(produtoId) {
     const produto = NANO_SLIM_PRODUTOS[produtoId];
-    if (!produto) {
-      console.error('Produto não encontrado:', produtoId);
-      return;
-    }
+    if (!produto) { console.error('Produto não encontrado:', produtoId); return; }
 
-    // Formato esperado pelo checkout.html
     const payload = {
-      id: produto.id,
-      name: produto.nome,
-      price: produto.preco,
-      img: produto.img,
-      quantity: 1,
-      descricao: produto.descricao,
-      portes: produto.portes
+      id: produto.id, name: produto.nome, price: produto.preco,
+      img: produto.img, quantity: 1, descricao: produto.descricao, portes: produto.portes
     };
-
     sessionStorage.setItem('ck_product', JSON.stringify(payload));
-    sessionStorage.setItem('produtoSelecionado', JSON.stringify(produto)); // alias legado
+    sessionStorage.setItem('produtoSelecionado', JSON.stringify(produto));
 
-    // Eventos de tracking (se tracking activo)
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'InitiateCheckout', { value: produto.preco, currency: 'EUR', content_ids: [produto.id], content_name: produto.nome });
-    }
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'begin_checkout', {
-        currency: 'EUR',
-        value: produto.preco,
-        items: [{ item_id: produto.id, item_name: produto.nome, price: produto.preco, quantity: 1 }]
-      });
-    }
-    if (typeof ttq !== 'undefined') {
-      ttq.track('InitiateCheckout', { value: produto.preco, currency: 'EUR', content_id: produto.id, content_name: produto.nome });
-    }
+    if (typeof fbq !== 'undefined')  fbq('track', 'InitiateCheckout', { value: produto.preco, currency: 'EUR', content_ids: [produto.id], content_name: produto.nome });
+    if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', { currency: 'EUR', value: produto.preco, items: [{ item_id: produto.id, item_name: produto.nome, price: produto.preco, quantity: 1 }] });
+    if (typeof ttq !== 'undefined')  ttq.track('InitiateCheckout', { value: produto.preco, currency: 'EUR', content_id: produto.id, content_name: produto.nome });
 
-    // Redireciona preservando UTMs
     window.location.href = 'checkout.html' + window.location.search;
   }
 
@@ -1102,7 +998,20 @@
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Smooth scroll para links âncora internos
+  function scrollToKitCard(id) {
+    const el = document.getElementById('kit-card-' + id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelectorAll('.kit-tab').forEach((t,i)=>{
+      t.classList.toggle('active', (i+1) === id);
+      t.setAttribute('aria-selected', (i+1) === id ? 'true' : 'false');
+    });
+  }
+
+  function openLegal(section) {
+    if (window.__openLegal) { window.__openLegal(section); return; }
+    window.location.href = 'checkout.html#' + section;
+  }
+
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -1116,6 +1025,5 @@
     });
   });
 </script>
-
 </body>
 </html>
