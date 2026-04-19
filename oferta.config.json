@@ -4,7 +4,6 @@
   "tagline_curta": "Suplemento em Pó · Cetose Rápida · Future Flavored",
   "formato": "Pó solúvel em boião (200g · 30 doses)",
   "posologia": "1 colher medida (6g) diluída em 250ml de água, 1 a 2 vezes ao dia, preferencialmente de manhã e antes do treino.",
-
   "dominio": "nano-slim.vercel.app",
   "theme_color": "#2BB3E8",
   "theme_color_dark": "#1E88E5",
@@ -12,37 +11,31 @@
   "cta_color": "#22C55E",
   "cta_color_hover": "#16A34A",
   "text_on_cta": "#FFFFFF",
-
   "ano_corrente": "2026",
   "data_atualizacao": "18 de abril de 2026",
-
   "objeto_contrato": "venda online de suplementos alimentares à base de BHB e extratos vegetais para apoio à gestão de peso e ao processo de cetose",
-
   "emails": {
     "contacto": "contacto@nano-slim.pt",
     "privacidade": "privacidade@nano-slim.pt",
     "reembolso": "reembolso@nano-slim.pt"
   },
-
   "telefone_sac": "(+351) 300 400 500",
-
   "tracking": {
     "clarity_id": "",
     "google_ads_id": "",
     "tiktok_pixel_id": "",
     "meta_pixel_id": ""
   },
-
   "produtos": [
     {
       "id": 1,
       "nome": "1 POTE",
       "descricao": "1 mês de tratamento",
-      "preco": 39.00,
-      "preco_original": 78.00,
+      "preco": 39.0,
+      "preco_original": 78.0,
       "desconto_rotulo": "-50%",
       "portes": "9,90€",
-      "preco_por_pote": 39.00,
+      "preco_por_pote": 39.0,
       "img": "hero-produto.png",
       "destaque": false,
       "bonus": []
@@ -51,65 +44,99 @@
       "id": 2,
       "nome": "2 POTES + 1 GRÁTIS",
       "descricao": "3 potes · 3 meses de tratamento",
-      "preco": 89.00,
-      "preco_original": 198.00,
-      "desconto_rotulo": "-55%",
+      "preco": 89.0,
+      "preco_original": 234.0,
+      "desconto_rotulo": "-62%",
       "portes": "GRÁTIS",
       "preco_por_pote": 29.67,
       "img": "hero-produto.png",
       "destaque": true,
       "badge": "MAIS ESCOLHIDO",
-      "bonus": ["Portes grátis"]
+      "bonus": [
+        "Portes grátis"
+      ]
     },
     {
       "id": 3,
       "nome": "3 POTES + 2 GRÁTIS",
       "descricao": "5 potes · 5 meses de tratamento",
-      "preco": 129.00,
-      "preco_original": 323.00,
-      "desconto_rotulo": "-60%",
+      "preco": 129.0,
+      "preco_original": 390.0,
+      "desconto_rotulo": "-67%",
       "portes": "GRÁTIS",
-      "preco_por_pote": 25.80,
+      "preco_por_pote": 25.8,
       "img": "hero-produto.png",
       "destaque": false,
       "badge": "MELHOR VALOR",
-      "bonus": ["Portes grátis", "Ebook digital: Plano alimentar cetogénico 30 dias"]
+      "bonus": [
+        "Portes grátis",
+        "Ebook digital: Plano alimentar cetogénico 30 dias"
+      ]
     }
   ],
-
   "order_bumps": [],
-
   "ingredientes_principais": [
-    {"nome": "BHB (Beta-hidroxibutirato)", "forma": "Sais de cálcio, sódio e magnésio", "funcao": "Ativo cetogénico exógeno. Apoia o processo de cetose."},
-    {"nome": "MCT em pó", "funcao": "Fornece energia rápida aos músculos e cérebro."},
-    {"nome": "Garcinia Cambogia (extrato)", "funcao": "Planta tradicionalmente associada à sensação de saciedade."},
-    {"nome": "Chá Verde (extrato)", "funcao": "Contribui para o metabolismo dos lípidos e de hidratos de carbono."},
-    {"nome": "L-Carnitina", "funcao": "Apoia o transporte de ácidos gordos para a produção de energia."},
-    {"nome": "Cromo", "claim_efsa": "Contribui para a manutenção de níveis normais de glicose no sangue", "funcao": "Claim EFSA permitido."},
-    {"nome": "Vitamina B6", "claim_efsa": "Contribui para a redução do cansaço e fadiga", "funcao": "Claim EFSA permitido."},
-    {"nome": "Vitamina B12", "claim_efsa": "Contribui para o metabolismo energético normal", "funcao": "Claim EFSA permitido."},
-    {"nome": "Estévia", "funcao": "Adoçante natural. Zero açúcar."}
+    {
+      "nome": "BHB (Beta-hidroxibutirato)",
+      "forma": "Sais de cálcio, sódio e magnésio",
+      "funcao": "Ativo cetogénico exógeno. Apoia o processo de cetose."
+    },
+    {
+      "nome": "MCT em pó",
+      "funcao": "Fornece energia rápida aos músculos e cérebro."
+    },
+    {
+      "nome": "Garcinia Cambogia (extrato)",
+      "funcao": "Planta tradicionalmente associada à sensação de saciedade."
+    },
+    {
+      "nome": "Chá Verde (extrato)",
+      "funcao": "Contribui para o metabolismo dos lípidos e de hidratos de carbono."
+    },
+    {
+      "nome": "L-Carnitina",
+      "funcao": "Apoia o transporte de ácidos gordos para a produção de energia."
+    },
+    {
+      "nome": "Cromo",
+      "claim_efsa": "Contribui para a manutenção de níveis normais de glicose no sangue",
+      "funcao": "Claim EFSA permitido."
+    },
+    {
+      "nome": "Vitamina B6",
+      "claim_efsa": "Contribui para a redução do cansaço e fadiga",
+      "funcao": "Claim EFSA permitido."
+    },
+    {
+      "nome": "Vitamina B12",
+      "claim_efsa": "Contribui para o metabolismo energético normal",
+      "funcao": "Claim EFSA permitido."
+    },
+    {
+      "nome": "Estévia",
+      "funcao": "Adoçante natural. Zero açúcar."
+    }
   ],
-
   "avaliacao": {
     "nota_media": "4.8",
     "total_avaliacoes": "2.347"
   },
-
   "garantia": {
     "dias": 30,
     "texto_curto": "Garantia de satisfação de 30 dias",
     "descricao": "Se não ficar satisfeita com o Nano Slim nos primeiros 30 dias de uso, devolvemos 100% do valor pago. Sem perguntas, sem ginástica."
   },
-
   "entrega": {
     "prazo_continente": "24-48h em Portugal continental",
     "prazo_ilhas": "3-5 dias úteis (Madeira e Açores)",
     "operador": "CTT",
     "pagamento_entrega_disponivel": true
   },
-
-  "metodos_pagamento": ["MB Way", "Multibanco", "Cartão Visa/Mastercard", "Pagamento na Entrega (COD)"],
-
+  "metodos_pagamento": [
+    "MB Way",
+    "Multibanco",
+    "Cartão Visa/Mastercard",
+    "Pagamento na Entrega (COD)"
+  ],
   "destino": "C:/Users/Eliezer/Desktop/nano-slim/"
 }
