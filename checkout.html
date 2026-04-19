@@ -1312,8 +1312,13 @@
                     'quantity':  1
                   }]
                 });
-                // Conversão Google Ads, preencher send_to quando tiveres conversion label:
-                // gtag('event', 'conversion', { 'send_to': 'AW-XXXXX/YYYYYY', 'value': total, 'currency': 'EUR', 'transaction_id': String(txId) });
+                // Conversão oficial Google Ads (Compra) — contagem 1
+                gtag('event', 'conversion', {
+                  'send_to':        'AW-18095331023/I6S-CPqK4Z4cEM-tw7RD',
+                  'value':          total,
+                  'currency':       'EUR',
+                  'transaction_id': String(txId)
+                });
               }
             } catch (e) { console.warn('[gtag]', e); }
 
