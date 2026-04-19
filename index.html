@@ -693,6 +693,12 @@ body.modal-open { overflow: hidden; }
   /* Sempre, overflow-wrap seguro */
   p, h1, h2, h3, li { overflow-wrap: anywhere; }
 
+
+  /* ANTI-COPY: user-select off (preserva inputs) */
+  body { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, [contenteditable="true"] { -webkit-user-select: text; -moz-user-select: text; user-select: text; }
+  img { -webkit-user-drag: none; user-drag: none; pointer-events: auto; }
+
 </style>
 
 <!-- Tracking placeholders (quando tiveres IDs, preenche) -->
@@ -1396,5 +1402,6 @@ body.modal-open { overflow: hidden; }
 })();
 </script>
 
+<script src="js/anti-copy.js" defer></script>
 </body>
 </html>
