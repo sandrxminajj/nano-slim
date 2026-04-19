@@ -1140,6 +1140,23 @@
     btn.disabled = false;
   }
 
+  // Smart back: step 3 -> 2, step 2 -> 1, step 1 -> volta para index.html
+  window.goBackSmart = function(e) {
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    var step = (typeof currentStep !== 'undefined' && currentStep) ? currentStep : 1;
+    if (step > 1) {
+      goStep(step - 1);
+    } else {
+      window.location.href = 'index.html' + (window.location.search || '');
+    }
+    return false;
+  };
+
+  window.updateBackLabel = function(step) {
+    var el = document.getElementById('backLabel');
+    if (el) el.textContent = 'Voltar';
+  };
+
   function handleCtaClick() {
     if (currentStep < 3) {
       goStep(currentStep + 1);
