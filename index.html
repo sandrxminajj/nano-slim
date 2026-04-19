@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Nano Slim · Cetose rápida em pó · Entrega CTT 24h em Portugal</title>
-<meta name="description" content="Nano Slim — suplemento em pó com sais BHB, vitaminas B6/B12 e crómio. Apoia a cetose, reduz a fadiga. Paga MB Way e recebe hoje. Garantia 30 dias.">
+<meta name="description" content="Nano Slim, suplemento em pó com sais BHB, vitaminas B6/B12 e crómio. Apoia a cetose, reduz a fadiga. Paga MB Way e recebe hoje. Garantia 30 dias.">
 <meta name="theme-color" content="#2BB3E8">
 <meta name="robots" content="index, follow">
 <meta name="format-detection" content="telephone=no">
@@ -163,7 +163,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   display: grid; place-items: center; font-weight: 900; font-size: .8rem;
 }
 
-/* COMO FUNCIONA — 3 passos */
+/* COMO FUNCIONA, 3 passos */
 .how { background: var(--bg-alt); }
 .how h2 { text-align: center; margin-bottom: 10px; }
 .how-sub { text-align: center; font-size: 1.05rem; margin-bottom: 44px; color: var(--mute); max-width: 640px; margin-inline: auto; }
@@ -324,15 +324,84 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .guar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 @media (max-width: 820px) { .guar-grid { grid-template-columns: 1fr; text-align: center; } }
 .guar-card {
-  background: linear-gradient(135deg, var(--cta) 0%, var(--cta-dk) 100%);
-  color: #fff; padding: 44px 34px; border-radius: var(--r-lg);
-  box-shadow: 0 22px 44px -10px rgba(34,197,94,.35);
+  position: relative;
+  background:
+    radial-gradient(circle at 20% 0%, #FEF3C7 0%, transparent 50%),
+    radial-gradient(circle at 80% 100%, #FCD34D 0%, transparent 50%),
+    linear-gradient(135deg, #FDE68A 0%, #F59E0B 50%, #B45309 100%);
+  color: #451A03;
+  padding: 48px 36px 40px;
+  border-radius: var(--r-lg);
+  box-shadow:
+    0 30px 60px -20px rgba(180, 83, 9, .45),
+    inset 0 1px 0 rgba(255,255,255,.55),
+    inset 0 -1px 0 rgba(69, 26, 3, .2);
+  overflow: hidden;
+  text-align: center;
 }
-.guar-card h2 { color: #fff; margin-bottom: 16px; }
-.guar-card p { color: rgba(255,255,255,.94); font-size: 1.02rem; line-height: 1.7; }
-.guar-card .seal {
-  width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.2);
-  display: grid; place-items: center; margin-bottom: 16px; font-size: 2.2rem;
+.guar-card::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.3), transparent 70%);
+  pointer-events: none;
+}
+.guar-card::after {
+  content: ''; position: absolute; inset: 6px;
+  border: 1.5px solid rgba(255,255,255,.45);
+  border-radius: calc(var(--r-lg) - 6px);
+  pointer-events: none;
+}
+.guar-badge {
+  position: relative; z-index: 2;
+  width: 128px; height: 128px;
+  margin: 0 auto 20px;
+  display: grid; place-items: center;
+  background: radial-gradient(circle at 30% 30%, #FEF3C7 0%, #F59E0B 60%, #78350F 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 4px #78350F,
+    0 0 0 6px #FCD34D,
+    0 0 0 8px #78350F,
+    0 20px 40px -10px rgba(69, 26, 3, .5),
+    inset 0 2px 4px rgba(255,255,255,.4),
+    inset 0 -4px 10px rgba(69, 26, 3, .35);
+}
+.guar-badge-inner {
+  width: 88px; height: 88px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #451A03 0%, #78350F 100%);
+  display: grid; place-items: center;
+  color: #FCD34D;
+  line-height: 1;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,.4);
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+.guar-badge-num { font-size: 2.3rem; font-weight: 900; letter-spacing: -2px; color: #FEF3C7; }
+.guar-badge-lbl { font-size: .58rem; font-weight: 900; letter-spacing: 2.5px; color: #FCD34D; margin-top: 1px; }
+.guar-card h2 { position: relative; z-index: 2; color: #451A03; margin-bottom: 10px; font-size: clamp(1.8rem, 2.2vw + 1rem, 2.4rem); text-shadow: 0 1px 2px rgba(255,255,255,.4); }
+.guar-card .guar-sub { position: relative; z-index: 2; color: #78350F; font-weight: 700; font-size: clamp(1rem, .3vw + .95rem, 1.15rem); margin-bottom: 16px; }
+.guar-card p { position: relative; z-index: 2; color: #451A03; font-size: .98rem; line-height: 1.65; max-width: 420px; margin: 0 auto 22px; font-weight: 500; }
+.guar-chips {
+  position: relative; z-index: 2;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin-top: 8px;
+}
+.guar-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px;
+  background: rgba(69, 26, 3, .85);
+  color: #FDE68A;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.15), 0 3px 8px -2px rgba(69, 26, 3, .4);
+}
+.guar-chip svg { width: 13px; height: 13px; flex-shrink: 0; color: #FCD34D; }
+.guar-footnote {
+  position: relative; z-index: 2;
+  margin-top: 22px; padding-top: 16px;
+  border-top: 1px dashed rgba(69, 26, 3, .3);
+  font-size: .78rem; color: #78350F; font-style: italic; font-weight: 600;
 }
 .envio-cards { display: grid; gap: 12px; }
 .envio-card {
@@ -443,7 +512,7 @@ body.modal-open { overflow: hidden; }
 
 
   /* ============================================================
-     PATCH MOBILE — overflow fix + word-wrap consistente
+     PATCH MOBILE, overflow fix + word-wrap consistente
   ============================================================ */
   @media (max-width: 767px) {
     .container { padding-left: 16px !important; padding-right: 16px !important; width: 100%; max-width: 100%; }
@@ -496,7 +565,7 @@ body.modal-open { overflow: hidden; }
     .ingr-card h3, .ingr-card p, .ingr-card .efsa { text-align: center; }
     .ingr-card .efsa { display: inline-block; margin-inline: auto; }
 
-    /* Problem cards ja centralizados — garantir */
+    /* Problem cards ja centralizados, garantir */
     .problem-card { text-align: center; }
 
     /* Card garantia centralizado em mobile (selo + titulo + texto) */
@@ -508,7 +577,7 @@ body.modal-open { overflow: hidden; }
     .envio-card { text-align: left; }
   }
 
-  /* Sempre — overflow-wrap seguro */
+  /* Sempre, overflow-wrap seguro */
   p, h1, h2, h3, li { overflow-wrap: anywhere; }
 
 </style>
@@ -537,7 +606,7 @@ body.modal-open { overflow: hidden; }
 <!-- HEADER -->
 <header class="header">
   <div class="header-inner">
-    <a href="#" class="brand" aria-label="Nano Slim — início">
+    <a href="#" class="brand" aria-label="Nano Slim, início">
       <img src="images/hero-produto.png" alt="" width="36" height="36">
       <span>Nano Slim</span>
     </a>
@@ -561,7 +630,7 @@ body.modal-open { overflow: hidden; }
           Cetose rápida <span class="hl">em pó</span>,<br>sem passar fome.
         </h1>
         <p class="hero-sub">
-          Nano Slim com sais BHB, crómio e vitaminas B6/B12 — apoia o processo
+          Nano Slim com sais BHB, crómio e vitaminas B6/B12, apoia o processo
           de cetose e contribui para a <strong>redução do cansaço</strong>. Zero açúcar.
           Sabor agradável. Paga por MB Way e recebe <strong>hoje mesmo</strong>.
         </p>
@@ -637,7 +706,7 @@ body.modal-open { overflow: hidden; }
         <p>
           Nano Slim é um <strong>suplemento alimentar em pó</strong> com sais BHB
           (beta-hidroxibutirato), um corpo cetónico naturalmente produzido pelo
-          organismo. Ajuda a apoiar o processo de cetose — o estado em que o teu corpo
+          organismo. Ajuda a apoiar o processo de cetose, o estado em que o teu corpo
           usa <strong>a gordura como combustível</strong> em vez dos hidratos.
         </p>
         <p>
@@ -665,7 +734,7 @@ body.modal-open { overflow: hidden; }
         <div class="how-step-num">1</div>
         <img src="images/passo-1.jpg" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Mede 1 colher</h3>
-        <p>Uma colher medida (6 g) de pó Nano Slim — está dentro do pote.</p>
+        <p>Uma colher medida (6 g) de pó Nano Slim, está dentro do pote.</p>
       </div>
       <div class="how-step">
         <div class="how-step-num">2</div>
@@ -687,17 +756,17 @@ body.modal-open { overflow: hidden; }
 <section id="ingredientes" class="ingrs reveal">
   <div class="container">
     <h2>Ingredientes com respaldo científico</h2>
-    <p class="ingrs-lead">Sem blá-blá-blá. Cada componente tem o seu papel e, onde aplicável, usa claims aprovados pela EFSA.</p>
+    <p class="ingrs-lead">Cada ingrediente foi escolhido com base na função que desempenha. Os claims funcionais (Crómio, B6, B12) são os autorizados pela EFSA.</p>
     <div class="ingrs-grid">
       <div class="ingr-card">
         <div class="ingr-icon"><img src="images/ingr-bhb.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Sais BHB</h3>
-        <p>Beta-hidroxibutirato (cálcio, sódio, magnésio) — corpo cetónico naturalmente produzido pelo organismo.</p>
+        <p>Beta-hidroxibutirato (cálcio, sódio, magnésio), corpo cetónico naturalmente produzido pelo organismo.</p>
       </div>
       <div class="ingr-card">
         <div class="ingr-icon"><img src="images/ingr-mct.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>MCT em pó</h3>
-        <p>Triglicéridos de cadeia média — tradicionalmente utilizados em dietas cetogénicas.</p>
+        <p>Triglicéridos de cadeia média, tradicionalmente utilizados em dietas cetogénicas.</p>
       </div>
       <div class="ingr-card">
         <div class="ingr-icon"><img src="images/ingr-cha-verde.jpg" alt="" loading="lazy" width="72" height="72"></div>
@@ -754,7 +823,7 @@ body.modal-open { overflow: hidden; }
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Na minha idade, parecia impossível. Juntei o Nano Slim a uma alimentação mais limpa. 9 kg em 4 meses — e a pele não ficou flácida. Estou a recomendar às amigas todas."</blockquote>
+        <blockquote>"Na minha idade, parecia impossível. Juntei o Nano Slim a uma alimentação mais limpa. 9 kg em 4 meses, e a pele não ficou flácida. Estou a recomendar às amigas todas."</blockquote>
         <div class="testi-result">−9 kg em 4 meses</div>
       </div>
 
@@ -833,8 +902,6 @@ body.modal-open { overflow: hidden; }
       <strong>Métodos aceites:</strong>
       <span class="pay-badge mbway"><span style="color:#1c50a0;">MB</span><span style="color:#e30613;">WAY</span></span>
       <span class="pay-badge mb"><span style="color:#e30613;">MB</span> Multibanco</span>
-      <span class="pay-badge cod">✓ Envio CTT · 24-48h</span>
-      <span>🛡️ Garantia 30 dias</span>
     </div>
   </div>
 </section>
@@ -921,7 +988,7 @@ body.modal-open { overflow: hidden; }
       <details class="faq-item">
         <summary class="faq-q">Em quanto tempo vou ver resultados?</summary>
         <div class="faq-a">
-          Os primeiros sinais (menos fome, mais disposição) aparecem na 1ª semana. A perda de peso visível varia — combinado com uma alimentação cetogénica simples e 30 min de caminhada diária, a maioria dos nossos clientes nota diferença nas 3-4 primeiras semanas. Resultados são individuais.
+          Os primeiros sinais (menos fome, mais disposição) aparecem na 1ª semana. A perda de peso visível varia, combinado com uma alimentação cetogénica simples e 30 min de caminhada diária, a maioria dos nossos clientes nota diferença nas 3-4 primeiras semanas. Resultados são individuais.
         </div>
       </details>
       <details class="faq-item">
@@ -933,7 +1000,7 @@ body.modal-open { overflow: hidden; }
       <details class="faq-item">
         <summary class="faq-q">É vegan e sem glúten?</summary>
         <div class="faq-a">
-          Sim. Fórmula 100% vegan, sem glúten, sem lactose, sem OGM. Zero açúcar — adoçado com estévia natural.
+          Sim. Fórmula 100% vegan, sem glúten, sem lactose, sem OGM. Zero açúcar, adoçado com estévia natural.
         </div>
       </details>
       </div>
@@ -1012,7 +1079,7 @@ body.modal-open { overflow: hidden; }
 <div id="cookie-banner" class="cookies" role="dialog" aria-label="Política de cookies" hidden>
   <p>
     Usamos cookies para melhorar a experiência, analisar tráfego e personalizar publicidade.
-    Ao continuar, aceita —
+    Ao continuar, aceita -
     <a href="#" onclick="openLegal('cookies');return false;">saber mais</a>.
   </p>
   <button type="button" onclick="acceptCookies()">Aceitar</button>
@@ -1029,7 +1096,7 @@ body.modal-open { overflow: hidden; }
 </div>
 
 <!-- ============================================================
-  JAVASCRIPT — vanilla, zero dependencies
+  JAVASCRIPT, vanilla, zero dependencies
 ============================================================ -->
 <script>
 (function(){
@@ -1092,7 +1159,7 @@ body.modal-open { overflow: hidden; }
 // ============================================================
 (function(){
   var NOME = 'Nano Slim';
-  var RAZAO = 'Nano Slim Portugal (razão social a preencher — Lda.)';
+  var RAZAO = 'Nano Slim Portugal (razão social a preencher, Lda.)';
   var NIPC  = '(a preencher)';
   var EMAIL = 'contacto@nano-slim.pt';
   var EMAIL_PRIV = 'privacidade@nano-slim.pt';
@@ -1105,7 +1172,7 @@ body.modal-open { overflow: hidden; }
       '<h3>2. Produto</h3><p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
       '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way ou Multibanco). Preços com IVA à taxa legal em vigor.</p>' +
       '<h3>4. Entrega</h3><p>CTT · 24-48h no continente · 3-5 dias úteis em Madeira/Açores. Portes gratuitos nos kits 2+1 e 3+2. Encomendas MB Way confirmadas até 16h são expedidas no próprio dia.</p>' +
-      '<h3>5. Direito de livre resolução</h3><p>Nos termos do DL 24/2014, tem direito a resolver o contrato em 14 dias. Adicionalmente oferecemos garantia de satisfação 30 dias — ver Reembolsos.</p>' +
+      '<h3>5. Direito de livre resolução</h3><p>Nos termos do DL 24/2014, tem direito a resolver o contrato em 14 dias. Adicionalmente oferecemos garantia de satisfação 30 dias, ver Reembolsos.</p>' +
       '<h3>6. Lei aplicável</h3><p>Regem-se pela lei portuguesa. Em caso de litígio, pode recorrer a entidades de resolução alternativa de conflitos registadas na DGC.</p>'
     },
     privacidade: { title:'Política de Privacidade', body:
@@ -1115,7 +1182,7 @@ body.modal-open { overflow: hidden; }
       '<h3>Dados recolhidos</h3>' +
       '<ul><li>Nome, morada, código postal, telemóvel, e-mail (necessários para encomenda e envio)</li>' +
       '<li>Dados de pagamento processados em ambiente seguro; não armazenamos dados de cartão</li>' +
-      '<li>Dados de navegação (cookies, IP) — ver Política de Cookies</li></ul>' +
+      '<li>Dados de navegação (cookies, IP), ver Política de Cookies</li></ul>' +
       '<h3>Finalidades</h3>' +
       '<ul><li>Processamento de encomendas e cumprimento contratual</li>' +
       '<li>Obrigações legais e fiscais</li><li>Apoio ao cliente e reembolsos</li>' +
@@ -1125,9 +1192,9 @@ body.modal-open { overflow: hidden; }
     cookies: { title:'Política de Cookies', body:
       '<p>Usamos cookies próprios e de terceiros para melhorar a experiência, analisar tráfego e personalizar publicidade.</p>' +
       '<h3>Tipos</h3><ul>' +
-      '<li><strong>Essenciais</strong> — sessão, carrinho (obrigatórios)</li>' +
-      '<li><strong>Analíticos</strong> — Google Analytics, Microsoft Clarity (anónimos)</li>' +
-      '<li><strong>Marketing</strong> — Meta Pixel, Google Ads, TikTok Pixel</li></ul>' +
+      '<li><strong>Essenciais</strong>, sessão, carrinho (obrigatórios)</li>' +
+      '<li><strong>Analíticos</strong>, Google Analytics, Microsoft Clarity (anónimos)</li>' +
+      '<li><strong>Marketing</strong>, Meta Pixel, Google Ads, TikTok Pixel</li></ul>' +
       '<p>Pode gerir cookies nas definições do navegador.</p>'
     },
     reembolso: { title:'Reembolsos e Devoluções', body:
@@ -1139,8 +1206,8 @@ body.modal-open { overflow: hidden; }
       '<li>Reembolso efectuado em até 14 dias após recepção</li></ol>'
     },
     envios: { title:'Política de Envios', body:
-      '<p>Envios por <strong>CTT – Correios de Portugal</strong>.</p>' +
-      '<h3>MB Way — envio imediato</h3><p>Encomendas com MB Way confirmadas até 16h de dia útil são expedidas no próprio dia.</p>' +
+      '<p>Envios por <strong>CTT - Correios de Portugal</strong>.</p>' +
+      '<h3>MB Way, envio imediato</h3><p>Encomendas com MB Way confirmadas até 16h de dia útil são expedidas no próprio dia.</p>' +
       '<h3>Prazos</h3>' +
       '<ul><li><strong>Continente:</strong> 24 a 48h úteis</li>' +
       '<li><strong>Madeira e Açores:</strong> 3 a 5 dias úteis</li></ul>' +
