@@ -11,7 +11,7 @@
   })(window, document, "clarity", "script", "");
 </script> -->
 
-<!-- Google tag (gtag.js) — preencher GOOGLE_ADS_ID quando tiveres conta -->
+<!-- Google tag (gtag.js), preencher GOOGLE_ADS_ID quando tiveres conta -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -20,7 +20,7 @@
   gtag('config', '');
 </script> -->
 
-<!-- Utmify — preserva UTMs -->
+<!-- Utmify, preserva UTMs -->
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -39,7 +39,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#2BB3E8">
   <meta name="format-detection" content="telephone=no">
-  <title>Finalizar Encomenda — Nano Slim</title>
+  <title>Finalizar Encomenda, Nano Slim</title>
   <link rel="icon" type="image/png" href="images/produto-thumb.png">
   <link rel="apple-touch-icon" href="images/produto-thumb.png">
   <link rel="stylesheet" href="css/mobile.css">
@@ -659,7 +659,7 @@
 
 <!-- FREE SHIPPING BANNER -->
 <div style="background:linear-gradient(90deg,#16a34a,#15803d);color:#fff;text-align:center;padding:8px 12px;font-size:.82rem;font-weight:700;letter-spacing:.2px;">
-  Envio CTT · 24-48h em Portugal continental · Pagamento na entrega disponível
+  Envio CTT · 24-48h em Portugal continental · MB Way envio imediato
 </div>
 
 <!-- PROGRESS STEPPER -->
@@ -712,7 +712,7 @@
           </div>
 
           <div class="ck-field">
-            <label>NIF <em>(opcional — necessário para fatura com contribuinte)</em></label>
+            <label>NIF <em>(opcional, necessário para fatura com contribuinte)</em></label>
             <input class="ck-input" type="text" id="ck-doc" placeholder="000000000" maxlength="9" inputmode="numeric">
             <div style="font-size:.72rem;color:#6b7280;margin-top:4px;line-height:1.4;">
               Se quiser fatura com NIF, introduza-o agora. Após a finalização não é possível alterar.
@@ -761,7 +761,7 @@
               <input class="ck-input" type="text" id="ck-number" placeholder="12" autocomplete="address-line2">
             </div>
             <div class="ck-field">
-              <label>Andar / Fracção <em>(opcional)</em></label>
+              <label>Andar / Fração <em>(opcional)</em></label>
               <input class="ck-input" type="text" id="ck-complement" placeholder="Ex: 2º Dto, Lote 3, Bloco B">
             </div>
           </div>
@@ -771,9 +771,7 @@
             <input class="ck-input" type="text" id="ck-city" placeholder="Lisboa" autocomplete="address-level2">
           </div>
 
-          <div class="ck-nav-row">
-            <button class="ck-btn-back-sm" onclick="goStep(1)">← Voltar</button>
-          </div>
+
         </div>
       </div>
     </div>
@@ -793,19 +791,19 @@
             <div class="ck-order-summary-title">Resumo da encomenda</div>
             <div class="ck-order-summary-row">
               <div class="ck-order-summary-label">Produto</div>
-              <div class="ck-order-summary-value" id="sumProduct">—</div>
+              <div class="ck-order-summary-value" id="sumProduct">-</div>
             </div>
             <div class="ck-order-summary-row">
               <div class="ck-order-summary-label">Cliente</div>
-              <div class="ck-order-summary-value" id="sumCustomer">—</div>
+              <div class="ck-order-summary-value" id="sumCustomer">-</div>
             </div>
             <div class="ck-order-summary-row">
               <div class="ck-order-summary-label">Entrega</div>
-              <div class="ck-order-summary-value" id="sumAddress">—</div>
+              <div class="ck-order-summary-value" id="sumAddress">-</div>
             </div>
             <div class="ck-order-summary-row">
               <div class="ck-order-summary-label">Contacto</div>
-              <div class="ck-order-summary-value" id="sumContact">—</div>
+              <div class="ck-order-summary-value" id="sumContact">-</div>
             </div>
             <div class="ck-order-summary-row ck-order-summary-total">
               <div class="ck-order-summary-label">Total</div>
@@ -843,7 +841,7 @@
             </div>
           </div>
 
-          <!-- Checkbox T&C — obrigatório RGPD -->
+          <!-- Checkbox T&C, obrigatório RGPD -->
           <div class="ck-terms-wrap">
             <label class="ck-terms-label">
               <input type="checkbox" id="ck-terms" class="ck-terms-checkbox">
@@ -854,10 +852,6 @@
                 <a href="#" onclick="openCkLegal('privacidade');return false;">Política de Privacidade</a>.
               </span>
             </label>
-          </div>
-
-          <div style="text-align:center;margin-top:4px;">
-            <button class="ck-btn-back-sm" onclick="goStep(2)">← Voltar</button>
           </div>
 
           <div class="ck-trust">
@@ -908,7 +902,7 @@
 <div class="ck-bottom-bar">
   <div class="ck-bottom-bar-inner">
     <div class="ck-bottom-summary">
-      <div class="ck-bottom-product" id="bottomProductName">—</div>
+      <div class="ck-bottom-product" id="bottomProductName">-</div>
       <div class="ck-bottom-total"><span>Total: </span><span id="bottomTotal">0,00 €</span></div>
     </div>
     <button class="ck-btn-cta" id="btnCta" onclick="handleCtaClick()">Continuar →</button>
@@ -955,7 +949,7 @@
     term:     urlParams.get('utm_term')     || ''
   };
 
-  // Google Ads — begin_checkout (só dispara se gtag existir, i.e., GOOGLE_ADS_ID preenchido)
+  // Google Ads, begin_checkout (só dispara se gtag existir, i.e., GOOGLE_ADS_ID preenchido)
   if (typeof gtag !== 'undefined' && productData) {
     gtag('event', 'begin_checkout', {
       currency: 'EUR',
@@ -972,7 +966,7 @@
   // Populate bottom bar product name
   document.getElementById('bottomProductName').textContent = productData?.name || 'Nano Slim';
 
-  // Ler carrinho completo (se vier com múltiplos produtos) — compatibilidade futura
+  // Ler carrinho completo (se vier com múltiplos produtos), compatibilidade futura
   const cartItems = JSON.parse(sessionStorage.getItem('ck_cart') || '[]');
   if (cartItems.length > 1) {
     const summary = document.createElement('div');
@@ -990,7 +984,7 @@
     if (main) main.insertBefore(summary, main.firstChild);
   }
 
-  // ── Bumps — vazio (sem order bumps para Nano Slim) ─────────
+  // ── Bumps, vazio (sem order bumps para Nano Slim) ─────────
   const bumps = {};
 
   function toggleBump(key) {
@@ -1113,7 +1107,7 @@
     const bumpTotal = bumpsSel.reduce((s,b) => s + b.price, 0);
     const total = (productData?.price || 0) + bumpTotal;
 
-    const prodName = productData?.name || '—';
+    const prodName = productData?.name || '-';
     const prodDesc = productData?.descricao ? ' · ' + productData.descricao : '';
     const bumpList = bumpsSel.length ? ' + ' + bumpsSel.map(b => b.name).join(', ') : '';
 
@@ -1244,7 +1238,7 @@
 
     clearErr('ckError3','ckErrorMsg3');
 
-    // Google Ads — add_payment_info
+    // Google Ads, add_payment_info
     if (typeof gtag !== 'undefined') {
       gtag('event', 'add_payment_info', {
         currency: 'EUR',
@@ -1331,7 +1325,7 @@
             document.getElementById('paymentStatusBox').innerHTML =
               '<p style="color:#166534;">Pagamento confirmado! Obrigado pela tua encomenda.</p>';
 
-            // Google Ads — Enhanced Conversions + purchase event
+            // Google Ads, Enhanced Conversions + purchase event
             try {
               if (typeof gtag !== 'undefined') {
                 gtag('set', 'user_data', {
@@ -1357,7 +1351,7 @@
                     'quantity':  1
                   }]
                 });
-                // Conversão Google Ads — preencher send_to quando tiveres conversion label:
+                // Conversão Google Ads, preencher send_to quando tiveres conversion label:
                 // gtag('event', 'conversion', { 'send_to': 'AW-XXXXX/YYYYYY', 'value': total, 'currency': 'EUR', 'transaction_id': String(txId) });
               }
             } catch (e) { console.warn('[gtag]', e); }
