@@ -30,7 +30,7 @@ git push -u origin main
 - Seleciona o repo `nano-slim` que acabaste de criar
 - Deixa tudo no default — Vercel detecta automáticamente as funções serverless em `/api/`
 - Clica **Deploy**
-- Ao fim de ~40 segundos vai gerar URL tipo `https://nano-slim.vercel.app`
+- Ao fim de ~40 segundos vai gerar URL tipo `https://nano-slim-alpha.vercel.app`
 
 ### 4. Adicionar as 3 env vars do WayMB
 No Vercel dashboard do projeto → **Settings** → **Environment Variables**, adiciona:
@@ -55,7 +55,7 @@ Depois de adicionar as 3, vai em **Deployments** → botão **Redeploy** no últ
 - (Opcional) Depois de termines domínio custom, adiciona env var `CALLBACK_URL=https://teudominio.pt/api/webhook` no Vercel e faz Redeploy, para o callback do WayMB ir para o domínio próprio em vez de `.vercel.app`
 
 ### 6. Testar
-- Abre a URL (`nano-slim.vercel.app` ou domínio custom)
+- Abre a URL (`nano-slim-alpha.vercel.app` ou domínio custom)
 - Escolhe um kit → preenche dados → testa MB WAY com pequeno valor
 - Verifica logs em Vercel → Deployments → último → **Logs**
 
@@ -97,7 +97,7 @@ Este deploy já vem com:
 
 **"Webhook não chega"** → verifica que `/api/webhook` responde 200. Testa com:
 ```bash
-curl -X POST https://nano-slim.vercel.app/api/webhook -H "Content-Type: application/json" -d "{}"
+curl -X POST https://nano-slim-alpha.vercel.app/api/webhook -H "Content-Type: application/json" -d "{}"
 ```
 
 **"Pagamento dá erro 502"** → confirma que as 3 env vars WayMB estão preenchidas no Vercel dashboard. Depois **Redeploy**.

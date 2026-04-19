@@ -36,7 +36,7 @@ git push
 echo.
 echo ========================================
 echo   CONCLUIDO! Vercel vai atualizar em ~30s
-echo   Ve em: https://nano-slim.vercel.app
+echo   Ve em: https://nano-slim-alpha.vercel.app
 echo ========================================
 echo.
 
