@@ -526,9 +526,9 @@ body.modal-open { overflow: hidden; }
   <div class="topbar-inner">
     <span>✓ <b>MB Way → envio HOJE</b></span>
     <span class="topbar-sep">·</span>
-    <span>✓ Pagamento na entrega</span>
-    <span class="topbar-sep">·</span>
     <span>✓ CTT 24-48h continente</span>
+    <span class="topbar-sep">·</span>
+    <span>✓ Madeira & Açores 3-5 dias</span>
     <span class="topbar-sep">·</span>
     <span>✓ Garantia 30 dias</span>
   </div>
@@ -833,8 +833,8 @@ body.modal-open { overflow: hidden; }
       <strong>Métodos aceites:</strong>
       <span class="pay-badge mbway"><span style="color:#1c50a0;">MB</span><span style="color:#e30613;">WAY</span></span>
       <span class="pay-badge mb"><span style="color:#e30613;">MB</span> Multibanco</span>
-      <span class="pay-badge cod">✓ Pagamento na entrega</span>
-      <span>📦 Envio CTT · 24-48h</span>
+      <span class="pay-badge cod">✓ Envio CTT · 24-48h</span>
+      <span>🛡️ Garantia 30 dias</span>
     </div>
   </div>
 </section>
@@ -888,11 +888,11 @@ body.modal-open { overflow: hidden; }
           </div>
           <div class="envio-card">
             <div class="envio-card-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
             </div>
             <div>
-              <h3>Paga na entrega</h3>
-              <p>Vê antes de pagar. Paga ao estafeta em numerário.</p>
+              <h3>Rastreio por SMS</h3>
+              <p>Código CTT enviado no momento da expedição</p>
             </div>
           </div>
         </div>
@@ -936,13 +936,7 @@ body.modal-open { overflow: hidden; }
           Sim. Fórmula 100% vegan, sem glúten, sem lactose, sem OGM. Zero açúcar — adoçado com estévia natural.
         </div>
       </details>
-      <details class="faq-item">
-        <summary class="faq-q">Posso mesmo pagar na entrega?</summary>
-        <div class="faq-a">
-          Sim. Disponibilizamos pagamento na entrega (COD) em numerário, em Portugal continental. Ao finalizar a encomenda, escolhes esse método e pagas ao estafeta no momento da entrega.
-        </div>
-      </details>
-    </div>
+      </div>
   </div>
 </section>
 
@@ -1109,7 +1103,7 @@ body.modal-open { overflow: hidden; }
       '<p>Ao utilizar este website ou efectuar uma encomenda, declara aceitar integralmente estes termos.</p>' +
       '<h3>1. Responsável</h3><p><strong>' + RAZAO + '</strong><br>NIPC: ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
       '<h3>2. Produto</h3><p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
-      '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way, Multibanco) ou em regime de pagamento na entrega (COD). Preços com IVA à taxa legal em vigor.</p>' +
+      '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way ou Multibanco). Preços com IVA à taxa legal em vigor.</p>' +
       '<h3>4. Entrega</h3><p>CTT · 24-48h no continente · 3-5 dias úteis em Madeira/Açores. Portes gratuitos nos kits 2+1 e 3+2. Encomendas MB Way confirmadas até 16h são expedidas no próprio dia.</p>' +
       '<h3>5. Direito de livre resolução</h3><p>Nos termos do DL 24/2014, tem direito a resolver o contrato em 14 dias. Adicionalmente oferecemos garantia de satisfação 30 dias — ver Reembolsos.</p>' +
       '<h3>6. Lei aplicável</h3><p>Regem-se pela lei portuguesa. Em caso de litígio, pode recorrer a entidades de resolução alternativa de conflitos registadas na DGC.</p>'
@@ -1155,7 +1149,7 @@ body.modal-open { overflow: hidden; }
       '<li>Kit 2+1 grátis: <strong>portes grátis</strong></li>' +
       '<li>Kit 3+2 grátis: <strong>portes grátis</strong></li></ul>' +
       '<h3>Rastreamento</h3><p>Código CTT enviado por e-mail e SMS.</p>' +
-      '<h3>Pagamento na entrega</h3><p>Disponível em Portugal continental. Pago ao estafeta.</p>'
+      ''
     },
     contacto: { title:'Contacto', body:
       '<p>Apoio 24/7 por e-mail:</p>' +
