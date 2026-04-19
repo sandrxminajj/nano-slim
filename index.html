@@ -134,19 +134,33 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 @media (max-width: 560px) { .hero-badge-float, .hero-badge-float-2 { display: none; } }
 
-/* Hero lifestyle banner logo abaixo do H1 */
-.hero-lifestyle-img {
-  width: 100%;
-  max-width: 560px;
-  height: auto;
-  margin-top: 24px;
-  border-radius: var(--r-md);
-  box-shadow: 0 20px 40px -10px rgba(15,23,42,.18);
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 4/3;
+/* Pill 'Envio grátis e imediato' logo abaixo do H1 */
+.hero-ship-badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: linear-gradient(135deg, #DCFCE7 0%, #BBF7D0 100%);
+  border: 1.5px solid #86EFAC;
+  padding: 12px 18px; border-radius: var(--r-md);
+  margin-top: 20px;
+  box-shadow: 0 8px 20px -8px rgba(34,197,94,.35);
+  max-width: 100%;
 }
-@media (max-width: 920px) { .hero-lifestyle-img { margin: 20px auto 0; } }
+.hero-ship-icon {
+  flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px;
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  color: #fff; font-size: 1.3rem;
+  display: grid; place-items: center;
+  box-shadow: 0 4px 10px -2px rgba(34,197,94,.5);
+}
+.hero-ship-badge strong { display: block; font-size: .95rem; font-weight: 900; color: #14532D; letter-spacing: .2px; line-height: 1.2; }
+.hero-ship-badge span { display: block; font-size: .78rem; color: #166534; font-weight: 600; margin-top: 2px; line-height: 1.3; }
+@media (max-width: 560px) {
+  .hero-ship-badge { padding: 10px 14px; gap: 10px; }
+  .hero-ship-icon { width: 36px; height: 36px; font-size: 1.1rem; }
+  .hero-ship-badge strong { font-size: .9rem; }
+  .hero-ship-badge span { font-size: .74rem; }
+}
+
+/* Hero lifestyle banner logo abaixo do H1 */
 
 /* ANCORAGEM (problema) */
 .problem { background: var(--bg-alt); }
@@ -715,7 +729,13 @@ body.modal-open { overflow: hidden; }
         <h1 style="margin-top: 16px;">
           Cetose rápida <span class="hl">em pó</span>,<br>sem passar fome.
         </h1>
-        <img src="images/hero-lifestyle.jpg" alt="Nano Slim com copo e ingredientes" class="hero-lifestyle-img" loading="eager" decoding="async" width="1200" height="896">
+        <div class="hero-ship-badge">
+          <span class="hero-ship-icon">⚡</span>
+          <div>
+            <strong>Envio GRÁTIS e IMEDIATO</strong>
+            <span>Encomendas MB Way até 16h saem HOJE pelos CTT</span>
+          </div>
+        </div>
         <p class="hero-sub">
           Nano Slim com sais BHB, crómio e vitaminas B6/B12, apoia o processo
           de cetose e contribui para a <strong>redução do cansaço</strong>. Zero açúcar.
