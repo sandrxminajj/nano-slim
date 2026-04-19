@@ -63,7 +63,7 @@
   .bg-section-light { background: linear-gradient(180deg,#ffffff 0%, #E3F6FD 100%); }
   .bg-section-accent { background: linear-gradient(135deg,#E3F6FD 0%, #ffffff 60%, #E3F6FD 100%); }
   .bg-section-dark { background: linear-gradient(180deg,#0F172A 0%, #0B1F33 100%); color: #F1F5F9; }
-  .bg-polygons { background-image: url('images/ref/white_polygons.png'); background-size: cover; background-position: center; }
+  .bg-polygons { background-image: url('images/ref/white_polygons.jpg'); background-size: cover; background-position: center; }
 
   .kit-card { transition: transform .2s ease, box-shadow .3s ease; }
   .kit-card:hover { transform: translateY(-4px); }
@@ -122,7 +122,54 @@
   .kit-tab.active { background: #2BB3E8; color: #fff; box-shadow: 0 4px 10px -2px rgba(43,179,232,.4); }
 
   img { max-width: 100%; height: auto; }
+
+  /* ============================================================
+     RESPONSIVIDADE — mobile first, fluid typography, touch targets
+  ============================================================ */
+  html, body { overflow-x: hidden; max-width: 100vw; }
+
+  .fluid-h1      { font-size: clamp(1.875rem, 4.5vw + 0.5rem, 3.5rem);  line-height: 1.05; }
+  .fluid-h2      { font-size: clamp(1.5rem,   3vw   + 0.75rem, 2.75rem); line-height: 1.15; }
+  .fluid-h3      { font-size: clamp(1.125rem, 1.5vw + 0.8rem,  1.5rem); }
+  .fluid-body    { font-size: clamp(0.95rem,  0.4vw + 0.85rem, 1.125rem); }
+  .fluid-display { font-size: clamp(2rem,     6vw   + 0.5rem,  4rem);   line-height: .95; }
+
+  @media (hover: none) and (pointer: coarse) {
+    button, a.btn, .kit-tab, summary { min-height: 48px; }
+  }
+
+  @media (max-width: 640px) {
+    .floating-deco { opacity: 0.2 !important; transform: scale(0.75); }
+    .hide-mobile { display: none !important; }
+    details summary { padding: 1rem; font-size: 0.95rem; }
+    .hero-product-img { width: 72%; max-width: 280px; margin-inline: auto; }
+  }
+
+  @supports (padding: max(0px)) {
+    .sticky-cta { padding-bottom: calc(0.75rem + env(safe-area-inset-bottom,0px)); }
+  }
+
+  /* Kit cards layout em cada breakpoint */
+  @media (max-width: 767px) {
+    .kit-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .kit-hi, #kit-card-2 { transform: none !important; }
+    body { padding-bottom: 80px; }
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .kit-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .kit-grid > article:nth-child(3) { grid-column: 1 / -1; max-width: 420px; margin-inline: auto; }
+    #kit-card-2 { transform: none !important; }
+  }
+
+  section[id], article[id] { scroll-margin-top: 80px; }
+
+  h1, h2, h3 { text-wrap: balance; }
+
+  * { -webkit-tap-highlight-color: transparent; }
+  img { image-rendering: -webkit-optimize-contrast; }
 </style>
+
+<link rel="preload" as="image" href="images/hero-produto.png" fetchpriority="high">
 
 <!-- Tracking placeholders -->
 <!-- GTM: {{GTM_ID}} -->
@@ -169,8 +216,8 @@
  1. HERO — "Novo em Portugal"
 ============================================================ -->
 <section class="hero-bg relative overflow-hidden pt-10 pb-12 md:pt-16 md:pb-20">
-  <img src="images/ref/block_3-leafs.png" alt="" class="floating-deco top-4 right-4 w-32 md:w-48" aria-hidden="true">
-  <img src="images/ref/moleculs.png" alt="" class="floating-deco bottom-8 left-4 w-20 md:w-28 opacity-30" aria-hidden="true">
+  <img src="images/ref/block_3-leafs.jpg" alt="" class="floating-deco top-4 right-4 w-32 md:w-48" aria-hidden="true">
+  <img src="images/ref/moleculs.jpg" alt="" class="floating-deco bottom-8 left-4 w-20 md:w-28 opacity-30" aria-hidden="true">
 
   <div class="max-w-6xl mx-auto px-4 relative">
     <div class="grid md:grid-cols-2 gap-8 items-center">
@@ -180,10 +227,10 @@
           NOVO EM PORTUGAL
         </span>
 
-        <h1 class="font-display font-black text-3xl sm:text-4xl md:text-5xl leading-[1.05] text-ink mt-4">
+        <h1 class="font-display font-black fluid-h1 text-ink mt-4">
           O método para perda de peso que <span class="gradient-text">nunca experimentou</span>
         </h1>
-        <p class="mt-5 text-lg md:text-xl text-slate-700 font-semibold">
+        <p class="mt-5 fluid-body md:text-xl text-slate-700 font-semibold">
           Não precisa de passar fome — a sua dieta cetogénica <span class="text-primary-dk">em pó</span>, com sabor agradável e zero açúcar.
         </p>
 
@@ -200,7 +247,7 @@
       </div>
 
       <div class="relative">
-        <img src="images/hero-produto.png" alt="Nano Slim — pó em boião azul" width="520" height="520" fetchpriority="high" class="relative z-10 w-full max-w-sm mx-auto drop-shadow-2xl">
+        <img src="images/hero-produto.png" alt="Nano Slim — pó em boião azul" width="520" height="520" fetchpriority="high" decoding="async" class="hero-product-img relative z-10 w-full max-w-sm mx-auto drop-shadow-2xl">
         <div class="absolute inset-0 bg-primary-lt rounded-full blur-3xl opacity-60 -z-0"></div>
       </div>
     </div>
@@ -221,19 +268,19 @@
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
       <div class="text-center">
-        <img src="images/ref/block_2-list1.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <img src="images/ref/block_2-list1.jpg" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
         <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">75%</div>
         <div class="font-bold text-slate-900 mt-1">Gordura</div>
         <div class="text-xs text-slate-500">consumo alimentar diário</div>
       </div>
       <div class="text-center">
-        <img src="images/ref/block_2-list2.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <img src="images/ref/block_2-list2.jpg" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
         <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">20%</div>
         <div class="font-bold text-slate-900 mt-1">Proteínas</div>
         <div class="text-xs text-slate-500">consumo alimentar diário</div>
       </div>
       <div class="text-center">
-        <img src="images/ref/block_2-list3.png" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
+        <img src="images/ref/block_2-list3.jpg" alt="" class="w-20 md:w-24 mx-auto mb-3" aria-hidden="true">
         <div class="font-display font-black text-3xl md:text-4xl text-primary-dk">5%</div>
         <div class="font-bold text-slate-900 mt-1">Hidratos de carbono</div>
         <div class="text-xs text-slate-500">consumo alimentar diário</div>
@@ -253,8 +300,8 @@
  3. CETOSE EXPLICAÇÃO
 ============================================================ -->
 <section id="como-funciona" class="bg-section-accent relative py-14 md:py-20 overflow-hidden">
-  <img src="images/ref/block_3-moleculs.png" alt="" class="floating-deco right-0 top-8 w-40 md:w-64 opacity-70" aria-hidden="true">
-  <img src="images/ref/block_3-leafs.png" alt="" class="floating-deco left-0 bottom-8 w-28 md:w-40 opacity-60" aria-hidden="true">
+  <img src="images/ref/block_3-moleculs.jpg" alt="" class="floating-deco right-0 top-8 w-40 md:w-64 opacity-70" aria-hidden="true">
+  <img src="images/ref/block_3-leafs.jpg" alt="" class="floating-deco left-0 bottom-8 w-28 md:w-40 opacity-60" aria-hidden="true">
 
   <div class="max-w-6xl mx-auto px-4 relative">
     <h2 class="font-display font-black text-2xl md:text-4xl text-center text-ink mb-10">
@@ -279,7 +326,7 @@
  4. PRODUTO — BENEFÍCIOS
 ============================================================ -->
 <section class="bg-white relative py-14 md:py-20 overflow-hidden">
-  <img src="images/ref/block_3-girl.png" alt="" class="hidden md:block absolute right-0 top-8 w-60 opacity-90" aria-hidden="true">
+  <img src="images/ref/block_3-girl.jpg" alt="" class="hidden md:block absolute right-0 top-8 w-60 opacity-90" aria-hidden="true">
 
   <div class="max-w-6xl mx-auto px-4 relative">
     <div class="grid md:grid-cols-2 gap-10 items-center">
@@ -320,7 +367,7 @@
 
       <div class="order-1 md:order-2 relative">
         <img src="images/hero-produto.png" alt="Nano Slim — pó em boião azul" class="mx-auto max-w-xs md:max-w-sm drop-shadow-2xl relative z-10">
-        <img src="images/ref/moleculs.png" alt="" class="absolute -top-4 -left-4 w-24 opacity-60" aria-hidden="true">
+        <img src="images/ref/moleculs.jpg" alt="" class="absolute -top-4 -left-4 w-24 opacity-60" aria-hidden="true">
       </div>
     </div>
   </div>
@@ -341,7 +388,7 @@
     <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-white rounded-2xl shadow-lg p-6 text-center relative">
         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white font-black text-sm w-8 h-8 rounded-full flex items-center justify-center shadow-lg">1</div>
-        <img src="images/ref/block_4-skin.png" alt="" class="w-32 h-32 object-cover rounded-xl mx-auto my-3" aria-hidden="true">
+        <img src="images/ref/block_4-skin.jpg" alt="" class="w-32 h-32 object-cover rounded-xl mx-auto my-3" aria-hidden="true">
         <h3 class="font-bold text-xl text-ink">Dissolver</h3>
         <p class="text-sm text-slate-600 mt-2">1 colher medida (6g) em 250ml de água fresca.</p>
       </div>
@@ -377,7 +424,7 @@
  6. IMPORTANTE — Livre de sintéticos
 ============================================================ -->
 <section class="relative py-14 md:py-20 bg-amber-50 overflow-hidden">
-  <img src="images/ref/moleculs.png" alt="" class="floating-deco right-6 top-6 w-32 md:w-48 opacity-60" aria-hidden="true">
+  <img src="images/ref/moleculs.jpg" alt="" class="floating-deco right-6 top-6 w-32 md:w-48 opacity-60" aria-hidden="true">
 
   <div class="max-w-4xl mx-auto px-4 relative">
     <div class="flex items-start gap-4">
@@ -407,7 +454,7 @@
     <div class="mt-10 bg-primary-lt rounded-3xl p-6 md:p-10 shadow-xl">
       <div class="grid md:grid-cols-[240px_1fr] gap-6 md:gap-10 items-start">
         <div class="text-center md:text-left">
-          <img src="images/ref/doc_ellipse.png" alt="Dr. Tiago Almeida, Nutricionista" width="240" height="240" class="mx-auto md:mx-0 w-44 md:w-60 rounded-full bg-white shadow-lg">
+          <img src="images/ref/doc_ellipse.jpg" alt="Dr. Tiago Almeida, Nutricionista" width="240" height="240" class="mx-auto md:mx-0 w-44 md:w-60 rounded-full bg-white shadow-lg">
           <div class="mt-3 text-center md:text-left">
             <div class="font-display font-extrabold text-lg text-ink">Dr. Tiago Almeida</div>
             <div class="text-sm text-slate-600">Nutricionista · Cédula 4562N</div>
@@ -468,7 +515,7 @@
 
       <!-- Arrow/progress -->
       <div class="flex md:flex-col items-center justify-center gap-2 text-primary-dk">
-        <img src="images/ref/metric_line.png" alt="" class="hidden md:block w-14" aria-hidden="true">
+        <img src="images/ref/metric_line.jpg" alt="" class="hidden md:block w-14" aria-hidden="true">
         <svg class="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
       </div>
 
@@ -504,7 +551,7 @@
  9. TRANSFORMAÇÃO — Mensagens
 ============================================================ -->
 <section class="bg-section-accent relative py-14 md:py-20 overflow-hidden">
-  <img src="images/ref/block_7-leafs.png" alt="" class="floating-deco left-0 top-10 w-32 md:w-52 opacity-70" aria-hidden="true">
+  <img src="images/ref/block_7-leafs.jpg" alt="" class="floating-deco left-0 top-10 w-32 md:w-52 opacity-70" aria-hidden="true">
 
   <div class="max-w-5xl mx-auto px-4 relative">
     <h2 class="text-center font-display font-black text-2xl md:text-4xl text-ink leading-tight">
@@ -542,7 +589,7 @@
     </div>
 
     <div class="mt-10">
-      <img src="images/ref/block_7-peoples.png" alt="Pessoas felizes" class="mx-auto max-w-4xl w-full rounded-2xl">
+      <img src="images/ref/block_7-peoples.jpg" alt="Pessoas felizes" class="mx-auto max-w-4xl w-full rounded-2xl">
     </div>
 
     <div class="text-center mt-8">
@@ -580,7 +627,7 @@
       </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-6 items-stretch">
+    <div class="kit-grid grid md:grid-cols-3 gap-6 items-stretch">
       <!-- KIT 1 -->
       <article id="kit-card-1" class="kit-card bg-white rounded-3xl p-6 shadow-xl flex flex-col">
         <div class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">KIT BÁSICO</div>
@@ -778,7 +825,7 @@
  13. CTA #2 — preço destacado
 ============================================================ -->
 <section class="bg-gradient-to-br from-primary-lt via-white to-primary-lt py-14 md:py-20 relative overflow-hidden">
-  <img src="images/ref/metric_line2.png" alt="" class="absolute bottom-0 left-0 w-full opacity-40" aria-hidden="true">
+  <img src="images/ref/metric_line2.jpg" alt="" class="absolute bottom-0 left-0 w-full opacity-40" aria-hidden="true">
   <div class="max-w-4xl mx-auto px-4 relative">
     <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
       <div class="text-center">
@@ -898,7 +945,7 @@
  16. RELAXE — Closing
 ============================================================ -->
 <section class="relative py-14 md:py-20 overflow-hidden bg-section-accent">
-  <img src="images/ref/block_11-leaf.png" alt="" class="floating-deco top-6 right-4 w-28 md:w-40 opacity-70" aria-hidden="true">
+  <img src="images/ref/block_11-leaf.jpg" alt="" class="floating-deco top-6 right-4 w-28 md:w-40 opacity-70" aria-hidden="true">
 
   <div class="max-w-4xl mx-auto px-4 text-center relative">
     <h2 class="font-display font-black text-3xl md:text-6xl gradient-text">Relaxe.</h2>
