@@ -325,6 +325,8 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   padding: 22px; background: #fff; border-radius: var(--r-md); border: 1px solid var(--line);
 }
 .pay-methods strong { color: var(--ink); }
+.pay-logos { height: auto; max-height: 54px; width: auto; max-width: 100%; object-fit: contain; display: inline-block; }
+@media (max-width: 540px) { .pay-logos { max-height: 44px; } }
 .pay-badge {
   display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
   background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--line); font-weight: 800;
@@ -944,8 +946,7 @@ body.modal-open { overflow: hidden; }
 
     <div class="pay-methods">
       <strong>Métodos aceites:</strong>
-      <span class="pay-badge mbway"><span style="color:#1c50a0;">MB</span><span style="color:#e30613;">WAY</span></span>
-      <span class="pay-badge mb"><span style="color:#e30613;">MB</span> Multibanco</span>
+      <img src="images/mbpags.png" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80">
     </div>
   </div>
 </section>
