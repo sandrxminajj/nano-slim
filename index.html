@@ -3,7 +3,6 @@
 
      <script src="js/jquery.min.js"></script>
 
-    <script type="text/javascript" src="js/dr-dtime.min.js"></script>
 
     <style>
       .ac_footer {
@@ -37,27 +36,11 @@
     <link href="css/slick.css" rel="stylesheet" type="text/css">
     <link href="css/slick-theme.css" rel="stylesheet" type="text/css">
     <link href="css/style.css" rel="stylesheet">
-     <!--drcash-->
-<script src="js/snippet.min.js"></script>
-<script src="js/lead.min.js"></script>
-<script src="js/popState.min.js"></script>
-<script>
-    drwatch.watch({
-        track: {
-            unique_id: "a571f3df-be8d-4b81-851a-86292f26f37f"
-        },
-        page: {
-            type: 2,
-            next: "",
-            thanks: "r3es5.doctorthetran.com/t?_bid=223254&_v=a571f3df-be8d-4b81-851a-86292f26f37f&sub1=vst_830022f5c673bdf914c828210f4f53b13da04&sub2=vst_830022f5c673bdf914c828210f4f53b13da04&sub3=vst_830022f5c673bdf914c828210f4f53b13da04&sub4=vst_830022f5c673bdf914c828210f4f53b13da04"
-        },
-        sc: {
-            is_active: false,
-            url: ""
-        }
-    });
-</script>
-<!--drcash-->
+     <!-- drcash tracking removido — era do site original de referência -->
+     <!-- Placeholders p/ futuros pixels:
+       <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{GOOGLE_ADS_ID}}');</script>
+       <script>!function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','{{META_PIXEL_ID}}');fbq('track','PageView');</script>
+     -->
 
 <!-- ============================================================
  KITS STYLING — Nano Slim (adicionado p/ integrar com checkout WayMB)
@@ -297,6 +280,62 @@
   }
 
   /* ============================================================
+     UNIFORMIZAR KITS — imagens iguais + selos coerentes
+  ============================================================ */
+  .kit-card .kit-img { width: 82% !important; max-width: 220px !important; height: 170px !important; object-fit: contain !important; margin: 10px auto 14px !important; }
+  .kit-card:not(.kit-highlight):not(.kit-best) .kit-off {
+    background: #DCFCE7 !important; color: #15803D !important;
+  }
+
+  /* Salmão/peixe flutuante — esconder sempre */
+  .hide-fish, .block_8-fish, img[src*="fish.png"] { display: none !important; }
+  .block_1-subtitle { text-transform: none !important; }
+  @media (max-width: 640px) {
+    .mouse_scroll, img[src*="mouse_scroll"] { display: none !important; }
+  }
+  .block_1-title, .block_2-title, .block_3-title, .block_4-title, .block_5-title,
+  .block_6-title, .block_7-title, .block_8-title, .block_9-title, .block_10-title,
+  .block_11-title { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
+  @media (max-width: 480px) {
+    .block_1-title { font-size: clamp(20px, 5.5vw, 32px) !important; word-break: keep-all; }
+  }
+  @media (max-width: 767px) {
+    .kits-grid > .kit-highlight { order: -1; }
+    .kits-grid { display: flex !important; flex-direction: column; }
+  }
+
+  /* FAQ — texto dinâmico + seta */
+  .question_button { text-decoration: none !important; position: relative; padding-right: 26px !important; }
+  .question_button::after {
+    content: '▾'; position: absolute; right: 8px; top: 50%;
+    transform: translateY(-50%); font-size: 18px; transition: transform .2s;
+  }
+  .question_item.opened .question_button::after { transform: translateY(-50%) rotate(-180deg); }
+
+  /* Cookie banner RGPD */
+  .cookie-banner {
+    position: fixed; bottom: 16px; left: 16px; right: 16px;
+    max-width: 680px; margin: 0 auto;
+    background: #0F172A; color: #F1F5F9; padding: 14px 16px;
+    border-radius: 14px; box-shadow: 0 20px 40px -10px rgba(0,0,0,.45);
+    z-index: 9998; font-size: 13px; line-height: 1.5;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .cookie-banner p { margin: 0; flex: 1; min-width: 220px; }
+  .cookie-banner a { color: #60A5FA; text-decoration: underline; }
+  .cookie-banner button {
+    background: #22C55E; color: #fff; border: none;
+    padding: 10px 18px; border-radius: 10px; font-weight: 800; cursor: pointer;
+    font-size: 13px; min-height: 40px; flex-shrink: 0;
+  }
+  .cookie-banner button:hover { background: #16A34A; }
+  @media (max-width: 640px) {
+    .cookie-banner { padding: 12px; font-size: 12px; }
+    .cookie-banner button { width: 100%; }
+  }
+  .cookie-banner[hidden] { display: none !important; }
+
+  /* ============================================================
      MODAL legal (termos, privacidade, etc)
   ============================================================ */
   .legal-modal[hidden] { display: none; }
@@ -404,7 +443,7 @@
               ">
               <img alt="" class="block_2-list-img" src="images/block_2-list3.png">
               <div class="block_2-list-text">
-                <span> 20% </span> do seu consumo alimentar diário
+                <span> 5% </span> do seu consumo alimentar diário
                 <div>HIDRATOS DE CARBONO</div>
               </div>
             </div>
@@ -431,7 +470,7 @@
           <div class="block_2-right col-md-6 col-xs-12 dib">
             <div class="block_2-text-title title">
               Perda de peso como resultado da
-              <span class="pink"> natural </span> queima de gordura
+              <span class="pink"> queima natural </span> de gordura
             </div>
             <p class="text">
               <b>
@@ -527,14 +566,14 @@
                 <b> 7 a 10 dias. </b>
               </p>
               <p class="text">
-                Apenas <b> 20 gotas de Nano Slim </b> reduz este tempo
+                Apenas <b> 1 colher medida de Nano Slim </b> reduz este tempo
                 para <b> 40-50 minutos </b> durante o qual o corpo produz
                 quantidade suficiente de <b> corpos cetónicos </b> e começa a
                 transformar as células adiposas acumuladas e os depósitos em
                 energia
               </p>
               <p class="text pink">
-                Método de aplicação: dissolva 20 gotas em 100 ml de água 1-2
+                Método de aplicação: dissolva 1 colher medida em 250 ml de água, 1-2
                 vezes ao dia
               </p>
             </div>
@@ -798,7 +837,7 @@
           <span class="green"> O QUE DIZEM OS ESPECIALISTAS </span> SOBRE Nano Slim:
         </h2>
         <div class="block_6-content-subtitle">
-          <span class="green"> Paula Simões, </span> Nutricionista, Alimentação,
+          <span class="green"> Paulo Simões, </span> Nutricionista, Alimentação,
           Centro Médico de Saúde e Beleza
         </div>
         <div class="row cnt-dib block_6-content">
@@ -820,7 +859,7 @@
             <p>
               Para acelerar este processo e, portanto, o processo de queima de
               gordura, recomendo aos meus pacientes o uso de
-              <span class="pink"> um supmento chamado Nano Slim. </span>
+              <span class="pink"> um suplemento chamado Nano Slim. </span>
               Este produto apoia o seu corpo quando está numa dieta cetogénica
               fornecendo vitaminas, suprimindo a fome e eliminando a fadiga e a
               ansiedade. Mas a principal vantagem de
@@ -916,7 +955,7 @@
           <div class="message message_left wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
             <img alt="" class="message_ava" src="images/1.png">
             <div class="message_text">
-              <span> Andava   tua procura </span>
+              <span> Andava à tua procura </span>
               <img alt="" class="emoji" src="images/heart.png">
             </div>
           </div>
@@ -1001,7 +1040,7 @@
         <img alt="" class="block_8-pack" src="images/pack2.png">
         <img alt="" class="block_8-line" src="images/metric_line.png">
       </div>
-      <img alt="" class="block_8-fish rellax" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/fish.png" style="transform: translate3d(0px, -837px, 0px)">
+      <img alt="" class="block_8-fish rellax hide-fish" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/fish.png" style="transform: translate3d(0px, -837px, 0px)">
     </div>
     <!-- BLOCK_8-END -->
     <!-- BLOCK_9 -->
@@ -1040,7 +1079,7 @@
                 <div class="block_9-item-title">Envio</div>
                 <div class="block_9-item-text">
                   O tempo de entrega depende da sua localização, mas não excede
-                  os 14 dias. <b> Não se preocupes com a sua encomenda! </b>
+                  os 14 dias. <b> Não se preocupe com a sua encomenda! </b>
                 </div>
               </div>
               <div class="block_9-item dib wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.6s" data-slick-index="2" aria-hidden="false" style="
@@ -1078,7 +1117,7 @@
             Trabalhamos para si
           </h2>
           <div class="question_subtitle">
-            O suporte online está disponivel 24/7. Pode fazer perguntas
+            O suporte online está disponível 24/7. Pode fazer perguntas
             utilizando o método mais conveniente para si:
           </div>
           <div class="question_wrap col-md-8 col-xs-12">
@@ -1198,7 +1237,7 @@
               </article>
             </div>
             <div class="kit-payments">
-              MB Way · Multibanco · Cartão · <strong>Pagamento na entrega</strong> ✓ · Garantia 30 dias
+              MB Way · Multibanco · Entrega rápida por CTT · Garantia 30 dias
             </div>
           </div>
         </div>
@@ -1241,7 +1280,7 @@
                   <div class="review_name">Helena</div>
                   <div class="review_text">
                     A dieta cetogénica é definitivamente a solução para mim.
-                    Apercebi-me disso só recentememnte.
+                    Apercebi-me disso só recentemente.
                     <b>
                       Basicamente, podes comer tudo o que gostas e perder peso.
                     </b>
@@ -1322,7 +1361,7 @@
                     comia nada no dia seguinte. O meu peso flutuava, +/- 3 kg. O
                     que posso dizer sobre <b> Nano Slim </b> ? É
                     essencial! Usando este suplemento e seguindo a dieta
-                    cetogénica, eu consigui perder um recorde de 15 kg e pôr o
+                    cetogénica, eu consegui perder um recorde de 15 kg e pôr o
                     meu <b> corpo em forma sem recaída. </b> Os testes  
                     urina mostraram um aumento de 6 vezes nas cetonas, o que não
                     é muito, mas ainda assim estou mais do que feliz com os
@@ -1392,7 +1431,7 @@
             </article>
           </div>
           <div class="kit-payments">
-            MB Way · Multibanco · Cartão · <strong>Pagamento na entrega</strong> ✓ · Garantia 30 dias
+            MB Way · Multibanco · Entrega rápida por CTT · Garantia 30 dias
           </div>
         </div>
       </div>
@@ -1416,7 +1455,7 @@
           <p>
             O Nano Slim não se destina a diagnosticar, tratar, curar ou prevenir
             qualquer doença. Os resultados podem variar de pessoa para pessoa e
-            dependem de uma alimentação equilibrada e actividade física regular.
+            dependem de uma alimentação equilibrada e atividade física regular.
           </p>
           <p>
             Produzido em conformidade com os regulamentos da União Europeia e
@@ -1438,11 +1477,13 @@
           <a href="#" onclick="openLegal('envios');return false;">Política de Envios</a>
           <span>·</span>
           <a href="#" onclick="openLegal('contacto');return false;">Contacto</a>
+          <span>·</span>
+          <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener nofollow">Livro de Reclamações</a>
         </nav>
 
         <div class="ns-company">
-          <div><strong>MULTISERVICOS EMPREENDIMENTOS LTDA</strong></div>
-          <div>CNPJ: 42.383.196/0001-90</div>
+          <div><strong>Nano Slim (razão social a preencher — Lda.)</strong></div>
+          <div>NIPC PT (a preencher)</div>
           <div>Contacto: <a href="mailto:contacto@nano-slim.pt">contacto@nano-slim.pt</a></div>
         </div>
 
@@ -1451,6 +1492,16 @@
         </div>
       </div>
     </footer>
+
+    <!-- Banner de cookies RGPD -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Política de cookies" hidden>
+      <p>
+        Este website utiliza cookies para melhorar a experiência, analisar tráfego e personalizar publicidade.
+        Ao continuar a navegar aceita a utilização de cookies —
+        <a href="#" onclick="openLegal('cookies');return false;">saber mais</a>.
+      </p>
+      <button type="button" onclick="acceptCookies()">Aceitar e continuar</button>
+    </div>
 
     <!-- Modal de páginas legais -->
     <div id="legal-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
@@ -1464,25 +1515,34 @@
 
     <script>
       $(document).ready(function (e) {
-        var tabs = function () {
-          var itemEl = ".question_item",
+        var itemEl = ".question_item",
             tabEl = ".question_button",
             tailEl = ".answer_item",
             openedClass = "opened";
 
-          $(tabEl).on("click", function (event) {
-            event.preventDefault();
-            $(this)
-              .closest(itemEl)
-              .toggleClass(openedClass)
-              .find(tailEl)
-              .slideToggle(500);
-          });
+        // Estado inicial: tudo fechado + texto "Ver resposta"
+        $(itemEl).removeClass(openedClass);
+        $(tailEl).hide();
+        $(tabEl).text("Ver resposta");
 
-          $(itemEl).eq(0).addClass(openedClass).find(tailEl).slideToggle(500);
-        };
+        $(tabEl).on("click", function (event) {
+          event.preventDefault();
+          var item = $(this).closest(itemEl);
+          var answer = item.find(tailEl);
+          var isOpen = item.hasClass(openedClass);
 
-        tabs();
+          // Fecha todos primeiro
+          $(itemEl).removeClass(openedClass);
+          $(tailEl).slideUp(300);
+          $(tabEl).text("Ver resposta");
+
+          // Se não estava aberto, abre este
+          if (!isOpen) {
+            item.addClass(openedClass);
+            answer.slideDown(300);
+            $(this).text("Ocultar resposta");
+          }
+        });
       });
     </script>
     <script src="js/slick.min.js"></script>
@@ -1563,9 +1623,6 @@
         }
       }
     </style>
-    <div class="ac_footer">
-      Global Partners LTD
-    </div>
     <script type="text/javascript">
         $(function() {
             $("a[href^='#']").click(function() {
@@ -1623,8 +1680,8 @@
 <script>
 (function(){
   var NOME = 'Nano Slim';
-  var RAZAO = 'MULTISERVICOS EMPREENDIMENTOS LTDA';
-  var CNPJ  = '42.383.196/0001-90';
+  var RAZAO = 'Nano Slim (razão social a preencher — Lda.)';
+  var NIPC  = '(a preencher)';
   var EMAIL = 'contacto@nano-slim.pt';
   var EMAIL_PRIV = 'privacidade@nano-slim.pt';
   var EMAIL_REEMB = 'reembolso@nano-slim.pt';
@@ -1636,7 +1693,7 @@
       body: '' +
         '<p>Os presentes Termos e Condições aplicam-se à utilização do website e à aquisição de produtos ' + NOME + '. Ao utilizar o website ou efectuar uma encomenda, o utilizador declara aceitar integralmente estes termos.</p>' +
         '<h3>1. Responsável</h3>' +
-        '<p><strong>' + RAZAO + '</strong><br>CNPJ: ' + CNPJ + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+        '<p><strong>' + RAZAO + '</strong><br>'NIPC: ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
         '<h3>2. Produto</h3>' +
         '<p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
         '<h3>3. Encomendas e pagamento</h3>' +
@@ -1656,7 +1713,7 @@
       body: '' +
         '<p>A privacidade dos utilizadores é uma prioridade. Esta política descreve como recolhemos, utilizamos e protegemos os dados pessoais no âmbito do RGPD (Regulamento UE 2016/679) e da Lei n.º 58/2019.</p>' +
         '<h3>Responsável pelo tratamento</h3>' +
-        '<p><strong>' + RAZAO + '</strong> — CNPJ ' + CNPJ + '<br>Contacto: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
+        '<p><strong>' + RAZAO + '</strong> — 'NIPC ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
         '<h3>Dados recolhidos</h3>' +
         '<ul>' +
         '<li>Nome, morada, código postal, telemóvel, e-mail — necessários para processar a encomenda e envio</li>' +
@@ -1744,7 +1801,7 @@
         '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li>' +
         '</ul>' +
         '<h3>Responsável</h3>' +
-        '<p><strong>' + RAZAO + '</strong><br>CNPJ: ' + CNPJ + '</p>' +
+        '<p><strong>' + RAZAO + '</strong><br>'NIPC: ' + NIPC + '</p>' +
         '<p>Respondemos a todos os contactos em 24 horas úteis.</p>'
     }
   };
@@ -1770,6 +1827,25 @@
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeLegal();
   });
+})();
+</script>
+
+<!-- ============================================================
+ BANNER COOKIES — show once, persist choice em localStorage
+============================================================ -->
+<script>
+(function(){
+  try {
+    if (localStorage.getItem('ns_cookies_ok') === '1') return;
+  } catch(e) {}
+  var b = document.getElementById('cookie-banner');
+  if (b) setTimeout(function(){ b.hidden = false; }, 800);
+
+  window.acceptCookies = function() {
+    try { localStorage.setItem('ns_cookies_ok', '1'); } catch(e) {}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.hidden = true;
+  };
 })();
 </script>
 

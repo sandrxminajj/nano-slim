@@ -1227,7 +1227,7 @@
             setTimeout(() => { window.location.href = 'index.html'; }, 3000);
           } else if (sd.status === 'DECLINED') {
             document.getElementById('paymentStatusBox').innerHTML =
-              '<p style="color:#b91c1c;">Pagamento recusado. Tenta novamente.</p>';
+              '<p style="color:#b91c1c;">Pagamento recusado. Tente novamente.</p>';
           } else {
             setTimeout(poll, 3000);
           }
@@ -1236,7 +1236,7 @@
       setTimeout(poll, 3000);
 
     } catch(err) {
-      showErr('ckError3','ckErrorMsg3','Erro de ligação. Tenta novamente.');
+      showErr('ckError3','ckErrorMsg3','Erro de ligação. Tente novamente.');
       btn.disabled    = false;
       btn.textContent = 'Confirmar encomenda →';
     }
