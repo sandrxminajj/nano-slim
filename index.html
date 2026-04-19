@@ -429,6 +429,60 @@ body.modal-open { overflow: hidden; }
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+
+  /* ============================================================
+     PATCH MOBILE — overflow fix + word-wrap consistente
+  ============================================================ */
+  @media (max-width: 767px) {
+    .container { padding-left: 16px !important; padding-right: 16px !important; width: 100%; max-width: 100%; }
+    section { padding: clamp(40px, 8vw, 60px) 0 !important; }
+    section > .container > * { max-width: 100%; }
+
+    .hero-grid, .solution-grid, .problem-grid, .how-grid,
+    .ingrs-grid, .testi-grid, .kits-grid, .guar-grid, .expert-grid {
+      grid-template-columns: 1fr !important; gap: 28px !important;
+    }
+    .hero-grid > div, .solution-grid > div, .guar-grid > div, .expert-grid > div {
+      width: 100%; max-width: 100%; min-width: 0;
+    }
+
+    p, h1, h2, h3, li, blockquote, .testi blockquote {
+      max-width: 100%; overflow-wrap: break-word; word-wrap: break-word;
+      hyphens: auto; -webkit-hyphens: auto;
+    }
+
+    .solution p, .hero-sub, .problem-lead, .how-sub, .ingrs-lead, .testi-lead, .kits-lead {
+      font-size: 0.98rem; padding: 0; max-width: 100%;
+    }
+
+    .solution-img { max-width: 260px !important; width: 65%; margin: 0 auto; }
+    .hero-img { max-width: 320px !important; width: 75%; margin: 0 auto; }
+    .hero { padding: 30px 0 60px !important; }
+
+    .solution-feats { padding: 0 !important; max-width: 100%; margin: 20px auto 0 !important; }
+    .solution-feats li { padding: 0 4px; text-align: left; justify-content: flex-start; }
+
+    /* Kits melhor alinhamento mobile */
+    .kit { padding: 24px 18px 18px; }
+    .kit-best { transform: none !important; }
+    .kits-grid > .kit-best { order: -1; }
+
+    /* Ingredients grid 1 col em mobile muito pequeno */
+    @media (max-width: 420px) { .ingrs-grid { grid-template-columns: 1fr !important; } }
+
+    /* Cards internos respeitam container */
+    .problem-card, .how-step, .ingr-card, .testi-card, .kit, .guar-card {
+      max-width: 100%; box-sizing: border-box;
+    }
+
+    /* Hero badges fora em mobile */
+    .hero-badge-float, .hero-badge-float-2 { display: none; }
+  }
+
+  /* Sempre — overflow-wrap seguro */
+  p, h1, h2, h3, li { overflow-wrap: anywhere; }
+
 </style>
 
 <!-- Tracking placeholders (quando tiveres IDs, preenche) -->
