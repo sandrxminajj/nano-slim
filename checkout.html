@@ -153,22 +153,6 @@
       margin: 6px 0 8px; text-transform: uppercase; letter-spacing: .4px;
     }
 
-    /* Checkbox T&C */
-    .ck-terms-wrap {
-      margin: 14px 0 8px; padding: 12px 14px;
-      background: #FFFBEB; border: 1px solid #FDE68A; border-radius: 10px;
-    }
-    .ck-terms-label {
-      display: flex; align-items: flex-start; gap: 10px; cursor: pointer;
-      font-size: .82rem; line-height: 1.45; color: #0F172A;
-    }
-    .ck-terms-checkbox {
-      width: 18px; height: 18px; flex-shrink: 0; cursor: pointer;
-      accent-color: #22C55E; margin-top: 2px;
-    }
-    .ck-terms-text a { color: #1E40AF; font-weight: 700; text-decoration: underline; }
-    .ck-terms-wrap.err { background: #FEF2F2; border-color: #FECACA; }
-    .ck-terms-wrap.err .ck-terms-text { color: #991B1B; }
 
     .ck-stepper {
       background: var(--card);
@@ -841,19 +825,6 @@
             </div>
           </div>
 
-          <!-- Checkbox T&C, obrigatório RGPD -->
-          <div class="ck-terms-wrap">
-            <label class="ck-terms-label">
-              <input type="checkbox" id="ck-terms" class="ck-terms-checkbox">
-              <span class="ck-terms-text">
-                Li e aceito os
-                <a href="#" onclick="openCkLegal('termos');return false;">Termos &amp; Condições</a>
-                e a
-                <a href="#" onclick="openCkLegal('privacidade');return false;">Política de Privacidade</a>.
-              </span>
-            </label>
-          </div>
-
           <div class="ck-trust">
             <div class="ck-trust-item">
               <span class="material-symbols-outlined">lock</span> Encriptação SSL 256-bit
@@ -1174,10 +1145,6 @@
     if (v.length > 4) v = v.slice(0,4) + '-' + v.slice(4,7);
     this.value = v;
   });
-  // Remove erro do checkbox T&C ao marcar
-  document.getElementById('ck-terms')?.addEventListener('change', function() {
-    this.closest('.ck-terms-wrap').classList.remove('err');
-  });
   document.getElementById('ck-doc').addEventListener('input', function() {
     this.value = this.value.replace(/\D/g,'').slice(0,9);
   });
@@ -1209,17 +1176,6 @@
 
   // ── Submit ────────────────────────────────────────────────────
   async function submitCheckout() {
-    // Validação T&C checkbox obrigatório
-    const termsEl = document.getElementById('ck-terms');
-    const termsWrap = termsEl.closest('.ck-terms-wrap');
-    if (!termsEl.checked) {
-      termsWrap.classList.add('err');
-      termsEl.focus();
-      showErr('ckError3','ckErrorMsg3','Aceite os Termos e a Política de Privacidade para continuar.');
-      return;
-    }
-    termsWrap.classList.remove('err');
-
     const name       = document.getElementById('ck-name').value.trim();
     const email      = document.getElementById('ck-email').value.trim();
     const rawPhone   = document.getElementById('ck-phone').value.trim();
