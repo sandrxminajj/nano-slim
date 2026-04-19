@@ -91,26 +91,38 @@
   .kit-card.kit-best .kit-badge { background: #1E88E5; box-shadow: 0 6px 14px -4px rgba(30,136,229,.45); }
   .kit-title { font-size: 20px; font-weight: 900; color: #0F172A; margin: 6px 0 2px; letter-spacing: .3px; }
   .kit-subtitle { font-size: 13px; color: #64748B; margin-bottom: 10px; }
-  .kit-img { width: 82%; max-width: 200px; height: 150px; object-fit: contain; margin: 8px auto 12px; }
-  .kit-price-old { text-decoration: line-through; color: #94A3B8; font-size: 14px; font-weight: 700; }
-  .kit-price-new { font-size: 38px; font-weight: 900; color: #0F172A; line-height: 1; margin: 4px 0 2px; }
-  .kit-card.kit-highlight .kit-price-new { color: #16A34A; font-size: 44px; }
-  .kit-card.kit-best .kit-price-new { color: #1E88E5; }
+  .kit-img { width: 82%; max-width: 220px; height: 170px; object-fit: contain; margin: 10px auto 14px; background: transparent; }
+  /* Preço antigo em VERMELHO riscado */
+  .kit-price-old { text-decoration: line-through; color: #DC2626; font-size: 15px; font-weight: 700; letter-spacing: .2px; }
+  /* Preço novo em VERDE (todos os kits) */
+  .kit-price-new { font-size: 40px; font-weight: 900; color: #16A34A; line-height: 1; margin: 4px 0 2px; }
+  .kit-card.kit-highlight .kit-price-new { color: #16A34A; font-size: 46px; }
+  .kit-card.kit-best .kit-price-new { color: #16A34A; font-size: 40px; }
   .kit-per { font-size: 13px; color: #16A34A; font-weight: 800; margin-top: 2px; }
   .kit-portes { font-size: 13px; color: #475569; margin-top: 4px; }
   .kit-portes strong { color: #16A34A; font-weight: 800; }
-  .kit-off { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 900;
-    padding: 4px 12px; border-radius: 99px; background: #FEF3C7; color: #92400E;
-    letter-spacing: .3px; }
-  .kit-card.kit-highlight .kit-off { background: #22C55E; color: #fff; }
-  .kit-card.kit-best .kit-off { background: #1E88E5; color: #fff; }
+  /* Badge POUPE X% — pill centrado, NÃO estica sobre o botão */
+  .kit-off {
+    align-self: center;
+    display: inline-block;
+    margin: 10px auto 14px;
+    font-size: 12px; font-weight: 900;
+    padding: 5px 16px; border-radius: 99px;
+    background: #FEF3C7; color: #92400E;
+    letter-spacing: .4px;
+    width: auto; max-width: fit-content;
+  }
+  .kit-card.kit-highlight .kit-off { background: #22C55E; color: #fff; box-shadow: 0 4px 10px -2px rgba(34,197,94,.4); }
+  .kit-card.kit-best .kit-off { background: #1E88E5; color: #fff; box-shadow: 0 4px 10px -2px rgba(30,136,229,.4); }
+  /* Separador antes do botão pra não colar */
   .kit-btn {
-    display: block; width: 100%; margin-top: auto; padding: 14px 16px;
+    display: block; width: 100%; margin-top: auto; padding: 15px 16px;
     background: linear-gradient(135deg,#22C55E 0%, #16A34A 100%); color: #fff;
     border-radius: 14px; border: none; font-size: 16px; font-weight: 900;
     cursor: pointer; box-shadow: 0 10px 22px -6px rgba(34,197,94,.55);
     transition: transform .12s, filter .2s, box-shadow .2s;
     letter-spacing: .3px; text-transform: none; font-family: inherit;
+    position: relative; z-index: 1;
   }
   .kit-btn:hover { filter: brightness(1.08); transform: translateY(-1px);
     box-shadow: 0 14px 26px -8px rgba(34,197,94,.7); }
@@ -1116,7 +1128,7 @@
                 <div class="kit-badge">MAIS ESCOLHIDO ⭐</div>
                 <div class="kit-title">2 POTES + 1 GRÁTIS</div>
                 <div class="kit-subtitle">3 potes · 3 meses de toma</div>
-                <img class="kit-img" src="images/produto-trio.jpg" alt="3 potes Nano Slim">
+                <img class="kit-img" src="images/pack3.png" alt="3 potes Nano Slim">
                 <div class="kit-price-old">198,00€</div>
                 <div class="kit-price-new">89,00€</div>
                 <div class="kit-per">29,67€ por pote</div>
@@ -1129,7 +1141,7 @@
                 <div class="kit-badge">MELHOR VALOR 🏆</div>
                 <div class="kit-title">3 POTES + 2 GRÁTIS</div>
                 <div class="kit-subtitle">5 potes · 5 meses de toma</div>
-                <img class="kit-img" src="images/produto-pack5.jpg" alt="5 potes Nano Slim">
+                <img class="kit-img" src="images/pack5.png" alt="5 potes Nano Slim">
                 <div class="kit-price-old">323,00€</div>
                 <div class="kit-price-new">129,00€</div>
                 <div class="kit-per">25,80€ por pote</div>
@@ -1311,7 +1323,7 @@
               <div class="kit-badge">MAIS ESCOLHIDO ⭐</div>
               <div class="kit-title">2 POTES + 1 GRÁTIS</div>
               <div class="kit-subtitle">3 potes · 3 meses de toma</div>
-              <img class="kit-img" src="images/produto-trio.jpg" alt="3 potes Nano Slim">
+              <img class="kit-img" src="images/pack3.png" alt="3 potes Nano Slim">
               <div class="kit-price-old">198,00€</div>
               <div class="kit-price-new">89,00€</div>
               <div class="kit-per">29,67€ por pote</div>
@@ -1324,7 +1336,7 @@
               <div class="kit-badge">MELHOR VALOR 🏆</div>
               <div class="kit-title">3 POTES + 2 GRÁTIS</div>
               <div class="kit-subtitle">5 potes · 5 meses de toma</div>
-              <img class="kit-img" src="images/produto-pack5.jpg" alt="5 potes Nano Slim">
+              <img class="kit-img" src="images/pack5.png" alt="5 potes Nano Slim">
               <div class="kit-price-old">323,00€</div>
               <div class="kit-price-new">129,00€</div>
               <div class="kit-per">25,80€ por pote</div>
@@ -1528,8 +1540,8 @@
 (function(){
   var NANO_SLIM_PRODUTOS = {
     1: { id:1, nome:"Nano Slim · 1 POTE",             preco:39.00,  preco_original:78.00,  portes:9.90, img:"images/hero-produto.png",   descricao:"1 mês de toma" },
-    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:89.00,  preco_original:198.00, portes:0,    img:"images/produto-trio.jpg",   descricao:"3 potes · 3 meses de toma" },
-    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:129.00, preco_original:323.00, portes:0,    img:"images/produto-pack5.jpg",  descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:89.00,  preco_original:198.00, portes:0,    img:"images/pack3.png",   descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:129.00, preco_original:323.00, portes:0,    img:"images/pack5.png",  descricao:"5 potes · 5 meses de toma · Ebook bónus" }
   };
 
   window.irCheckout = function(produtoId) {
