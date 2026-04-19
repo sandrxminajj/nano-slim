@@ -190,6 +190,54 @@
     .review_photo img { width: 100% !important; height: auto !important; }
     .block_2-list-img, .block_3-list-img { max-width: 100px !important; height: auto !important; }
     .block_4 img, .block_5 img, .block_6 img { max-width: 100% !important; height: auto !important; }
+
+    /* ====== FIX BLOCK_3 — espaçamentos mobile (pote+titulo+lista centrados) ====== */
+    .block_3 { padding: 30px 16px !important; overflow: hidden; background: #fff; }
+    .block_3 > .container-fluid { padding: 0 !important; max-width: 100% !important; }
+    .block_3 .row { margin: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important; }
+    .block_3 .row > div {
+      width: 100% !important; max-width: 100% !important;
+      float: none !important; margin-left: 0 !important; margin-right: 0 !important;
+      padding: 0 !important; text-align: center !important;
+    }
+    .block_3-title { text-align: center !important; margin: 0 0 6px !important; font-size: clamp(32px, 8vw, 42px) !important; }
+    .block_3-subtitle { text-align: center !important; margin: 0 auto 18px !important; max-width: 360px; font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; padding: 0 8px; }
+    .block_3-pack {
+      position: static !important;
+      display: block !important;
+      margin: 0 auto 18px !important;
+      max-width: 160px !important; width: 50% !important; height: auto !important;
+      transform: none !important;
+    }
+    .block_3-list {
+      padding: 0 !important;
+      margin: 0 auto !important;
+      max-width: 340px;
+      list-style: none !important;
+      text-align: left !important;
+    }
+    .block_3-list li {
+      text-align: left !important;
+      padding-left: 42px !important;
+      margin: 0 0 14px !important;
+      font-size: 15px !important;
+      line-height: 1.4 !important;
+      position: relative !important;
+    }
+
+    /* Outros blocks com mesmo padrão col-md-offset — neutralizar offsets em mobile */
+    [class*="col-md-offset"],
+    [class*="col-lg-offset"] {
+      margin-left: 0 !important; margin-right: 0 !important;
+    }
+    .row { margin-left: 0 !important; margin-right: 0 !important; }
+    .container-fluid { padding-left: 16px !important; padding-right: 16px !important; }
+    .block_4, .block_5, .block_6, .block_7, .block_8 {
+      padding-top: 30px !important; padding-bottom: 30px !important;
+    }
+    .block_4 [class*="col-"], .block_5 [class*="col-"], .block_6 [class*="col-"] {
+      width: 100% !important; max-width: 100% !important; padding: 0 !important; margin-bottom: 16px !important;
+    }
   }
 
   /* Tablet */
