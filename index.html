@@ -1,1808 +1,1100 @@
-<!DOCTYPE html><html dir="ltr"><head>
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nano Slim · Cetose rápida em pó · Entrega CTT 24h em Portugal</title>
+<meta name="description" content="Nano Slim — suplemento em pó com sais BHB, vitaminas B6/B12 e crómio. Apoia a cetose, reduz a fadiga. Paga MB Way e recebe hoje. Garantia 30 dias.">
+<meta name="theme-color" content="#2BB3E8">
+<meta name="robots" content="index, follow">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://nanoslim.pt/">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Nano Slim · Cetose em pó · Entrega 24h em Portugal">
+<meta property="og:description" content="Paga por MB Way, recebe hoje. Suplemento cetogénico com claims EFSA. Novo em Portugal.">
+<meta property="og:image" content="images/hero-produto.png">
+<meta property="og:locale" content="pt_PT">
+<meta name="twitter:card" content="summary_large_image">
 
-     <script src="js/jquery.min.js"></script>
+<link rel="icon" type="image/png" href="images/hero-produto.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/hero-produto.png" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 
-
-    <style>
-      .ac_footer {
-        position: relative;
-        text-align: center;
-        overflow: hidden;
-        padding: 50px 0;
-        color: #a12000;
-      }
-
-      .ac_footer a {
-        color: #a12000;
-      }
-
-      .ac_footer p {
-        text-align: center;
-      }
-
-      img[height="1"],
-      img[width="1"] {
-        display: none !important;
-      }
-    </style>
-
-    <title>Nano Slim</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
-    <link href="css/css.css" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/animate.css" rel="stylesheet">
-    <link href="css/slick.css" rel="stylesheet" type="text/css">
-    <link href="css/slick-theme.css" rel="stylesheet" type="text/css">
-    <link href="css/style.css" rel="stylesheet">
-     <!-- drcash tracking removido — era do site original de referência -->
-     <!-- Placeholders p/ futuros pixels:
-       <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','{{GOOGLE_ADS_ID}}');</script>
-       <script>!function(f,b,e,v,n,t,s){...}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','{{META_PIXEL_ID}}');fbq('track','PageView');</script>
-     -->
-
-<!-- ============================================================
- KITS STYLING — Nano Slim (adicionado p/ integrar com checkout WayMB)
-============================================================ -->
+<!-- Critical CSS inline -->
 <style>
-  .kits-wrap { max-width: 1140px; margin: 0 auto; padding: 20px; }
-  .kits-wrap .form-title { font-size: 26px; font-weight: 900; color: #0F172A; margin: 0 0 22px; letter-spacing: 0.5px; }
-  .kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  @media (max-width: 768px) { .kits-grid { grid-template-columns: 1fr; gap: 14px; } }
-  @media (min-width: 769px) and (max-width: 1023px) {
-    .kits-grid { grid-template-columns: 1fr 1fr; }
-    .kits-grid > article:nth-child(3) { grid-column: 1 / -1; max-width: 440px; margin-inline: auto; }
-  }
-  .kit-card {
-    background: #fff; border-radius: 18px; padding: 22px 18px 18px;
-    box-shadow: 0 12px 32px -12px rgba(15,23,42,.18);
-    border: 2px solid #E2E8F0; position: relative;
-    display: flex; flex-direction: column; text-align: center;
-    transition: transform .2s, box-shadow .2s;
-  }
-  .kit-card:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -12px rgba(15,23,42,.22); }
-  .kit-card.kit-highlight { border-color: #22C55E; box-shadow: 0 22px 44px -10px rgba(34,197,94,.35); transform: scale(1.03); }
-  @media (max-width: 1023px) { .kit-card.kit-highlight { transform: none; } }
-  .kit-card.kit-best { border-color: #1E88E5; }
-  .kit-badge {
-    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
-    background: #22C55E; color: #fff; padding: 5px 16px; border-radius: 99px;
-    font-size: 12px; font-weight: 900; white-space: nowrap; letter-spacing: .3px;
-    box-shadow: 0 6px 14px -4px rgba(34,197,94,.45);
-  }
-  .kit-card.kit-best .kit-badge { background: #1E88E5; box-shadow: 0 6px 14px -4px rgba(30,136,229,.45); }
-  .kit-title { font-size: 20px; font-weight: 900; color: #0F172A; margin: 6px 0 2px; letter-spacing: .3px; }
-  .kit-subtitle { font-size: 13px; color: #64748B; margin-bottom: 10px; }
-  .kit-img { width: 82%; max-width: 220px; height: 170px; object-fit: contain; margin: 10px auto 14px; background: transparent; }
-  /* Preço antigo em VERMELHO riscado */
-  .kit-price-old { text-decoration: line-through; color: #DC2626; font-size: 15px; font-weight: 700; letter-spacing: .2px; }
-  /* Preço novo em PRETO (todos os kits) */
-  .kit-price-new { font-size: 40px; font-weight: 900; color: #0F172A; line-height: 1; margin: 4px 0 2px; }
-  .kit-card.kit-highlight .kit-price-new { color: #0F172A; font-size: 46px; }
-  .kit-card.kit-best .kit-price-new { color: #0F172A; font-size: 40px; }
-  .kit-per { font-size: 13px; color: #16A34A; font-weight: 800; margin-top: 2px; }
-  .kit-portes { font-size: 13px; color: #475569; margin-top: 4px; }
-  .kit-portes strong { color: #16A34A; font-weight: 800; }
-  /* Badge POUPE X% — pill centrado, NÃO estica sobre o botão */
-  .kit-off {
-    align-self: center;
-    display: inline-block;
-    margin: 10px auto 14px;
-    font-size: 12px; font-weight: 900;
-    padding: 5px 16px; border-radius: 99px;
-    background: #FEF3C7; color: #92400E;
-    letter-spacing: .4px;
-    width: auto; max-width: fit-content;
-  }
-  .kit-card.kit-highlight .kit-off { background: #22C55E; color: #fff; box-shadow: 0 4px 10px -2px rgba(34,197,94,.4); }
-  .kit-card.kit-best .kit-off { background: #1E88E5; color: #fff; box-shadow: 0 4px 10px -2px rgba(30,136,229,.4); }
-  /* Separador antes do botão pra não colar */
-  .kit-btn {
-    display: block; width: 100%; margin-top: auto; padding: 15px 16px;
-    background: linear-gradient(135deg,#22C55E 0%, #16A34A 100%); color: #fff;
-    border-radius: 14px; border: none; font-size: 16px; font-weight: 900;
-    cursor: pointer; box-shadow: 0 10px 22px -6px rgba(34,197,94,.55);
-    transition: transform .12s, filter .2s, box-shadow .2s;
-    letter-spacing: .3px; text-transform: none; font-family: inherit;
-    position: relative; z-index: 1;
-  }
-  .kit-btn:hover { filter: brightness(1.08); transform: translateY(-1px);
-    box-shadow: 0 14px 26px -8px rgba(34,197,94,.7); }
-  .kit-btn:active { transform: translateY(0); }
-  .kit-card.kit-highlight .kit-btn {
-    animation: kit-pulse 1.8s ease-in-out infinite;
-  }
-  @keyframes kit-pulse {
-    0%,100% { box-shadow: 0 10px 22px -6px rgba(34,197,94,.55); }
-    50% { box-shadow: 0 10px 22px -4px rgba(34,197,94,.8), 0 0 0 6px rgba(34,197,94,.18); }
-  }
-  .kit-payments {
-    text-align: center; margin-top: 22px; color: #475569; font-size: 14px;
-    padding: 12px; background: #F8FAFC; border-radius: 12px;
-  }
-  .kit-payments strong { color: #16A34A; font-weight: 800; }
+:root {
+  --brand:        #2BB3E8;
+  --brand-dk:     #1E88E5;
+  --brand-soft:   #E3F6FD;
+  --cta:          #22C55E;
+  --cta-dk:       #16A34A;
+  --ink:          #0B1F33;
+  --ink-2:        #334155;
+  --mute:         #64748B;
+  --line:         #E2E8F0;
+  --bg:           #FFFFFF;
+  --bg-alt:       #F8FAFC;
+  --warn:         #DC2626;
+  --warn-soft:    #FEF2F2;
+  --gold:         #F59E0B;
+  --shadow:       0 1px 2px rgba(15,23,42,.06), 0 8px 24px -10px rgba(15,23,42,.12);
+  --shadow-lg:    0 20px 40px -12px rgba(15,23,42,.18);
+  --r-sm:         8px;
+  --r-md:         14px;
+  --r-lg:         22px;
+  --r-xl:         28px;
+  --maxw:         1160px;
+  --gap:          clamp(16px, 3vw, 28px);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; text-size-adjust: 100%; }
+html, body { max-width: 100vw; overflow-x: hidden; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 16px;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+h1,h2,h3 { font-weight: 900; letter-spacing: -.02em; line-height: 1.1; color: var(--ink); text-wrap: balance; }
+h1 { font-size: clamp(2rem, 5.5vw + .5rem, 3.75rem); }
+h2 { font-size: clamp(1.6rem, 3vw + .6rem, 2.75rem); }
+h3 { font-size: clamp(1.15rem, 1vw + .9rem, 1.5rem); }
+p  { font-size: clamp(1rem, .3vw + .92rem, 1.125rem); color: var(--ink-2); }
+.container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
+section { padding: clamp(48px, 7vw, 96px) 0; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--brand-soft); color: var(--brand-dk); }
+.pill.hot { background: #FEF3C7; color: #92400E; }
+.pill.mbway { background: #DCFCE7; color: #14532D; }
 
-  /* ============================================================
-     FIX bloco de kits dentro do block_11 (isola das decos absolutas)
-  ============================================================ */
-  .block_11 { position: relative; background: #fff !important; padding: 40px 0 !important; overflow: hidden; }
-  .block_11 .block_11-title,
-  .block_11 .block_11-subtitle { position: relative; z-index: 2; }
-  .block_11 .kits-wrap { position: relative; z-index: 3; background: #fff; padding: 30px 16px 16px; }
-  .block_11 .block_11-prod,
-  .block_11 .block_11-metric-line,
-  .block_11 .block_11-girl,
-  .block_11 .block_11-leaf,
-  .block_11 .block_11-bg-leafs { display: none !important; }
+/* BUTTONS */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 14px 24px; border-radius: 999px; font-weight: 800; font-size: 1rem;
+  transition: transform .12s, box-shadow .2s, filter .2s;
+  text-decoration: none; white-space: nowrap; min-height: 48px;
+}
+.btn-cta { background: linear-gradient(135deg, var(--cta) 0%, var(--cta-dk) 100%); color: #fff; box-shadow: 0 10px 22px -8px rgba(34,197,94,.5); }
+.btn-cta:hover { transform: translateY(-2px); filter: brightness(1.06); box-shadow: 0 16px 32px -10px rgba(34,197,94,.65); }
+.btn-cta:active { transform: translateY(0); }
+.btn-lg { padding: 17px 34px; font-size: 1.08rem; min-height: 56px; }
+.btn-ghost { background: #fff; color: var(--brand-dk); border: 2px solid var(--brand-soft); }
+.btn-ghost:hover { background: var(--brand-soft); }
+@keyframes pulse-cta { 0%,100% { box-shadow: 0 10px 22px -8px rgba(34,197,94,.5); } 50% { box-shadow: 0 10px 22px -4px rgba(34,197,94,.75), 0 0 0 8px rgba(34,197,94,.14); } }
+.btn-pulse { animation: pulse-cta 1.9s ease-in-out infinite; }
 
-  /* Block_9: mesma proteção */
-  .block_9 .kits-wrap { background: #fff; padding: 30px 16px 16px; border-radius: 20px; position: relative; z-index: 3; }
+/* TOP BAR */
+.topbar { background: var(--ink); color: #fff; font-size: .8rem; padding: 10px 12px; text-align: center; }
+.topbar-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 18px; max-width: var(--maxw); margin-inline: auto; font-weight: 600; }
+.topbar b { color: #4ADE80; font-weight: 800; }
+.topbar-sep { opacity: .35; }
+@media (max-width: 580px) { .topbar-sep { display: none; } .topbar { font-size: .72rem; } }
 
-  /* ============================================================
-     RESPONSIVIDADE AGRESSIVA — todos os dispositivos
-  ============================================================ */
-  html, body { overflow-x: hidden !important; max-width: 100vw !important; }
-  * { box-sizing: border-box; }
-  img { max-width: 100%; height: auto; }
+/* HEADER */
+.header { position: sticky; top: 0; background: rgba(255,255,255,.92); backdrop-filter: saturate(180%) blur(10px); z-index: 40; border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: var(--maxw); margin-inline: auto; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 900; font-size: 1.15rem; color: var(--brand-dk); }
+.brand img { width: 36px; height: 36px; object-fit: contain; }
+.nav-links { display: flex; gap: 22px; font-size: .92rem; font-weight: 600; color: var(--ink-2); }
+.nav-links a:hover { color: var(--brand-dk); }
+@media (max-width: 860px) { .nav-links { display: none; } }
 
-  /* Container-fluid — forçar padding lateral em todos os breakpoints */
-  .container-fluid { max-width: 1200px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+/* HERO */
+.hero { background: radial-gradient(ellipse at top right, var(--brand-soft) 0%, #fff 70%); padding: clamp(40px, 6vw, 80px) 0 clamp(60px, 8vw, 110px); position: relative; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 5vw, 70px); align-items: center; }
+@media (max-width: 920px) { .hero-grid { grid-template-columns: 1fr; text-align: center; } }
+.hero h1 .hl { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-sub { font-size: clamp(1.05rem, .5vw + .95rem, 1.3rem); color: var(--ink-2); margin-top: 20px; max-width: 560px; }
+@media (max-width: 920px) { .hero-sub { margin-inline: auto; } }
+.hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+@media (max-width: 920px) { .hero-ctas { justify-content: center; } }
+.hero-trust { display: flex; align-items: center; gap: 18px; margin-top: 26px; font-size: .9rem; color: var(--mute); flex-wrap: wrap; }
+@media (max-width: 920px) { .hero-trust { justify-content: center; } }
+.stars { color: var(--gold); font-size: 1rem; letter-spacing: -1px; }
+.hero-img-wrap { position: relative; }
+.hero-img { width: 100%; max-width: 460px; margin-inline: auto; filter: drop-shadow(0 40px 60px rgba(30,136,229,.25)); }
+.hero-badge-float {
+  position: absolute; top: 16%; right: -8px; background: #fff;
+  border-radius: 14px; padding: 11px 16px; box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: .85rem;
+  animation: float 3s ease-in-out infinite;
+}
+.hero-badge-float span { color: var(--cta-dk); font-size: 1.4em; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.hero-badge-float-2 {
+  position: absolute; bottom: 10%; left: -4px; background: #fff;
+  border-radius: 14px; padding: 11px 16px; box-shadow: var(--shadow);
+  display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: .85rem;
+  animation: float 3.4s ease-in-out .5s infinite;
+}
+@media (max-width: 560px) { .hero-badge-float, .hero-badge-float-2 { display: none; } }
 
-  /* Mobile — esconder decos absolutas que tapam conteúdo */
-  @media (max-width: 767px) {
-    .block_1 { min-height: auto !important; padding: 40px 16px !important; }
-    .block_1-title { font-size: clamp(22px, 6vw, 40px) !important; line-height: 1.15 !important; }
-    .block_1-subtitle { font-size: clamp(14px, 4vw, 20px) !important; }
-    .logo { font-size: clamp(28px, 7vw, 48px) !important; }
-    .sublogo_text { font-size: clamp(12px, 3.5vw, 18px) !important; }
-    .block_2-top-title, .block_3-title, .block_4-title, .block_5-title,
-    .block_6-title, .block_7-title, .block_8-title, .block_9-title, .block_10-title,
-    .block_11-title { font-size: clamp(22px, 6vw, 36px) !important; line-height: 1.2 !important; padding: 0 8px; text-align: center; }
-    .block_2-list-item, .block_3-list-item { width: 100% !important; margin-bottom: 20px; text-align: center; }
-    .block_3-girl, .block_3-leafs, .block_3-moleculs,
-    .block_7-peoples, .block_7-leafs, .block_8-fish,
-    .block_5-moleculs, .block_6-polygons,
-    .block_11-prod, .block_11-metric-line, .block_11-girl, .block_11-leaf, .block_11-bg-leafs { display: none !important; }
-    .btn, .pre_toform { width: 90% !important; max-width: 320px !important; margin: 10px auto !important; display: block !important; text-align: center !important; }
-    .form_wrap, .kits-wrap { width: 100% !important; margin: 20px auto !important; max-width: 100% !important; }
-    .background_video, .avid { object-fit: cover; }
-    .slick-slider, .slick-list, .slick-track { width: 100% !important; max-width: 100% !important; }
-    .slick-slide { width: 100% !important; max-width: 100% !important; }
-    .slide_wrap { width: 100% !important; max-width: 340px !important; margin: 0 auto !important; }
-    .review_photo img { width: 100% !important; height: auto !important; }
-    .block_2-list-img, .block_3-list-img { max-width: 100px !important; height: auto !important; }
-    .block_4 img, .block_5 img, .block_6 img { max-width: 100% !important; height: auto !important; }
+/* ANCORAGEM (problema) */
+.problem { background: var(--bg-alt); }
+.problem h2 { text-align: center; margin-bottom: 16px; }
+.problem-lead { text-align: center; font-size: 1.15rem; max-width: 720px; margin: 0 auto 40px; }
+.problem-lead b { color: var(--ink); font-weight: 800; }
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 820px) { .problem-grid { grid-template-columns: 1fr; } }
+.problem-card {
+  background: #fff; padding: 24px; border-radius: var(--r-md);
+  box-shadow: var(--shadow); text-align: center;
+}
+.problem-card-emoji { font-size: 2rem; margin-bottom: 8px; }
+.problem-card h3 { font-size: 1.05rem; margin-bottom: 6px; color: var(--ink); }
+.problem-card p { font-size: .95rem; }
 
-    /* ====== FIX BLOCK_3 — espaçamentos mobile (pote+titulo+lista centrados) ====== */
-    .block_3 { padding: 30px 16px !important; overflow: hidden; background: #fff; }
-    .block_3 > .container-fluid { padding: 0 !important; max-width: 100% !important; }
-    .block_3 .row { margin: 0 !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 12px !important; }
-    .block_3 .row > div {
-      width: 100% !important; max-width: 100% !important;
-      float: none !important; margin-left: 0 !important; margin-right: 0 !important;
-      padding: 0 !important; text-align: center !important;
-    }
-    .block_3-title { text-align: center !important; margin: 0 0 6px !important; font-size: clamp(32px, 8vw, 42px) !important; }
-    .block_3-subtitle { text-align: center !important; margin: 0 auto 18px !important; max-width: 360px; font-size: clamp(15px, 4vw, 18px) !important; line-height: 1.35 !important; padding: 0 8px; }
-    .block_3-pack {
-      position: static !important;
-      display: block !important;
-      margin: 0 auto 18px !important;
-      max-width: 160px !important; width: 50% !important; height: auto !important;
-      transform: none !important;
-    }
-    .block_3-list {
-      padding: 0 !important;
-      margin: 0 auto !important;
-      max-width: 340px;
-      list-style: none !important;
-      text-align: left !important;
-    }
-    .block_3-list li {
-      text-align: left !important;
-      padding-left: 42px !important;
-      margin: 0 0 14px !important;
-      font-size: 15px !important;
-      line-height: 1.4 !important;
-      position: relative !important;
-    }
+/* PRODUTO / SOLUÇÃO */
+.solution { background: #fff; }
+.solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+@media (max-width: 920px) { .solution-grid { grid-template-columns: 1fr; text-align: center; } }
+.solution-img { max-width: 440px; margin-inline: auto; }
+.solution h2 { margin-bottom: 18px; }
+.solution p { font-size: 1.05rem; margin-bottom: 16px; }
+.solution-feats { list-style: none; padding: 0; margin: 24px 0 0; display: grid; gap: 12px; }
+.solution-feats li { display: flex; gap: 12px; align-items: flex-start; font-size: 1rem; color: var(--ink-2); }
+.solution-feats .ok {
+  flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+  background: #DCFCE7; color: var(--cta-dk);
+  display: grid; place-items: center; font-weight: 900; font-size: .8rem;
+}
 
-    /* Outros blocks com mesmo padrão col-md-offset — neutralizar offsets em mobile */
-    [class*="col-md-offset"],
-    [class*="col-lg-offset"] {
-      margin-left: 0 !important; margin-right: 0 !important;
-    }
-    .row { margin-left: 0 !important; margin-right: 0 !important; }
-    .container-fluid { padding-left: 16px !important; padding-right: 16px !important; }
-    .block_4, .block_5, .block_6, .block_7, .block_8 {
-      padding-top: 30px !important; padding-bottom: 30px !important;
-    }
-    .block_4 [class*="col-"], .block_5 [class*="col-"], .block_6 [class*="col-"] {
-      width: 100% !important; max-width: 100% !important; padding: 0 !important; margin-bottom: 16px !important;
-    }
-  }
+/* COMO FUNCIONA — 3 passos */
+.how { background: var(--bg-alt); }
+.how h2 { text-align: center; margin-bottom: 10px; }
+.how-sub { text-align: center; font-size: 1.05rem; margin-bottom: 44px; color: var(--mute); max-width: 640px; margin-inline: auto; }
+.how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 820px) { .how-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+.how-step {
+  background: #fff; border-radius: var(--r-md); padding: 26px 22px 22px;
+  text-align: center; position: relative; box-shadow: var(--shadow);
+  transition: transform .2s;
+}
+.how-step:hover { transform: translateY(-4px); }
+.how-step-num {
+  position: absolute; top: -18px; left: 50%; transform: translateX(-50%);
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--brand); color: #fff; font-weight: 900;
+  display: grid; place-items: center; font-size: 1rem;
+  box-shadow: 0 8px 16px -4px rgba(43,179,232,.5);
+}
+.how-step-img { width: 100%; max-width: 200px; height: 150px; object-fit: cover; border-radius: var(--r-sm); margin: 6px auto 16px; }
+.how-step h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.how-step p { font-size: .92rem; }
 
-  /* Tablet */
-  @media (min-width: 768px) and (max-width: 1023px) {
-    .block_3-girl, .block_11-girl { display: none !important; }
-    .block_7-peoples { max-width: 60%; }
-    .container-fluid { padding: 0 24px; }
-  }
+/* INGREDIENTES */
+.ingrs { background: #fff; }
+.ingrs h2 { text-align: center; margin-bottom: 14px; }
+.ingrs-lead { text-align: center; color: var(--mute); margin-bottom: 44px; max-width: 640px; margin-inline: auto; }
+.ingrs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 920px) { .ingrs-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 540px) { .ingrs-grid { grid-template-columns: 1fr; } }
+.ingr-card {
+  background: var(--bg-alt); border-radius: var(--r-md); padding: 22px;
+  border: 1px solid var(--line);
+}
+.ingr-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--brand-soft); color: var(--brand-dk);
+  display: grid; place-items: center; margin-bottom: 14px;
+}
+.ingr-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.ingr-card p { font-size: .9rem; }
+.ingr-card .efsa { display: inline-block; margin-top: 8px; font-size: .72rem; color: var(--cta-dk); font-weight: 700; background: #DCFCE7; padding: 3px 8px; border-radius: 999px; }
 
-  /* Desktop pequeno */
-  @media (min-width: 1024px) and (max-width: 1279px) {
-    .container-fluid { max-width: 1100px; }
-  }
+/* ESPECIALISTA */
+.expert { background: var(--brand-soft); }
+.expert-grid { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: center; max-width: 920px; margin-inline: auto; }
+@media (max-width: 760px) { .expert-grid { grid-template-columns: 1fr; text-align: center; } }
+.expert-avatar {
+  width: 180px; height: 180px; border-radius: 50%; margin-inline: auto;
+  background: linear-gradient(135deg, #1E88E5, #2BB3E8); display: grid; place-items: center;
+  color: #fff; font-size: 4rem; font-weight: 900; letter-spacing: -2px;
+  box-shadow: var(--shadow-lg);
+}
+.expert h3 { font-size: 1.2rem; margin-bottom: 4px; }
+.expert-role { font-size: .9rem; color: var(--mute); font-weight: 600; }
+.expert blockquote { font-size: 1.08rem; color: var(--ink-2); margin: 18px 0; font-style: italic; line-height: 1.65; }
 
-  /* Touch targets mobile */
-  @media (hover: none) and (pointer: coarse) {
-    .btn, .kit-btn, .kit-tab, .question_button, .legal-modal-close { min-height: 48px; }
-  }
+/* DEPOIMENTOS */
+.testi { background: #fff; }
+.testi h2 { text-align: center; margin-bottom: 12px; }
+.testi-lead { text-align: center; color: var(--mute); margin-bottom: 44px; max-width: 640px; margin-inline: auto; }
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+@media (max-width: 920px) { .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; } }
+.testi-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+.testi-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.testi-avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .98rem; flex-shrink: 0; }
+.testi-name { font-weight: 800; font-size: .97rem; line-height: 1.2; }
+.testi-meta { font-size: .78rem; color: var(--mute); }
+.testi blockquote { font-size: .94rem; color: var(--ink-2); line-height: 1.6; font-style: italic; }
+.testi-stars { color: var(--gold); font-size: .9rem; letter-spacing: -1px; margin-bottom: 8px; }
+.testi-result {
+  margin-top: 12px; padding: 8px 12px;
+  background: #DCFCE7; color: var(--cta-dk);
+  border-radius: 10px; font-size: .82rem; font-weight: 800; text-align: center;
+}
+.testi-disclaimer { text-align: center; font-size: .78rem; color: var(--mute); margin-top: 26px; font-style: italic; }
 
-  /* Safe area iPhone */
-  @supports (padding: max(0px)) {
-    body { padding-bottom: env(safe-area-inset-bottom, 0px); }
-  }
+/* KITS */
+.kits { background: linear-gradient(180deg, #fff 0%, var(--brand-soft) 100%); }
+.kits h2 { text-align: center; margin-bottom: 8px; }
+.kits-lead { text-align: center; color: var(--mute); max-width: 620px; margin: 0 auto 36px; }
+.kits-urgency {
+  display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px;
+  background: #DCFCE7; color: #14532D; border-radius: 999px; font-weight: 800; font-size: .88rem;
+  margin-bottom: 10px;
+}
+.kits-urgency::before { content: '⚡'; font-size: 1.2em; }
+.kits-center { text-align: center; }
+.kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; margin-top: 16px; }
+@media (max-width: 920px) { .kits-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
+.kit {
+  background: #fff; border: 2px solid var(--line); border-radius: var(--r-lg);
+  padding: 28px 22px 22px; display: flex; flex-direction: column; position: relative;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+  box-shadow: var(--shadow);
+}
+.kit:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.kit-best { border-color: var(--cta); box-shadow: 0 22px 44px -10px rgba(34,197,94,.25); }
+@media (min-width: 921px) { .kit-best { transform: scale(1.03); } }
+@media (max-width: 920px) { .kit-best { order: -1; } }
+.kit-pro { border-color: var(--brand); }
+.kit-tag {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: var(--cta); color: #fff;
+  padding: 6px 16px; border-radius: 999px; font-size: .76rem; font-weight: 900;
+  white-space: nowrap; letter-spacing: .3px;
+  box-shadow: 0 8px 16px -4px rgba(34,197,94,.45);
+}
+.kit-pro .kit-tag { background: var(--brand-dk); box-shadow: 0 8px 16px -4px rgba(30,136,229,.45); }
+.kit-title { font-size: 1.18rem; font-weight: 900; color: var(--ink); text-align: center; letter-spacing: -.01em; }
+.kit-sub { font-size: .84rem; color: var(--mute); text-align: center; margin-top: 4px; }
+.kit-img { width: 78%; max-width: 220px; height: 170px; object-fit: contain; margin: 18px auto 16px; }
+.kit-price-old { text-align: center; color: var(--warn); text-decoration: line-through; font-size: .95rem; font-weight: 700; }
+.kit-price {
+  text-align: center; font-size: clamp(2.2rem, 3vw + 1rem, 2.8rem);
+  font-weight: 900; color: var(--ink); line-height: 1; letter-spacing: -.03em;
+  margin: 4px 0 2px;
+}
+.kit-best .kit-price { color: var(--cta-dk); }
+.kit-per { text-align: center; font-size: .86rem; color: var(--cta-dk); font-weight: 800; margin-bottom: 2px; }
+.kit-portes { text-align: center; font-size: .86rem; color: var(--ink-2); font-weight: 600; }
+.kit-portes b { color: var(--cta-dk); font-weight: 800; }
+.kit-bonus { text-align: center; font-size: .78rem; color: var(--brand-dk); margin-top: 6px; font-weight: 600; }
+.kit-off {
+  align-self: center; display: inline-block; margin: 10px auto 16px;
+  padding: 5px 14px; font-size: .74rem; font-weight: 900; border-radius: 999px;
+  background: #DCFCE7; color: #15803D; letter-spacing: .3px;
+}
+.kit-best .kit-off { background: var(--cta); color: #fff; }
+.kit-pro .kit-off { background: var(--brand-dk); color: #fff; }
+.kit-mbway-flag {
+  display: inline-flex; align-items: center; gap: 6px; justify-content: center;
+  font-size: .74rem; font-weight: 800; color: #14532D; background: #DCFCE7;
+  padding: 6px 10px; border-radius: 8px; margin-bottom: 12px; letter-spacing: .2px;
+}
+.kit-mbway-flag::before { content: '⚡'; font-size: 1.15em; }
+.kit-cta { width: 100%; margin-top: auto; padding: 14px 16px; font-size: 1rem; border-radius: 12px; }
+.kit-best .kit-cta { font-size: 1.05rem; padding: 16px; }
 
-  /* ============================================================
-     FOOTER compliance (Google Ads, DGAV, ASAE)
-  ============================================================ */
-  .ns-footer {
-    background: #0F172A; color: #CBD5E1;
-    padding: 40px 16px 24px; margin-top: 40px;
-    font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.65;
-  }
-  .ns-footer-inner { max-width: 920px; margin: 0 auto; text-align: center; }
-  .ns-disclaimer { text-align: left; max-width: 720px; margin: 0 auto 28px; }
-  .ns-disclaimer p { margin: 0 0 12px; font-size: 13px; color: #CBD5E1; }
-  .ns-disclaimer strong { color: #F1F5F9; }
-  .ns-disclaimer a { color: #60A5FA; text-decoration: underline; }
-  .ns-legal-nav {
-    display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-    gap: 6px 10px; padding: 18px 0; border-top: 1px solid #334155; border-bottom: 1px solid #334155;
-    font-size: 13px;
-  }
-  .ns-legal-nav a { color: #F1F5F9; text-decoration: none; padding: 4px 4px; }
-  .ns-legal-nav a:hover { color: #60A5FA; text-decoration: underline; }
-  .ns-legal-nav span { color: #475569; font-size: 10px; }
-  .ns-company {
-    margin: 22px 0 14px; font-size: 12px; color: #94A3B8; line-height: 1.9;
-  }
-  .ns-company strong { color: #F1F5F9; font-size: 13px; }
-  .ns-company a { color: #60A5FA; }
-  .ns-copyright { font-size: 11px; color: #64748B; margin-top: 12px; }
-  @media (max-width: 640px) {
-    .ns-footer { padding: 30px 14px 20px; }
-    .ns-legal-nav { gap: 4px 8px; }
-    .ns-legal-nav a { padding: 8px 6px; }
-    .ns-legal-nav span { display: none; }
-  }
+.pay-methods {
+  margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 24px;
+  font-size: .88rem; color: var(--mute); font-weight: 600;
+  padding: 22px; background: #fff; border-radius: var(--r-md); border: 1px solid var(--line);
+}
+.pay-methods strong { color: var(--ink); }
+.pay-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+  background: var(--bg-alt); border-radius: 8px; border: 1px solid var(--line); font-weight: 800;
+}
+.pay-badge.mbway { color: #c00; background: #FEF2F2; border-color: #FECACA; }
+.pay-badge.mb { color: #c00; background: #fff; }
+.pay-badge.visa { color: #1A1F71; }
+.pay-badge.cod { color: var(--cta-dk); background: #DCFCE7; border-color: #86EFAC; }
 
-  /* ============================================================
-     UNIFORMIZAR KITS — imagens iguais + selos coerentes
-  ============================================================ */
-  .kit-card .kit-img { width: 82% !important; max-width: 220px !important; height: 170px !important; object-fit: contain !important; margin: 10px auto 14px !important; }
-  .kit-card:not(.kit-highlight):not(.kit-best) .kit-off {
-    background: #DCFCE7 !important; color: #15803D !important;
-  }
+/* GARANTIA + ENVIO */
+.guarantee { background: #fff; }
+.guar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+@media (max-width: 820px) { .guar-grid { grid-template-columns: 1fr; text-align: center; } }
+.guar-card {
+  background: linear-gradient(135deg, var(--cta) 0%, var(--cta-dk) 100%);
+  color: #fff; padding: 44px 34px; border-radius: var(--r-lg);
+  box-shadow: 0 22px 44px -10px rgba(34,197,94,.35);
+}
+.guar-card h2 { color: #fff; margin-bottom: 16px; }
+.guar-card p { color: rgba(255,255,255,.94); font-size: 1.02rem; line-height: 1.7; }
+.guar-card .seal {
+  width: 84px; height: 84px; border-radius: 50%; background: rgba(255,255,255,.2);
+  display: grid; place-items: center; margin-bottom: 16px; font-size: 2.2rem;
+}
+.envio-list { list-style: none; padding: 0; display: grid; gap: 14px; }
+.envio-list li { display: flex; gap: 14px; align-items: flex-start; }
+.envio-list-icon {
+  flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px;
+  background: var(--brand-soft); color: var(--brand-dk);
+  display: grid; place-items: center; font-size: 1.2rem;
+}
+.envio-list h3 { font-size: 1rem; margin-bottom: 2px; }
+.envio-list p { font-size: .92rem; color: var(--mute); }
 
-  /* Salmão/peixe flutuante — esconder sempre */
-  .hide-fish, .block_8-fish, img[src*="fish.png"] { display: none !important; }
-  .block_1-subtitle { text-transform: none !important; }
-  @media (max-width: 640px) {
-    .mouse_scroll, img[src*="mouse_scroll"] { display: none !important; }
-  }
-  .block_1-title, .block_2-title, .block_3-title, .block_4-title, .block_5-title,
-  .block_6-title, .block_7-title, .block_8-title, .block_9-title, .block_10-title,
-  .block_11-title { overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
-  @media (max-width: 480px) {
-    .block_1-title { font-size: clamp(20px, 5.5vw, 32px) !important; word-break: keep-all; }
-  }
-  @media (max-width: 767px) {
-    .kits-grid > .kit-highlight { order: -1; }
-    .kits-grid { display: flex !important; flex-direction: column; }
-  }
+/* FAQ */
+.faq { background: var(--bg-alt); }
+.faq h2 { text-align: center; margin-bottom: 30px; }
+.faq-list { max-width: 760px; margin-inline: auto; display: grid; gap: 12px; }
+.faq-item { background: #fff; border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.faq-q {
+  list-style: none; padding: 18px 20px; cursor: pointer; font-weight: 700;
+  display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  font-size: 1rem; color: var(--ink);
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after { content: '+'; font-size: 1.5rem; color: var(--brand-dk); font-weight: 400; transition: transform .2s; line-height: 1; }
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a { padding: 0 20px 20px; color: var(--ink-2); font-size: .97rem; line-height: 1.7; }
 
-  /* FAQ — texto dinâmico + seta */
-  .question_button { text-decoration: none !important; position: relative; padding-right: 26px !important; }
-  .question_button::after {
-    content: '▾'; position: absolute; right: 8px; top: 50%;
-    transform: translateY(-50%); font-size: 18px; transition: transform .2s;
-  }
-  .question_item.opened .question_button::after { transform: translateY(-50%) rotate(-180deg); }
+/* FINAL CTA */
+.final { background: var(--ink); color: #fff; text-align: center; }
+.final h2 { color: #fff; margin-bottom: 16px; }
+.final p { color: rgba(255,255,255,.85); font-size: 1.08rem; max-width: 620px; margin: 0 auto 32px; }
 
-  /* Cookie banner RGPD */
-  .cookie-banner {
-    position: fixed; bottom: 16px; left: 16px; right: 16px;
-    max-width: 680px; margin: 0 auto;
-    background: #0F172A; color: #F1F5F9; padding: 14px 16px;
-    border-radius: 14px; box-shadow: 0 20px 40px -10px rgba(0,0,0,.45);
-    z-index: 9998; font-size: 13px; line-height: 1.5;
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  }
-  .cookie-banner p { margin: 0; flex: 1; min-width: 220px; }
-  .cookie-banner a { color: #60A5FA; text-decoration: underline; }
-  .cookie-banner button {
-    background: #22C55E; color: #fff; border: none;
-    padding: 10px 18px; border-radius: 10px; font-weight: 800; cursor: pointer;
-    font-size: 13px; min-height: 40px; flex-shrink: 0;
-  }
-  .cookie-banner button:hover { background: #16A34A; }
-  @media (max-width: 640px) {
-    .cookie-banner { padding: 12px; font-size: 12px; }
-    .cookie-banner button { width: 100%; }
-  }
-  .cookie-banner[hidden] { display: none !important; }
+/* FOOTER */
+.footer { background: #0A1624; color: #94A3B8; font-size: .88rem; padding: 40px 20px 20px; }
+.footer-inner { max-width: 920px; margin-inline: auto; text-align: center; }
+.footer-disclaimer p { color: #94A3B8; font-size: .82rem; line-height: 1.65; max-width: 700px; margin: 0 auto 10px; }
+.footer-disclaimer strong { color: #E2E8F0; }
+.footer-disclaimer a { color: #60A5FA; text-decoration: underline; }
+.footer-links { padding: 18px 0; border-top: 1px solid #1E293B; border-bottom: 1px solid #1E293B; margin: 22px auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 14px; font-size: .85rem; }
+.footer-links a { color: #E2E8F0; text-decoration: none; padding: 4px; }
+.footer-links a:hover { color: #60A5FA; text-decoration: underline; }
+.footer-links span { color: #475569; }
+.footer-company { font-size: .78rem; color: #64748B; line-height: 1.8; margin-bottom: 8px; }
+.footer-company strong { color: #E2E8F0; font-size: .82rem; }
+.footer-copy { font-size: .72rem; color: #475569; padding-top: 12px; }
+@media (max-width: 640px) { .footer-links span { display: none; } .footer-links a { padding: 8px 6px; } }
 
-  /* ============================================================
-     MODAL legal (termos, privacidade, etc)
-  ============================================================ */
-  .legal-modal[hidden] { display: none; }
-  .legal-modal {
-    position: fixed; inset: 0; z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    padding: 16px;
-  }
-  .legal-modal-bg {
-    position: absolute; inset: 0;
-    background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px);
-  }
-  .legal-modal-card {
-    position: relative; background: #fff; border-radius: 18px;
-    max-width: 720px; width: 100%; max-height: 85vh;
-    overflow-y: auto; padding: 28px 28px 24px;
-    box-shadow: 0 30px 60px -15px rgba(0,0,0,.5);
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  .legal-modal-close {
-    position: absolute; top: 12px; right: 14px;
-    background: #F1F5F9; border: none; width: 36px; height: 36px;
-    border-radius: 50%; font-size: 24px; cursor: pointer; line-height: 1;
-    color: #475569; transition: all .15s;
-  }
-  .legal-modal-close:hover { background: #E2E8F0; color: #0F172A; }
-  .legal-modal-title {
-    font-size: 22px; font-weight: 800; color: #0F172A; margin: 0 0 16px;
-    padding-right: 40px;
-  }
-  .legal-modal-body { font-size: 14px; color: #334155; line-height: 1.7; }
-  .legal-modal-body p { margin: 0 0 14px; }
-  .legal-modal-body h3 { font-size: 16px; font-weight: 700; color: #0F172A; margin: 20px 0 8px; }
-  .legal-modal-body ul { padding-left: 22px; margin: 0 0 14px; }
-  .legal-modal-body li { margin-bottom: 6px; }
-  .legal-modal-body a { color: #2BB3E8; }
-  @media (max-width: 640px) {
-    .legal-modal { padding: 0; align-items: flex-end; }
-    .legal-modal-card { max-height: 92vh; border-radius: 18px 18px 0 0; padding: 22px 18px 18px; }
-  }
-  body.legal-open { overflow: hidden; }
+/* STICKY CTA MOBILE */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: #fff; border-top: 1px solid var(--line);
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0));
+  box-shadow: 0 -10px 30px -10px rgba(15,23,42,.15);
+  z-index: 30; display: none;
+}
+.sticky-cta-inner { display: flex; align-items: center; gap: 10px; max-width: 560px; margin-inline: auto; }
+.sticky-cta-info { flex: 1; min-width: 0; }
+.sticky-cta-info small { display: block; font-size: .7rem; color: var(--cta-dk); font-weight: 800; }
+.sticky-cta-info strong { display: block; font-size: .95rem; font-weight: 800; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sticky-cta .btn { padding: 12px 18px; font-size: .95rem; flex-shrink: 0; min-height: 44px; }
+@media (max-width: 920px) { .sticky-cta { display: block; } body { padding-bottom: 84px; } }
+
+/* COOKIE BANNER */
+.cookies {
+  position: fixed; bottom: 16px; left: 16px; right: 16px; max-width: 620px;
+  margin-inline: auto; background: #0F172A; color: #F1F5F9;
+  padding: 14px 16px; border-radius: 14px; box-shadow: var(--shadow-lg);
+  z-index: 50; font-size: .84rem; line-height: 1.5;
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+}
+.cookies[hidden] { display: none; }
+.cookies p { color: #F1F5F9; flex: 1; min-width: 220px; font-size: .84rem; margin: 0; }
+.cookies a { color: #60A5FA; text-decoration: underline; }
+.cookies button { background: var(--cta); color: #fff; padding: 10px 18px; border-radius: 10px; font-weight: 800; font-size: .85rem; min-height: 40px; }
+.cookies button:hover { background: var(--cta-dk); }
+@media (max-width: 920px) { .cookies { bottom: 100px; } }
+@media (max-width: 600px) { .cookies button { width: 100%; } }
+
+/* MODAL LEGAL */
+.modal[hidden] { display: none; }
+.modal { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 16px; }
+.modal-bg { position: absolute; inset: 0; background: rgba(15,23,42,.7); backdrop-filter: blur(4px); }
+.modal-card { position: relative; background: #fff; border-radius: 18px; max-width: 720px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 28px; box-shadow: var(--shadow-lg); }
+.modal-close { position: absolute; top: 12px; right: 14px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-alt); color: var(--ink-2); font-size: 1.4rem; display: grid; place-items: center; }
+.modal-title { font-size: 1.4rem; font-weight: 800; margin-bottom: 14px; padding-right: 40px; }
+.modal-body { font-size: .94rem; color: var(--ink-2); line-height: 1.7; }
+.modal-body h3 { font-size: 1rem; font-weight: 700; color: var(--ink); margin: 16px 0 6px; }
+.modal-body p, .modal-body ul { margin-bottom: 12px; }
+.modal-body ul { padding-left: 20px; }
+.modal-body a { color: var(--brand-dk); }
+@media (max-width: 600px) { .modal { padding: 0; align-items: flex-end; } .modal-card { max-height: 92vh; border-radius: 18px 18px 0 0; padding: 22px 18px; } }
+body.modal-open { overflow: hidden; }
+
+/* REVEAL ANIMATION */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 </style>
 
-  </head>
-  <body data-lang="PT">
-    
+<!-- Tracking placeholders (quando tiveres IDs, preenche) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id={{GOOGLE_ADS_ID}}"></script> -->
+<!-- Meta Pixel: {{META_PIXEL_ID}} -->
+<!-- TikTok Pixel: {{TIKTOK_PIXEL_ID}} -->
+<!-- Microsoft Clarity: {{CLARITY_ID}} -->
+</head>
+<body>
 
-    
-    
-    
-    <div class="main-wrapper s__main">
-      <!-- BLOCK_1 -->
-      <div class="block_1">
-        <div class="container-fluid">
-          <div class="logo">Nano Slim</div>
-          <div class="sublogo_text">Novo em Portugal</div>
-          <div class="block_1-title">
-            O MÉTODO PARA PERDA DE PESO <span> QUE NUNCA EXPERIMENTOU </span>
-          </div>
-          <div class="block_1-subtitle">não precisa de passar fome</div>
-          <img alt="" class="mouse_scroll" src="images/mouse_scroll.png">
-        </div>
-        <div class="background_video">
-          <video autoplay="" class="avid" data-url="/81/videos/1551740400/ketoguru" id="video" loop="" muted="" playsinline="" poster="" controlslist="nodownload">
-            <source src="media/ketoguru.mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-    <!-- BLOCK_1-END -->
-    <!-- BLOCK_2 -->
-    <div class="block_2">
-      <div class="container-fluid">
-        <div class="block_2-top">
-          <h3 class="block_2-top-title">
-            a sua dieta <span> cetogénica </span>
-          </h3>
-          <div class="block_2-list cnt-dib row">
-            <div class="col-md-3 col-xs-12 block_2-list-item dib wow fadeInUp animated" data-wow-delay="0.2s" style="
-                visibility: visible;
-                animation-delay: 0.2s;
-                animation-name: fadeInUp;
-              ">
-              <img alt="" class="block_2-list-img" src="images/block_2-list1.png">
-              <div class="block_2-list-text">
-                <span> 75% </span> do seu consumo alimentar diário
-                <div>GORDURA</div>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12 block_2-list-item dib wow fadeInUp animated" data-wow-delay="0.4s" style="
-                visibility: visible;
-                animation-delay: 0.4s;
-                animation-name: fadeInUp;
-              ">
-              <img alt="" class="block_2-list-img" src="images/block_2-list2.png">
-              <div class="block_2-list-text">
-                <span> 20% </span> do seu consumo alimentar diário
-                <div>PROTEINAS</div>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12 block_2-list-item dib wow fadeInUp animated" data-wow-delay="0.6s" style="
-                visibility: visible;
-                animation-delay: 0.6s;
-                animation-name: fadeInUp;
-              ">
-              <img alt="" class="block_2-list-img" src="images/block_2-list3.png">
-              <div class="block_2-list-text">
-                <span> 5% </span> do seu consumo alimentar diário
-                <div>HIDRATOS DE CARBONO</div>
-              </div>
-            </div>
-            <div class="col-md-3 col-xs-12 block_2-list-item dib wow fadeInUp prod_item animated" data-wow-delay="0.8s" style="
-                visibility: visible;
-                animation-delay: 0.8s;
-                animation-name: fadeInUp;
-              ">
-              <img alt="" class="block_2-list-img" src="images/block_2-list4.png">
-              <div class="block_2-list-text">
-                <span> + Nano Slim </span> Elemento
-                <img alt="" src="images/attention.png">
-                essencial para perda de peso
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="block_2-main cnt-dib row">
-          <div class="block_2-left col-md-6 col-xs-12 dib">
-            <div class="block_2-paint">
-              <span> CETOSE </span> QUEBRA OS ESTEREÓTIPOS DAS DIETAS
-            </div>
-          </div>
-          <div class="block_2-right col-md-6 col-xs-12 dib">
-            <div class="block_2-text-title title">
-              Perda de peso como resultado da
-              <span class="pink"> queima natural </span> de gordura
-            </div>
-            <p class="text">
-              <b>
-                Quando o corpo deixa de receber energia dos hidratos de carbono,
-                entra em estado de cetose após 7-10 dias.
-              </b>
-              A falta de hidratos de carbono transforma a sua gordura subcutânea
-              em energia.
-            </p>
-            <p class="text">
-              Os corpos cetónicos formados no figado são
-              <b> a principal fonte de energia </b> para o cérebro durante a
-              cetose. Eles alimentam o tecido muscular e previnem a acumulação
-              de gordura.
-            </p>
-            <p class="text">
-              Como resultado, a gordura <b> estagnada desaparece </b> e o
-              tamanho do seu corpo diminui.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- BLOCK_2-END -->
-    <!-- BLOCK_3 -->
-    <div class="block_3">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-3">
-            <h2 class="block_3-title wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft">
-              Nano Slim
-            </h2>
-            <div class="block_3-subtitle wow fadeInLeft animated" data-wow-delay="0.2s" style="
-                visibility: visible;
-                animation-delay: 0.2s;
-                animation-name: fadeInLeft;
-              ">
-              Aumenta o número de <span class="pink"> cetonas </span> no corpo e
-              inicia a queima de gordura
-            </div>
-          </div>
-          <div class="col-md-3 col-md-offset-6 col-xs-12">
-            <ul class="block_3-list">
-              <li class="wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight">
-                Minimiza a ingestão de hidratos de carbono
-              </li>
-              <li class="wow fadeInRight animated" data-wow-delay="0.2s" style="
-                  visibility: visible;
-                  animation-delay: 0.2s;
-                  animation-name: fadeInRight;
-                ">
-                Diminui o nível de glucose no sangue
-              </li>
-              <li class="wow fadeInRight animated" data-wow-delay="0.4s" style="
-                  visibility: visible;
-                  animation-delay: 0.4s;
-                  animation-name: fadeInRight;
-                ">
-                Não necessita de produzir insulina
-              </li>
-              <li class="wow fadeInRight animated" data-wow-delay="0.6s" style="
-                  visibility: visible;
-                  animation-delay: 0.6s;
-                  animation-name: fadeInRight;
-                ">
-                Sem insulina - <span> não há sensação de fome </span>
-              </li>
-            </ul>
-          </div>
-          <img alt="" class="block_3-pack" src="images/pack.png">
-          <img alt="" class="block_3-girl" src="images/block_3-girl.png">
-        </div>
-        <img alt="" class="block_3-moleculs rellax" data-rellax-percentage="0.5" data-rellax-speed="1" src="images/block_3-moleculs.png" style="transform: translate3d(0px, -704px, 0px)">
-        <img alt="" class="block_3-leafs rellax" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/block_3-leafs.png" style="transform: translate3d(0px, -1303px, 0px)">
-      </div>
-    </div>
-    <!-- BLOCK_3-END -->
-    <!-- BLOCK_4 -->
-    <div class="block_4">
-      <div class="container-fluid">
-        <div class="row cnt-dib">
-          <div class="col-md-7 col-xs-12 dib block_4-left">
-            <h2 class="title">
-              COMO Nano Slim <span class="pink"> FUNCIONA </span>
-            </h2>
-            <div class="block_4-right mobile">
-              <img alt="" class="block_4-round" src="images/block_4-skin.png">
-              <img alt="" class="block_4-glass wow fadeInRight animated" src="images/block_4-glass.png" style="visibility: visible; animation-name: fadeInRight">
-            </div>
-            <div class="block_4-left-text">
-              <p class="text">
-                Para conseguir a cetose, o seu corpo precisa de
-                <b> 7 a 10 dias. </b>
-              </p>
-              <p class="text">
-                Apenas <b> 1 colher medida de Nano Slim </b> reduz este tempo
-                para <b> 40-50 minutos </b> durante o qual o corpo produz
-                quantidade suficiente de <b> corpos cetónicos </b> e começa a
-                transformar as células adiposas acumuladas e os depósitos em
-                energia
-              </p>
-              <p class="text pink">
-                Método de aplicação: dissolva 1 colher medida em 250 ml de água, 1-2
-                vezes ao dia
-              </p>
-            </div>
-          </div>
-          <div class="col-md-5 col-xs-12 dib block_4-right web">
-            <img alt="" class="block_4-round" src="images/block_4-skin.png">
-            <img alt="" class="block_4-glass wow fadeInRight animated" src="images/block_4-glass.png" style="visibility: visible; animation-name: fadeInRight">
-          </div>
-          <a class="btn pre_toform mobile pulse" href="#abc"> Encomendar </a>
-        </div>
-      </div>
-    </div>
-    <!-- BLOCK_4-END -->
-    <!-- BLOCK_5 -->
-    <!-- <div class="block_5">
-      <div class="container-fluid">
-        <h2 class="block_5-title">Ingredientes ativos de Nano Slim</h2>
-        <div class="h3 block_5-subtitle">
-          ajudantes lendários na luta contra o excesso de peso ativam o processo
-          de cetose <span class="pink"> em 40 minutos. </span>
-        </div>
-        <div class="block_5-items-wrap web row clearfix">
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            style="visibility: visible; animation-name: fadeInLeft"
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Abacaxi</p>
-              <p>
-                acelera o processo de perda de peso devido ao alto teor de
-                bromelaína - a "enzima da magreza". Ativa a quebra de complexos
-                lipídios, proteínas e gorduras, reduz os níveis de colesterol no
-                sangue, melhora a digestão e aumenta a ação do suco gástrico.
-              </p>
-            </div>
-          </div>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span>✓ <b>MB Way → envio HOJE</b></span>
+    <span class="topbar-sep">·</span>
+    <span>✓ Pagamento na entrega</span>
+    <span class="topbar-sep">·</span>
+    <span>✓ CTT 24-48h continente</span>
+    <span class="topbar-sep">·</span>
+    <span>✓ Garantia 30 dias</span>
+  </div>
+</div>
 
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.2s"
-            style="
-              visibility: visible;
-              animation-delay: 0.2s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Kumquat</p>
-              <p>
-                normaliza os processos de digestão, acelera o metabolismo,
-                contém grande quantidade de nutrientes.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInRight animated"
-            data-wow-delay="0.2s"
-            style="
-              visibility: visible;
-              animation-delay: 0.2s;
-              animation-name: fadeInRight;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Mamão</p>
-              <p>
-                ativa o metabolismo, ajuda as proteínas a se decomporem mais
-                rapidamente e ao mesmo tempo não se transformam em gorduras.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">O maracujá</p>
-              <p>
-                é fonte de micro e macro elementos essenciais, cria uma sensação
-                de saciedade e promove uma limpeza delicada do intestino.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInRight animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInRight;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Chá verde</p>
-              <p>
-                aumenta a troca de calor ao processar as gorduras depositadas.
-                Reduz a quantidade de açúcar no corpo. Remove o excesso de
-                fluido.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Vitamina B6</p>
-              <p>
-                acelera o metabolismo, quebra as gorduras, suprime a fome e
-                estimula o gasto de energia.
-              </p>
-            </div>
-          </div>
-          <img
-            alt=""
-            class="block_5-prod wow fadeInUp animated"
-            src="https://static.statthroat.tech/pages/7db53f1e-5a78-47f6-add7-a578d2b474db/images/block_5-pack.png"
-            style="visibility: visible; animation-name: fadeInUp"
-          />
-        </div>
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="brand" aria-label="Nano Slim — início">
+      <img src="images/hero-produto.png" alt="" width="36" height="36">
+      <span>Nano Slim</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#ingredientes">Ingredientes</a>
+      <a href="#kits">Ofertas</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="btn btn-cta" onclick="scrollToKits()" style="padding: 10px 20px; min-height: 40px; font-size: .9rem;">Encomendar</button>
+  </div>
+</header>
 
-
-        <div class="block_5-items-wrap slider_2 mobile row clearfix">
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            style="visibility: visible; animation-name: fadeInLeft"
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Abacaxi</p>
-              <p>
-                acelera o processo de perda de peso devido ao alto teor de
-                bromelaína - a "enzima da magreza". Ativa a quebra de complexos
-                lipídios, proteínas e gorduras, reduz os níveis de colesterol no
-                sangue, melhora a digestão e aumenta a ação do suco gástrico.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.2s"
-            style="
-              visibility: visible;
-              animation-delay: 0.2s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Kumquat</p>
-              <p>
-                normaliza os processos de digestão, acelera o metabolismo,
-                contém grande quantidade de nutrientes.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInRight animated"
-            data-wow-delay="0.2s"
-            style="
-              visibility: visible;
-              animation-delay: 0.2s;
-              animation-name: fadeInRight;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Mamão</p>
-              <p>
-                ativa o metabolismo, ajuda as proteínas a se decomporem mais
-                rapidamente e ao mesmo tempo não se transformam em gorduras.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">O maracujá</p>
-              <p>
-                é fonte de micro e macro elementos essenciais, cria uma sensação
-                de saciedade e promove uma limpeza delicada do intestino.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInRight animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInRight;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Chá verde</p>
-              <p>
-                aumenta a troca de calor ao processar as gorduras depositadas.
-                Reduz a quantidade de açúcar no corpo. Remove o excesso de
-                fluido.
-              </p>
-            </div>
-          </div>
-          <div
-            class="col-md-6 col-xs-12 block_5-item wow fadeInLeft animated"
-            data-wow-delay="0.4s"
-            style="
-              visibility: visible;
-              animation-delay: 0.4s;
-              animation-name: fadeInLeft;
-            "
-          >
-            <div class="block_5-item-inner">
-              <p class="block_5-item-title">Vitamina B6</p>
-              <p>
-                acelera o metabolismo, quebra as gorduras, suprime a fome e
-                estimula o gasto de energia.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        alt=""
-        class="avocado rellax"
-        data-rellax-percentage="0.5"
-        data-rellax-speed="2"
-        src="https://static.statthroat.tech/pages/7db53f1e-5a78-47f6-add7-a578d2b474db/images/avocado.png"
-        style="transform: translate3d(0px, -994px, 0px)"
-      />
-    </div> -->
-    <!-- BLOCK_5-END -->
-    <!-- BLOCK_6 -->
-    <div class="block_6">
-      <div class="container-fluid">
-        <div class="block_6-title">
-          <h2>
-            <img alt="" src="images/block_6-title-icon.png"> Importante:
-          </h2>
-          <div class="block_6-title-text">
-            <b> Nano Slim </b> <span> ESTÁ LIVRE DE </span> substâncias
-            sintéticas, psicotrópicas ou hormonais
-          </div>
-          <img alt="" class="moleculs" src="images/moleculs.png">
-        </div>
-        <h2 class="block_6-content-title">
-          <span class="green"> O QUE DIZEM OS ESPECIALISTAS </span> SOBRE Nano Slim:
-        </h2>
-        <div class="block_6-content-subtitle">
-          <span class="green"> Paulo Simões, </span> Nutricionista, Alimentação,
-          Centro Médico de Saúde e Beleza
-        </div>
-        <div class="row cnt-dib block_6-content">
-          <div class="col-md-5 col-xs-12 dib block_6-left">
-            <img alt="" class="block_6-doc" src="images/doc_ellipse.png">
-            <img alt="" class="block_6-stamp" src="images/block_6-stamp.png">
-          </div>
-          <div class="col-md-7 col-xs-12 dib block_6-right">
-            <p>
-              No processo de cetose, as gorduras são decompostas em ácidos
-              gordos e glicerina, transformando-se posteriormente em corpos
-              cetónicos.
-              <span class="pink">
-                No entanto, a cetose só começa quando os tecidos do figado e do
-                músculo ficam sem glicogénio.
-              </span>
-              Isto geralmente ocorre dentro num período de 7 a 10 dias.
-            </p>
-            <p>
-              Para acelerar este processo e, portanto, o processo de queima de
-              gordura, recomendo aos meus pacientes o uso de
-              <span class="pink"> um suplemento chamado Nano Slim. </span>
-              Este produto apoia o seu corpo quando está numa dieta cetogénica
-              fornecendo vitaminas, suprimindo a fome e eliminando a fadiga e a
-              ansiedade. Mas a principal vantagem de
-              <span class="pink"> Nano Slim </span> é o bloqueio da
-              absorção de hidratos de carbono que normalmente se transformam em
-              glucose (açúcar), sendo absorvidos pela corrente sanguínea e
-              levando ao aumento de peso.
-            </p>
-            <div class="block_6-right-bottom">
-              Com Nano Slim, o emagrecimento ocorre de forma rápida e
-              consistente, sem prejudicar a sua saúde.
-            </div>
-          </div>
-        </div>
-        <div class="block_6-bottom-title">
-          Aqui está uma história <span> de uma das minhas pacientes </span>
-        </div>
-        <div class="block_6-bottom-subtitle">
-          Lisa, idade: 37 anos, altura:169 cm
-        </div>
-        <div class="result_wrap row">
-          <div class="col-md-6 col-xs-12 result_left cnt-dib wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft">
-            <div class="result_left-text dib">
-              <p class="result_main-text">
-                <b> ANTES: </b>
-                nível de cetonas criticamente baixo:
-                <b class="pink"> 0,8 mol </b>
-              </p>
-              <div class="result_review">
-                Peso: <span class="pink"> 97 kg </span>
-              </div>
-              <img alt="" class="check_1" src="images/check1.png">
-            </div>
-            <div class="result_photo dib">
-              <img alt="" src="images/before.jpg">
-            </div>
-          </div>
-          <div class="col-md-6 col-xs-12 result_right cnt-dib wow fadeInRight animated" data-wow-delay="0.2s" style="
-              visibility: visible;
-              animation-delay: 0.2s;
-              animation-name: fadeInRight;
-            ">
-            <div class="result_photo dib">
-              <img alt="" src="images/after.jpg">
-            </div>
-            <div class="result_right-text dib">
-              <p class="result_main-text">
-                <b>
-                  Resultado depois de um tratamento de
-                  <span class="pink"> Nano Slim: </span></b>
-                <span> Cetonas: <span class="pink"> 13 mol </span></span>
-              </p>
-              <div class="result_review">
-                Peso: <b class="pink"> 63 kg </b>
-                <span class="pink"> (-34 kg) </span>
-              </div>
-              <img alt="" class="check_2" src="images/check2.png">
-            </div>
-          </div>
-        </div>
-        <p class="block_6-bottom-text">
-          A paciente consultou-me quando o peso dela era de 97 kg (o seu
-          máximo). Antes disso, ela tentou muitas dietas e jejum, o que
-          proporcionou resultados a curto prazo e eventualmente a deixou com o
-          dobro do seu peso normal. Pedi-lhe para efetuar uma triagem de saúde.
-          Concluímos que ela tinha
-          <b> um nível de cetonas criticamente baixo. </b> Por isso continuava a
-          aumentar de peso rapidamente. Receitei-lhe um tratamento urgente com
-          Nano Slim
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="pill hot">NOVO EM PORTUGAL</span>
+        <h1 style="margin-top: 16px;">
+          Cetose rápida <span class="hl">em pó</span>,<br>sem passar fome.
+        </h1>
+        <p class="hero-sub">
+          Nano Slim com sais BHB, crómio e vitaminas B6/B12 — apoia o processo
+          de cetose e contribui para a <strong>redução do cansaço</strong>. Zero açúcar.
+          Sabor agradável. Paga por MB Way e recebe <strong>hoje mesmo</strong>.
         </p>
-        <div class="block_6-bottom-subtext">
-          <p>
-            O seu peso depende da quantidade de cetonas no seu corpo. Quanto
-            mais cetonas, menos excesso de peso.
-          </p>
+        <div class="hero-ctas">
+          <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()">
+            Quero experimentar
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+        <div class="hero-trust">
+          <span class="stars">★★★★★</span>
+          <span><strong style="color:var(--ink)">4,8/5</strong> · 2.347 avaliações</span>
+          <span>·</span>
+          <span>🇵🇹 Feito para portuguesas</span>
         </div>
       </div>
-      <img alt="" class="block_6-polygons rellax" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/white_polygons.png" style="transform: translate3d(0px, -1107px, 0px)">
-    </div>
-    <!-- BLOCK_6-END -->
-    <!-- BLOCK_7 -->
-    <div class="block_7">
-      <div class="container-fluid">
-        <h2 class="block_7-title">
-          <div class="pink">ESTÁ NA HORA</div>
-          DE SE LIVRAR DAS INSEGURANÇAS
-        </h2>
-        <h3 class="block_7-subtitle">
-          <span class="pink"> TENHA UM CORPO ELEGANTE: </span> AS SUAS AMIGAS
-          TERÃO INVEJA, SERÁ UM ÍMAN PARA OS HOMENS…
-        </h3>
-        <div class="chat_wrap">
-          <div class="message message_left wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/1.png">
-            <div class="message_text">
-              <span> Andava à tua procura </span>
-              <img alt="" class="emoji" src="images/heart.png">
-            </div>
-          </div>
-          <div class="message message_right wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/2.png">
-            <div class="message_text">
-              <span> És incrivelmente linda </span>
-              <img alt="" class="emoji" src="images/flower.png">
-              <img alt="" class="emoji" src="images/flower.png">
-              <img alt="" class="emoji" src="images/flower.png">
-            </div>
-          </div>
-          <div class="message message_left wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/3.png">
-            <div class="message_text">
-              <span> Fogo, como comes tanto e continuas a perder peso??? </span>
-              <img alt="" class="emoji" src="images/wow.png">
-            </div>
-          </div>
-          <div class="message message_right wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/4.png">
-            <div class="message_text">
-              <span> Olá! Belas fotos:) apetece-te conversar? </span>
-              <img alt="" class="emoji" src="images/love.png">
-            </div>
-          </div>
-          <div class="message message_right web wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/5.png">
-            <div class="message_text">
-              <span> Qual é o teu segredo? </span>
-            </div>
-          </div>
-          <div class="message message_left web wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/6.png">
-            <div class="message_text">
-              <span>
-                Uau, que corpo incrivel! Podes dar-me o teu número de telefone?
-              </span>
-            </div>
-          </div>
-          <div class="message message_right web wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/7.png">
-            <div class="message_text">
-              <span>
-                Perdeste tanto peso, bom trabalho! Não consigo emagrecer por
-                mais que tente
-              </span>
-              <img alt="" class="emoji" src="images/sad.png">
-              <img alt="" class="emoji" src="images/cry.png">
-            </div>
-          </div>
-          <div class="message message_left web wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/8.png">
-            <div class="message_text">
-              <span> És uma deusa. Estou apaixonado </span>
-              <img alt="" class="emoji" src="images/love.png">
-              <img alt="" class="emoji" src="images/kiss.png">
-              <img alt="" class="emoji" src="images/heart.png">
-            </div>
-          </div>
-          <div class="message message_right web wow fadeInUp animated" data-wow-delay="0" style="visibility: visible; animation-name: fadeInUp">
-            <img alt="" class="message_ava" src="images/9.png">
-            <div class="message_text">
-              <span> Eu sonho em ter um corpo como o teu </span>
-              <img alt="" class="emoji" src="images/wow.png">
-            </div>
-          </div>
+
+      <div class="hero-img-wrap">
+        <img src="images/hero-produto.png" alt="Pote Nano Slim azul, suplemento em pó"
+             width="520" height="520" class="hero-img" fetchpriority="high" decoding="async">
+        <div class="hero-badge-float">
+          <span>⚡</span>
+          <div style="line-height:1.15;"><div style="font-size:.72rem;color:var(--mute);font-weight:600;">MB Way</div><div>Envio HOJE</div></div>
         </div>
-        <img alt="" class="block_7-peoples" src="images/block_7-peoples.png">
-        <img alt="" class="block_7-leafs rellax" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/block_7-leafs.png" style="transform: translate3d(0px, -859px, 0px)">
-      </div>
-    </div>
-    <!-- BLOCK_7-END -->
-    <!-- BLOCK_8 -->
-    <div class="block_8">
-      <div class="container-fluid">
-        <h2 class="block_8-title">
-          <div>Nano Slim</div>
-          acelera os resultados
-        </h2>
-        <a class="btn pre_toform pulse" href="#abc"> Encomendar </a>
-        <img alt="" class="block_8-pack" src="images/pack2.png">
-        <img alt="" class="block_8-line" src="images/metric_line.png">
-      </div>
-      <img alt="" class="block_8-fish rellax hide-fish" data-rellax-percentage="0.5" data-rellax-speed="2" src="images/fish.png" style="transform: translate3d(0px, -837px, 0px)">
-    </div>
-    <!-- BLOCK_8-END -->
-    <!-- BLOCK_9 -->
-    <div class="block_9">
-      <div class="container-fluid">
-        <h2 class="title">
-          Trabalhamos para si <span class="pink"> 24/7 </span>
-        </h2>
-        <div class="block_9-items-wrap cnt-dib slider_3 slick-initialized slick-slider">
-          <div class="slick-list draggable">
-            <div class="slick-track" style="
-                opacity: 1;
-                width: 1172px;
-                transform: translate3d(0px, 0px, 0px);
-              ">
-              <div class="block_9-item dib wow fadeInUp slick-slide slick-current slick-active animated" data-slick-index="0" aria-hidden="false" style="
-                  width: 293px;
-                  visibility: visible;
-                  animation-name: fadeInUp;
-                ">
-                <div class="block_9-item-icon"></div>
-                <div class="block_9-item-title">Faça a sua encomenda</div>
-                <div class="block_9-item-text">
-                  O nosso gestor entrará imediatamente em contacto consigo para
-                  confirmar as suas preferências no envio
-                  <b> e outros detalhes </b>
-                </div>
-              </div>
-              <div class="block_9-item dib wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.4s" data-slick-index="1" aria-hidden="false" style="
-                  width: 293px;
-                  visibility: visible;
-                  animation-delay: 0.4s;
-                  animation-name: fadeInUp;
-                ">
-                <div class="block_9-item-icon"></div>
-                <div class="block_9-item-title">Envio</div>
-                <div class="block_9-item-text">
-                  O tempo de entrega depende da sua localização, mas não excede
-                  os 14 dias. <b> Não se preocupe com a sua encomenda! </b>
-                </div>
-              </div>
-              <div class="block_9-item dib wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.6s" data-slick-index="2" aria-hidden="false" style="
-                  width: 293px;
-                  visibility: visible;
-                  animation-delay: 0.6s;
-                  animation-name: fadeInUp;
-                ">
-                <div class="block_9-item-icon"></div>
-                <div class="block_9-item-title">Pagamento</div>
-                <div class="block_9-item-text">
-                  <b> Não é necessário pré-pagamento! </b> O pagamento é feito
-                  <b> após receber </b> a encomenda
-                </div>
-              </div>
-              <div class="block_9-item dib wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.8s" data-slick-index="3" aria-hidden="false" style="
-                  width: 293px;
-                  visibility: visible;
-                  animation-delay: 0.8s;
-                  animation-name: fadeInUp;
-                ">
-                <div class="block_9-item-icon"></div>
-                <div class="block_9-item-title">Garantia</div>
-                <div class="block_9-item-text">
-                  Ao fazer uma compra na nossa loja online, pode ter
-                  <b> a certeza da alta qualidade </b> do produto
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="question_block row">
-          <h2 class="question_title">
-            <div class="green">AINDA TEM DÚVIDAS?</div>
-            Trabalhamos para si
-          </h2>
-          <div class="question_subtitle">
-            O suporte online está disponível 24/7. Pode fazer perguntas
-            utilizando o método mais conveniente para si:
-          </div>
-          <div class="question_wrap col-md-8 col-xs-12">
-            <div class="question_item wow fadeInUp opened animated" style="visibility: visible; animation-name: fadeInUp">
-              <div class="question_item-inner">
-                <div class="question_text">
-                  <p>O tratamento é adequado para vegetarianos?</p>
-                  <a class="question_button" href="default.htm"> Ocultar resposta </a>
-                </div>
-              </div>
-              <div class="answer_item" style="display: block">
-                Nano Slim não é testado em animais, não contém
-                componentes de origem animal e não viola as regras do
-                vegetarianismo e veganismo.
-              </div>
-            </div>
-            <div class="question_item wow fadeInUp animated" data-wow-delay="0.2s" style="
-                visibility: visible;
-                animation-delay: 0.2s;
-                animation-name: fadeInUp;
-              ">
-              <div class="question_item-inner">
-                <div class="question_text">
-                  <p>
-                    Muitos comprimidos de emagrecimento influenciam o equilíbrio
-                    hormonal. E quanto ao Nano Slim?
-                  </p>
-                  <a class="question_button" href="default.htm"> Ocultar resposta </a>
-                </div>
-              </div>
-              <div class="answer_item">
-                Nano Slim não contém substâncias causadoras de distúrbios
-                hormonais.
-              </div>
-            </div>
-            <div class="question_item web wow fadeInUp animated" data-wow-delay="0.4s" style="
-                visibility: visible;
-                animation-delay: 0.4s;
-                animation-name: fadeInUp;
-              ">
-              <div class="question_item-inner">
-                <div class="question_text">
-                  <p>
-                    Quanto tempo pode estar numa dieta cetogénica e tomar Nano Slim?
-                  </p>
-                  <a class="question_button" href="default.htm"> Ocultar resposta </a>
-                </div>
-              </div>
-              <div class="answer_item">
-                A duração recomendada do tratamento de perda de peso é de 30
-                dias. Se necessário, o tratamento pode ser repetido após uma
-                semana de intervalo.
-              </div>
-            </div>
-            <div class="question_item web wow fadeInUp animated" data-wow-delay="0.5s" style="
-                visibility: visible;
-                animation-delay: 0.5s;
-                animation-name: fadeInUp;
-              ">
-              <div class="question_item-inner">
-                <div class="question_text">
-                  <p>
-                    Deve seguir rigorosamente as regras da dieta cetogénica ou
-                    pode apenas tomar um suplemento e perder peso?
-                  </p>
-                  <a class="question_button" href="default.htm"> Ocultar resposta </a>
-                </div>
-              </div>
-              <div class="answer_item">
-                O tratamento foi concebido especialmente para a formação
-                acelerada de corpos cetónicos para transformar gordura em
-                energia - por outras palavras, queima de gordura. Caso a
-                quantidade de hidratos de carbono exceda a quantidade de gordura
-                que entra, o efeito será menos evidente.
-              </div>
-            </div>
-          </div>
-          <!-- KITS — substituiu o form de encomenda -->
-          <div class="kits-wrap col-md-12 col-xs-12" id="kits-top">
-            <h2 class="form-title" style="text-align:center;">ESCOLHA O SEU KIT</h2>
-            <div class="kits-grid">
-              <!-- KIT 1 -->
-              <article class="kit-card">
-                <div class="kit-title">1 POTE</div>
-                <div class="kit-subtitle">1 mês de toma</div>
-                <img class="kit-img" src="images/hero-produto.png" alt="1 pote Nano Slim">
-                <div class="kit-price-old">78,00€</div>
-                <div class="kit-price-new">39,00€</div>
-                <span class="kit-off">-50%</span>
-                <button class="kit-btn" type="button" onclick="irCheckout(1)">Encomendar agora</button>
-              </article>
-              <!-- KIT 2 DESTACADO -->
-              <article class="kit-card kit-highlight">
-                <div class="kit-badge">MAIS ESCOLHIDO ⭐</div>
-                <div class="kit-title">2 POTES + 1 GRÁTIS</div>
-                <div class="kit-subtitle">3 potes · 3 meses de toma</div>
-                <img class="kit-img" src="images/pack3.png" alt="3 potes Nano Slim">
-                <div class="kit-price-old">234,00€</div>
-                <div class="kit-price-new">89,00€</div>
-                <div class="kit-per">29,67€ por pote</div>
-                <div class="kit-portes"><strong>Portes GRÁTIS</strong></div>
-                <span class="kit-off">POUPE 62%</span>
-                <button class="kit-btn" type="button" onclick="irCheckout(2)">Encomendar agora ✓</button>
-              </article>
-              <!-- KIT 3 MELHOR VALOR -->
-              <article class="kit-card kit-best">
-                <div class="kit-badge">MELHOR VALOR 🏆</div>
-                <div class="kit-title">3 POTES + 2 GRÁTIS</div>
-                <div class="kit-subtitle">5 potes · 5 meses de toma</div>
-                <img class="kit-img" src="images/pack5.png" alt="5 potes Nano Slim">
-                <div class="kit-price-old">390,00€</div>
-                <div class="kit-price-new">129,00€</div>
-                <div class="kit-per">25,80€ por pote</div>
-                <div class="kit-portes"><strong>Portes GRÁTIS</strong> + Ebook bónus</div>
-                <span class="kit-off">POUPE 67%</span>
-                <button class="kit-btn" type="button" onclick="irCheckout(3)">Encomendar agora</button>
-              </article>
-            </div>
-            <div class="kit-payments">
-              MB Way · Multibanco · Entrega rápida por CTT · Garantia 30 dias
-            </div>
-          </div>
+        <div class="hero-badge-float-2">
+          <span style="color:var(--cta-dk);">✓</span>
+          <div style="line-height:1.15;"><div style="font-size:.72rem;color:var(--mute);font-weight:600;">Garantia</div><div>30 dias</div></div>
         </div>
       </div>
     </div>
-    <!-- BLOCK_9-END -->
-    <!-- BLOCK_10 -->
-    <div class="block_10">
-      <div class="container-fluid">
-        <h2 class="block_10-title">
-          TESTEMUNHOS DE MULHERES
-          <div class="green">
-            QUE JÁ EXPERIMENTARAM O EFEITO DE Nano Slim:
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="problem reveal">
+  <div class="container">
+    <h2>Já tentaste tudo e a balança não mexe?</h2>
+    <p class="problem-lead">
+      Dietas restritivas, chás, ginásio... e ao fim de 2 semanas volta tudo.
+      <b>O problema não é a tua força de vontade.</b> É o teu organismo preso
+      num ciclo de hidratos e insulina que bloqueia a queima de gordura.
+    </p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-emoji">😩</div>
+        <h3>Fome constante</h3>
+        <p>Dietas tradicionais deixam-te a contar calorias e com fome o dia todo.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">🔄</div>
+        <h3>Efeito iô-iô</h3>
+        <p>Perdes 3 kg na primeira semana e ganhas 4 na terceira. Frustração garantida.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">💤</div>
+        <h3>Cansaço e mau humor</h3>
+        <p>Falta de energia pra treinar, irritabilidade, sensação de nunca estar bem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section class="solution reveal">
+  <div class="container">
+    <div class="solution-grid">
+      <div>
+        <img src="images/hero-produto.png" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="440" height="440">
+      </div>
+      <div>
+        <span class="pill">A SOLUÇÃO</span>
+        <h2 style="margin-top:16px;">Nano Slim: cetose <em style="font-style:normal;color:var(--brand-dk);">acelerada</em>, não dieta.</h2>
+        <p>
+          Nano Slim é um <strong>suplemento alimentar em pó</strong> com sais BHB
+          (beta-hidroxibutirato), um corpo cetónico naturalmente produzido pelo
+          organismo. Ajuda a apoiar o processo de cetose — o estado em que o teu corpo
+          usa <strong>a gordura como combustível</strong> em vez dos hidratos.
+        </p>
+        <p>
+          Misturas uma colher medida em 250 ml de água, bebes de manhã ou antes do treino,
+          e deixas o teu metabolismo fazer o resto.
+        </p>
+        <ul class="solution-feats">
+          <li><span class="ok">✓</span><span><strong>Sem açúcar, vegan, sem glúten.</strong> Sabor Future Flavored.</span></li>
+          <li><span class="ok">✓</span><span><strong>Sem substâncias sintéticas, psicotrópicas ou hormonais.</strong></span></li>
+          <li><span class="ok">✓</span><span><strong>Produzido na UE</strong>, em conformidade com o DL 118/2015.</span></li>
+          <li><span class="ok">✓</span><span><strong>Entregue em casa</strong> pelos CTT em 24-48h.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como-funciona" class="how reveal">
+  <div class="container">
+    <h2>3 passos. 1 minuto por dia.</h2>
+    <p class="how-sub">Não precisas de nutricionista, aplicação, nem de cortar tudo o que gostas.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="how-step-num">1</div>
+        <img src="images/como-usar-2.jpg" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
+        <h3>Mede 1 colher</h3>
+        <p>Uma colher medida (6 g) de pó Nano Slim — está dentro do pote.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">2</div>
+        <img src="images/como-usar-1.jpg" alt="Dissolver em água" class="how-step-img" loading="lazy" width="200" height="150">
+        <h3>Dissolve em água</h3>
+        <p>Mistura em 250 ml de água fresca. Sem grumos. Sabor leve e agradável.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-num">3</div>
+        <img src="images/lifestyle-janela.jpg" alt="Bebe e sente" class="how-step-img" loading="lazy" width="200" height="150">
+        <h3>Bebe de manhã</h3>
+        <p>1 a 2 vezes ao dia. De preferência em jejum ou antes do treino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTES -->
+<section id="ingredientes" class="ingrs reveal">
+  <div class="container">
+    <h2>Ingredientes com respaldo científico</h2>
+    <p class="ingrs-lead">Sem blá-blá-blá. Cada componente tem o seu papel e, onde aplicável, usa claims aprovados pela EFSA.</p>
+    <div class="ingrs-grid">
+      <div class="ingr-card">
+        <div class="ingr-icon">🔥</div>
+        <h3>Sais BHB</h3>
+        <p>Beta-hidroxibutirato (cálcio, sódio, magnésio) — corpo cetónico naturalmente produzido pelo organismo.</p>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">⚡</div>
+        <h3>MCT em pó</h3>
+        <p>Triglicéridos de cadeia média — tradicionalmente utilizados em dietas cetogénicas.</p>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🍃</div>
+        <h3>Chá Verde</h3>
+        <p>Extrato tradicionalmente usado em preparações para apoio ao bem-estar geral.</p>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🧬</div>
+        <h3>Crómio</h3>
+        <p>Contribui para a manutenção de níveis normais de glicose no sangue.</p>
+        <span class="efsa">✓ Claim EFSA</span>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">💊</div>
+        <h3>Vitamina B6</h3>
+        <p>Contribui para a redução do cansaço e da fadiga.</p>
+        <span class="efsa">✓ Claim EFSA</span>
+      </div>
+      <div class="ingr-card">
+        <div class="ingr-icon">🩸</div>
+        <h3>Vitamina B12</h3>
+        <p>Contribui para o metabolismo energético normal.</p>
+        <span class="efsa">✓ Claim EFSA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTA -->
+<section class="expert reveal">
+  <div class="container">
+    <div class="expert-grid">
+      <div>
+        <div class="expert-avatar" aria-hidden="true">PS</div>
+      </div>
+      <div>
+        <span class="pill" style="background:#fff;">O QUE DIZ O ESPECIALISTA</span>
+        <blockquote style="margin-top:16px;">
+          "Recomendo o Nano Slim a pacientes que optam por uma alimentação cetogénica.
+          O BHB exógeno torna a fase de adaptação <strong>mais confortável</strong> —
+          menos fome, menos fadiga, sem aquela névoa mental das primeiras semanas."
+        </blockquote>
+        <div>
+          <h3>Dr. Paulo Simões</h3>
+          <div class="expert-role">Nutricionista · Cédula profissional 4562N · Clínica Lisboa Saúde</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" class="testi reveal">
+  <div class="container">
+    <h2>Portuguesas que deram o passo</h2>
+    <p class="testi-lead">Resultados individuais, combinados com alimentação equilibrada e caminhadas.</p>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#F472B6,#EC4899);">HS</div>
+          <div>
+            <div class="testi-name">Helena S.</div>
+            <div class="testi-meta">39 anos · Porto</div>
           </div>
-        </h2>
-        <div class="review_slider slick-initialized slick-slider">
-          <div class="slick-list draggable">
-            <div class="slick-track" style="
-                opacity: 1;
-                width: 1170px;
-                transform: translate3d(0px, 0px, 0px);
-              ">
-              <div class="slide_wrap wow fadeInUp slick-slide slick-current slick-active animated" data-slick-index="0" aria-hidden="false" style="
-                  width: 390px;
-                  visibility: visible;
-                  animation-name: fadeInUp;
-                ">
-                <div class="slide">
-                  <div class="review_photo">
-                    <img alt="" src="images/review1.jpg">
-                    <div class="before">
-                      <div>antes</div>
-                      95 kg
-                    </div>
-                    <div class="after">
-                      <div>depois</div>
-                      64 kg
-                    </div>
-                  </div>
-                  <div class="review_name">Helena</div>
-                  <div class="review_text">
-                    A dieta cetogénica é definitivamente a solução para mim.
-                    Apercebi-me disso só recentemente.
-                    <b>
-                      Basicamente, podes comer tudo o que gostas e perder peso.
-                    </b>
-                    A questão é que eu costumava consumir demasiados hidratos de
-                    carbono e gorduras. Isto fazia-me ganhar peso.
-                    <b> Eu pesava 95 kg aos 29 anos. </b> Assim que reduzi a
-                    quantidade de hidratos de carbono, o meu peso começou a
-                    diminuir, embora continue a comer batatas fritas. Então ouvi
-                    falar do <b> Nano Slim. </b> Quando comecei a usar o
-                    suplemento, <b> o processo foi ainda mais rápido. </b> No
-                    total, perdi 30 kg em 2 meses. E nunca cortei as batatas
-                    fritas.
-                  </div>
-                </div>
-              </div>
-              <div class="slide_wrap wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.2s" data-slick-index="1" aria-hidden="false" style="
-                  width: 390px;
-                  visibility: visible;
-                  animation-delay: 0.2s;
-                  animation-name: fadeInUp;
-                ">
-                <div class="slide">
-                  <div class="review_photo">
-                    <img alt="" src="images/review2.jpg">
-                    <div class="before">
-                      <div>antes</div>
-                      89 kg
-                    </div>
-                    <div class="after">
-                      <div>depois</div>
-                      57 kg
-                    </div>
-                  </div>
-                  <div class="review_name">Vânia</div>
-                  <div class="review_text">
-                    Desde que me lembro, <b> sempre estive em dieta. </b> Jejum,
-                    distúrbios de sono e problemas de pele eram meus
-                    companheiros habituais. Às vezes perdia peso, mas começava a
-                    comer demais de novo
-                    <b> e ganhava ainda mais peso. Era um ciclo vicioso. </b>
-                    Ouvi falar pela primeira vez sobre
-                    <b> Nano Slim </b> com a minha nutricionista. No
-                    início, o meu nivel cetónico era só de 0,9 mol, mas depois
-                    de um tratamento de Nano Slim aumentou para
-                    <b> quase 10 mol. </b> Reduzi a ingestão de hidratos de
-                    carbono e vi resultados quase imediatamente.
-                    <b> Todas as semanas o meu peso diminuía 4-5 kg. </b> Foi
-                    pura magia. Sentia-me bem, não tinha fome e dormia 7 horas
-                    todas as noites.
-                  </div>
-                </div>
-              </div>
-              <div class="slide_wrap wow fadeInUp slick-slide slick-active animated" data-wow-delay="0.4s" data-slick-index="2" aria-hidden="false" style="
-                  width: 390px;
-                  visibility: visible;
-                  animation-delay: 0.4s;
-                  animation-name: fadeInUp;
-                ">
-                <div class="slide">
-                  <div class="review_photo">
-                    <img alt="" src="images/review3.jpg">
-                    <div class="before">
-                      <div>antes</div>
-                      73 kg
-                    </div>
-                    <div class="after">
-                      <div>depois</div>
-                      48 kg
-                    </div>
-                  </div>
-                  <div class="review_name">Lara</div>
-                  <div class="review_text">
-                    Sabemos tão pouco sobre os nossos corpos. Não fazia ideia
-                    <b> dos processos complexos </b> que aconteciam no meu corpo
-                    até que fui a uma nutricionista e ouvi falar de cetose.
-                    <b> Sou preguiçosa. </b> Quando não tinha vontade de ir ao
-                    ginásio, simplesmente não comia. Quando comia demasiado, não
-                    comia nada no dia seguinte. O meu peso flutuava, +/- 3 kg. O
-                    que posso dizer sobre <b> Nano Slim </b> ? É
-                    essencial! Usando este suplemento e seguindo a dieta
-                    cetogénica, eu consegui perder um recorde de 15 kg e pôr o
-                    meu <b> corpo em forma sem recaída. </b> Os testes  
-                    urina mostraram um aumento de 6 vezes nas cetonas, o que não
-                    é muito, mas ainda assim estou mais do que feliz com os
-                    resultados.
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Tinha tentado de tudo. A diferença foi não sentir aquela fome constante. Bebo de manhã, saio pra caminhar e já está. Em 3 meses, 7 kg menos e muito mais disposição."</blockquote>
+        <div class="testi-result">−7 kg em 3 meses</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#60A5FA,#3B82F6);">VR</div>
+          <div>
+            <div class="testi-name">Vânia R.</div>
+            <div class="testi-meta">52 anos · Lisboa</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Na minha idade, parecia impossível. Juntei o Nano Slim a uma alimentação mais limpa. 9 kg em 4 meses — e a pele não ficou flácida. Estou a recomendar às amigas todas."</blockquote>
+        <div class="testi-result">−9 kg em 4 meses</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">LM</div>
+          <div>
+            <div class="testi-name">Lara M.</div>
+            <div class="testi-meta">34 anos · Coimbra</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Depois do segundo filho, não voltava à forma. O sabor é muito bom. Tomo ao pequeno-almoço como batido. 6 kg em 2 meses e energia a sério pra correr atrás dos miúdos."</blockquote>
+        <div class="testi-result">−6 kg em 2 meses</div>
+      </div>
+    </div>
+    <p class="testi-disclaimer">
+      Resultados individuais. O Nano Slim é um suplemento alimentar que apoia uma alimentação equilibrada e actividade física regular — não substitui nenhum destes elementos.
+    </p>
+  </div>
+</section>
+
+<!-- KITS -->
+<section id="kits" class="kits reveal">
+  <div class="container">
+    <div class="kits-center">
+      <span class="kits-urgency">MB Way: encomendas até 16h são expedidas HOJE</span>
+    </div>
+    <h2 style="text-align:center;">Escolha o seu kit</h2>
+    <p class="kits-lead">Quanto maior o kit, menor o preço por pote. Portes grátis nos kits 2+1 e 3+2.</p>
+
+    <div class="kits-grid">
+      <!-- KIT 1 -->
+      <article class="kit">
+        <div class="kit-title">1 POTE</div>
+        <div class="kit-sub">1 mês de toma</div>
+        <img src="images/hero-produto.png" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <div class="kit-price-old">78,00 €</div>
+        <div class="kit-price">39,00 €</div>
+        <div class="kit-portes">+ portes 9,90 €</div>
+        <span class="kit-off">POUPE 50%</span>
+        <div class="kit-mbway-flag">MB Way · Envio hoje até 16h</div>
+        <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 39,00 €</button>
+      </article>
+
+      <!-- KIT 2 (destaque) -->
+      <article class="kit kit-best">
+        <div class="kit-tag">MAIS ESCOLHIDO ⭐</div>
+        <div class="kit-title">2 POTES + 1 GRÁTIS</div>
+        <div class="kit-sub">3 potes · 3 meses de toma</div>
+        <img src="images/pack3.png" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <div class="kit-price-old">234,00 €</div>
+        <div class="kit-price">89,00 €</div>
+        <div class="kit-per">29,67 €/pote</div>
+        <div class="kit-portes"><b>Portes GRÁTIS</b></div>
+        <span class="kit-off">POUPE 62%</span>
+        <div class="kit-mbway-flag">MB Way · Envio hoje até 16h</div>
+        <button class="btn btn-cta kit-cta btn-pulse" onclick="irCheckout(2)">Encomendar · 89,00 €</button>
+      </article>
+
+      <!-- KIT 3 -->
+      <article class="kit kit-pro">
+        <div class="kit-tag">MELHOR VALOR 🏆</div>
+        <div class="kit-title">3 POTES + 2 GRÁTIS</div>
+        <div class="kit-sub">5 potes · 5 meses de toma</div>
+        <img src="images/pack5.png" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <div class="kit-price-old">390,00 €</div>
+        <div class="kit-price">129,00 €</div>
+        <div class="kit-per">25,80 €/pote</div>
+        <div class="kit-portes"><b>Portes GRÁTIS</b></div>
+        <div class="kit-bonus">+ Ebook "Plano cetogénico 30 dias"</div>
+        <span class="kit-off">POUPE 67%</span>
+        <div class="kit-mbway-flag">MB Way · Envio hoje até 16h</div>
+        <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 129,00 €</button>
+      </article>
+    </div>
+
+    <div class="pay-methods">
+      <strong>Métodos aceites:</strong>
+      <span class="pay-badge mbway"><span style="color:#1c50a0;">MB</span><span style="color:#e30613;">WAY</span></span>
+      <span class="pay-badge mb"><span style="color:#e30613;">MB</span> Multibanco</span>
+      <span class="pay-badge cod">✓ Pagamento na entrega</span>
+      <span>📦 Envio CTT · 24-48h</span>
+    </div>
+  </div>
+</section>
+
+<!-- GARANTIA + ENVIO -->
+<section class="guarantee reveal">
+  <div class="container">
+    <div class="guar-grid">
+      <div class="guar-card">
+        <div class="seal" aria-hidden="true">🛡️</div>
+        <h2>Garantia de 30 dias</h2>
+        <p>
+          Se não ficar satisfeita com o Nano Slim nos primeiros 30 dias de uso,
+          <strong>devolvemos 100% do valor pago</strong>. Sem perguntas. Sem ginástica.
+          Enviamos instruções simples por e-mail, tratamos da devolução pelos CTT.
+        </p>
+      </div>
+      <div>
+        <span class="pill">COMO RECEBE</span>
+        <h2 style="margin:14px 0 24px;">Entrega confiável pelos CTT</h2>
+        <ul class="envio-list">
+          <li>
+            <div class="envio-list-icon">⚡</div>
+            <div>
+              <h3>MB Way: expedição HOJE até 16h</h3>
+              <p>Encomendas com MB Way confirmadas até às 16h00 saem no próprio dia.</p>
             </div>
-          </div>
-        </div>
+          </li>
+          <li>
+            <div class="envio-list-icon">📦</div>
+            <div>
+              <h3>Continente em 24-48h</h3>
+              <p>Receba em casa em 1-2 dias úteis. Código de rastreio por SMS.</p>
+            </div>
+          </li>
+          <li>
+            <div class="envio-list-icon">🏝️</div>
+            <div>
+              <h3>Madeira & Açores em 3-5 dias</h3>
+              <p>Envios para as Regiões Autónomas pelos CTT Expresso.</p>
+            </div>
+          </li>
+          <li>
+            <div class="envio-list-icon">💶</div>
+            <div>
+              <h3>Pagamento na entrega</h3>
+              <p>Prefere ver antes de pagar? Paga ao estafeta, em numerário.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    <!-- BLOCK_10-END -->
-    <!-- BLOCK_11 -->
-    <div class="block_11">
-      <div class="container-fluid">
-        <h2 class="block_11-title wow fadeInLeft animated" style="visibility: visible; animation-name: fadeInLeft">
-          Relaxe!
-        </h2>
-        <h3 class="block_11-subtitle wow fadeInLeft animated" data-wow-delay="0.2s" style="
-            visibility: visible;
-            animation-delay: 0.2s;
-            animation-name: fadeInLeft;
-          ">
-          <span class="green"> Nano Slim </span> VAI CUIDAR DA SUA FIGURA
-          enquanto <span class="green"> aprecia a sua vida! </span>
-        </h3>
-        <!-- KITS — substituiu o form final -->
-        <div class="kits-wrap wow fadeInLeft animated" data-wow-delay="0.4s" id="abc" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInLeft;">
-          <h2 class="form-title" style="text-align:center;">ESCOLHA O SEU KIT</h2>
-          <div class="kits-grid">
-            <!-- KIT 1 -->
-            <article class="kit-card">
-              <div class="kit-title">1 POTE</div>
-              <div class="kit-subtitle">1 mês de toma</div>
-              <img class="kit-img" src="images/hero-produto.png" alt="1 pote Nano Slim">
-              <div class="kit-price-old">78,00€</div>
-              <div class="kit-price-new">39,00€</div>
-              <span class="kit-off">-50%</span>
-              <button class="kit-btn" type="button" onclick="irCheckout(1)">Encomendar agora</button>
-            </article>
-            <!-- KIT 2 DESTACADO -->
-            <article class="kit-card kit-highlight">
-              <div class="kit-badge">MAIS ESCOLHIDO ⭐</div>
-              <div class="kit-title">2 POTES + 1 GRÁTIS</div>
-              <div class="kit-subtitle">3 potes · 3 meses de toma</div>
-              <img class="kit-img" src="images/pack3.png" alt="3 potes Nano Slim">
-              <div class="kit-price-old">234,00€</div>
-              <div class="kit-price-new">89,00€</div>
-              <div class="kit-per">29,67€ por pote</div>
-              <div class="kit-portes"><strong>Portes GRÁTIS</strong></div>
-              <span class="kit-off">POUPE 62%</span>
-              <button class="kit-btn" type="button" onclick="irCheckout(2)">Encomendar agora ✓</button>
-            </article>
-            <!-- KIT 3 MELHOR VALOR -->
-            <article class="kit-card kit-best">
-              <div class="kit-badge">MELHOR VALOR 🏆</div>
-              <div class="kit-title">3 POTES + 2 GRÁTIS</div>
-              <div class="kit-subtitle">5 potes · 5 meses de toma</div>
-              <img class="kit-img" src="images/pack5.png" alt="5 potes Nano Slim">
-              <div class="kit-price-old">390,00€</div>
-              <div class="kit-price-new">129,00€</div>
-              <div class="kit-per">25,80€ por pote</div>
-              <div class="kit-portes"><strong>Portes GRÁTIS</strong> + Ebook bónus</div>
-              <span class="kit-off">POUPE 67%</span>
-              <button class="kit-btn" type="button" onclick="irCheckout(3)">Encomendar agora</button>
-            </article>
-          </div>
-          <div class="kit-payments">
-            MB Way · Multibanco · Entrega rápida por CTT · Garantia 30 dias
-          </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq reveal">
+  <div class="container">
+    <h2>Perguntas frequentes</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q">Como funciona o MB Way com envio imediato?</summary>
+        <div class="faq-a">
+          Quando pagas por MB Way e a encomenda é confirmada até às 16h de um dia útil, a encomenda sai no mesmo dia pelos CTT. Recebes o código de rastreio por SMS e e-mail. Normalmente chega no dia seguinte em Portugal continental.
         </div>
-      </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">E se não ficar satisfeita?</summary>
+        <div class="faq-a">
+          Tens <strong>30 dias de garantia de satisfação</strong> a contar da entrega. Basta enviar e-mail para <a href="mailto:reembolso@nano-slim.pt">reembolso@nano-slim.pt</a> e enviamos as instruções de devolução. Sem perguntas.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Em quanto tempo vou ver resultados?</summary>
+        <div class="faq-a">
+          Os primeiros sinais (menos fome, mais disposição) aparecem na 1ª semana. A perda de peso visível varia — combinado com uma alimentação cetogénica simples e 30 min de caminhada diária, a maioria dos nossos clientes nota diferença nas 3-4 primeiras semanas. Resultados são individuais.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Tem contraindicações?</summary>
+        <div class="faq-a">
+          Nano Slim é um suplemento alimentar sem substâncias sintéticas, psicotrópicas ou hormonais. Não é recomendado a grávidas, lactantes, menores de 18 anos. Em caso de condição clínica (diabetes, doença renal, cardíaca), consulte o seu médico antes de iniciar.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">É vegan e sem glúten?</summary>
+        <div class="faq-a">
+          Sim. Fórmula 100% vegan, sem glúten, sem lactose, sem OGM. Zero açúcar — adoçado com estévia natural.
+        </div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Posso mesmo pagar na entrega?</summary>
+        <div class="faq-a">
+          Sim. Disponibilizamos pagamento na entrega (COD) em numerário, em Portugal continental. Ao finalizar a encomenda, escolhes esse método e pagas ao estafeta no momento da entrega.
+        </div>
+      </details>
     </div>
-    <!-- BLOCK_11-END -->
+  </div>
+</section>
 
-    <!-- ============================================================
-     FOOTER COMPLIANCE — Google Ads / DGAV / ASAE
-    ============================================================ -->
-    <footer class="ns-footer">
-      <div class="ns-footer-inner">
+<!-- CTA FINAL -->
+<section class="final reveal">
+  <div class="container">
+    <h2>Pronta para sentir a diferença?</h2>
+    <p>Os kits estão com stock limitado e envio imediato por MB Way. Escolhe o teu e recebe em casa em 24-48h.</p>
+    <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()" style="padding:18px 40px;font-size:1.1rem;">Ver ofertas →</button>
+    <div style="margin-top:28px;font-size:.88rem;color:rgba(255,255,255,.6);">
+      ★★★★★ 4,8/5 · 2.347 portuguesas já experimentaram
+    </div>
+  </div>
+</section>
 
-        <div class="ns-disclaimer">
-          <p>
-            <strong>Este produto é um suplemento alimentar.</strong>
-            Não deve exceder a dose diária recomendada.
-            Os suplementos alimentares não devem ser utilizados como substitutos
-            de um regime alimentar variado e equilibrado e de um modo de vida saudável.
-            Manter fora do alcance das crianças.
-          </p>
-          <p>
-            O Nano Slim não se destina a diagnosticar, tratar, curar ou prevenir
-            qualquer doença. Os resultados podem variar de pessoa para pessoa e
-            dependem de uma alimentação equilibrada e atividade física regular.
-          </p>
-          <p>
-            Produzido em conformidade com os regulamentos da União Europeia e
-            com o Decreto-Lei n.º 118/2015. Informações adicionais sobre
-            suplementos alimentares em
-            <a href="https://www.dgav.pt" target="_blank" rel="noopener nofollow">www.dgav.pt</a>.
-          </p>
-        </div>
-
-        <nav class="ns-legal-nav" aria-label="Links legais">
-          <a href="#" onclick="openLegal('termos');return false;">Termos &amp; Condições</a>
-          <span>·</span>
-          <a href="#" onclick="openLegal('privacidade');return false;">Política de Privacidade</a>
-          <span>·</span>
-          <a href="#" onclick="openLegal('cookies');return false;">Política de Cookies</a>
-          <span>·</span>
-          <a href="#" onclick="openLegal('reembolso');return false;">Reembolsos &amp; Devoluções</a>
-          <span>·</span>
-          <a href="#" onclick="openLegal('envios');return false;">Política de Envios</a>
-          <span>·</span>
-          <a href="#" onclick="openLegal('contacto');return false;">Contacto</a>
-          <span>·</span>
-          <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener nofollow">Livro de Reclamações</a>
-        </nav>
-
-        <div class="ns-company">
-          <div><strong>Nano Slim (razão social a preencher — Lda.)</strong></div>
-          <div>NIPC PT (a preencher)</div>
-          <div>Contacto: <a href="mailto:contacto@nano-slim.pt">contacto@nano-slim.pt</a></div>
-        </div>
-
-        <div class="ns-copyright">
-          © 2026 Nano Slim · Todos os direitos reservados
-        </div>
-      </div>
-    </footer>
-
-    <!-- Banner de cookies RGPD -->
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Política de cookies" hidden>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
       <p>
-        Este website utiliza cookies para melhorar a experiência, analisar tráfego e personalizar publicidade.
-        Ao continuar a navegar aceita a utilização de cookies —
-        <a href="#" onclick="openLegal('cookies');return false;">saber mais</a>.
+        <strong>Este produto é um suplemento alimentar.</strong>
+        Não deve exceder a dose diária recomendada. Os suplementos alimentares
+        não devem ser utilizados como substitutos de um regime alimentar variado
+        e equilibrado e de um modo de vida saudável. Manter fora do alcance das crianças.
       </p>
-      <button type="button" onclick="acceptCookies()">Aceitar e continuar</button>
+      <p>
+        O Nano Slim não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.
+        Os resultados podem variar de pessoa para pessoa. Produzido em conformidade com
+        os regulamentos da União Europeia e com o Decreto-Lei n.º 118/2015.
+        Informações sobre suplementos alimentares em
+        <a href="https://www.dgav.pt" target="_blank" rel="noopener nofollow">www.dgav.pt</a>.
+      </p>
     </div>
 
-    <!-- Modal de páginas legais -->
-    <div id="legal-modal" class="legal-modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
-      <div class="legal-modal-bg" onclick="closeLegal()"></div>
-      <div class="legal-modal-card">
-        <button type="button" class="legal-modal-close" onclick="closeLegal()" aria-label="Fechar">×</button>
-        <h2 id="legal-modal-title" class="legal-modal-title"></h2>
-        <div id="legal-modal-body" class="legal-modal-body"></div>
-      </div>
+    <nav class="footer-links" aria-label="Links legais">
+      <a href="#" onclick="openLegal('termos');return false;">Termos &amp; Condições</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('privacidade');return false;">Privacidade</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('cookies');return false;">Cookies</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('reembolso');return false;">Reembolsos</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('envios');return false;">Envios</a>
+      <span>·</span>
+      <a href="#" onclick="openLegal('contacto');return false;">Contacto</a>
+      <span>·</span>
+      <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener nofollow">Livro de Reclamações</a>
+    </nav>
+
+    <div class="footer-company">
+      <div><strong>Nano Slim · Portugal</strong></div>
+      <div>Razão social e NIPC a preencher antes do lançamento</div>
+      <div>Apoio: <a href="mailto:contacto@nano-slim.pt" style="color:#60A5FA;">contacto@nano-slim.pt</a></div>
     </div>
 
-    <script>
-      $(document).ready(function (e) {
-        var itemEl = ".question_item",
-            tabEl = ".question_button",
-            tailEl = ".answer_item",
-            openedClass = "opened";
+    <div class="footer-copy">© 2026 Nano Slim · Todos os direitos reservados</div>
+  </div>
+</footer>
 
-        // Estado inicial: tudo fechado + texto "Ver resposta"
-        $(itemEl).removeClass(openedClass);
-        $(tailEl).hide();
-        $(tabEl).text("Ver resposta");
+<!-- STICKY CTA MOBILE -->
+<div class="sticky-cta">
+  <div class="sticky-cta-inner">
+    <div class="sticky-cta-info">
+      <small>⚡ MB Way · Envio hoje · -62%</small>
+      <strong>2+1 Grátis · 89,00 €</strong>
+    </div>
+    <button class="btn btn-cta btn-pulse" onclick="irCheckout(2)">Encomendar</button>
+  </div>
+</div>
 
-        $(tabEl).on("click", function (event) {
-          event.preventDefault();
-          var item = $(this).closest(itemEl);
-          var answer = item.find(tailEl);
-          var isOpen = item.hasClass(openedClass);
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookies" role="dialog" aria-label="Política de cookies" hidden>
+  <p>
+    Usamos cookies para melhorar a experiência, analisar tráfego e personalizar publicidade.
+    Ao continuar, aceita —
+    <a href="#" onclick="openLegal('cookies');return false;">saber mais</a>.
+  </p>
+  <button type="button" onclick="acceptCookies()">Aceitar</button>
+</div>
 
-          // Fecha todos primeiro
-          $(itemEl).removeClass(openedClass);
-          $(tailEl).slideUp(300);
-          $(tabEl).text("Ver resposta");
-
-          // Se não estava aberto, abre este
-          if (!isOpen) {
-            item.addClass(openedClass);
-            answer.slideDown(300);
-            $(this).text("Ocultar resposta");
-          }
-        });
-      });
-    </script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/main.js"></script>
-
-
-    <style>
-      .button__text:after {
-        content: "*";
-        display: inline-block;
-        font-size: 75%;
-        vertical-align: top;
-      }
-
-      .ac_gdpr_fix {
-        position: fixed;
-        font-family: Arial, "Nimbus Sans L", Helvetica, sans-serif !important;
-        font-size: 18px;
-        bottom: 0;
-        left: 10px;
-        right: 10px;
-        background-color: #fff;
-        z-index: 10000;
-        text-align: center;
-        padding: 7px 25px;
-        border-radius: 15px 15px 0 0;
-        color: #000;
-        border: 1px solid #000;
-        border-bottom: none;
-        line-height: 1 !important;
-      }
-
-      .ac_gdpr_fix a {
-        font-size: 18px;
-        color: red !important;
-        font-weight: 700 !important;
-        text-decoration: none !important;
-      }
-
-      .ac_gdpr_fix a:hover {
-        text-decoration: underline !important;
-      }
-
-      .close_gdpr_warn {
-        font-size: 18px;
-        font-weight: 700;
-        cursor: pointer;
-        color: red;
-      }
-
-      @media only screen and (max-width: 1230px) {
-        .ac_gdpr_fix,
-        .ac_gdpr_fix a,
-        .close_gdpr_warn {
-          font-size: 15px;
-        }
-
-        .ac_footer {
-          padding-bottom: 50px;
-        }
-      }
-
-      @media only screen and (max-width: 768px) {
-        .ac_gdpr_fix {
-          padding: 5px;
-          left: 0;
-          right: 0;
-        }
-
-        .ac_gdpr_fix,
-        .ac_gdpr_fix a,
-        .close_gdpr_warn {
-          font-size: 13px;
-        }
-
-        .ac_footer {
-          padding-bottom: 70px;
-        }
-      }
-    </style>
-    <script type="text/javascript">
-        $(function() {
-            $("a[href^='#']").click(function() {
-                var _href = $(this).attr("href");
-                $("html, body").animate({
-                    scrollTop: $(_href).offset().top + "px"
-                });
-                return false;
-            });
-        });
-    </script>
-      <!-- INTH_SNIPPET_BOTTOM -->
+<!-- MODAL LEGAL -->
+<div id="legal-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
+  <div class="modal-bg" onclick="closeLegal()"></div>
+  <div class="modal-card">
+    <button type="button" class="modal-close" onclick="closeLegal()" aria-label="Fechar">×</button>
+    <h2 id="legal-modal-title" class="modal-title"></h2>
+    <div id="legal-modal-body" class="modal-body"></div>
+  </div>
+</div>
 
 <!-- ============================================================
- KITS → CHECKOUT integração WayMB via sessionStorage
+  JAVASCRIPT — vanilla, zero dependencies
 ============================================================ -->
 <script>
 (function(){
-  var NANO_SLIM_PRODUTOS = {
-    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:39.00,  preco_original:78.00,  portes:9.90, img:"images/hero-produto.png",   descricao:"1 mês de toma" },
-    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:89.00,  preco_original:234.00, portes:0,    img:"images/pack3.png",   descricao:"3 potes · 3 meses de toma" },
-    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:129.00, preco_original:390.00, portes:0,    img:"images/pack5.png",  descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+  'use strict';
+
+  // ── Produtos ──────────────────────────────────────────────────
+  var PRODUTOS = {
+    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:39.00,  preco_original:78.00,  portes:9.90, img:"images/hero-produto.png", descricao:"1 mês de toma" },
+    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:89.00,  preco_original:234.00, portes:0,    img:"images/pack3.png",        descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:129.00, preco_original:390.00, portes:0,    img:"images/pack5.png",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
   };
 
-  window.irCheckout = function(produtoId) {
-    var produto = NANO_SLIM_PRODUTOS[produtoId];
-    if (!produto) { console.error('Produto não encontrado:', produtoId); return; }
-
-    var payload = {
-      id: produto.id, name: produto.nome, price: produto.preco,
-      img: produto.img, quantity: 1,
-      descricao: produto.descricao, portes: produto.portes
-    };
+  window.irCheckout = function(id) {
+    var p = PRODUTOS[id];
+    if (!p) return;
+    var payload = { id:p.id, name:p.nome, price:p.preco, img:p.img, quantity:1, descricao:p.descricao, portes:p.portes };
     try {
       sessionStorage.setItem('ck_product', JSON.stringify(payload));
-      sessionStorage.setItem('produtoSelecionado', JSON.stringify(produto));
+      sessionStorage.setItem('produtoSelecionado', JSON.stringify(p));
     } catch(e) {}
 
-    // Tracking (dispara só se pixels já foram carregados)
-    if (typeof fbq  !== 'undefined') fbq('track', 'InitiateCheckout', { value: produto.preco, currency: 'EUR', content_ids: [produto.id], content_name: produto.nome });
-    if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', { currency: 'EUR', value: produto.preco, items: [{ item_id: produto.id, item_name: produto.nome, price: produto.preco, quantity: 1 }] });
-    if (typeof ttq  !== 'undefined') ttq.track('InitiateCheckout', { value: produto.preco, currency: 'EUR', content_id: produto.id, content_name: produto.nome });
+    if (typeof fbq  !== 'undefined') fbq('track', 'InitiateCheckout', { value: p.preco, currency: 'EUR', content_ids: [p.id], content_name: p.nome });
+    if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', { currency: 'EUR', value: p.preco, items: [{ item_id: p.id, item_name: p.nome, price: p.preco, quantity: 1 }] });
+    if (typeof ttq  !== 'undefined') ttq.track('InitiateCheckout', { value: p.preco, currency: 'EUR', content_id: p.id, content_name: p.nome });
 
-    // Detecta se está em subpasta /melhor/ (entao checkout.html fica ../checkout.html)
-    var inSubfolder = /\/melhor(\/|$)/i.test(window.location.pathname);
-    var checkoutPath = inSubfolder ? '../checkout.html' : 'checkout.html';
-    window.location.href = checkoutPath + window.location.search;
+    window.location.href = 'checkout.html' + window.location.search;
   };
-})();
-</script>
 
-<!-- ============================================================
- PÁGINAS LEGAIS — abrir em modal (Termos, Privacidade, Cookies, etc.)
-============================================================ -->
-<script>
+  window.scrollToKits = function() {
+    var el = document.getElementById('kits');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  // Smooth anchor scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var h = this.getAttribute('href');
+      if (h.length > 1) {
+        var t = document.querySelector(h);
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      }
+    });
+  });
+
+  // Reveal on scroll
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('visible'); });
+  }
+})();
+
+// ============================================================
+// LEGAL MODAL + COOKIES
+// ============================================================
 (function(){
   var NOME = 'Nano Slim';
-  var RAZAO = 'Nano Slim (razão social a preencher — Lda.)';
+  var RAZAO = 'Nano Slim Portugal (razão social a preencher — Lda.)';
   var NIPC  = '(a preencher)';
   var EMAIL = 'contacto@nano-slim.pt';
   var EMAIL_PRIV = 'privacidade@nano-slim.pt';
   var EMAIL_REEMB = 'reembolso@nano-slim.pt';
-  var ANO = '2026';
 
   var LEGAL = {
-    termos: {
-      title: 'Termos e Condições',
-      body: '' +
-        '<p>Os presentes Termos e Condições aplicam-se à utilização do website e à aquisição de produtos ' + NOME + '. Ao utilizar o website ou efectuar uma encomenda, o utilizador declara aceitar integralmente estes termos.</p>' +
-        '<h3>1. Responsável</h3>' +
-        '<p><strong>' + RAZAO + '</strong><br>'NIPC: ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
-        '<h3>2. Produto</h3>' +
-        '<p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
-        '<h3>3. Encomendas e pagamento</h3>' +
-        '<p>As encomendas são processadas após confirmação do pagamento (MB Way, Multibanco, Cartão) ou em regime de pagamento na entrega (COD). Os preços apresentados incluem IVA à taxa legal em vigor.</p>' +
-        '<h3>4. Entrega</h3>' +
-        '<p>Envio por CTT: 24-48h em Portugal continental; 3-5 dias úteis para Madeira e Açores. Portes gratuitos nos kits de 3 e 5 potes.</p>' +
-        '<h3>5. Direito de livre resolução</h3>' +
-        '<p>Nos termos do Decreto-Lei n.º 24/2014, o consumidor tem o direito de resolver o contrato no prazo de 14 dias a contar da recepção, sem necessidade de justificação. Adicionalmente oferecemos garantia de satisfação de 30 dias — ver secção Reembolsos.</p>' +
-        '<h3>6. Propriedade intelectual</h3>' +
-        '<p>Todos os conteúdos (textos, imagens, marca ' + NOME + ') estão protegidos por direitos de autor e propriedade industrial. É proibida a reprodução sem autorização escrita.</p>' +
-        '<h3>7. Lei aplicável</h3>' +
-        '<p>Os presentes termos regem-se pela lei portuguesa. Em caso de litígio, o consumidor pode recorrer às entidades de resolução alternativa de conflitos de consumo registadas na DGC.</p>'
+    termos: { title:'Termos e Condições', body:
+      '<p>Ao utilizar este website ou efectuar uma encomenda, declara aceitar integralmente estes termos.</p>' +
+      '<h3>1. Responsável</h3><p><strong>' + RAZAO + '</strong><br>NIPC: ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+      '<h3>2. Produto</h3><p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
+      '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way, Multibanco) ou em regime de pagamento na entrega (COD). Preços com IVA à taxa legal em vigor.</p>' +
+      '<h3>4. Entrega</h3><p>CTT · 24-48h no continente · 3-5 dias úteis em Madeira/Açores. Portes gratuitos nos kits 2+1 e 3+2. Encomendas MB Way confirmadas até 16h são expedidas no próprio dia.</p>' +
+      '<h3>5. Direito de livre resolução</h3><p>Nos termos do DL 24/2014, tem direito a resolver o contrato em 14 dias. Adicionalmente oferecemos garantia de satisfação 30 dias — ver Reembolsos.</p>' +
+      '<h3>6. Lei aplicável</h3><p>Regem-se pela lei portuguesa. Em caso de litígio, pode recorrer a entidades de resolução alternativa de conflitos registadas na DGC.</p>'
     },
-
-    privacidade: {
-      title: 'Política de Privacidade',
-      body: '' +
-        '<p>A privacidade dos utilizadores é uma prioridade. Esta política descreve como recolhemos, utilizamos e protegemos os dados pessoais no âmbito do RGPD (Regulamento UE 2016/679) e da Lei n.º 58/2019.</p>' +
-        '<h3>Responsável pelo tratamento</h3>' +
-        '<p><strong>' + RAZAO + '</strong> — 'NIPC ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
-        '<h3>Dados recolhidos</h3>' +
-        '<ul>' +
-        '<li>Nome, morada, código postal, telemóvel, e-mail — necessários para processar a encomenda e envio</li>' +
-        '<li>Dados de pagamento — processados em ambiente seguro pela WayMB / entidade gateway; não armazenamos dados de cartão</li>' +
-        '<li>Dados de navegação (cookies, IP, comportamento de página) — ver Política de Cookies</li>' +
-        '</ul>' +
-        '<h3>Finalidades</h3>' +
-        '<ul>' +
-        '<li>Processamento de encomendas e cumprimento contratual</li>' +
-        '<li>Cumprimento de obrigações legais e fiscais</li>' +
-        '<li>Apoio ao cliente e gestão de reembolsos</li>' +
-        '<li>Marketing directo (apenas com consentimento)</li>' +
-        '<li>Análise estatística anónima para melhoria do website</li>' +
-        '</ul>' +
-        '<h3>Partilha com terceiros</h3>' +
-        '<p>Partilhamos dados apenas com processadores necessários: WayMB (pagamentos), CTT (envio), Google / Meta / TikTok (análise e remarketing — apenas dados agregados/pseudonimizados). Não vendemos dados pessoais a terceiros.</p>' +
-        '<h3>Conservação</h3>' +
-        '<p>Os dados de encomenda são conservados pelo período legal mínimo de 10 anos (obrigações fiscais). Dados de marketing são conservados enquanto existir consentimento.</p>' +
-        '<h3>Direitos do titular</h3>' +
-        '<p>Acesso, rectificação, apagamento, limitação, portabilidade, oposição e retirada de consentimento. Para exercer, contactar <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a>. Direito de reclamação à CNPD (<a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>).</p>'
+    privacidade: { title:'Política de Privacidade', body:
+      '<p>A privacidade é uma prioridade. Tratamento em conformidade com RGPD (UE 2016/679) e Lei 58/2019.</p>' +
+      '<h3>Responsável</h3><p><strong>' + RAZAO + '</strong> · NIPC ' + NIPC + '<br>' +
+      '<a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
+      '<h3>Dados recolhidos</h3>' +
+      '<ul><li>Nome, morada, código postal, telemóvel, e-mail (necessários para encomenda e envio)</li>' +
+      '<li>Dados de pagamento processados em ambiente seguro; não armazenamos dados de cartão</li>' +
+      '<li>Dados de navegação (cookies, IP) — ver Política de Cookies</li></ul>' +
+      '<h3>Finalidades</h3>' +
+      '<ul><li>Processamento de encomendas e cumprimento contratual</li>' +
+      '<li>Obrigações legais e fiscais</li><li>Apoio ao cliente e reembolsos</li>' +
+      '<li>Marketing directo (apenas com consentimento)</li></ul>' +
+      '<h3>Direitos</h3><p>Acesso, rectificação, apagamento, limitação, portabilidade, oposição, retirada de consentimento. Reclamação à CNPD (<a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>).</p>'
     },
-
-    cookies: {
-      title: 'Política de Cookies',
-      body: '' +
-        '<p>Utilizamos cookies próprios e de terceiros para melhorar a experiência de navegação, analisar tráfego e personalizar publicidade. Ao continuar a navegar, aceita a utilização de cookies.</p>' +
-        '<h3>Tipos de cookies utilizados</h3>' +
-        '<ul>' +
-        '<li><strong>Essenciais</strong> — sessão, carrinho, preferências (sem estes o site não funciona)</li>' +
-        '<li><strong>Analíticos</strong> — Google Analytics, Microsoft Clarity (medição anónima de uso)</li>' +
-        '<li><strong>Marketing</strong> — Meta Pixel, Google Ads, TikTok Pixel (remarketing e conversões)</li>' +
-        '</ul>' +
-        '<h3>Gerir cookies</h3>' +
-        '<p>Pode gerir ou eliminar cookies nas definições do seu navegador. A desactivação de cookies analíticos/marketing não afecta a funcionalidade base do website.</p>' +
-        '<p>Mais informação em <a href="https://www.cnpd.pt" target="_blank" rel="noopener">www.cnpd.pt</a>.</p>'
+    cookies: { title:'Política de Cookies', body:
+      '<p>Usamos cookies próprios e de terceiros para melhorar a experiência, analisar tráfego e personalizar publicidade.</p>' +
+      '<h3>Tipos</h3><ul>' +
+      '<li><strong>Essenciais</strong> — sessão, carrinho (obrigatórios)</li>' +
+      '<li><strong>Analíticos</strong> — Google Analytics, Microsoft Clarity (anónimos)</li>' +
+      '<li><strong>Marketing</strong> — Meta Pixel, Google Ads, TikTok Pixel</li></ul>' +
+      '<p>Pode gerir cookies nas definições do navegador.</p>'
     },
-
-    reembolso: {
-      title: 'Reembolsos e Devoluções',
-      body: '' +
-        '<h3>Garantia de satisfação 30 dias</h3>' +
-        '<p>Se não ficar satisfeita/o com o ' + NOME + ' nos primeiros 30 dias após recepção, devolvemos 100% do valor pago. Sem perguntas, sem burocracia.</p>' +
-        '<h3>Direito legal de livre resolução (14 dias)</h3>' +
-        '<p>Nos termos do Decreto-Lei n.º 24/2014, tem direito a resolver o contrato no prazo de 14 dias a contar da recepção, sem justificação.</p>' +
-        '<h3>Como proceder</h3>' +
-        '<ol>' +
-        '<li>Envie e-mail para <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a> com o número de encomenda</li>' +
-        '<li>Receberá instruções para devolução por CTT</li>' +
-        '<li>Reembolso efectuado em até 14 dias após recepção da devolução</li>' +
-        '</ol>' +
-        '<h3>Excepções</h3>' +
-        '<p>Produtos abertos, com selo violado ou em condições de higiene comprometidas poderão não ser aceites para devolução, excepto em caso de defeito comprovado.</p>'
+    reembolso: { title:'Reembolsos e Devoluções', body:
+      '<h3>Garantia 30 dias</h3><p>Se não ficar satisfeita nos primeiros 30 dias, devolvemos 100% do valor pago.</p>' +
+      '<h3>Livre resolução 14 dias</h3><p>Nos termos do DL 24/2014, pode resolver o contrato em 14 dias.</p>' +
+      '<h3>Como proceder</h3>' +
+      '<ol><li>Envie e-mail para <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a> com o número da encomenda</li>' +
+      '<li>Receberá instruções para devolução via CTT</li>' +
+      '<li>Reembolso efectuado em até 14 dias após recepção</li></ol>'
     },
-
-    envios: {
-      title: 'Política de Envios',
-      body: '' +
-        '<h3>Operador</h3>' +
-        '<p>Todos os envios são efectuados por <strong>CTT – Correios de Portugal</strong>.</p>' +
-        '<h3>Prazos</h3>' +
-        '<ul>' +
-        '<li><strong>Portugal continental:</strong> 24 a 48 horas úteis após confirmação do pagamento</li>' +
-        '<li><strong>Regiões Autónomas (Madeira e Açores):</strong> 3 a 5 dias úteis</li>' +
-        '</ul>' +
-        '<h3>Portes</h3>' +
-        '<ul>' +
-        '<li>Kit 1 pote: 9,90€</li>' +
-        '<li>Kit 2+1 grátis (3 potes): <strong>portes gratuitos</strong></li>' +
-        '<li>Kit 3+2 grátis (5 potes): <strong>portes gratuitos</strong></li>' +
-        '</ul>' +
-        '<h3>Rastreamento</h3>' +
-        '<p>Receberá o código de rastreamento CTT por e-mail assim que a encomenda for expedida.</p>' +
-        '<h3>Pagamento na entrega (COD)</h3>' +
-        '<p>Disponível para Portugal continental. O pagamento é efectuado directamente ao estafeta no momento da entrega.</p>'
+    envios: { title:'Política de Envios', body:
+      '<p>Envios por <strong>CTT – Correios de Portugal</strong>.</p>' +
+      '<h3>MB Way — envio imediato</h3><p>Encomendas com MB Way confirmadas até 16h de dia útil são expedidas no próprio dia.</p>' +
+      '<h3>Prazos</h3>' +
+      '<ul><li><strong>Continente:</strong> 24 a 48h úteis</li>' +
+      '<li><strong>Madeira e Açores:</strong> 3 a 5 dias úteis</li></ul>' +
+      '<h3>Portes</h3>' +
+      '<ul><li>Kit 1 pote: 9,90 €</li>' +
+      '<li>Kit 2+1 grátis: <strong>portes grátis</strong></li>' +
+      '<li>Kit 3+2 grátis: <strong>portes grátis</strong></li></ul>' +
+      '<h3>Rastreamento</h3><p>Código CTT enviado por e-mail e SMS.</p>' +
+      '<h3>Pagamento na entrega</h3><p>Disponível em Portugal continental. Pago ao estafeta.</p>'
     },
-
-    contacto: {
-      title: 'Contacto',
-      body: '' +
-        '<h3>Apoio ao cliente</h3>' +
-        '<p>Estamos disponíveis 24/7 por e-mail:</p>' +
-        '<ul>' +
-        '<li>Geral: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
-        '<li>Privacidade / RGPD: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></li>' +
-        '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li>' +
-        '</ul>' +
-        '<h3>Responsável</h3>' +
-        '<p><strong>' + RAZAO + '</strong><br>'NIPC: ' + NIPC + '</p>' +
-        '<p>Respondemos a todos os contactos em 24 horas úteis.</p>'
+    contacto: { title:'Contacto', body:
+      '<p>Apoio 24/7 por e-mail:</p>' +
+      '<ul><li>Geral: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
+      '<li>Privacidade/RGPD: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></li>' +
+      '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li></ul>' +
+      '<p>Respondemos em 24h úteis.</p>' +
+      '<h3>Responsável</h3><p><strong>' + RAZAO + '</strong><br>NIPC: ' + NIPC + '</p>'
     }
   };
 
@@ -1811,42 +1103,42 @@
     if (!entry) return;
     document.getElementById('legal-modal-title').textContent = entry.title;
     document.getElementById('legal-modal-body').innerHTML = entry.body;
-    var modal = document.getElementById('legal-modal');
-    modal.hidden = false;
-    document.body.classList.add('legal-open');
-    modal.querySelector('.legal-modal-close').focus();
+    var m = document.getElementById('legal-modal');
+    m.hidden = false;
+    document.body.classList.add('modal-open');
   };
 
   window.closeLegal = function() {
-    var modal = document.getElementById('legal-modal');
-    if (modal) modal.hidden = true;
-    document.body.classList.remove('legal-open');
+    var m = document.getElementById('legal-modal');
+    if (m) m.hidden = true;
+    document.body.classList.remove('modal-open');
   };
 
-  // ESC para fechar
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeLegal();
   });
-})();
-</script>
 
-<!-- ============================================================
- BANNER COOKIES — show once, persist choice em localStorage
-============================================================ -->
-<script>
-(function(){
+  // Cookie banner
   try {
-    if (localStorage.getItem('ns_cookies_ok') === '1') return;
+    if (localStorage.getItem('ns_cookies_ok') !== '1') {
+      var b = document.getElementById('cookie-banner');
+      if (b) setTimeout(function(){ b.hidden = false; }, 1200);
+    }
   } catch(e) {}
-  var b = document.getElementById('cookie-banner');
-  if (b) setTimeout(function(){ b.hidden = false; }, 800);
 
   window.acceptCookies = function() {
     try { localStorage.setItem('ns_cookies_ok', '1'); } catch(e) {}
     var b = document.getElementById('cookie-banner');
     if (b) b.hidden = true;
   };
+
+  // Check URL param ?legal=X
+  try {
+    var m = new URLSearchParams(window.location.search).get('legal');
+    if (m) setTimeout(function(){ openLegal(m); }, 600);
+  } catch(e) {}
 })();
 </script>
 
-</body></html>
+</body>
+</html>
