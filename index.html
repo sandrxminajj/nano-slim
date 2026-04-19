@@ -198,10 +198,12 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   border: 1px solid var(--line);
 }
 .ingr-icon {
-  width: 48px; height: 48px; border-radius: 12px;
+  width: 72px; height: 72px; border-radius: 14px;
   background: var(--brand-soft); color: var(--brand-dk);
   display: grid; place-items: center; margin-bottom: 14px;
+  overflow: hidden;
 }
+.ingr-icon img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .ingr-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
 .ingr-card p { font-size: .9rem; }
 .ingr-card .efsa { display: inline-block; margin-top: 8px; font-size: .72rem; color: var(--cta-dk); font-weight: 700; background: #DCFCE7; padding: 3px 8px; border-radius: 999px; }
@@ -496,7 +498,7 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="hero-img-wrap">
-        <img src="images/hero-produto.png" alt="Pote Nano Slim azul, suplemento em pó"
+        <img src="images/hero-produto-v3.jpg" alt="Pote Nano Slim azul, suplemento em pó"
              width="520" height="520" class="hero-img" fetchpriority="high" decoding="async">
         <div class="hero-badge-float">
           <span>⚡</span>
@@ -579,19 +581,19 @@ body.modal-open { overflow: hidden; }
     <div class="how-grid">
       <div class="how-step">
         <div class="how-step-num">1</div>
-        <img src="images/como-usar-2.jpg" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-1.jpg" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Mede 1 colher</h3>
         <p>Uma colher medida (6 g) de pó Nano Slim — está dentro do pote.</p>
       </div>
       <div class="how-step">
         <div class="how-step-num">2</div>
-        <img src="images/como-usar-1.jpg" alt="Dissolver em água" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-2.jpg" alt="Dissolver em água" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Dissolve em água</h3>
         <p>Mistura em 250 ml de água fresca. Sem grumos. Sabor leve e agradável.</p>
       </div>
       <div class="how-step">
         <div class="how-step-num">3</div>
-        <img src="images/lifestyle-janela.jpg" alt="Bebe e sente" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-3.jpg" alt="Bebe e sente" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Bebe de manhã</h3>
         <p>1 a 2 vezes ao dia. De preferência em jejum ou antes do treino.</p>
       </div>
@@ -606,34 +608,34 @@ body.modal-open { overflow: hidden; }
     <p class="ingrs-lead">Sem blá-blá-blá. Cada componente tem o seu papel e, onde aplicável, usa claims aprovados pela EFSA.</p>
     <div class="ingrs-grid">
       <div class="ingr-card">
-        <div class="ingr-icon">🔥</div>
+        <div class="ingr-icon"><img src="images/ingr-bhb.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Sais BHB</h3>
         <p>Beta-hidroxibutirato (cálcio, sódio, magnésio) — corpo cetónico naturalmente produzido pelo organismo.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon">⚡</div>
+        <div class="ingr-icon"><img src="images/ingr-mct.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>MCT em pó</h3>
         <p>Triglicéridos de cadeia média — tradicionalmente utilizados em dietas cetogénicas.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon">🍃</div>
+        <div class="ingr-icon"><img src="images/ingr-cha-verde.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Chá Verde</h3>
         <p>Extrato tradicionalmente usado em preparações para apoio ao bem-estar geral.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon">🧬</div>
+        <div class="ingr-icon"><img src="images/ingr-cromio.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Crómio</h3>
         <p>Contribui para a manutenção de níveis normais de glicose no sangue.</p>
         <span class="efsa">✓ Claim EFSA</span>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon">💊</div>
+        <div class="ingr-icon"><img src="images/ingr-b6.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B6</h3>
         <p>Contribui para a redução do cansaço e da fadiga.</p>
         <span class="efsa">✓ Claim EFSA</span>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon">🩸</div>
+        <div class="ingr-icon"><img src="images/ingr-b12.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B12</h3>
         <p>Contribui para o metabolismo energético normal.</p>
         <span class="efsa">✓ Claim EFSA</span>
@@ -786,7 +788,7 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="guar-grid">
       <div class="guar-card">
-        <div class="seal" aria-hidden="true">🛡️</div>
+        <img src="images/selo-garantia-30-dias.png" alt="Selo Garantia 30 dias" width="140" height="140" loading="lazy" style="width:140px;height:140px;margin-bottom:16px;display:block;">
         <h2>Garantia de 30 dias</h2>
         <p>
           Se não ficar satisfeita com o Nano Slim nos primeiros 30 dias de uso,
