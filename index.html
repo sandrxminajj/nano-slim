@@ -1185,16 +1185,6 @@ body.modal-open { overflow: hidden; }
   </div>
 </div>
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner" class="cookies" role="dialog" aria-label="Política de cookies" hidden>
-  <p>
-    Usamos cookies para melhorar a experiência, analisar tráfego e personalizar publicidade.
-    Ao continuar, aceita -
-    <a href="#" onclick="openLegal('cookies');return false;">saber mais</a>.
-  </p>
-  <button type="button" onclick="acceptCookies()">Aceitar</button>
-</div>
-
 <!-- MODAL LEGAL -->
 <div id="legal-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
   <div class="modal-bg" onclick="closeLegal()"></div>
@@ -1356,23 +1346,7 @@ body.modal-open { overflow: hidden; }
 
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape') closeLegal();
-  });
-
-  // Cookie banner
-  try {
-    if (localStorage.getItem('ns_cookies_ok') !== '1') {
-      var b = document.getElementById('cookie-banner');
-      if (b) setTimeout(function(){ b.hidden = false; }, 1200);
-    }
-  } catch(e) {}
-
-  window.acceptCookies = function() {
-    try { localStorage.setItem('ns_cookies_ok', '1'); } catch(e) {}
-    var b = document.getElementById('cookie-banner');
-    if (b) b.hidden = true;
-  };
-
-  // Check URL param ?legal=X
+  });// Check URL param ?legal=X
   try {
     var m = new URLSearchParams(window.location.search).get('legal');
     if (m) setTimeout(function(){ openLegal(m); }, 600);
