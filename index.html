@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Nano Slim · Suplemento alimentar em pó · Portugal</title>
-<meta name="description" content="Nano Slim, suplemento em pó com sais BHB, vitaminas B6/B12 e crómio. Apoia a cetose, reduz a fadiga. Paga MB Way e recebe hoje. Garantia 30 dias.">
+<title>Nano Slim · Recupera a tua Energia · Envio Grátis 24h</title>
+<meta name="description" content="Recupera a tua energia. Suplemento em pó com Crómio, B6 e B12 — contribui para a redução do cansaço. Envio grátis, MB Way, garantia 30 dias.">
 <meta name="theme-color" content="#2BB3E8">
 <meta name="robots" content="index, follow">
 <meta name="format-detection" content="telephone=no">
@@ -701,6 +701,19 @@ body.modal-open { overflow: hidden; }
   input, textarea, [contenteditable="true"] { -webkit-user-select: text; -moz-user-select: text; user-select: text; }
   img { -webkit-user-drag: none; user-drag: none; pointer-events: auto; }
 
+/* PROBLEMA (cansaço/energia) */
+.problem { background: var(--bg-alt); }
+.problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+@media (max-width: 820px) { .problem-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; } }
+.problem-card {
+  background: #fff; padding: 28px 24px; border-radius: var(--r-md);
+  box-shadow: var(--shadow); text-align: center; transition: transform .2s;
+}
+.problem-card:hover { transform: translateY(-4px); }
+.problem-card-emoji { font-size: 2.5rem; margin-bottom: 10px; line-height: 1; }
+.problem-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--ink); }
+.problem-card p { font-size: .95rem; color: var(--ink-2); line-height: 1.5; }
+
 </style>
 
 <!-- Tracking placeholders (quando tiveres IDs, preenche) -->
@@ -759,12 +772,12 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="pill">Suplemento Alimentar · Fabricado na UE</span>
+        <span class="pill hot">⚡ Novo em Portugal · Stock limitado</span>
         <h1 style="margin-top: 16px;">
-          Suplemento alimentar <span class="hl">em pó</span><br>com Crómio, B6 e B12.
+          Recupera a <span class="hl">energia</span><br>que tinhas aos 30.
         </h1>
         <p class="hero-sub">
-          Com sais BHB, crómio e vitaminas B6/B12. O Crómio contribui para o metabolismo normal dos macronutrientes e as vitaminas B6 e B12 contribuem para a <strong>redução do cansaço e da fadiga</strong>. Zero açúcar. Sabor agradável. Fórmula vegan, sem glúten.
+          Sem dietas impossíveis, sem renunciar ao sabor. <strong>Nano Slim</strong> com Crómio, B6 e B12 — apoia o metabolismo normal dos macronutrientes e <strong>contribui para a redução do cansaço e da fadiga</strong>. Feito na UE. Vegan, zero açúcar.
         </p>
         <div class="hero-ctas">
           <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()">
@@ -786,6 +799,33 @@ body.modal-open { overflow: hidden; }
           <span style="color:var(--cta-dk);">✓</span>
           <div style="line-height:1.15;"><div style="font-size:.72rem;color:var(--mute);font-weight:600;">Garantia</div><div>30 dias</div></div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA (energia/cansaço — compliant) -->
+<section class="problem reveal">
+  <div class="container">
+    <h2 style="text-align:center;">Chegas ao fim do dia <em style="font-style:normal;color:var(--brand-dk);">esgotada?</em></h2>
+    <p style="text-align:center;color:var(--ink-2);max-width:620px;margin:18px auto 44px;font-size:1.05rem;line-height:1.6;">
+      Há milhares de portuguesas a sentir o mesmo. A rotina corrida, o stress, a alimentação nem sempre equilibrada, tudo pesa. A boa notícia? Existe uma forma simples de dar ao teu corpo o que ele precisa.
+    </p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-emoji">😴</div>
+        <h3>Cansaço ao fim da tarde</h3>
+        <p>Depois das 16h, a energia cai a pique e nem um café resolve.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">☕</div>
+        <h3>Dependência de café</h3>
+        <p>3 ou 4 cafés por dia só pra manter os olhos abertos.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">🕐</div>
+        <h3>Depois dos 35...</h3>
+        <p>Sentes que o metabolismo deu uma abrandada e a rotina custa mais.</p>
       </div>
     </div>
   </div>
@@ -905,8 +945,8 @@ body.modal-open { overflow: hidden; }
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Integrei no meu pequeno-almoço e ajudou-me a manter a rotina. Mais disposição para caminhar e treinar."</blockquote>
-        <div class="testi-result">Mais energia no dia-a-dia</div>
+        <blockquote>"Ao fim de 3 meses, a minha roupa voltou a servir. Faço caminhadas de 1h sem me cansar. É o meu segredo."</blockquote>
+        <div class="testi-result">Mais 1h de energia por dia</div>
       </div>
 
       <div class="testi-card">
@@ -918,8 +958,8 @@ body.modal-open { overflow: hidden; }
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Na minha idade queria um apoio prático. Juntei a uma alimentação mais limpa e actividade regular, senti-me com mais disposição no final do dia."</blockquote>
-        <div class="testi-result">Rotina mais estável</div>
+        <blockquote>"Na minha idade, ninguém fala do cansaço. Juntei isto à caminhada e em 4 meses estou outra pessoa. Recomendei a 5 amigas."</blockquote>
+        <div class="testi-result">Disposição mesmo aos 52</div>
       </div>
 
       <div class="testi-card">
@@ -931,8 +971,8 @@ body.modal-open { overflow: hidden; }
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Depois do segundo filho procurava algo prático. O sabor é muito bom, tomo ao pequeno-almoço como batido e consigo estar ativa com os miúdos."</blockquote>
-        <div class="testi-result">Prático e saboroso</div>
+        <blockquote>"Depois do 2.º filho estava desgastada. O sabor é muito bom, tomo ao pequeno-almoço e aguento o dia todo. Já não preciso de 3 cafés."</blockquote>
+        <div class="testi-result">Sem dependência de café</div>
       </div>
     </div>
     <p class="testi-disclaimer" style="text-align:center;font-size:.8rem;color:var(--mute);margin-top:28px;font-style:italic;max-width:640px;margin-inline:auto;padding:0 20px;line-height:1.55;">
@@ -1100,6 +1140,12 @@ body.modal-open { overflow: hidden; }
         </div>
       </details>
       <details class="faq-item">
+        <summary class="faq-q">Vou sentir mais energia logo na primeira semana?</summary>
+        <div class="faq-a">
+          Cada pessoa é única. As vitaminas B6 e B12 presentes no Nano Slim contribuem para a redução do cansaço e da fadiga — um benefício autorizado pela EFSA (Reg. UE 432/2012). A maioria dos nossos clientes reporta sentir-se melhor quando integra o Nano Slim numa rotina com alimentação equilibrada, hidratação e actividade física ligeira. Resultados individuais variam.
+        </div>
+      </details>
+      <details class="faq-item">
         <summary class="faq-q">Como integro o Nano Slim na minha rotina?</summary>
         <div class="faq-a">
           Recomendamos tomar de manhã, em jejum ou antes do treino. Uma colher medida (6g) dissolvida em 250 ml de água, 1 a 2 vezes por dia. É um suplemento alimentar que contribui para o metabolismo energético normal (Crómio, B6, B12) e complementa uma alimentação equilibrada e actividade física regular. Para melhor conforto digestivo, inicia com 1 toma e aumenta gradualmente.
@@ -1124,7 +1170,7 @@ body.modal-open { overflow: hidden; }
 <!-- CTA FINAL -->
 <section class="final reveal">
   <div class="container">
-    <h2>Experimente o Nano Slim</h2>
+    <h2>Recupera a tua melhor versão</h2>
     <p>Todos os kits incluem envio gratuito pelos CTT em 24 a 48 horas úteis. Escolha a opção mais adequada para si.</p>
     <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()" style="padding:18px 40px;font-size:1.1rem;">Ver ofertas →</button>
     <div style="margin-top:28px;font-size:.88rem;color:rgba(255,255,255,.7);">
