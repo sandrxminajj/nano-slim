@@ -298,7 +298,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kits-center { text-align: center; }
 .kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; margin-top: 16px; }
 @media (max-width: 920px) { .kits-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
-.kit {
+.kit { display: flex; flex-direction: column;
   background: #fff; border: 2px solid var(--line); border-radius: var(--r-lg);
   padding: 28px 22px 22px; display: flex; flex-direction: column; position: relative;
   transition: transform .2s, box-shadow .2s, border-color .2s;
@@ -912,19 +912,16 @@ body.modal-open { overflow: hidden; }
         <div class="ingr-icon"><img src="images/ingr-cromio.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Crómio</h3>
         <p>Contribui para a manutenção de níveis normais de glicose no sangue.</p>
-        <span class="efsa">✓ Claim EFSA</span>
       </div>
       <div class="ingr-card">
         <div class="ingr-icon"><img src="images/ingr-b6.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B6</h3>
         <p>Contribui para a redução do cansaço e da fadiga.</p>
-        <span class="efsa">✓ Claim EFSA</span>
       </div>
       <div class="ingr-card">
         <div class="ingr-icon"><img src="images/ingr-b12.jpg" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B12</h3>
         <p>Contribui para o metabolismo energético normal.</p>
-        <span class="efsa">✓ Claim EFSA</span>
       </div>
     </div>
   </div>
@@ -998,6 +995,7 @@ body.modal-open { overflow: hidden; }
         <img src="images/hero-produto.png" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
         <div class="kit-price-old">78,00 €</div>
         <div class="kit-price">39,00 €</div>
+        <div class="kit-per">39,00 €/pote</div>
         <div class="kit-portes"><b>Envio GRÁTIS</b></div>
         <span class="kit-off">-50%</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 39,00 €</button>
@@ -1029,9 +1027,8 @@ body.modal-open { overflow: hidden; }
         <div class="kit-price">129,00 €</div>
         <div class="kit-per">25,80 €/pote</div>
         <div class="kit-portes">
-          <b>2 POTES GRÁTIS</b> · <b>Envio GRÁTIS</b>
+          <b>2 POTES GRÁTIS</b> · <b>Envio GRÁTIS</b> · <b>Ebook</b>
         </div>
-        <div class="kit-bonus">+ Ebook Exclusivo</div>
         <span class="kit-off">-67%</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 129,00 €</button>
       </article>
