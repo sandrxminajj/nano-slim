@@ -706,7 +706,6 @@ body.modal-open { overflow: hidden; }
 <!-- Tracking placeholders (quando tiveres IDs, preenche) -->
 <!-- Meta Pixel: {{META_PIXEL_ID}} -->
 <!-- TikTok Pixel: {{TIKTOK_PIXEL_ID}} -->
-<!-- Microsoft Clarity: {{CLARITY_ID}} -->
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18095331023"></script>
 <script>
@@ -714,6 +713,14 @@ body.modal-open { overflow: hidden; }
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-18095331023');
+</script>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "weaz3fpzcw");
 </script>
 </head>
 <body>
