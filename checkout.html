@@ -631,6 +631,47 @@
 </script>
 </head>
 <body>
+<!-- DEFESA TOTAL: popula bottom bar IMEDIATAMENTE (independente do resto do JS) -->
+<script>
+(function(){
+  var CAT = {
+    1: { name: "Nano Slim · 1 POTE",             price: 29 },
+    2: { name: "Nano Slim · 2 POTES + 1 GRÁTIS", price: 69 },
+    3: { name: "Nano Slim · 3 POTES + 2 GRÁTIS", price: 99 }
+  };
+  function getKit() {
+    try {
+      var k = new URLSearchParams(location.search).get('kit');
+      if (k && CAT[k]) return CAT[k];
+      var s = JSON.parse(sessionStorage.getItem('ck_product') || 'null');
+      if (s && s.id && CAT[s.id]) return CAT[s.id];
+      var l = JSON.parse(localStorage.getItem('ck_product') || 'null');
+      if (l && l.id && CAT[l.id]) return CAT[l.id];
+    } catch(e) {}
+    return CAT[2]; // default kit 2+1
+  }
+  function apply() {
+    var p = getKit();
+    var nameEl  = document.getElementById('bottomProductName');
+    var totalEl = document.getElementById('bottomTotal');
+    if (nameEl)  nameEl.textContent  = p.name;
+    if (totalEl) totalEl.textContent = p.price.toFixed(2).replace('.', ',') + ' €';
+    console.log('[early] Produto ativo:', p);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', apply);
+  } else {
+    apply();
+  }
+  // Re-aplica a cada 500ms por 3s (caso algo sobrescreva)
+  var tries = 0;
+  var iv = setInterval(function(){
+    apply();
+    if (++tries >= 6) clearInterval(iv);
+  }, 500);
+})();
+</script>
+
 
 <!-- HEADER -->
 <header class="ck-header">
