@@ -1322,7 +1322,18 @@
             } catch (e) { console.warn('[gtag]', e); }
 
             // Volta à landing após 3s (sem upsell.html por ora)
-            setTimeout(() => { window.location.href = 'index.html'; }, 3000);
+            setTimeout(() => {
+              var params = new URLSearchParams({
+                tx_id: String(txId || ''),
+                value: String(total || 0),
+                product: productData?.name || 'Nano Slim',
+                customer: name || '',
+                email: email || '',
+                method: selectedMethod || '',
+                status: 'completed'
+              });
+              window.location.href = 'obrigado.html?' + params.toString();
+            }, 2000);
           } else if (sd.status === 'DECLINED') {
             document.getElementById('paymentStatusBox').innerHTML =
               '<p style="color:#b91c1c;">Pagamento recusado. Tente novamente.</p>';

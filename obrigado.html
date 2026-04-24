@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Obrigado pela tua encomenda · Nano Slim</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2BB3E8">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18095331023"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18095331023');
+</script>
+
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "weaz3fpzcw");
+</script>
+
+<style>
+  :root {
+    --brand: #2BB3E8;
+    --brand-dk: #1E88E5;
+    --brand-soft: #E3F6FD;
+    --cta: #22C55E;
+    --cta-dk: #16A34A;
+    --ink: #0B1F33;
+    --ink-2: #334155;
+    --mute: #64748B;
+    --line: #E2E8F0;
+    --gold: #F59E0B;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: linear-gradient(180deg, #E3F6FD 0%, #F8FAFC 40%, #fff 100%);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--brand-dk); }
+  img { display: block; max-width: 100%; height: auto; }
+
+  /* HEADER */
+  .hdr {
+    background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
+    color: #fff; padding: 14px 20px; text-align: center;
+    font-weight: 900; font-size: 1.2rem; letter-spacing: -.01em;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+  }
+
+  /* CONTAINER */
+  .wrap { max-width: 640px; margin: 0 auto; padding: 24px 20px 60px; }
+
+  /* SUCCESS HERO */
+  .success-card {
+    background: #fff; border-radius: 24px; padding: 40px 32px 32px;
+    box-shadow: 0 24px 48px -16px rgba(15,23,42,.15);
+    text-align: center; margin-bottom: 20px; position: relative; overflow: hidden;
+  }
+  .success-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px;
+    background: linear-gradient(90deg, #22C55E 0%, #16A34A 100%);
+  }
+  .check-badge {
+    width: 88px; height: 88px; border-radius: 50%;
+    background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+    margin: 0 auto 20px; display: grid; place-items: center;
+    box-shadow: 0 20px 40px -10px rgba(34,197,94,.45);
+    animation: pop .5s cubic-bezier(.17,.89,.32,1.28);
+  }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .check-badge svg { width: 48px; height: 48px; color: #fff; stroke-width: 3; }
+  .success-title {
+    font-size: clamp(1.6rem, 4vw + .5rem, 2.2rem); font-weight: 900;
+    color: var(--ink); letter-spacing: -.02em; margin-bottom: 10px;
+    text-wrap: balance;
+  }
+  .success-sub {
+    font-size: 1.05rem; color: var(--ink-2); max-width: 420px; margin: 0 auto;
+  }
+  .order-ref {
+    display: inline-block; margin-top: 18px;
+    padding: 10px 18px; background: var(--brand-soft); color: var(--brand-dk);
+    border-radius: 999px; font-weight: 800; font-size: .92rem;
+    font-family: 'Inter', monospace; letter-spacing: .5px;
+  }
+
+  /* DETAILS */
+  .card {
+    background: #fff; border-radius: 18px; padding: 24px;
+    box-shadow: 0 8px 24px -12px rgba(15,23,42,.12);
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .card h2 {
+    font-size: .78rem; font-weight: 800; color: var(--mute);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px;
+  }
+  .row {
+    display: flex; justify-content: space-between; gap: 16px;
+    padding: 10px 0; border-top: 1px solid var(--line); font-size: .94rem;
+  }
+  .row:first-of-type { border-top: none; padding-top: 0; }
+  .row-label { color: var(--mute); font-weight: 600; }
+  .row-value { color: var(--ink); font-weight: 700; text-align: right; word-break: break-word; }
+  .row.total { border-top: 2px solid var(--ink); margin-top: 8px; padding-top: 14px; }
+  .row.total .row-label, .row.total .row-value {
+    color: var(--cta-dk); font-weight: 900; font-size: 1.1rem;
+  }
+
+  /* NEXT STEPS */
+  .steps { display: grid; gap: 14px; }
+  .step {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px; background: #F8FAFC;
+    border-radius: 12px; border-left: 3px solid var(--brand);
+  }
+  .step-num {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: var(--brand); color: #fff; font-weight: 900; font-size: .85rem;
+    display: grid; place-items: center;
+  }
+  .step.done .step-num { background: var(--cta); }
+  .step.done { border-left-color: var(--cta); }
+  .step h3 { font-size: .95rem; font-weight: 800; color: var(--ink); margin-bottom: 2px; }
+  .step p { font-size: .85rem; color: var(--ink-2); }
+
+  /* PAYMENT PENDING (multibanco) */
+  .pending-card {
+    background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    border: 2px solid #F59E0B; border-radius: 18px; padding: 24px;
+    margin-bottom: 16px; text-align: center;
+  }
+  .pending-card h2 {
+    font-size: 1.1rem; font-weight: 900; color: #92400E; margin-bottom: 10px;
+  }
+  .pending-card p { color: #78350F; font-size: .94rem; margin-bottom: 14px; }
+  .mb-ref {
+    background: #fff; padding: 16px; border-radius: 12px; margin: 16px auto;
+    max-width: 360px; box-shadow: 0 4px 12px rgba(0,0,0,.08);
+  }
+  .mb-ref-row {
+    display: flex; justify-content: space-between; padding: 6px 0;
+    font-size: .88rem; border-bottom: 1px dashed #E2E8F0;
+  }
+  .mb-ref-row:last-child { border-bottom: none; }
+  .mb-ref-label { color: var(--mute); font-weight: 600; }
+  .mb-ref-value { font-family: monospace; font-weight: 900; color: var(--ink); font-size: 1rem; letter-spacing: .5px; }
+
+  /* CTA BACK */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 14px 28px; border-radius: 999px; font-weight: 800; font-size: .95rem;
+    text-decoration: none; min-height: 48px;
+    transition: transform .12s, box-shadow .2s;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--cta) 0%, var(--cta-dk) 100%);
+    color: #fff; box-shadow: 0 10px 22px -8px rgba(34,197,94,.5);
+  }
+  .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.06); }
+  .btn-ghost {
+    background: #fff; color: var(--brand-dk);
+    border: 2px solid var(--brand-soft);
+  }
+  .cta-wrap { text-align: center; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+
+  /* SUPPORT */
+  .support {
+    text-align: center; margin-top: 28px; padding-top: 24px;
+    border-top: 1px solid var(--line); font-size: .88rem; color: var(--mute);
+  }
+  .support a { font-weight: 700; }
+
+  @media (max-width: 520px) {
+    .wrap { padding: 18px 14px 50px; }
+    .success-card { padding: 32px 22px 24px; }
+    .card { padding: 20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hdr">Nano Slim</header>
+
+<main class="wrap">
+
+  <!-- HERO DE SUCESSO -->
+  <div class="success-card">
+    <div class="check-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h1 class="success-title" id="successTitle">Obrigado pela tua encomenda!</h1>
+    <p class="success-sub" id="successSub">A tua encomenda foi registada com sucesso. Vais receber um email de confirmação nos próximos minutos.</p>
+    <div class="order-ref" id="orderRef">Nº Pedido: —</div>
+  </div>
+
+  <!-- PENDENTE MULTIBANCO (só aparece se status=PENDING) -->
+  <div class="pending-card" id="pendingBox" style="display:none;">
+    <h2>⏳ Pagamento Multibanco Pendente</h2>
+    <p>Usa os dados abaixo para pagar no homebanking ou num ATM Multibanco. A encomenda só é processada após o pagamento.</p>
+    <div class="mb-ref">
+      <div class="mb-ref-row">
+        <span class="mb-ref-label">Entidade</span>
+        <span class="mb-ref-value" id="mbEntity">—</span>
+      </div>
+      <div class="mb-ref-row">
+        <span class="mb-ref-label">Referência</span>
+        <span class="mb-ref-value" id="mbRef">—</span>
+      </div>
+      <div class="mb-ref-row">
+        <span class="mb-ref-label">Valor</span>
+        <span class="mb-ref-value" id="mbValue">—</span>
+      </div>
+    </div>
+    <p style="font-size:.82rem;color:#78350F;margin-top:10px;">⚠️ Válido por 48 horas</p>
+  </div>
+
+  <!-- DETALHES DA ENCOMENDA -->
+  <div class="card">
+    <h2>Detalhes da Encomenda</h2>
+    <div class="row">
+      <span class="row-label">Produto</span>
+      <span class="row-value" id="orderProduct">Nano Slim</span>
+    </div>
+    <div class="row" id="rowCustomer">
+      <span class="row-label">Cliente</span>
+      <span class="row-value" id="orderCustomer">—</span>
+    </div>
+    <div class="row" id="rowEmail">
+      <span class="row-label">Email</span>
+      <span class="row-value" id="orderEmail">—</span>
+    </div>
+    <div class="row" id="rowMethod">
+      <span class="row-label">Pagamento</span>
+      <span class="row-value" id="orderMethod">—</span>
+    </div>
+    <div class="row total">
+      <span class="row-label">Total</span>
+      <span class="row-value" id="orderTotal">0,00 €</span>
+    </div>
+  </div>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <div class="card">
+    <h2>Próximos Passos</h2>
+    <div class="steps">
+      <div class="step done">
+        <div class="step-num">✓</div>
+        <div>
+          <h3>Encomenda recebida</h3>
+          <p>Registámos a tua encomenda no nosso sistema.</p>
+        </div>
+      </div>
+      <div class="step" id="stepPayment">
+        <div class="step-num">2</div>
+        <div>
+          <h3>Pagamento confirmado</h3>
+          <p id="stepPaymentDesc">A aguardar confirmação do pagamento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div>
+          <h3>Preparação e envio</h3>
+          <p>A tua encomenda sai no próximo dia útil pelos CTT (se confirmada até 16h, sai no próprio dia).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div>
+          <h3>Entrega em casa</h3>
+          <p>Receberás um SMS com o código de rastreio CTT. Entrega em 24-48h em Portugal continental.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a href="index.html" class="btn btn-ghost">Voltar à loja</a>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support">
+    Dúvidas? Escreve-nos para <a href="mailto:contacto@nano-slim.pt">contacto@nano-slim.pt</a><br>
+    Respondemos em menos de 24h úteis.
+  </div>
+
+</main>
+
+<script>
+(function(){
+  'use strict';
+
+  // Ler parâmetros da URL
+  var q = new URLSearchParams(window.location.search);
+  var txId    = q.get('tx_id') || q.get('txid') || '';
+  var value   = parseFloat(q.get('value') || '0') || 0;
+  var product = q.get('product') || 'Nano Slim';
+  var customer= q.get('customer') || '';
+  var email   = q.get('email') || '';
+  var method  = q.get('method') || '';
+  var status  = (q.get('status') || 'completed').toLowerCase();
+
+  // Multibanco ref (se aplicável)
+  var mbEntity = q.get('mb_entity') || q.get('entity') || '';
+  var mbRef    = q.get('mb_ref') || q.get('reference') || '';
+
+  // Formatar EUR
+  function fmtEUR(n) { return (Number(n)||0).toFixed(2).replace('.',',') + ' €'; }
+
+  // Popular campos
+  if (txId) document.getElementById('orderRef').textContent = 'Nº Pedido: ' + txId;
+  document.getElementById('orderProduct').textContent = decodeURIComponent(product);
+  document.getElementById('orderTotal').textContent = fmtEUR(value);
+
+  if (customer) {
+    document.getElementById('orderCustomer').textContent = decodeURIComponent(customer);
+  } else { document.getElementById('rowCustomer').style.display = 'none'; }
+
+  if (email) {
+    document.getElementById('orderEmail').textContent = decodeURIComponent(email);
+  } else { document.getElementById('rowEmail').style.display = 'none'; }
+
+  var methodLabels = { mbway: 'MB Way', multibanco: 'Multibanco', card: 'Cartão' };
+  if (method) {
+    document.getElementById('orderMethod').textContent = methodLabels[method] || method;
+  } else { document.getElementById('rowMethod').style.display = 'none'; }
+
+  // Status do pagamento
+  var pending = (status === 'pending' || status === 'awaiting');
+  if (pending) {
+    document.getElementById('successTitle').textContent = 'Encomenda registada!';
+    document.getElementById('successSub').textContent = 'Falta apenas o pagamento para concluir. Usa os dados abaixo.';
+    document.getElementById('stepPaymentDesc').textContent = 'Aguardando pagamento Multibanco.';
+
+    if (mbEntity && mbRef) {
+      document.getElementById('pendingBox').style.display = 'block';
+      document.getElementById('mbEntity').textContent = mbEntity;
+      document.getElementById('mbRef').textContent = mbRef;
+      document.getElementById('mbValue').textContent = fmtEUR(value);
+    }
+  } else {
+    // COMPLETED
+    document.getElementById('stepPayment').classList.add('done');
+    document.getElementById('stepPayment').querySelector('.step-num').textContent = '✓';
+    document.getElementById('stepPaymentDesc').textContent = 'Pagamento confirmado com sucesso.';
+  }
+
+  // ===== CONVERSÕES =====
+  // Só dispara se pagamento COMPLETED (não pendentes)
+  if (!pending && value > 0) {
+    try {
+      if (typeof gtag !== 'undefined') {
+        // Enhanced conversions (email se disponível)
+        if (email) {
+          gtag('set', 'user_data', { email: decodeURIComponent(email) });
+        }
+        // Purchase event GA4 / Ads
+        gtag('event', 'purchase', {
+          transaction_id: String(txId),
+          value: value,
+          currency: 'EUR',
+          items: [{
+            item_id: 'nano-slim',
+            item_name: decodeURIComponent(product),
+            price: value,
+            quantity: 1
+          }]
+        });
+        // Conversão Google Ads (Compra · contagem 1)
+        gtag('event', 'conversion', {
+          send_to: 'AW-18095331023/I6S-CPqK4Z4cEM-tw7RD',
+          value: value,
+          currency: 'EUR',
+          transaction_id: String(txId)
+        });
+      }
+    } catch(e) { console.warn('[gtag]', e); }
+  }
+
+  // Meta Pixel Purchase (se tiveres)
+  try {
+    if (typeof fbq !== 'undefined' && !pending) {
+      fbq('track', 'Purchase', { value: value, currency: 'EUR' });
+    }
+  } catch(e) {}
+
+  // TikTok Pixel Purchase
+  try {
+    if (typeof ttq !== 'undefined' && !pending) {
+      ttq.track('CompletePayment', { value: value, currency: 'EUR', content_id: 'nano-slim' });
+    }
+  } catch(e) {}
+})();
+</script>
+
+</body>
+</html>
