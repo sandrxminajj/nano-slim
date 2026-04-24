@@ -1232,114 +1232,43 @@
         return;
       }
 
-      document.getElementById('ckFormWrap').style.display  = 'none';
-      document.getElementById('backToShop').style.display  = 'none';
-      document.querySelector('.ck-bottom-bar').style.display = 'none';
+      // Redireciona IMEDIATAMENTE pra obrigado.html com todos os dados
+      const txId = data.id || data.transaction_id;
+      const rd   = (selectedMethod === 'multibanco' && data.referenceData) ? data.referenceData : null;
 
-      const resultEl = document.getElementById('ckResult');
-      const resultIn = document.getElementById('ckResultInner');
-      const txId     = data.id || data.transaction_id;
-
-      if (selectedMethod === 'multibanco' && data.referenceData) {
-        const rd = data.referenceData;
-        resultIn.innerHTML = `
-          <div class="ck-result-icon mb">
-            <span class="material-symbols-outlined filled">payments</span>
-          </div>
-          <h2>Referência Gerada!</h2>
-          <p>Usa os dados abaixo para pagar no Multibanco ou na tua app bancária.</p>
-          <div class="ref-box">
-            <div class="ref-row"><span class="ref-label">Entidade</span><span class="ref-val">${rd.entity||'–'}</span></div>
-            <div class="ref-row"><span class="ref-label">Referência</span><span class="ref-val">${rd.reference||'–'}</span></div>
-            <div class="ref-row"><span class="ref-label">Montante</span><span class="ref-val">${fmtEUR(total)}</span></div>
-            ${rd.expiration ? `<div class="ref-row"><span class="ref-label">Validade</span><span class="ref-val">${rd.expiration}</span></div>` : ''}
-          </div>`;
-      } else {
-        resultIn.innerHTML = `
-          <div class="ck-result-icon mbway">
-            <span class="material-symbols-outlined filled">smartphone</span>
-          </div>
-          <h2>Pedido MB WAY Enviado!</h2>
-          <p>Abre a app MB WAY no teu telemóvel e aceita o pedido de <strong>${fmtEUR(total)}</strong>.</p>`;
-      }
-
-      resultIn.innerHTML += `<div id="paymentStatusBox"><p>⏳ A aguardar confirmação do pagamento…</p></div>`;
-      resultEl.className = 'ck-result show';
-
-      // Polling for payment status
-      let attempts = 0;
-      const poll = async () => {
-        if (attempts++ >= 100) {
-          document.getElementById('paymentStatusBox').innerHTML =
-            '<p style="color:#b91c1c;">Tempo esgotado. Verifica o teu banco.</p>';
-          return;
-        }
-        try {
-          const sr = await fetch('/api/transaction-status', {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ transaction_id: txId })
+      // Enhanced conversions (email + phone + morada — melhora match Google Ads)
+      try {
+        if (typeof gtag !== 'undefined') {
+          gtag('set', 'user_data', {
+            email: email,
+            phone_number: '+351' + phone.replace(/\D/g, ''),
+            address: {
+              first_name: (name.split(' ')[0] || '').trim(),
+              last_name:  (name.split(' ').slice(1).join(' ') || '').trim(),
+              street:     address,
+              city:       city,
+              postal_code: postal,
+              country:    'PT'
+            }
           });
-          const sd = await sr.json();
-          if (sd.status === 'COMPLETED') {
-            document.getElementById('paymentStatusBox').innerHTML =
-              '<p style="color:#166534;">Pagamento confirmado! Obrigado pela tua encomenda.</p>';
+        }
+      } catch (e) { console.warn('[gtag]', e); }
 
-            // Google Ads, Enhanced Conversions + purchase event
-            try {
-              if (typeof gtag !== 'undefined') {
-                gtag('set', 'user_data', {
-                  email: email,
-                  phone_number: '+351' + phone.replace(/\D/g, ''),
-                  address: {
-                    first_name: (name.split(' ')[0] || '').trim(),
-                    last_name:  (name.split(' ').slice(1).join(' ') || '').trim(),
-                    street:     address,
-                    city:       city,
-                    postal_code: postal,
-                    country:    'PT'
-                  }
-                });
-                gtag('event', 'purchase', {
-                  'transaction_id': String(txId),
-                  'value':          total,
-                  'currency':       'EUR',
-                  'items': [{
-                    'item_id':   productData?.id || 'main',
-                    'item_name': productData?.name || 'Nano Slim',
-                    'price':     productData?.price || total,
-                    'quantity':  1
-                  }]
-                });
-                // Conversão oficial Google Ads (Compra) — contagem 1
-                gtag('event', 'conversion', {
-                  'send_to':        'AW-18095331023/I6S-CPqK4Z4cEM-tw7RD',
-                  'value':          total,
-                  'currency':       'EUR',
-                  'transaction_id': String(txId)
-                });
-              }
-            } catch (e) { console.warn('[gtag]', e); }
-
-            // Volta à landing após 3s (sem upsell.html por ora)
-            setTimeout(() => {
-              var params = new URLSearchParams({
-                tx_id: String(txId || ''),
-                value: String(total || 0),
-                product: productData?.name || 'Nano Slim',
-                customer: name || '',
-                email: email || '',
-                method: selectedMethod || '',
-                status: 'completed'
-              });
-              window.location.href = 'obrigado.html?' + params.toString();
-            }, 2000);
-          } else if (sd.status === 'DECLINED') {
-            document.getElementById('paymentStatusBox').innerHTML =
-              '<p style="color:#b91c1c;">Pagamento recusado. Tente novamente.</p>';
-          } else {
-            setTimeout(poll, 3000);
-          }
+      const params = new URLSearchParams({
+        tx_id:    String(txId || ''),
+        value:    String(total || 0),
+        product:  productData?.name || 'Nano Slim',
+        customer: name || '',
+        email:    email || '',
+        method:   selectedMethod || 'mbway',
+        status:   selectedMethod === 'multibanco' ? 'pending' : 'awaiting'
+      });
+      if (rd) {
+        if (rd.entity)    params.set('mb_entity', rd.entity);
+        if (rd.reference) params.set('mb_ref',    rd.reference);
+      }
+      window.location.href = 'obrigado.html?' + params.toString();
+}
         } catch { setTimeout(poll, 3000); }
       };
       setTimeout(poll, 3000);
