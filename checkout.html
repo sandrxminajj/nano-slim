@@ -1015,12 +1015,12 @@
         const email = document.getElementById('ck-email').value.trim();
         const phone = document.getElementById('ck-phone').value.trim().replace(/[\s\-()]/g,'');
         const nif   = document.getElementById('ck-doc').value.trim();
-        if (!name || name.split(' ').filter(Boolean).length < 2)
-          return showErr('ckError1','ckErrorMsg1','Indica o nome completo (nome e apelido).','ck-name');
+        if (!name || name.length < 3)
+          return showErr('ckError1','ckErrorMsg1','Indica o teu nome.','ck-name');
         if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
           return showErr('ckError1','ckErrorMsg1','Introduz um email válido.','ck-email');
-        if (!/^9[1236]\d{7}$/.test(phone))
-          return showErr('ckError1','ckErrorMsg1','Indica um telemóvel português válido (91x / 92x / 93x / 96x).','ck-phone');
+        if (!/^9\d{8}$/.test(phone))
+          return showErr('ckError1','ckErrorMsg1','Indica um telemóvel português válido (9 dígitos).','ck-phone');
         if (nif && !validarNIF(nif))
           return showErr('ckError1','ckErrorMsg1','NIF inválido. Verifica os 9 dígitos.','ck-doc');
       }
