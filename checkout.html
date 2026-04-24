@@ -873,28 +873,53 @@
     return v + ' €';
   }
 
-  // ── Product data from sessionStorage ─────────────────────────
-  const productData = JSON.parse(sessionStorage.getItem('ck_product') || 'null');
-  if (!productData) {
-    document.addEventListener('DOMContentLoaded', function() {
-      const overlay = document.createElement('div');
-      overlay.id = 'no-product-overlay';
-      overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;font-family:Inter,sans-serif;background:rgba(247,250,252,.97);backdrop-filter:blur(4px);';
-      overlay.innerHTML = `
-        <div role="dialog" aria-modal="true" style="max-width:380px;text-align:center;background:#fff;padding:36px 24px;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.08);border:1px solid #e5e7eb;">
-          <h1 style="font-size:1.4rem;color:#0F1F2E;margin-bottom:10px;font-weight:800;">Precisas escolher um kit</h1>
-          <p style="color:#5F6B7A;font-size:.95rem;line-height:1.5;margin-bottom:20px;">
-            Ainda não tens nada na encomenda. Escolhe o teu kit Nano Slim com desconto na loja.
-          </p>
-          <a href="index.html" style="display:inline-block;background:#22C55E;color:#fff;padding:14px 28px;border-radius:12px;text-decoration:none;font-weight:800;font-size:.95rem;box-shadow:0 4px 14px rgba(34,197,94,.3);">
-            Ver Kits Nano Slim →
-          </a>
-        </div>
-      `;
-      document.body.appendChild(overlay);
-    });
-    throw new Error('no_product_halt');
+  // ── Catálogo inline (fonte da verdade, sobrevive a tudo) ─────
+  const CATALOGO_NANOSLIM = {
+    1: { id:1, name:"Nano Slim · 1 POTE",             price:29.00,  price_original:78.00,  portes:0, img:"images/hero-produto.png", descricao:"1 mês de toma" },
+    2: { id:2, name:"Nano Slim · 2 POTES + 1 GRÁTIS", price:69.00,  price_original:234.00, portes:0, img:"images/pack3.png",        descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, name:"Nano Slim · 3 POTES + 2 GRÁTIS", price:99.00,  price_original:390.00, portes:0, img:"images/pack5.png",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+  };
+
+  // ── Resolver produto: 4 fontes em cascata (robustez máxima) ──
+  function resolveProduct() {
+    // 1. URL param ?kit=X (mais fiável, sobrevive a tudo)
+    try {
+      var kitId = new URLSearchParams(window.location.search).get('kit');
+      if (kitId && CATALOGO_NANOSLIM[kitId]) {
+        var p = CATALOGO_NANOSLIM[kitId];
+        // Re-populate storage pra próximas chamadas
+        try {
+          sessionStorage.setItem('ck_product', JSON.stringify(p));
+          localStorage.setItem('ck_product', JSON.stringify(p));
+        } catch(e) {}
+        return p;
+      }
+    } catch(e) {}
+
+    // 2. sessionStorage (mesma tab)
+    try {
+      var s = JSON.parse(sessionStorage.getItem('ck_product') || 'null');
+      if (s && s.id && CATALOGO_NANOSLIM[s.id]) {
+        // validar contra catálogo (caso preço esteja desatualizado)
+        return CATALOGO_NANOSLIM[s.id];
+      }
+    } catch(e) {}
+
+    // 3. localStorage (sobrevive a F5, fechar tab, tudo)
+    try {
+      var l = JSON.parse(localStorage.getItem('ck_product') || 'null');
+      if (l && l.id && CATALOGO_NANOSLIM[l.id]) {
+        return CATALOGO_NANOSLIM[l.id];
+      }
+    } catch(e) {}
+
+    // 4. Default: kit 2+1 (mais popular) — evita sair do checkout
+    console.warn('[checkout] Sem kit selecionado, default kit 2+1 grátis');
+    return CATALOGO_NANOSLIM[2];
   }
+
+  const productData = resolveProduct();
+  console.log('[checkout] Produto carregado:', productData);
 
   // UTM tracking
   const urlParams = new URLSearchParams(window.location.search);

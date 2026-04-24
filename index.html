@@ -1257,18 +1257,24 @@ body.modal-open { overflow: hidden; }
 
   window.irCheckout = function(id) {
     var p = PRODUTOS[id];
-    if (!p) return;
+    if (!p) { console.error('Produto não encontrado:', id); return; }
     var payload = { id:p.id, name:p.nome, price:p.preco, img:p.img, quantity:1, descricao:p.descricao, portes:p.portes };
+
+    // Persistir EM AMBOS: sessionStorage + localStorage (sobrevive a F5, fecha tab, etc.)
     try {
       sessionStorage.setItem('ck_product', JSON.stringify(payload));
       sessionStorage.setItem('produtoSelecionado', JSON.stringify(p));
-    } catch(e) {}
+      localStorage.setItem('ck_product', JSON.stringify(payload));
+    } catch(e) { console.warn('[storage]', e); }
 
     if (typeof fbq  !== 'undefined') fbq('track', 'InitiateCheckout', { value: p.preco, currency: 'EUR', content_ids: [p.id], content_name: p.nome });
     if (typeof gtag !== 'undefined') gtag('event', 'begin_checkout', { currency: 'EUR', value: p.preco, items: [{ item_id: p.id, item_name: p.nome, price: p.preco, quantity: 1 }] });
     if (typeof ttq  !== 'undefined') ttq.track('InitiateCheckout', { value: p.preco, currency: 'EUR', content_id: p.id, content_name: p.nome });
 
-    window.location.href = 'checkout.html' + window.location.search;
+    // Passa ?kit=X na URL como TRIPLO fallback (se storage for limpo)
+    var search = window.location.search;
+    var sep    = search ? (search + '&') : '?';
+    window.location.href = 'checkout.html' + sep + 'kit=' + p.id;
   };
 
   window.scrollToKits = function() {

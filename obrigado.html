@@ -369,6 +369,13 @@
 
   // ===== CONVERSÕES =====
   // Só dispara se pagamento COMPLETED (não pendentes)
+  // Limpa carrinho só após compra confirmada
+  if (!pending && value > 0) {
+    try {
+      sessionStorage.removeItem('ck_product');
+      localStorage.removeItem('ck_product');
+    } catch(e) {}
+  }
   if (!pending && value > 0) {
     try {
       if (typeof gtag !== 'undefined') {
