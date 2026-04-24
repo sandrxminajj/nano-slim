@@ -67,8 +67,10 @@ module.exports = async (req, res) => {
       email,
       phone:    fullPhone,
       document: doc || "000000000"
-    },
-    callbackUrl: CALLBACK_URL
+    }
+    // callbackUrl removido — WayMB estava a gerar erro porque o webhook não retornava 200.
+    // Ativação manual: ver dashboard WayMB -> Transactions -> status "Paid"
+    // Futuramente: configurar webhook acessível + adicionar CALLBACK_URL na env var
   };
 
   let rawText = "";
