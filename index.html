@@ -194,7 +194,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .solution { background: #fff; }
 .solution-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
 @media (max-width: 920px) { .solution-grid { grid-template-columns: 1fr; text-align: center; } }
-.solution-img { max-width: 520px; margin-inline: auto; filter: drop-shadow(0 40px 60px rgba(0,0,0,.35)) drop-shadow(0 15px 30px rgba(0,0,0,.18)); transition: transform .3s cubic-bezier(.4,0,.2,1); }
+.solution-img { max-width: 720px; width: 100%; margin-inline: auto; filter: drop-shadow(0 40px 60px rgba(0,0,0,.35)) drop-shadow(0 15px 30px rgba(0,0,0,.18)); transition: transform .3s cubic-bezier(.4,0,.2,1); }
 .solution-img:hover { transform: translateY(-8px) scale(1.02); }
 .solution h2 { margin-bottom: 18px; }
 .solution p { font-size: 1.05rem; margin-bottom: 16px; }
@@ -377,7 +377,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kit-pro .kit-tag { background: var(--brand-dk); box-shadow: 0 8px 16px -4px rgba(30,136,229,.45); }
 .kit-title { font-size: 1.18rem; font-weight: 900; color: var(--ink); text-align: center; letter-spacing: -.01em; }
 .kit-sub { font-size: .84rem; color: var(--mute); text-align: center; margin-top: 4px; }
-.kit-img { width: 78%; max-width: 220px; height: 170px; object-fit: contain; margin: 18px auto 16px; }
+.kit-img { width: 100%; max-width: 320px; height: 240px; object-fit: contain; margin: 18px auto 16px; }
 .kit-price-old { text-align: center; color: var(--warn); text-decoration: line-through; font-size: .95rem; font-weight: 700; }
 .kit-price {
   text-align: center; font-size: clamp(2.2rem, 3vw + 1rem, 2.8rem);
@@ -730,7 +730,7 @@ body.modal-open { overflow: hidden; }
       font-size: 0.98rem; padding: 0; max-width: 100%;
     }
 
-    .solution-img { max-width: 340px !important; width: 85%; margin: 0 auto; filter: drop-shadow(0 24px 40px rgba(0,0,0,.38)) drop-shadow(0 10px 20px rgba(0,0,0,.2)); }
+    .solution-img { max-width: 480px !important; width: 100%; margin: 0 auto; filter: drop-shadow(0 24px 40px rgba(0,0,0,.38)) drop-shadow(0 10px 20px rgba(0,0,0,.2)); }
     .hero-img { max-width: 320px !important; width: 75%; margin: 0 auto; }
     .hero { padding: 30px 0 60px !important; }
 
@@ -860,7 +860,7 @@ body.modal-open { overflow: hidden; }
           Volta à tua <span class="hl">melhor forma</span>, sem dietas impossíveis.
         </h1>
         <p class="hero-sub">
-          <strong>Nano Slim</strong> é a solução prática que já conquistou milhares de portuguesas. Apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso no dia a dia. Uma colher em água, todas as manhãs. Simples assim.
+          <strong>Nano Slim</strong> é a solução prática que já conquistou milhares de pessoas em Portugal. Apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso no dia a dia. Uma colher em água, todas as manhãs. Simples assim.
         </p>
         <div class="hero-ctas">
           <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()">
@@ -870,7 +870,7 @@ body.modal-open { overflow: hidden; }
         </div>
         <div class="hero-trust">
           <span class="stars">★★★★★</span>
-          <span><strong style="color:var(--ink)">4,9/5</strong> · avaliação média das nossas clientes em Portugal</span>
+          <span><strong style="color:var(--ink)">4,9/5</strong> · avaliação média de quem já experimentou em Portugal</span>
         </div>
       </div>
 
@@ -921,7 +921,7 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="solution-grid">
       <div>
-        <img src="images/hero-produto.webp" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="440" height="440">
+        <img src="images/hero-produto.webp" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="720" height="720">
       </div>
       <div>
         <span class="pill hot">A SOLUÇÃO</span>
@@ -1019,10 +1019,10 @@ body.modal-open { overflow: hidden; }
       <div class="testi-rating">
         <div class="testi-rating-stars">★★★★★</div>
         <div class="testi-rating-score"><span class="num">4,9</span><span class="denom">/ 5</span></div>
-        <div class="testi-rating-label">Avaliação média das clientes Nano Slim em Portugal</div>
+        <div class="testi-rating-label">Avaliação média do Nano Slim em Portugal</div>
       </div>
-      <h2>Portuguesas que voltaram à sua melhor forma</h2>
-      <p class="testi-lead">Histórias e fotos reais partilhadas pelas nossas clientes. Resultados individuais variam.</p>
+      <h2>Quem já voltou à sua melhor forma</h2>
+      <p class="testi-lead">Histórias e fotos reais partilhadas por quem usa o Nano Slim em Portugal. Resultados individuais variam.</p>
     </div>
     <div class="testi-grid">
       <div class="testi-card">
@@ -1148,7 +1148,7 @@ body.modal-open { overflow: hidden; }
       <article class="kit">
         <div class="kit-title">1 POTE</div>
         <div class="kit-sub">1 mês de toma</div>
-        <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="320" height="240">
         <div class="kit-price-old">49,00 €</div>
         <div class="kit-price">29,00 €</div>
         <div class="kit-per">29,00 €/pote</div>
@@ -1166,7 +1166,7 @@ body.modal-open { overflow: hidden; }
         <div class="kit-tag">RECOMENDADO</div>
         <div class="kit-title">2 POTES + 1 GRÁTIS</div>
         <div class="kit-sub">3 potes · 3 meses de toma</div>
-        <img src="images/pack3.webp" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/pack3.webp" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="320" height="240">
         <div class="kit-price-old">117,00 €</div>
         <div class="kit-price">69,00 €</div>
         <div class="kit-per">23,00 €/pote</div>
@@ -1186,7 +1186,7 @@ body.modal-open { overflow: hidden; }
         <div class="kit-tag">MAIOR POUPANÇA</div>
         <div class="kit-title">3 POTES + 2 GRÁTIS</div>
         <div class="kit-sub">5 potes · 5 meses de toma</div>
-        <img src="images/pack5.webp" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/pack5.webp" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="320" height="240">
         <div class="kit-price-old">195,00 €</div>
         <div class="kit-price">99,00 €</div>
         <div class="kit-per">19,80 €/pote</div>
@@ -1299,7 +1299,7 @@ body.modal-open { overflow: hidden; }
         </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">E se não ficar satisfeita?</summary>
+        <summary class="faq-q">E se não ficar satisfeito(a)?</summary>
         <div class="faq-a">
           Tens <strong>30 dias de garantia de satisfação</strong> a contar da entrega. Basta enviar e-mail para <a href="mailto:reembolso@nano-slim.pt">reembolso@nano-slim.pt</a> e enviamos as instruções de devolução. Reembolso integral.
         </div>
@@ -1307,13 +1307,13 @@ body.modal-open { overflow: hidden; }
       <details class="faq-item">
         <summary class="faq-q">Em quanto tempo vou começar a notar diferença?</summary>
         <div class="faq-a">
-          Cada pessoa é única. A maioria das clientes nota diferença na sensação de saciedade e no controlo do apetite nas primeiras semanas. Para resultados visíveis na forma, o mais comum é combinar o Nano Slim com uma rotina equilibrada durante 2 a 3 meses. Os nossos kits 2+1 e 3+2 grátis foram pensados para te dar folga para veres resultados. Resultados individuais variam.
+          Cada pessoa é única. A maioria das pessoas nota diferença na sensação de saciedade e no controlo do apetite nas primeiras semanas. Para resultados visíveis na forma, o mais comum é combinar o Nano Slim com uma rotina equilibrada durante 2 a 3 meses. Os nossos kits 2+1 e 3+2 grátis foram pensados para te dar folga para veres resultados. Resultados individuais variam.
         </div>
       </details>
       <details class="faq-item">
         <summary class="faq-q">Como tomo? Tenho de fazer dieta?</summary>
         <div class="faq-a">
-          <strong>Não precisas de dieta rígida.</strong> Toma 1 colher medida (6g) em 250 ml de água, de manhã. Se quiseres, mais 1 dose antes do jantar. O Nano Slim ajuda no controlo do apetite e na gestão do peso dentro de uma rotina equilibrada. A maioria das nossas clientes mantém uma alimentação normal, mais equilibrada, sem cortes radicais. Resultados individuais variam.
+          <strong>Não precisas de dieta rígida.</strong> Toma 1 colher medida (6g) em 250 ml de água, de manhã. Se quiseres, mais 1 dose antes do jantar. O Nano Slim ajuda no controlo do apetite e na gestão do peso dentro de uma rotina equilibrada. A maioria das pessoas mantém uma alimentação normal, mais equilibrada, sem cortes radicais. Resultados individuais variam.
         </div>
       </details>
       <details class="faq-item">
@@ -1339,7 +1339,7 @@ body.modal-open { overflow: hidden; }
     <p>Todos os kits incluem envio gratuito pelos CTT em 24 a 48 horas úteis. Escolha a opção mais adequada para si.</p>
     <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()" style="padding:18px 40px;font-size:1.1rem;">Ver ofertas →</button>
     <div style="margin-top:28px;font-size:.88rem;color:rgba(255,255,255,.7);">
-      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> Avaliação média 4,9/5 das clientes Nano Slim em Portugal
+      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> Avaliação média 4,9/5 do Nano Slim em Portugal
     </div>
   </div>
 </section>
@@ -1388,7 +1388,7 @@ body.modal-open { overflow: hidden; }
       <div style="margin-top:6px;font-size:.72rem;color:#64748B;">Apoio por e-mail · resposta em 24h úteis</div>
       <div style="margin-top:14px;padding-top:12px;border-top:1px solid #1E293B;font-size:.82rem;color:#CBD5E1;">
         <span style="color:#F59E0B;letter-spacing:1px;">★★★★★</span>
-        <strong style="color:#E2E8F0;">4,9/5</strong> · avaliação média das clientes Nano Slim em Portugal
+        <strong style="color:#E2E8F0;">4,9/5</strong> · avaliação média do Nano Slim em Portugal
       </div>
     </div>
 
