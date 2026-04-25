@@ -145,7 +145,7 @@
         </ul>
         <p>Os prazos começam a contar após confirmação do pagamento.</p>
         <h3>2. Custos de envio</h3>
-        <p>Calculados automaticamente no checkout com base na morada. Envio gratuito acima de €75 para Portugal continental.</p>
+        <p>Envio <strong>gratuito para todo Portugal</strong> (continente + Madeira + Açores) em qualquer kit. Para outros países da UE, calculado automaticamente no checkout.</p>
         <h3>3. Transportadoras</h3>
         <p>CTT Expresso, DPD ou equivalente. Todos os envios com número de rastreio enviado por email.</p>
         <h3>4. Confirmação e rastreamento</h3>

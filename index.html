@@ -307,7 +307,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kit:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 .kit-best { border-color: var(--cta); box-shadow: 0 22px 44px -10px rgba(34,197,94,.25); }
 @media (min-width: 921px) { .kit-best { transform: scale(1.03); } }
-@media (max-width: 920px) { .kit-best { order: -1; } }
+/* No mobile, mantém ordem natural: Kit 1 (1 POTE) primeiro */
 .kit-pro { border-color: var(--brand); }
 .kit-tag {
   position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
@@ -654,10 +654,10 @@ body.modal-open { overflow: hidden; }
     .solution-feats { padding: 0 !important; max-width: 100%; margin: 20px auto 0 !important; }
     .solution-feats li { padding: 0 4px; text-align: left; justify-content: flex-start; }
 
-    /* Kits melhor alinhamento mobile */
+    /* Kits melhor alinhamento mobile · ordem natural: 1 POTE primeiro */
     .kit { padding: 24px 18px 18px; }
     .kit-best { transform: none !important; }
-    .kits-grid > .kit-best { order: -1; }
+    .kits-grid > .kit { order: 0; }
 
     /* Ingredients grid 1 col em mobile muito pequeno */
     @media (max-width: 420px) { .ingrs-grid { grid-template-columns: 1fr !important; } }
@@ -987,7 +987,7 @@ body.modal-open { overflow: hidden; }
       <span class="pill">Opções Disponíveis · Envio Gratuito</span>
     </div>
     <h2 style="text-align:center;">Opções disponíveis</h2>
-    <p class="kits-lead">Preço por pote diminui com a quantidade. Todos os kits incluem envio gratuito para Portugal continental.</p>
+    <p class="kits-lead">Preço por pote diminui com a quantidade. Todos os kits incluem envio gratuito para todo Portugal (continente + ilhas).</p>
 
     <div class="kits-grid">
       <!-- KIT 1 -->
@@ -1129,7 +1129,7 @@ body.modal-open { overflow: hidden; }
       <details class="faq-item">
         <summary class="faq-q">Como é feito o envio?</summary>
         <div class="faq-a">
-          As encomendas são expedidas pelos CTT em 24 a 48 horas úteis para Portugal continental. Para Madeira e Açores, o prazo é de 3 a 5 dias úteis. Receberá o código de rastreio por e-mail e SMS assim que a sua encomenda for expedida.
+          As encomendas são expedidas pelos CTT em 24 a 48 horas úteis para Portugal continental e em 3 a 5 dias úteis para Madeira e Açores. O envio é gratuito para todo o Portugal. Receberá o código de rastreio por e-mail e SMS assim que a sua encomenda for expedida.
         </div>
       </details>
       <details class="faq-item">
