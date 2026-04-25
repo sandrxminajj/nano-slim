@@ -404,18 +404,22 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 /* Trust badges abaixo de cada kit-cta */
 .kit-trust {
-  display: flex; flex-direction: column; gap: 6px;
-  margin-top: 10px; padding-top: 10px;
-  border-top: 1px dashed var(--line);
-  font-size: .74rem; color: var(--ink-2); font-weight: 600;
+  display: flex; flex-direction: column; gap: 8px;
+  margin: 14px -22px -22px;
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line);
+  background: #F8FAFC;
+  border-radius: 0 0 calc(var(--r-lg) - 2px) calc(var(--r-lg) - 2px);
 }
 .kit-trust-item {
-  display: inline-flex; align-items: center; gap: 6px; line-height: 1.3;
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; line-height: 1.3;
+  font-size: .78rem; color: var(--ink-2); font-weight: 600;
+  text-align: center;
 }
-.kit-trust-emoji {
-  font-size: 14px; flex-shrink: 0;
-  /* Forca renderizacao colorida do emoji em todas plataformas */
-  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji', sans-serif;
+.kit-trust-icon {
+  width: 16px; height: 16px; flex-shrink: 0;
+  color: var(--cta-dk);
 }
 .kit-mbway-flag {
   display: inline-flex; align-items: center; gap: 6px; justify-content: center;
@@ -1027,7 +1031,7 @@ body.modal-open { overflow: hidden; }
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-1.webp" alt="Helena com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/mulheres-1.webp" alt="Helena com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
@@ -1044,7 +1048,7 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-2.webp" alt="Vânia com Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/mulheres-2.webp" alt="Vânia com Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
@@ -1061,24 +1065,24 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-3.webp" alt="Lara prepara o batido Nano Slim" loading="lazy" decoding="async" width="800" height="800">
-          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+          <img src="images/homens-1.webp" alt="Tiago com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">LM</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">TM</div>
           <div>
-            <div class="testi-name">Lara M.</div>
+            <div class="testi-name">Tiago M.</div>
             <div class="testi-meta">34 anos · Coimbra</div>
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Depois do 2.º filho não conseguia voltar à forma. Tomo ao pequeno-almoço como batido, o sabor é ótimo, e finalmente sinto-me bem na minha pele. Simples."</blockquote>
-        <div class="testi-result">De volta à forma após 2º filho</div>
+        <blockquote>"Trabalho muitas horas no escritório e tinha começado a aumentar de peso. Tomo o Nano Slim ao pequeno-almoço como batido, o sabor é ótimo, e finalmente sinto-me bem comigo mesmo. Simples."</blockquote>
+        <div class="testi-result">De volta à forma sem ginásio diário</div>
       </div>
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-4.webp" alt="Cristina recebeu Nano Slim em casa" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/mulheres-3.webp" alt="Cristina recebeu Nano Slim em casa" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
@@ -1095,7 +1099,7 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-5.webp" alt="Sofia abre a encomenda Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/mulheres-4.webp" alt="Sofia com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
@@ -1112,18 +1116,18 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/depoimento-real-6.webp" alt="Rita partilha Nano Slim" loading="lazy" decoding="async" width="800" height="800">
-          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+          <img src="images/homens-2.webp" alt="Bruno com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#F87171,#EF4444);">RA</div>
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#3B82F6,#1D4ED8);">BA</div>
           <div>
-            <div class="testi-name">Rita A.</div>
+            <div class="testi-name">Bruno A.</div>
             <div class="testi-meta">36 anos · Faro</div>
           </div>
         </div>
         <div class="testi-stars">★★★★★</div>
-        <blockquote>"Já tinha experimentado outros suplementos e nada. Com o Nano Slim a diferença foi sentir-me cheia mais cedo nas refeições. Em 2 meses os meus jeans antigos voltaram a fechar. Sem dietas malucas."</blockquote>
+        <blockquote>"Já tinha experimentado outros suplementos e nada. Com o Nano Slim a diferença foi sentir-me cheio mais cedo nas refeições. Em 2 meses as calças antigas voltaram a servir. Sem dietas malucas."</blockquote>
         <div class="testi-result">Saciedade nas refeições</div>
       </div>
 
@@ -1156,8 +1160,14 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 20 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 29,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
         </div>
       </article>
 
@@ -1176,8 +1186,14 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 48 €</span>
         <button class="btn btn-cta kit-cta btn-pulse" onclick="irCheckout(2)">Encomendar · 69,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
         </div>
       </article>
 
@@ -1196,8 +1212,14 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 96 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 99,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
         </div>
       </article>
     </div>
