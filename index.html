@@ -12,7 +12,7 @@
 <meta property="og:type" content="product">
 <meta property="og:title" content="Nano Slim · Controlo do Peso · Novo em Portugal">
 <meta property="og:description" content="A solução prática para o controlo do peso. Apoia o apetite e a rotina, sem dietas impossíveis.">
-<meta property="og:image" content="images/hero-produto.png">
+<meta property="og:image" content="images/hero-produto.webp">
 <meta property="og:locale" content="pt_PT">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/hero-produto.png" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-produto.webp" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
 
 <!-- Critical CSS inline -->
@@ -576,6 +576,15 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0));
   box-shadow: 0 -10px 30px -10px rgba(15,23,42,.15);
   z-index: 30; display: none;
+  transform: translateY(100%);
+  transition: transform .25s ease, opacity .2s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.sticky-cta.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 .sticky-cta-inner { display: flex; align-items: center; gap: 10px; max-width: 560px; margin-inline: auto; }
 .sticky-cta-info { flex: 1; min-width: 0; display: none; }
@@ -583,7 +592,8 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .sticky-cta-info small { display: block; font-size: .7rem; color: var(--cta-dk); font-weight: 800; }
 .sticky-cta-info strong { display: block; font-size: .95rem; font-weight: 800; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sticky-cta .btn { padding: 12px 18px; font-size: .95rem; flex-shrink: 0; min-height: 44px; }
-@media (max-width: 920px) { .sticky-cta { display: block; } body { padding-bottom: 84px; } }
+@media (max-width: 920px) { .sticky-cta { display: block; } body { padding-bottom: 0; } }
+@media (max-width: 920px) { body.sticky-cta-on { padding-bottom: 84px; } }
 
 /* COOKIE BANNER */
 .cookies {
@@ -787,13 +797,12 @@ body.modal-open { overflow: hidden; }
         </div>
         <div class="hero-trust">
           <span class="stars">★★★★★</span>
-          <span><strong style="color:var(--ink)">4,8/5</strong> · 2.347 avaliações verificadas</span>
-
+          <span><strong style="color:var(--ink)">4,8/5</strong> · avaliação média das nossas clientes em Portugal</span>
         </div>
       </div>
 
       <div class="hero-img-wrap">
-        <img src="images/hero-produto-v3.jpg" alt="Pote Nano Slim azul, suplemento em pó"
+        <img src="images/hero-produto-v3.webp" alt="Pote Nano Slim azul, suplemento em pó"
              width="520" height="520" class="hero-img" fetchpriority="high" decoding="async">
         <div class="hero-badge-float">
           <span style="color:var(--cta-dk);">✓</span>
@@ -839,7 +848,7 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="solution-grid">
       <div>
-        <img src="images/hero-produto.png" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="440" height="440">
+        <img src="images/hero-produto.webp" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="440" height="440">
       </div>
       <div>
         <span class="pill hot">🔥 A SOLUÇÃO</span>
@@ -869,19 +878,19 @@ body.modal-open { overflow: hidden; }
     <div class="how-grid">
       <div class="how-step">
         <div class="how-step-num">1</div>
-        <img src="images/passo-1.jpg" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-1.webp" alt="Colher medida de Nano Slim" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Mede 1 colher</h3>
         <p>Uma colher medida (6 g) de pó Nano Slim, está dentro do pote.</p>
       </div>
       <div class="how-step">
         <div class="how-step-num">2</div>
-        <img src="images/passo-2.jpg" alt="Dissolver em água" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-2.webp" alt="Dissolver em água" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Dissolve em água</h3>
         <p>Mistura em 250 ml de água fresca. Sem grumos. Sabor leve e agradável.</p>
       </div>
       <div class="how-step">
         <div class="how-step-num">3</div>
-        <img src="images/passo-3.jpg" alt="Bebe e sente" class="how-step-img" loading="lazy" width="200" height="150">
+        <img src="images/passo-3.webp" alt="Bebe e sente" class="how-step-img" loading="lazy" width="200" height="150">
         <h3>Bebe de manhã</h3>
         <p>1 a 2 vezes ao dia. De preferência em jejum ou antes do treino.</p>
       </div>
@@ -896,32 +905,32 @@ body.modal-open { overflow: hidden; }
     <p class="ingrs-lead">Cada ingrediente foi escolhido com base na função que desempenha. Os claims funcionais (Crómio, B6, B12) são os autorizados pela EFSA.</p>
     <div class="ingrs-grid">
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-bhb.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-bhb.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Sais BHB</h3>
         <p>Beta-hidroxibutirato (cálcio, sódio, magnésio), corpo cetónico naturalmente produzido pelo organismo.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-mct.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-mct.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>MCT em pó</h3>
         <p>Triglicéridos de cadeia média, tradicionalmente utilizados em dietas cetogénicas.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-cha-verde.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-cha-verde.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Chá Verde</h3>
         <p>Extrato tradicionalmente usado em preparações para apoio ao bem-estar geral.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-cromio.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-cromio.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Crómio</h3>
         <p>Contribui para a manutenção de níveis normais de glicose no sangue.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-b6.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-b6.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B6</h3>
         <p>Contribui para a redução do cansaço e da fadiga.</p>
       </div>
       <div class="ingr-card">
-        <div class="ingr-icon"><img src="images/ingr-b12.jpg" alt="" loading="lazy" width="72" height="72"></div>
+        <div class="ingr-icon"><img src="images/ingr-b12.webp" alt="" loading="lazy" width="72" height="72"></div>
         <h3>Vitamina B12</h3>
         <p>Contribui para o metabolismo energético normal.</p>
       </div>
@@ -933,7 +942,7 @@ body.modal-open { overflow: hidden; }
 <section id="depoimentos" class="testi reveal">
   <div class="container">
     <h2>Portuguesas que voltaram à sua melhor forma</h2>
-    <p class="testi-lead">Mais de 2.300 portuguesas já experimentaram. Resultados individuais variam.</p>
+    <p class="testi-lead">Histórias reais de portuguesas que adoptaram o Nano Slim na rotina. Resultados individuais variam.</p>
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-header">
@@ -973,12 +982,133 @@ body.modal-open { overflow: hidden; }
         <blockquote>"Depois do 2.º filho não conseguia voltar à forma. Tomo ao pequeno-almoço como batido, o sabor é ótimo, e finalmente sinto-me bem na minha pele. Simples."</blockquote>
         <div class="testi-result">De volta à forma após 2º filho</div>
       </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#FBBF24,#F59E0B);">CN</div>
+          <div>
+            <div class="testi-name">Cristina N.</div>
+            <div class="testi-meta">47 anos · Braga</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"O que mais me chateava era a barriga ao fim do dia. Já tinha desistido. Em 6 semanas sinto-me menos inchada e com mais energia ao final da tarde. O sabor é agradável, dissolve bem."</blockquote>
+        <div class="testi-result">Menos inchaço · Mais energia</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);">SC</div>
+          <div>
+            <div class="testi-name">Sofia C.</div>
+            <div class="testi-meta">42 anos · Setúbal</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Trabalho por turnos no hospital e a minha alimentação era um caos. O Nano Slim deu-me uma rotina simples ao pequeno-almoço. Já não pico tanto entre turnos. A minha colega também encomendou."</blockquote>
+        <div class="testi-result">Rotina mais regular</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#F87171,#EF4444);">RA</div>
+          <div>
+            <div class="testi-name">Rita A.</div>
+            <div class="testi-meta">36 anos · Faro</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Já tinha experimentado outros suplementos e nada. Com o Nano Slim a diferença foi sentir-me cheia mais cedo nas refeições. Em 2 meses os meus jeans antigos voltaram a fechar. Sem dietas malucas."</blockquote>
+        <div class="testi-result">Saciedade nas refeições</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#22D3EE,#0891B2);">AM</div>
+          <div>
+            <div class="testi-name">Ana M.</div>
+            <div class="testi-meta">55 anos · Aveiro</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Depois da menopausa o metabolismo mudou. O médico disse-me para reduzir doces e açúcar. Com o Nano Slim a vontade de chocolate à noite quase desapareceu. É o que mais me ajudou."</blockquote>
+        <div class="testi-result">Menos vontade de doces</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#FB7185,#F43F5E);">PG</div>
+          <div>
+            <div class="testi-name">Patrícia G.</div>
+            <div class="testi-meta">29 anos · Funchal</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Encomendei para a Madeira, chegou em 4 dias. Tomo de manhã antes do trabalho e sinto-me com mais foco e sem aquela fome estranha às 11h. Bom sabor a baunilha, fácil de tomar."</blockquote>
+        <div class="testi-result">Manhãs sem aquela fome</div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-header">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#84CC16,#65A30D);">MF</div>
+          <div>
+            <div class="testi-name">Margarida F.</div>
+            <div class="testi-meta">44 anos · Évora</div>
+          </div>
+        </div>
+        <div class="testi-stars">★★★★★</div>
+        <blockquote>"Sou cabeleireira, passo o dia em pé e sempre comi mal. O Nano Slim fez-me ter mais consciência das refeições. Estou a comer melhor sem stress. Já vou no 2.º pote, encomendei o pack de 5."</blockquote>
+        <div class="testi-result">Mais consciência alimentar</div>
+      </div>
     </div>
     <p class="testi-disclaimer" style="text-align:center;font-size:.8rem;color:var(--mute);margin-top:28px;font-style:italic;max-width:640px;margin-inline:auto;padding:0 20px;line-height:1.55;">
       Resultados individuais variam. Este produto é um suplemento alimentar e não substitui uma alimentação variada e equilibrada nem um estilo de vida saudável.
     </p>
   </div>
 </section>
+
+<!-- FOTOS REAIS PARTILHADAS -->
+<section class="real-photos reveal" style="padding:50px 20px 30px;background:#fff;">
+  <div class="container" style="max-width:920px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:28px;">
+      <span class="pill" style="background:#FFF8E7;color:#92400E;border:1px solid #F59E0B;display:inline-block;padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:.3px;">FOTOS REAIS · PARTILHADAS PELAS CLIENTES</span>
+      <h2 style="margin-top:14px;font-size:clamp(1.5rem,4vw,2rem);font-weight:900;color:var(--ink);">Nano Slim a chegar a casa</h2>
+      <p style="font-size:.95rem;color:var(--mute);margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.5;">As clientes partilham a unboxing assim que recebem a encomenda CTT.</p>
+    </div>
+
+    <div class="real-photos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-1.webp" alt="Cliente com Nano Slim" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-2.webp" alt="Nano Slim recebido em casa" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-3.webp" alt="Pote Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-4.webp" alt="Cliente Nano Slim Portugal" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-5.webp" alt="Encomenda Nano Slim CTT" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
+        <img src="images/depoimento-real-6.webp" alt="Nano Slim entregue" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:.78rem;color:var(--mute);font-style:italic;margin-top:20px;">Imagens partilhadas com autorização das clientes.</p>
+  </div>
+</section>
+
+<style>
+  @media (max-width: 640px) {
+    .real-photos-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  }
+  @media (max-width: 380px) {
+    .real-photos-grid { gap: 8px !important; }
+  }
+</style>
 
 <!-- KITS -->
 <section id="kits" class="kits reveal">
@@ -994,7 +1124,7 @@ body.modal-open { overflow: hidden; }
       <article class="kit">
         <div class="kit-title">1 POTE</div>
         <div class="kit-sub">1 mês de toma</div>
-        <img src="images/hero-produto.png" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
         <div class="kit-price-old">78,00 €</div>
         <div class="kit-price">29,00 €</div>
         <div class="kit-per">29,00 €/pote</div>
@@ -1008,7 +1138,7 @@ body.modal-open { overflow: hidden; }
         <div class="kit-tag">RECOMENDADO</div>
         <div class="kit-title">2 POTES + 1 GRÁTIS</div>
         <div class="kit-sub">3 potes · 3 meses de toma</div>
-        <img src="images/pack3.png" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/pack3.webp" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
         <div class="kit-price-old">234,00 €</div>
         <div class="kit-price">69,00 €</div>
         <div class="kit-per">23,00 €/pote</div>
@@ -1024,7 +1154,7 @@ body.modal-open { overflow: hidden; }
         <div class="kit-tag">MAIOR POUPANÇA</div>
         <div class="kit-title">3 POTES + 2 GRÁTIS</div>
         <div class="kit-sub">5 potes · 5 meses de toma</div>
-        <img src="images/pack5.png" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
+        <img src="images/pack5.webp" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
         <div class="kit-price-old">390,00 €</div>
         <div class="kit-price">99,00 €</div>
         <div class="kit-per">19,80 €/pote</div>
@@ -1038,7 +1168,7 @@ body.modal-open { overflow: hidden; }
 
     <div class="pay-methods">
       <strong>Métodos aceites:</strong>
-      <img src="images/mbpags.png" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80">
+      <img src="images/mbpags.webp" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80">
     </div>
   </div>
 </section>
@@ -1173,7 +1303,7 @@ body.modal-open { overflow: hidden; }
     <p>Todos os kits incluem envio gratuito pelos CTT em 24 a 48 horas úteis. Escolha a opção mais adequada para si.</p>
     <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()" style="padding:18px 40px;font-size:1.1rem;">Ver ofertas →</button>
     <div style="margin-top:28px;font-size:.88rem;color:rgba(255,255,255,.7);">
-      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> 4,8/5 · 2.347 pessoas já experimentaram em Portugal
+      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> Avaliação média 4,8/5 das clientes Nano Slim em Portugal
     </div>
   </div>
 </section>
@@ -1215,9 +1345,10 @@ body.modal-open { overflow: hidden; }
 
     <div class="footer-company">
       <div><strong>Nano Slim · Portugal</strong></div>
-      <div>MULTISERVICOS EMPREENDIMENTOS LTDA</div>
-      <div>CNPJ: 42.383.196/0001-90</div>
-      <div>Apoio: <a href="mailto:contacto@nano-slim.pt" style="color:#60A5FA;">contacto@nano-slim.pt</a></div>
+      <div style="margin-top:8px;">
+        <a href="mailto:contacto@nano-slim.pt" style="color:#60A5FA;font-size:.85rem;">contacto@nano-slim.pt</a>
+      </div>
+      <div style="margin-top:6px;font-size:.72rem;color:#64748B;">Apoio por e-mail · resposta em 24h úteis</div>
     </div>
 
     <div class="footer-copy">© 2026 Nano Slim · Todos os direitos reservados</div>
@@ -1225,11 +1356,91 @@ body.modal-open { overflow: hidden; }
 </footer>
 
 <!-- STICKY CTA MOBILE -->
-<div class="sticky-cta">
+<div class="sticky-cta" id="stickyCta">
   <div class="sticky-cta-inner">
     <button class="btn btn-cta btn-pulse sticky-cta-full" onclick="scrollToKits()">Ver ofertas →</button>
   </div>
 </div>
+<script>
+(function(){
+  var stickyEl = document.getElementById('stickyCta');
+  var kitsSection = document.getElementById('kits');
+  if (!stickyEl || !kitsSection) return;
+
+  // Esconde quando a secção #kits começa a aparecer no viewport
+  // (utilizador chegou nas ofertas — não precisa mais do CTA flutuante)
+  function update() {
+    if (window.innerWidth > 920) {
+      stickyEl.classList.remove('visible');
+      document.body.classList.remove('sticky-cta-on');
+      return;
+    }
+    var rect = kitsSection.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    // Esconde quando o topo dos kits entra no viewport
+    var kitsVisible = rect.top < vh * 0.85;
+    if (kitsVisible) {
+      stickyEl.classList.remove('visible');
+      document.body.classList.remove('sticky-cta-on');
+    } else {
+      stickyEl.classList.add('visible');
+      document.body.classList.add('sticky-cta-on');
+    }
+  }
+  // Throttle simples via rAF
+  var ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      requestAnimationFrame(function(){ update(); ticking = false; });
+      ticking = true;
+    }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  // Estado inicial
+  update();
+})();
+</script>
+
+<!-- COOKIE BANNER RGPD -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0F1F2E;color:#fff;padding:16px 20px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.25);font-family:Inter,sans-serif;">
+  <div style="max-width:920px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;">
+    <div style="flex:1;min-width:240px;font-size:.85rem;line-height:1.5;">
+      Usamos cookies próprios e de terceiros para melhorar a tua experiência, analisar tráfego e mostrar publicidade relevante.
+      <a href="#" onclick="openLegal('cookies');return false;" style="color:#60A5FA;text-decoration:underline;">Saber mais</a>.
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button onclick="cookieChoice('reject')" style="background:transparent;color:#fff;border:1.5px solid #475569;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:Inter,sans-serif;">Recusar</button>
+      <button onclick="cookieChoice('accept')" style="background:#22C55E;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-weight:800;font-size:.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(34,197,94,.35);font-family:Inter,sans-serif;">Aceitar</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var v = localStorage.getItem('cookie_consent');
+    if (!v) {
+      // Mostra após 800ms (não bloqueia o LCP)
+      setTimeout(function(){
+        var b = document.getElementById('cookieBanner');
+        if (b) b.style.display = 'block';
+      }, 800);
+    } else if (v === 'reject') {
+      // Já recusou — desliga marketing pixels (gtag continua mas com consent='denied')
+      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied' }); } catch(e){}
+    }
+  } catch(e) {}
+  window.cookieChoice = function(choice) {
+    try { localStorage.setItem('cookie_consent', choice); } catch(e) {}
+    var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
+    if (choice === 'reject') {
+      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied' }); } catch(e){}
+    } else {
+      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' }); } catch(e){}
+    }
+  };
+})();
+</script>
 
 <!-- MODAL LEGAL -->
 <div id="legal-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title" hidden>
@@ -1250,9 +1461,9 @@ body.modal-open { overflow: hidden; }
 
   // ── Produtos ──────────────────────────────────────────────────
   var PRODUTOS = {
-    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:29.00,  preco_original:78.00,  portes:0,    img:"images/hero-produto.png", descricao:"1 mês de toma" },
-    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:69.00,  preco_original:234.00, portes:0,    img:"images/pack3.png",        descricao:"3 potes · 3 meses de toma" },
-    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:99.00,  preco_original:390.00, portes:0,    img:"images/pack5.png",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:29.00,  preco_original:78.00,  portes:0,    img:"images/hero-produto.webp", descricao:"1 mês de toma" },
+    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:69.00,  preco_original:234.00, portes:0,    img:"images/pack3.webp",        descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:99.00,  preco_original:390.00, portes:0,    img:"images/pack5.webp",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
   };
 
   window.irCheckout = function(id) {
@@ -1311,8 +1522,6 @@ body.modal-open { overflow: hidden; }
 // ============================================================
 (function(){
   var NOME = 'Nano Slim';
-  var RAZAO = 'MULTISERVICOS EMPREENDIMENTOS LTDA';
-  var NIPC  = '42.383.196/0001-90';
   var EMAIL = 'contacto@nano-slim.pt';
   var EMAIL_PRIV = 'privacidade@nano-slim.pt';
   var EMAIL_REEMB = 'reembolso@nano-slim.pt';
@@ -1320,7 +1529,7 @@ body.modal-open { overflow: hidden; }
   var LEGAL = {
     termos: { title:'Termos e Condições', body:
       '<p>Ao utilizar este website ou efectuar uma encomenda, declara aceitar integralmente estes termos.</p>' +
-      '<h3>1. Responsável</h3><p><strong>' + RAZAO + '</strong><br>CNPJ: ' + NIPC + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+      '<h3>1. Responsável</h3><p><strong>' + NOME + '</strong><br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
       '<h3>2. Produto</h3><p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
       '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way ou Multibanco). Preços com IVA à taxa legal em vigor.</p>' +
       '<h3>4. Entrega</h3><p>CTT · 24-48h no continente · 3-5 dias úteis em Madeira/Açores. Envio grátis nos kits 2+1 e 3+2. Encomendas MB Way confirmadas até 16h são expedidas no próprio dia.</p>' +
@@ -1329,8 +1538,8 @@ body.modal-open { overflow: hidden; }
     },
     privacidade: { title:'Política de Privacidade', body:
       '<p>A privacidade é uma prioridade. Tratamento em conformidade com RGPD (UE 2016/679) e Lei 58/2019.</p>' +
-      '<h3>Responsável</h3><p><strong>' + RAZAO + '</strong> · CNPJ ' + NIPC + '<br>' +
-      '<a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
+      '<h3>Responsável pelo tratamento</h3><p><strong>' + NOME + '</strong><br>' +
+      'Contacto privacidade: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
       '<h3>Dados recolhidos</h3>' +
       '<ul><li>Nome, morada, código postal, telemóvel, e-mail (necessários para encomenda e envio)</li>' +
       '<li>Dados de pagamento processados em ambiente seguro; não armazenamos dados de cartão</li>' +
@@ -1375,8 +1584,8 @@ body.modal-open { overflow: hidden; }
       '<ul><li>Geral: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></li>' +
       '<li>Privacidade/RGPD: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></li>' +
       '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li></ul>' +
-      '<p>Respondemos em 24h úteis.</p>' +
-      '<h3>Responsável</h3><p><strong>' + RAZAO + '</strong><br>CNPJ: ' + NIPC + '</p>'
+      '<p>Respondemos em 24h úteis (segunda a sexta).</p>' +
+      '<h3>Marca</h3><p><strong>' + NOME + '</strong> · Portugal</p>'
     }
   };
 

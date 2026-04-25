@@ -368,18 +368,20 @@
   }
 
   // ===== CONVERSÕES =====
-  // Só dispara se pagamento COMPLETED (não pendentes)
-  // Limpa carrinho só após compra confirmada
-  if (!pending && value > 0) {
+  // Dispara em QUALQUER status válido (awaiting/pending/completed)
+  // Smart Bidding precisa do sinal pra otimizar; ajustes de cancelamento
+  // são feitos depois via API de Conversions Adjustments do Google Ads.
+  // Limpa carrinho após chegar em obrigado.html (transação criada com sucesso)
+  if (txId && value > 0) {
     try {
       sessionStorage.removeItem('ck_product');
       localStorage.removeItem('ck_product');
     } catch(e) {}
   }
-  if (!pending && value > 0) {
+  if (txId && value > 0) {
     try {
       if (typeof gtag !== 'undefined') {
-        // Enhanced conversions (email se disponível)
+        // Enhanced conversions (email se disponível) — melhora match Google Ads
         if (email) {
           gtag('set', 'user_data', { email: decodeURIComponent(email) });
         }
@@ -402,14 +404,15 @@
           currency: 'EUR',
           transaction_id: String(txId)
         });
+        console.log('[gtag] Conversão Google Ads disparada · tx=' + txId + ' · €' + value);
       }
     } catch(e) { console.warn('[gtag]', e); }
   }
 
-  // Meta Pixel Purchase (se tiveres)
+  // Meta Pixel Purchase (se tiveres) — dispara em qualquer status
   try {
-    if (typeof fbq !== 'undefined' && !pending) {
-      fbq('track', 'Purchase', { value: value, currency: 'EUR' });
+    if (typeof fbq !== 'undefined' && txId && value > 0) {
+      fbq('track', 'Purchase', { value: value, currency: 'EUR', transaction_id: String(txId) });
     }
   } catch(e) {}
 

@@ -604,13 +604,62 @@
     }
     .ck-trust-item .material-symbols-outlined { font-size: 13px; }
 
+    @media (max-width: 768px) {
+      /* Header mais compacto */
+      .ck-header { height: 48px; padding: 0 14px; }
+      .ck-header-logo .brand-text { font-size: 1.05rem; }
+
+      /* Stepper menor (poupa altura crítica no mobile) */
+      .ck-stepper { padding: 8px 14px; top: 48px; }
+      .ck-step-circle { width: 26px; height: 26px; font-size: .72rem; }
+      .ck-step-label { font-size: 9px; }
+      .ck-step-connector { margin-bottom: 14px; }
+
+      /* Banner free shipping menor */
+      body > div[style*="linear-gradient(90deg,#16a34a"] {
+        padding: 6px 10px !important;
+        font-size: .72rem !important;
+      }
+
+      /* Main com menos padding */
+      .ck-main { padding: 12px 12px 0; }
+
+      /* Cards mais juntos e compactos */
+      .ck-card { margin-bottom: 10px; border-radius: 12px; }
+      .ck-card-header { padding: 10px 14px; }
+      .ck-card-header .material-symbols-outlined { font-size: 18px; }
+      .ck-card-header-title { font-size: .88rem; }
+      .ck-card-body { padding: 12px 14px; gap: 10px; }
+
+      /* Inputs mais compactos */
+      .ck-field label { font-size: .72rem; }
+      .ck-input { padding: 11px 14px; font-size: 16px; /* 16px evita zoom iOS */ }
+
+      /* Phone input igual */
+      .ck-phone-input { font-size: 16px !important; padding: 11px 14px !important; }
+
+      /* Bottom bar — menor + safe area iOS */
+      .ck-bottom-bar { padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); }
+      .ck-bottom-bar-inner { gap: 6px; }
+      .ck-bottom-summary { font-size: .85rem; }
+      .ck-bottom-product { font-size: .75rem; max-width: 60vw; }
+      .ck-btn-cta { padding: 13px; font-size: .95rem; }
+
+      /* Back link compacto */
+      .ck-back-link { margin-bottom: 8px; font-size: .75rem; }
+
+      /* Body padding-bottom só pra altura real do bottom-bar */
+      body { padding-bottom: 130px; }
+    }
+
     @media (max-width: 480px) {
-      .ck-main { padding: 16px 12px 0; }
-      .ck-card-body { padding: 14px; }
+      .ck-main { padding: 10px 10px 0; }
+      .ck-card-body { padding: 11px 12px; gap: 9px; }
     }
     @media (max-width: 360px) {
       .ck-header-secure { display: none; }
-      .ck-step-label { font-size: 9px; }
+      .ck-step-label { font-size: 8px; }
+      .ck-card-body { padding: 10px 11px; }
     }
   </style>
 <!-- Google tag (gtag.js) -->
@@ -878,9 +927,44 @@
             </div>
           </div>
 
+          <!-- ORDER BUMP — extras opcionais -->
+          <div id="ckBumpsWrap" style="margin-top:6px;">
+            <div style="font-size:.78rem;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">Quer adicionar?</div>
+
+            <label id="bump-extra_pote" style="display:flex;align-items:center;gap:12px;padding:12px;background:#FFF8E7;border:2px solid #F59E0B;border-radius:12px;cursor:pointer;transition:all .2s;position:relative;">
+              <input type="checkbox" onchange="toggleBump('extra_pote')" style="width:22px;height:22px;flex-shrink:0;accent-color:#F59E0B;cursor:pointer;">
+              <img src="images/hero-produto.webp" alt="+1 Pote" style="width:54px;height:54px;object-fit:contain;flex-shrink:0;">
+              <div style="flex:1;min-width:0;">
+                <div style="font-size:.88rem;font-weight:800;color:#0F1F2E;line-height:1.3;">+1 Pote Nano Slim</div>
+                <div style="font-size:.72rem;color:#6b7280;margin-top:2px;line-height:1.4;">+1 mês de toma · Garantia 60 dias</div>
+                <div style="margin-top:4px;display:flex;align-items:baseline;gap:6px;">
+                  <span style="font-size:.72rem;color:#9ca3af;text-decoration:line-through;">39,00 €</span>
+                  <span style="font-size:1rem;font-weight:900;color:#16a34a;">19,00 €</span>
+                  <span style="font-size:.65rem;background:#16a34a;color:#fff;padding:2px 6px;border-radius:4px;font-weight:800;">-51%</span>
+                </div>
+              </div>
+            </label>
+
+            <style>
+              #bump-extra_pote.selected { background:#dcfce7 !important; border-color:#16a34a !important; box-shadow:0 4px 12px rgba(22,163,74,.18); }
+            </style>
+          </div>
+
+          <!-- Aceitar Termos (RGPD + DL 24/2014) -->
+          <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:12px 14px;background:#F8FAFC;border:1.5px solid #E2E8F0;border-radius:10px;cursor:pointer;font-size:.82rem;line-height:1.5;color:#334155;">
+            <input type="checkbox" id="ck-terms" style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:#22C55E;cursor:pointer;">
+            <span>
+              Li e aceito os
+              <a href="index.html?legal=termos" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Termos &amp; Condições</a>,
+              a <a href="index.html?legal=privacidade" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Política de Privacidade</a>
+              e a <a href="index.html?legal=reembolso" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Política de Reembolsos</a>.
+              Compreendo que estou a efectuar uma compra e que o pagamento é processado de forma segura.
+            </span>
+          </label>
+
           <!-- Logos pagamento + Livro Reclamações -->
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed #e5e7eb;text-align:center;">
-            <img src="images/mbpags.png" alt="MB Multibanco e MB WAY" style="max-height:54px;width:auto;margin-bottom:12px;display:inline-block;">
+            <img src="images/mbpags.webp" alt="MB Multibanco e MB WAY" style="max-height:54px;width:auto;margin-bottom:12px;display:inline-block;">
             <div>
               <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener"
                  style="display:inline-flex;align-items:center;gap:6px;font-size:.72rem;color:#1e40af;text-decoration:none;font-weight:700;">
@@ -916,9 +1000,9 @@
 
   // ── Catálogo inline (fonte da verdade, sobrevive a tudo) ─────
   const CATALOGO_NANOSLIM = {
-    1: { id:1, name:"Nano Slim · 1 POTE",             price:29.00,  price_original:78.00,  portes:0, img:"images/hero-produto.png", descricao:"1 mês de toma" },
-    2: { id:2, name:"Nano Slim · 2 POTES + 1 GRÁTIS", price:69.00,  price_original:234.00, portes:0, img:"images/pack3.png",        descricao:"3 potes · 3 meses de toma" },
-    3: { id:3, name:"Nano Slim · 3 POTES + 2 GRÁTIS", price:99.00,  price_original:390.00, portes:0, img:"images/pack5.png",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+    1: { id:1, name:"Nano Slim · 1 POTE",             price:29.00,  price_original:78.00,  portes:0, img:"images/hero-produto.webp", descricao:"1 mês de toma" },
+    2: { id:2, name:"Nano Slim · 2 POTES + 1 GRÁTIS", price:69.00,  price_original:234.00, portes:0, img:"images/pack3.webp",        descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, name:"Nano Slim · 3 POTES + 2 GRÁTIS", price:99.00,  price_original:390.00, portes:0, img:"images/pack5.webp",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
   };
 
   // ── Resolver produto: 4 fontes em cascata (robustez máxima) ──
@@ -1007,13 +1091,37 @@
     if (main) main.insertBefore(summary, main.firstChild);
   }
 
-  // ── Bumps, vazio (sem order bumps para Nano Slim) ─────────
-  const bumps = {};
+  // ── Order Bumps (extras opcionais) ──────────────────────────
+  const bumps = {
+    extra_pote: {
+      key:     'extra_pote',
+      name:    '+1 Pote Nano Slim',
+      desc:    'Adiciona +1 mês de toma · Garantia estendida 60 dias',
+      price:   19.00,
+      price_old: 39.00,
+      img:     'images/hero-produto.webp',
+      selected: false
+    }
+  };
 
   function toggleBump(key) {
     bumps[key].selected = !bumps[key].selected;
     document.getElementById('bump-' + key).classList.toggle('selected', bumps[key].selected);
     updateTotal();
+    // Refresh resumo do pedido se já estamos no step 3
+    if (typeof currentStep !== 'undefined' && currentStep === 3 && typeof populateOrderSummary === 'function') {
+      try { populateOrderSummary(); } catch(e) {}
+    }
+    // Track add_to_cart no Google Ads (sinal extra pra Smart Bidding)
+    try {
+      if (typeof gtag !== 'undefined' && bumps[key].selected) {
+        gtag('event', 'add_to_cart', {
+          currency: 'EUR',
+          value: bumps[key].price,
+          items: [{ item_id: 'bump_' + key, item_name: bumps[key].name, price: bumps[key].price, quantity: 1 }]
+        });
+      }
+    } catch(e) {}
   }
 
   function updateTotal() {
@@ -1117,7 +1225,17 @@
     updateProgressBar(n);
     updateCtaButton(n);
     if (n === 3) populateOrderSummary();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Scroll só se utilizador estiver longe do topo do form (evita "arrastada" jarrante)
+    try {
+      var formTop = document.querySelector('.ck-main');
+      if (formTop) {
+        var rect = formTop.getBoundingClientRect();
+        // Se card já está visível (rect.top entre -40 e 200), não scrolla
+        if (rect.top < -80 || rect.top > 200) {
+          formTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    } catch(e) {}
   }
 
   // Popular resumo do pedido (passo 3)
@@ -1216,27 +1334,85 @@
     let v = this.value.replace(/\D/g,'');
     if (v.length > 4) v = v.slice(0,4) + '-' + v.slice(4,7);
     this.value = v;
+
+    // Auto-preenche cidade quando CP completo (formato 0000-000)
+    if (/^\d{4}-\d{3}$/.test(v)) lookupPostalCode(v);
   });
+
+  // ── Auto-fill cidade via API geoapi.pt (CTT oficial · grátis · CORS OK) ──
+  let postalCache = {};
+  async function lookupPostalCode(cp) {
+    var cityField = document.getElementById('ck-city');
+    var addressField = document.getElementById('ck-address');
+    if (!cityField) return;
+
+    // Cache local — evita chamadas repetidas
+    if (postalCache[cp]) {
+      applyPostalData(postalCache[cp]);
+      return;
+    }
+
+    // Visual feedback
+    var hintId = 'postal-hint';
+    var hint = document.getElementById(hintId);
+    if (!hint) {
+      hint = document.createElement('div');
+      hint.id = hintId;
+      hint.style.cssText = 'font-size:.72rem;color:#6b7280;margin-top:4px;line-height:1.4;';
+      document.getElementById('ck-postal').parentNode.appendChild(hint);
+    }
+    hint.textContent = 'A consultar morada...';
+    hint.style.color = '#6b7280';
+
+    try {
+      // geoapi.pt — endpoint oficial CTT, gratuito, sem auth
+      var res = await fetch('https://json.geoapi.pt/cp/' + cp, { method: 'GET' });
+      if (!res.ok) throw new Error('CP não encontrado');
+      var data = await res.json();
+      postalCache[cp] = data;
+      applyPostalData(data);
+    } catch(err) {
+      console.warn('[CP lookup]', err.message);
+      hint.textContent = 'Código postal não reconhecido — preenche cidade manualmente.';
+      hint.style.color = '#b45309';
+    }
+  }
+
+  function applyPostalData(data) {
+    if (!data) return;
+    var cityField = document.getElementById('ck-city');
+    var addressField = document.getElementById('ck-address');
+    var hint = document.getElementById('postal-hint');
+
+    // Cidade: prioridade concelho > localidade
+    var cidade = data.concelho || data.Concelho || data.localidade || data.Localidade || '';
+    if (cidade && cityField && !cityField.value.trim()) {
+      cityField.value = cidade;
+      cityField.classList.remove('err');
+    }
+    // Morada parcial (rua/artéria) se ainda vazio
+    var rua = data.arteria || data.Arteria || data.rua || '';
+    if (rua && addressField && !addressField.value.trim()) {
+      addressField.value = rua;
+      addressField.classList.remove('err');
+    }
+
+    if (hint) {
+      hint.innerHTML = '✓ ' + cidade + (data.distrito || data.Distrito ? ' · ' + (data.distrito || data.Distrito) : '');
+      hint.style.color = '#16a34a';
+      hint.style.fontWeight = '600';
+    }
+  }
   document.getElementById('ck-doc').addEventListener('input', function() {
     this.value = this.value.replace(/\D/g,'').slice(0,9);
   });
+  // SEM scrollIntoView no focus mobile — iOS/Android já trata isso nativamente
+  // ao abrir o teclado. Forçar scroll cria "arrastada dupla" jarrante.
   document.querySelectorAll('.ck-input').forEach(el => {
-    el.addEventListener('focus', () => {
-      el.classList.remove('err');
-      if (window.innerWidth <= 768) {
-        setTimeout(() => {
-          try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
-        }, 150);
-      }
-    });
+    el.addEventListener('focus', () => { el.classList.remove('err'); });
   });
   document.getElementById('ck-phone').addEventListener('focus', () => {
     document.getElementById('phoneWrap').classList.remove('err');
-    if (window.innerWidth <= 768) {
-      setTimeout(() => {
-        try { document.getElementById('phoneWrap').scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {}
-      }, 150);
-    }
   });
 
   // ── Modal legal dentro do checkout (re-usa config do index) ─────
@@ -1257,6 +1433,11 @@
     const number     = document.getElementById('ck-number').value.trim();
     const complement = document.getElementById('ck-complement').value.trim();
     const city       = document.getElementById('ck-city').value.trim();
+    const termsOk    = document.getElementById('ck-terms') && document.getElementById('ck-terms').checked;
+
+    if (!termsOk) {
+      return showErr('ckError3','ckErrorMsg3','Tens de aceitar os Termos e a Política de Privacidade para continuar.','ck-terms');
+    }
 
     const phone = rawPhone.replace(/[\s\-().]/g,'').replace(/^(\+|00)351/,'');
 
@@ -1348,6 +1529,38 @@
     }
   }
 </script>
+
+<!-- COOKIE BANNER RGPD (mesma lógica do index) -->
+<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0F1F2E;color:#fff;padding:14px 16px calc(14px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.25);font-family:Inter,sans-serif;">
+  <div style="max-width:920px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between;">
+    <div style="flex:1;min-width:220px;font-size:.78rem;line-height:1.5;">
+      Usamos cookies para processar a tua encomenda e analisar tráfego.
+      <a href="index.html?legal=cookies" target="_blank" style="color:#60A5FA;text-decoration:underline;">Saber mais</a>.
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <button onclick="cookieChoice('reject')" style="background:transparent;color:#fff;border:1.5px solid #475569;padding:9px 14px;border-radius:8px;font-weight:700;font-size:.78rem;cursor:pointer;font-family:Inter,sans-serif;">Recusar</button>
+      <button onclick="cookieChoice('accept')" style="background:#22C55E;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-weight:800;font-size:.78rem;cursor:pointer;box-shadow:0 4px 12px rgba(34,197,94,.35);font-family:Inter,sans-serif;">Aceitar</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  try {
+    var v = localStorage.getItem('cookie_consent');
+    if (!v) {
+      setTimeout(function(){
+        var b = document.getElementById('cookieBanner');
+        if (b) b.style.display = 'block';
+      }, 1200);
+    }
+  } catch(e) {}
+  window.cookieChoice = function(choice) {
+    try { localStorage.setItem('cookie_consent', choice); } catch(e) {}
+    var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
+  };
+})();
+</script>
+
 <script src="js/anti-copy.js" defer></script>
 </body>
 </html>
