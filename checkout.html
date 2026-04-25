@@ -1340,10 +1340,6 @@
         if (rd.reference) params.set('mb_ref',    rd.reference);
       }
       window.location.href = 'obrigado.html?' + params.toString();
-}
-        } catch { setTimeout(poll, 3000); }
-      };
-      setTimeout(poll, 3000);
 
     } catch(err) {
       showErr('ckError3','ckErrorMsg3','Erro de ligação. Tente novamente.');
