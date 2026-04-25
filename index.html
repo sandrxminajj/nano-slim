@@ -332,6 +332,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 .testi-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .testi-avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .98rem; flex-shrink: 0; }
+.testi-avatar-photo { object-fit: cover; display: block; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(15,31,46,.18); }
 .testi-name { font-weight: 800; font-size: .97rem; line-height: 1.2; }
 .testi-meta { font-size: .78rem; color: var(--mute); }
 .testi blockquote { font-size: .94rem; color: var(--ink-2); line-height: 1.6; font-style: italic; }
@@ -1031,11 +1032,11 @@ body.modal-open { overflow: hidden; }
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/mulheres-1.webp" alt="Helena com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-1.webp" alt="Nano Slim recebido em casa" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#F472B6,#EC4899);">HS</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-1.webp" alt="Helena S." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Helena S.</div>
             <div class="testi-meta">39 anos · Porto</div>
@@ -1048,11 +1049,11 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/mulheres-2.webp" alt="Vânia com Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-2.webp" alt="Pote Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#60A5FA,#3B82F6);">VR</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-2.webp" alt="Vânia R." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Vânia R.</div>
             <div class="testi-meta">52 anos · Lisboa</div>
@@ -1065,11 +1066,11 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/homens-1.webp" alt="Tiago com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-3.webp" alt="Pote Nano Slim e batido preparado" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">TM</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/homens-1.webp" alt="Tiago M." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Tiago M.</div>
             <div class="testi-meta">34 anos · Coimbra</div>
@@ -1082,11 +1083,11 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/mulheres-3.webp" alt="Cristina recebeu Nano Slim em casa" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-4.webp" alt="Cliente Nano Slim Portugal" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#FBBF24,#F59E0B);">CN</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-3.webp" alt="Cristina N." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Cristina N.</div>
             <div class="testi-meta">47 anos · Braga</div>
@@ -1099,11 +1100,11 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/mulheres-4.webp" alt="Sofia com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-5.webp" alt="Encomenda Nano Slim CTT" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);">SC</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-4.webp" alt="Sofia C." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Sofia C.</div>
             <div class="testi-meta">42 anos · Setúbal</div>
@@ -1116,11 +1117,11 @@ body.modal-open { overflow: hidden; }
 
       <div class="testi-card">
         <div class="testi-photo">
-          <img src="images/homens-2.webp" alt="Bruno com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <img src="images/depoimento-real-6.webp" alt="Nano Slim entregue" loading="lazy" decoding="async" width="800" height="800">
           <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#3B82F6,#1D4ED8);">BA</div>
+          <img class="testi-avatar testi-avatar-photo" src="images/homens-2.webp" alt="Bruno A." loading="lazy" decoding="async" width="52" height="52">
           <div>
             <div class="testi-name">Bruno A.</div>
             <div class="testi-meta">36 anos · Faro</div>
