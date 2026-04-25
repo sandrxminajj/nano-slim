@@ -271,7 +271,22 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .testi-lead { text-align: center; color: var(--mute); margin-bottom: 44px; max-width: 640px; margin-inline: auto; }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 @media (max-width: 920px) { .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; } }
-.testi-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; }
+.testi-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; overflow: hidden; }
+.testi-card:has(.testi-photo) { padding: 0; }
+.testi-card:has(.testi-photo) .testi-header,
+.testi-card:has(.testi-photo) .testi-stars,
+.testi-card:has(.testi-photo) blockquote,
+.testi-card:has(.testi-photo) .testi-result { margin-left: 24px; margin-right: 24px; }
+.testi-card:has(.testi-photo) .testi-result { margin-bottom: 24px; }
+.testi-photo { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #F1F5F9; margin-bottom: 14px; }
+.testi-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.testi-photo-tag {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(15,31,46,.85); color: #fff;
+  font-size: .65rem; font-weight: 700; letter-spacing: .3px;
+  padding: 4px 8px; border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
 .testi-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .testi-avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .98rem; flex-shrink: 0; }
 .testi-name { font-weight: 800; font-size: .97rem; line-height: 1.2; }
@@ -958,6 +973,10 @@ body.modal-open { overflow: hidden; }
     <p class="testi-lead">Histórias reais de portuguesas que adoptaram o Nano Slim na rotina. Resultados individuais variam.</p>
     <div class="testi-grid">
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-1.webp" alt="Helena com Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#F472B6,#EC4899);">HS</div>
           <div>
@@ -971,6 +990,10 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-2.webp" alt="Vânia com Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#60A5FA,#3B82F6);">VR</div>
           <div>
@@ -984,6 +1007,10 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-3.webp" alt="Lara prepara o batido Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">LM</div>
           <div>
@@ -997,6 +1024,10 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-4.webp" alt="Cristina recebeu Nano Slim em casa" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#FBBF24,#F59E0B);">CN</div>
           <div>
@@ -1010,6 +1041,10 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-5.webp" alt="Sofia abre a encomenda Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);">SC</div>
           <div>
@@ -1023,6 +1058,10 @@ body.modal-open { overflow: hidden; }
       </div>
 
       <div class="testi-card">
+        <div class="testi-photo">
+          <img src="images/depoimento-real-6.webp" alt="Rita partilha Nano Slim" loading="lazy" decoding="async" width="800" height="800">
+          <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
+        </div>
         <div class="testi-header">
           <div class="testi-avatar" style="background:linear-gradient(135deg,#F87171,#EF4444);">RA</div>
           <div>
@@ -1079,49 +1118,6 @@ body.modal-open { overflow: hidden; }
     </p>
   </div>
 </section>
-
-<!-- FOTOS REAIS PARTILHADAS -->
-<section class="real-photos reveal" style="padding:50px 20px 30px;background:#fff;">
-  <div class="container" style="max-width:920px;margin:0 auto;">
-    <div style="text-align:center;margin-bottom:28px;">
-      <span class="pill" style="background:#FFF8E7;color:#92400E;border:1px solid #F59E0B;display:inline-block;padding:6px 14px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:.3px;">FOTOS REAIS · PARTILHADAS PELAS CLIENTES</span>
-      <h2 style="margin-top:14px;font-size:clamp(1.5rem,4vw,2rem);font-weight:900;color:var(--ink);">Nano Slim a chegar a casa</h2>
-      <p style="font-size:.95rem;color:var(--mute);margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.5;">As clientes partilham a unboxing assim que recebem a encomenda CTT.</p>
-    </div>
-
-    <div class="real-photos-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;">
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-1.webp" alt="Cliente com Nano Slim" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-2.webp" alt="Nano Slim recebido em casa" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-3.webp" alt="Pote Nano Slim na mão" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-4.webp" alt="Cliente Nano Slim Portugal" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-5.webp" alt="Encomenda Nano Slim CTT" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-      <div class="real-photo-item" style="aspect-ratio:1/1;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px -8px rgba(15,31,46,.18);background:#F1F5F9;">
-        <img src="images/depoimento-real-6.webp" alt="Nano Slim entregue" loading="lazy" decoding="async" width="800" height="800" style="width:100%;height:100%;object-fit:cover;display:block;">
-      </div>
-    </div>
-
-    <p style="text-align:center;font-size:.78rem;color:var(--mute);font-style:italic;margin-top:20px;">Imagens partilhadas com autorização das clientes.</p>
-  </div>
-</section>
-
-<style>
-  @media (max-width: 640px) {
-    .real-photos-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
-  }
-  @media (max-width: 380px) {
-    .real-photos-grid { gap: 8px !important; }
-  }
-</style>
 
 <!-- KITS -->
 <section id="kits" class="kits reveal">
@@ -1425,46 +1421,6 @@ body.modal-open { overflow: hidden; }
   window.addEventListener('resize', onScroll, { passive: true });
   // Estado inicial
   update();
-})();
-</script>
-
-<!-- COOKIE BANNER RGPD -->
-<div id="cookieBanner" style="display:none;position:fixed;bottom:0;left:0;right:0;z-index:9998;background:#0F1F2E;color:#fff;padding:16px 20px calc(16px + env(safe-area-inset-bottom));box-shadow:0 -8px 24px rgba(0,0,0,.25);font-family:Inter,sans-serif;">
-  <div style="max-width:920px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;">
-    <div style="flex:1;min-width:240px;font-size:.85rem;line-height:1.5;">
-      Usamos cookies próprios e de terceiros para melhorar a tua experiência, analisar tráfego e mostrar publicidade relevante.
-      <a href="#" onclick="openLegal('cookies');return false;" style="color:#60A5FA;text-decoration:underline;">Saber mais</a>.
-    </div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <button onclick="cookieChoice('reject')" style="background:transparent;color:#fff;border:1.5px solid #475569;padding:10px 18px;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;font-family:Inter,sans-serif;">Recusar</button>
-      <button onclick="cookieChoice('accept')" style="background:#22C55E;color:#fff;border:none;padding:10px 22px;border-radius:8px;font-weight:800;font-size:.82rem;cursor:pointer;box-shadow:0 4px 12px rgba(34,197,94,.35);font-family:Inter,sans-serif;">Aceitar</button>
-    </div>
-  </div>
-</div>
-<script>
-(function(){
-  try {
-    var v = localStorage.getItem('cookie_consent');
-    if (!v) {
-      // Mostra após 800ms (não bloqueia o LCP)
-      setTimeout(function(){
-        var b = document.getElementById('cookieBanner');
-        if (b) b.style.display = 'block';
-      }, 800);
-    } else if (v === 'reject') {
-      // Já recusou — desliga marketing pixels (gtag continua mas com consent='denied')
-      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied' }); } catch(e){}
-    }
-  } catch(e) {}
-  window.cookieChoice = function(choice) {
-    try { localStorage.setItem('cookie_consent', choice); } catch(e) {}
-    var b = document.getElementById('cookieBanner'); if (b) b.style.display = 'none';
-    if (choice === 'reject') {
-      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied' }); } catch(e){}
-    } else {
-      try { if (typeof gtag !== 'undefined') gtag('consent', 'update', { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' }); } catch(e){}
-    }
-  };
 })();
 </script>
 
