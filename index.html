@@ -333,16 +333,29 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kit-bonus { text-align: center; font-size: .78rem; color: var(--brand-dk); margin-top: 6px; font-weight: 600; }
 .kit-off {
   align-self: center; display: inline-block; margin: 10px auto 16px;
-  padding: 6px 16px; font-size: .78rem; font-weight: 900; border-radius: 999px;
-  background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
+  padding: 7px 18px; font-size: .82rem; font-weight: 900; border-radius: 999px;
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
   color: #fff; letter-spacing: .3px;
-  box-shadow: 0 4px 12px -2px rgba(30,136,229,.4);
+  box-shadow: 0 4px 14px -2px rgba(22,163,74,.45);
 }
 .kit-best .kit-off,
 .kit-pro .kit-off {
-  background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
   color: #fff;
-  box-shadow: 0 4px 12px -2px rgba(30,136,229,.4);
+  box-shadow: 0 4px 14px -2px rgba(22,163,74,.45);
+}
+/* Trust badges abaixo de cada kit-cta */
+.kit-trust {
+  display: flex; flex-direction: column; gap: 6px;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px dashed var(--line);
+  font-size: .74rem; color: var(--ink-2); font-weight: 600;
+}
+.kit-trust-item {
+  display: inline-flex; align-items: center; gap: 6px; line-height: 1.3;
+}
+.kit-trust-item .material-symbols-outlined {
+  font-size: 16px; color: var(--cta-dk); flex-shrink: 0;
 }
 .kit-mbway-flag {
   display: inline-flex; align-items: center; gap: 6px; justify-content: center;
@@ -1125,12 +1138,16 @@ body.modal-open { overflow: hidden; }
         <div class="kit-title">1 POTE</div>
         <div class="kit-sub">1 mês de toma</div>
         <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
-        <div class="kit-price-old">78,00 €</div>
+        <div class="kit-price-old">49,00 €</div>
         <div class="kit-price">29,00 €</div>
         <div class="kit-per">29,00 €/pote</div>
         <div class="kit-portes"><b>Envio GRÁTIS</b></div>
-        <span class="kit-off">-63%</span>
+        <span class="kit-off">Poupas 20 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 29,00 €</button>
+        <div class="kit-trust">
+          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+        </div>
       </article>
 
       <!-- KIT 2 (destaque) -->
@@ -1139,14 +1156,18 @@ body.modal-open { overflow: hidden; }
         <div class="kit-title">2 POTES + 1 GRÁTIS</div>
         <div class="kit-sub">3 potes · 3 meses de toma</div>
         <img src="images/pack3.webp" alt="3 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
-        <div class="kit-price-old">234,00 €</div>
+        <div class="kit-price-old">117,00 €</div>
         <div class="kit-price">69,00 €</div>
         <div class="kit-per">23,00 €/pote</div>
         <div class="kit-portes">
           <b>1 POTE GRÁTIS</b> · <b>Envio GRÁTIS</b>
         </div>
-        <span class="kit-off">-70%</span>
+        <span class="kit-off">Poupas 48 €</span>
         <button class="btn btn-cta kit-cta btn-pulse" onclick="irCheckout(2)">Encomendar · 69,00 €</button>
+        <div class="kit-trust">
+          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+        </div>
       </article>
 
       <!-- KIT 3 -->
@@ -1155,14 +1176,18 @@ body.modal-open { overflow: hidden; }
         <div class="kit-title">3 POTES + 2 GRÁTIS</div>
         <div class="kit-sub">5 potes · 5 meses de toma</div>
         <img src="images/pack5.webp" alt="5 potes Nano Slim" class="kit-img" loading="lazy" width="220" height="170">
-        <div class="kit-price-old">390,00 €</div>
+        <div class="kit-price-old">195,00 €</div>
         <div class="kit-price">99,00 €</div>
         <div class="kit-per">19,80 €/pote</div>
         <div class="kit-portes">
           <b>2 POTES GRÁTIS</b> · <b>Envio GRÁTIS</b> · <b>Ebook</b>
         </div>
-        <span class="kit-off">-75%</span>
+        <span class="kit-off">Poupas 96 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 99,00 €</button>
+        <div class="kit-trust">
+          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+        </div>
       </article>
     </div>
 
@@ -1345,6 +1370,7 @@ body.modal-open { overflow: hidden; }
 
     <div class="footer-company">
       <div><strong>Nano Slim · Portugal</strong></div>
+      <div style="margin-top:6px;font-size:.78rem;color:#94A3B8;">MULTISERVICOS EMPREENDIMENTOS LTDA · 42.383.196/0001-90</div>
       <div style="margin-top:8px;">
         <a href="mailto:contacto@nano-slim.pt" style="color:#60A5FA;font-size:.85rem;">contacto@nano-slim.pt</a>
       </div>
@@ -1461,9 +1487,9 @@ body.modal-open { overflow: hidden; }
 
   // ── Produtos ──────────────────────────────────────────────────
   var PRODUTOS = {
-    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:29.00,  preco_original:78.00,  portes:0,    img:"images/hero-produto.webp", descricao:"1 mês de toma" },
-    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:69.00,  preco_original:234.00, portes:0,    img:"images/pack3.webp",        descricao:"3 potes · 3 meses de toma" },
-    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:99.00,  preco_original:390.00, portes:0,    img:"images/pack5.webp",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
+    1: { id:1, nome:"Nano Slim · 1 POTE",             preco:29.00,  preco_original:49.00,  portes:0,    img:"images/hero-produto.webp", descricao:"1 mês de toma" },
+    2: { id:2, nome:"Nano Slim · 2 POTES + 1 GRÁTIS", preco:69.00,  preco_original:117.00, portes:0,    img:"images/pack3.webp",        descricao:"3 potes · 3 meses de toma" },
+    3: { id:3, nome:"Nano Slim · 3 POTES + 2 GRÁTIS", preco:99.00,  preco_original:195.00, portes:0,    img:"images/pack5.webp",        descricao:"5 potes · 5 meses de toma · Ebook bónus" }
   };
 
   window.irCheckout = function(id) {
@@ -1522,6 +1548,8 @@ body.modal-open { overflow: hidden; }
 // ============================================================
 (function(){
   var NOME = 'Nano Slim';
+  var RAZAO = 'MULTISERVICOS EMPREENDIMENTOS LTDA';
+  var REG = '42.383.196/0001-90';
   var EMAIL = 'contacto@nano-slim.pt';
   var EMAIL_PRIV = 'privacidade@nano-slim.pt';
   var EMAIL_REEMB = 'reembolso@nano-slim.pt';
@@ -1529,7 +1557,7 @@ body.modal-open { overflow: hidden; }
   var LEGAL = {
     termos: { title:'Termos e Condições', body:
       '<p>Ao utilizar este website ou efectuar uma encomenda, declara aceitar integralmente estes termos.</p>' +
-      '<h3>1. Responsável</h3><p><strong>' + NOME + '</strong><br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
+      '<h3>1. Responsável</h3><p><strong>' + RAZAO + '</strong> · ' + REG + '<br>Marca: ' + NOME + '<br>Contacto: <a href="mailto:' + EMAIL + '">' + EMAIL + '</a></p>' +
       '<h3>2. Produto</h3><p>' + NOME + ' é um <strong>suplemento alimentar</strong> comercializado em conformidade com o Decreto-Lei n.º 118/2015. Não se destina a diagnosticar, tratar, curar ou prevenir qualquer doença.</p>' +
       '<h3>3. Encomendas e pagamento</h3><p>Processadas após confirmação do pagamento (MB Way ou Multibanco). Preços com IVA à taxa legal em vigor.</p>' +
       '<h3>4. Entrega</h3><p>CTT · 24-48h no continente · 3-5 dias úteis em Madeira/Açores. Envio grátis nos kits 2+1 e 3+2. Encomendas MB Way confirmadas até 16h são expedidas no próprio dia.</p>' +
@@ -1538,7 +1566,7 @@ body.modal-open { overflow: hidden; }
     },
     privacidade: { title:'Política de Privacidade', body:
       '<p>A privacidade é uma prioridade. Tratamento em conformidade com RGPD (UE 2016/679) e Lei 58/2019.</p>' +
-      '<h3>Responsável pelo tratamento</h3><p><strong>' + NOME + '</strong><br>' +
+      '<h3>Responsável pelo tratamento</h3><p><strong>' + RAZAO + '</strong> · ' + REG + '<br>' +
       'Contacto privacidade: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></p>' +
       '<h3>Dados recolhidos</h3>' +
       '<ul><li>Nome, morada, código postal, telemóvel, e-mail (necessários para encomenda e envio)</li>' +
@@ -1585,7 +1613,7 @@ body.modal-open { overflow: hidden; }
       '<li>Privacidade/RGPD: <a href="mailto:' + EMAIL_PRIV + '">' + EMAIL_PRIV + '</a></li>' +
       '<li>Reembolsos: <a href="mailto:' + EMAIL_REEMB + '">' + EMAIL_REEMB + '</a></li></ul>' +
       '<p>Respondemos em 24h úteis (segunda a sexta).</p>' +
-      '<h3>Marca</h3><p><strong>' + NOME + '</strong> · Portugal</p>'
+      '<h3>Empresa responsável</h3><p><strong>' + RAZAO + '</strong> · ' + REG + '<br>Marca: ' + NOME + ' · Portugal</p>'
     }
   };
 
