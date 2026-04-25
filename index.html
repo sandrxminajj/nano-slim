@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Nano Slim · Controlo do Peso · Novo em Portugal · Envio Grátis</title>
-<meta name="description" content="Nano Slim — A solução prática para o controlo do peso no dia a dia. Apoia o apetite, facilita a rotina. Envio grátis, MB Way, garantia 30 dias.">
+<meta name="description" content="Nano Slim. A solução prática para o controlo do peso no dia a dia. Apoia o apetite, facilita a rotina. Envio grátis, MB Way, garantia 30 dias.">
 <meta name="theme-color" content="#2BB3E8">
 <meta name="robots" content="index, follow">
 <meta name="format-detection" content="telephone=no">
@@ -266,9 +266,52 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .expert blockquote { font-size: 1.08rem; color: var(--ink-2); margin: 18px 0; font-style: italic; line-height: 1.65; }
 
 /* DEPOIMENTOS */
-.testi { background: #fff; }
-.testi h2 { text-align: center; margin-bottom: 12px; }
-.testi-lead { text-align: center; color: var(--mute); margin-bottom: 44px; max-width: 640px; margin-inline: auto; }
+.testi {
+  background: linear-gradient(180deg, #FFF8E7 0%, #FFFBF0 60%, #FFFFFF 100%);
+  position: relative;
+  padding-top: 70px; padding-bottom: 70px;
+  border-top: 3px solid #F59E0B;
+}
+.testi::before {
+  content: '';
+  position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 6px;
+  background: linear-gradient(90deg, #F59E0B, #FBBF24, #F59E0B);
+  border-radius: 0 0 8px 8px;
+}
+.testi-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #F59E0B; color: #fff;
+  padding: 8px 18px; border-radius: 999px;
+  font-size: .82rem; font-weight: 900; letter-spacing: .5px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 20px -4px rgba(245,158,11,.45);
+  margin-bottom: 14px;
+}
+.testi-rating {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  margin-bottom: 20px;
+}
+.testi-rating-stars {
+  font-size: 1.6rem; color: #F59E0B; letter-spacing: 2px;
+  text-shadow: 0 2px 8px rgba(245,158,11,.25);
+}
+.testi-rating-score {
+  display: inline-flex; align-items: baseline; gap: 6px;
+  font-weight: 900; color: var(--ink);
+}
+.testi-rating-score .num { font-size: 1.7rem; }
+.testi-rating-score .denom { font-size: 1rem; color: var(--mute); }
+.testi-rating-label {
+  font-size: .85rem; color: var(--ink-2); font-weight: 600;
+}
+.testi h2 {
+  text-align: center; margin-bottom: 14px;
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem);
+  font-weight: 900; color: var(--ink);
+}
+.testi-lead { text-align: center; color: var(--mute); margin-bottom: 36px; max-width: 640px; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
+.testi-header-block { text-align: center; }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 @media (max-width: 920px) { .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; } }
 .testi-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; overflow: hidden; }
@@ -309,7 +352,7 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   background: #DCFCE7; color: #14532D; border-radius: 999px; font-weight: 800; font-size: .88rem;
   margin-bottom: 10px;
 }
-.kits-urgency::before { content: '⚡'; font-size: 1.2em; }
+/* sem emoji no urgency */
 .kits-center { text-align: center; }
 .kits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: stretch; margin-top: 16px; }
 @media (max-width: 920px) { .kits-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; } }
@@ -369,15 +412,17 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .kit-trust-item {
   display: inline-flex; align-items: center; gap: 6px; line-height: 1.3;
 }
-.kit-trust-item .material-symbols-outlined {
-  font-size: 16px; color: var(--cta-dk); flex-shrink: 0;
+.kit-trust-emoji {
+  font-size: 14px; flex-shrink: 0;
+  /* Forca renderizacao colorida do emoji em todas plataformas */
+  font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji', sans-serif;
 }
 .kit-mbway-flag {
   display: inline-flex; align-items: center; gap: 6px; justify-content: center;
   font-size: .74rem; font-weight: 800; color: #14532D; background: #DCFCE7;
   padding: 6px 10px; border-radius: 8px; margin-bottom: 12px; letter-spacing: .2px;
 }
-.kit-mbway-flag::before { content: '⚡'; font-size: 1.15em; }
+/* sem emoji no mbway-flag */
 .kit-cta { width: 100%; margin-top: auto; padding: 14px 16px; font-size: 1rem; border-radius: 12px; }
 .kit-best .kit-cta { font-size: 1.05rem; padding: 16px; }
 
@@ -810,7 +855,7 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <div class="hero-grid">
       <div>
-        <span class="pill hot">⚡ Novo em Portugal · Stock limitado</span>
+        <span class="pill hot">Novo em Portugal · Stock limitado</span>
         <h1 style="margin-top: 16px;">
           Volta à tua <span class="hl">melhor forma</span>, sem dietas impossíveis.
         </h1>
@@ -825,7 +870,7 @@ body.modal-open { overflow: hidden; }
         </div>
         <div class="hero-trust">
           <span class="stars">★★★★★</span>
-          <span><strong style="color:var(--ink)">4,8/5</strong> · avaliação média das nossas clientes em Portugal</span>
+          <span><strong style="color:var(--ink)">4,9/5</strong> · avaliação média das nossas clientes em Portugal</span>
         </div>
       </div>
 
@@ -846,7 +891,7 @@ body.modal-open { overflow: hidden; }
   <div class="container">
     <h2 style="text-align:center;">Para que serve o <em style="font-style:normal;color:var(--brand-dk);">Nano Slim?</em></h2>
     <p style="text-align:center;color:var(--ink-2);max-width:680px;margin:18px auto 44px;font-size:1.05rem;line-height:1.65;">
-      O <strong>Nano Slim</strong> tem vindo a ganhar popularidade em Portugal como uma solução prática para quem procura apoiar o controlo do peso no dia a dia. Uma abordagem simples, sem rotinas complicadas — por isso, cada vez mais pessoas escolhem o Nano Slim pela sua facilidade de utilização.
+      O <strong>Nano Slim</strong> tem vindo a ganhar popularidade em Portugal como uma solução prática para quem procura apoiar o controlo do peso no dia a dia. Uma abordagem simples, sem rotinas complicadas. Por isso, cada vez mais pessoas escolhem o Nano Slim pela sua facilidade de utilização.
     </p>
     <div class="problem-grid">
       <div class="problem-card">
@@ -879,13 +924,13 @@ body.modal-open { overflow: hidden; }
         <img src="images/hero-produto.webp" alt="Nano Slim pote azul" class="solution-img" loading="lazy" width="440" height="440">
       </div>
       <div>
-        <span class="pill hot">🔥 A SOLUÇÃO</span>
+        <span class="pill hot">A SOLUÇÃO</span>
         <h2 style="margin-top:16px;">Como o Nano Slim te <em style="font-style:normal;color:var(--brand-dk);">ajuda</em> a chegar lá.</h2>
         <p>
-          O <strong>Nano Slim</strong> é um suplemento em pó formulado com BHB, MCT, Chá Verde e Crómio — ingredientes populares em programas de gestão de peso. <strong>Apoia a sensação de saciedade</strong>, ajuda a controlar os impulsos por doces e facilita a rotina de quem procura voltar à forma sem stress.
+          O <strong>Nano Slim</strong> é um suplemento em pó formulado com BHB, MCT, Chá Verde e Crómio, ingredientes populares em programas de gestão de peso. <strong>Apoia a sensação de saciedade</strong>, ajuda a controlar os impulsos por doces e facilita a rotina de quem procura voltar à forma sem stress.
         </p>
         <p>
-          Misturas uma colher medida em 250 ml de água e bebes de manhã — mais nada. O sabor é agradável (frutos vermelhos), a toma é simples e cabe em qualquer rotina. Sem contar calorias, sem dietas rígidas.
+          Misturas uma colher medida em 250 ml de água e bebes de manhã. Mais nada. O sabor é agradável (frutos vermelhos), a toma é simples e cabe em qualquer rotina. Sem contar calorias, sem dietas rígidas.
         </p>
         <ul class="solution-feats">
           <li><span class="ok">✓</span><span><strong>Sem açúcar, vegan, sem glúten.</strong> Sabor Sabor Frutos Vermelhos.</span></li>
@@ -969,8 +1014,16 @@ body.modal-open { overflow: hidden; }
 <!-- DEPOIMENTOS -->
 <section id="depoimentos" class="testi reveal">
   <div class="container">
-    <h2>Portuguesas que voltaram à sua melhor forma</h2>
-    <p class="testi-lead">Histórias reais de portuguesas que adoptaram o Nano Slim na rotina. Resultados individuais variam.</p>
+    <div class="testi-header-block">
+      <span class="testi-badge">Avaliações verificadas</span>
+      <div class="testi-rating">
+        <div class="testi-rating-stars">★★★★★</div>
+        <div class="testi-rating-score"><span class="num">4,9</span><span class="denom">/ 5</span></div>
+        <div class="testi-rating-label">Avaliação média das clientes Nano Slim em Portugal</div>
+      </div>
+      <h2>Portuguesas que voltaram à sua melhor forma</h2>
+      <p class="testi-lead">Histórias e fotos reais partilhadas pelas nossas clientes. Resultados individuais variam.</p>
+    </div>
     <div class="testi-grid">
       <div class="testi-card">
         <div class="testi-photo">
@@ -1074,44 +1127,6 @@ body.modal-open { overflow: hidden; }
         <div class="testi-result">Saciedade nas refeições</div>
       </div>
 
-      <div class="testi-card">
-        <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#22D3EE,#0891B2);">AM</div>
-          <div>
-            <div class="testi-name">Ana M.</div>
-            <div class="testi-meta">55 anos · Aveiro</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <blockquote>"Depois da menopausa o metabolismo mudou. O médico disse-me para reduzir doces e açúcar. Com o Nano Slim a vontade de chocolate à noite quase desapareceu. É o que mais me ajudou."</blockquote>
-        <div class="testi-result">Menos vontade de doces</div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#FB7185,#F43F5E);">PG</div>
-          <div>
-            <div class="testi-name">Patrícia G.</div>
-            <div class="testi-meta">29 anos · Funchal</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <blockquote>"Encomendei para a Madeira, chegou em 4 dias. Tomo de manhã antes do trabalho e sinto-me com mais foco e sem aquela fome estranha às 11h. Bom sabor a baunilha, fácil de tomar."</blockquote>
-        <div class="testi-result">Manhãs sem aquela fome</div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-header">
-          <div class="testi-avatar" style="background:linear-gradient(135deg,#84CC16,#65A30D);">MF</div>
-          <div>
-            <div class="testi-name">Margarida F.</div>
-            <div class="testi-meta">44 anos · Évora</div>
-          </div>
-        </div>
-        <div class="testi-stars">★★★★★</div>
-        <blockquote>"Sou cabeleireira, passo o dia em pé e sempre comi mal. O Nano Slim fez-me ter mais consciência das refeições. Estou a comer melhor sem stress. Já vou no 2.º pote, encomendei o pack de 5."</blockquote>
-        <div class="testi-result">Mais consciência alimentar</div>
-      </div>
     </div>
     <p class="testi-disclaimer" style="text-align:center;font-size:.8rem;color:var(--mute);margin-top:28px;font-style:italic;max-width:640px;margin-inline:auto;padding:0 20px;line-height:1.55;">
       Resultados individuais variam. Este produto é um suplemento alimentar e não substitui uma alimentação variada e equilibrada nem um estilo de vida saudável.
@@ -1141,8 +1156,8 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 20 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 29,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
         </div>
       </article>
 
@@ -1161,8 +1176,8 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 48 €</span>
         <button class="btn btn-cta kit-cta btn-pulse" onclick="irCheckout(2)">Encomendar · 69,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
         </div>
       </article>
 
@@ -1181,8 +1196,8 @@ body.modal-open { overflow: hidden; }
         <span class="kit-off">Poupas 96 €</span>
         <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 99,00 €</button>
         <div class="kit-trust">
-          <span class="kit-trust-item"><span class="material-symbols-outlined">verified_user</span> 30 dias satisfeito ou reembolsado</span>
-          <span class="kit-trust-item"><span class="material-symbols-outlined">local_shipping</span> CTT 24-48h</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🛡️</span> 30 dias satisfeito ou reembolsado</span>
+          <span class="kit-trust-item"><span class="kit-trust-emoji">🚚</span> CTT 24-48h</span>
         </div>
       </article>
     </div>
@@ -1224,7 +1239,7 @@ body.modal-open { overflow: hidden; }
         </div>
       </div>
       <div>
-        <span class="pill hot">⚡ ENVIO IMEDIATO</span>
+        <span class="pill hot">ENVIO IMEDIATO</span>
         <h2 style="margin:14px 0 10px;">Recebe em casa <em style="font-style:normal;color:var(--cta-dk);">em 24h</em></h2>
         <p style="color:var(--ink-2);margin-bottom:22px;font-size:.98rem;">
           Todas as encomendas são expedidas pelos CTT em 24 a 48 horas úteis.
@@ -1324,7 +1339,7 @@ body.modal-open { overflow: hidden; }
     <p>Todos os kits incluem envio gratuito pelos CTT em 24 a 48 horas úteis. Escolha a opção mais adequada para si.</p>
     <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()" style="padding:18px 40px;font-size:1.1rem;">Ver ofertas →</button>
     <div style="margin-top:28px;font-size:.88rem;color:rgba(255,255,255,.7);">
-      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> Avaliação média 4,8/5 das clientes Nano Slim em Portugal
+      <span style="color:#F59E0B;letter-spacing:-1px;">★★★★★</span> Avaliação média 4,9/5 das clientes Nano Slim em Portugal
     </div>
   </div>
 </section>
@@ -1371,6 +1386,10 @@ body.modal-open { overflow: hidden; }
         <a href="mailto:contacto@nano-slim.pt" style="color:#60A5FA;font-size:.85rem;">contacto@nano-slim.pt</a>
       </div>
       <div style="margin-top:6px;font-size:.72rem;color:#64748B;">Apoio por e-mail · resposta em 24h úteis</div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid #1E293B;font-size:.82rem;color:#CBD5E1;">
+        <span style="color:#F59E0B;letter-spacing:1px;">★★★★★</span>
+        <strong style="color:#E2E8F0;">4,9/5</strong> · avaliação média das clientes Nano Slim em Portugal
+      </div>
     </div>
 
     <div class="footer-copy">© 2026 Nano Slim · Todos os direitos reservados</div>
