@@ -946,6 +946,21 @@ body.modal-open { overflow: hidden; }
         <h3>Menos doces e excessos</h3>
         <p>Ajuda a reduzir a vontade por doces e os excessos alimentares em momentos de stress.</p>
       </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">⚡</div>
+        <h3>Mais energia ao dia</h3>
+        <p>Com B6 e B12 que contribuem para a redução do cansaço e fadiga ao longo do dia.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">🔥</div>
+        <h3>Metabolismo apoiado</h3>
+        <p>Crómio contribui para o metabolismo normal dos macronutrientes que ingeres.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-emoji">🥄</div>
+        <h3>Toma rápida e prática</h3>
+        <p>1 colher em água ao pequeno-almoço. 1 minuto por dia. Sabor agradável a frutos vermelhos.</p>
+      </div>
     </div>
     <p style="text-align:center;color:var(--brand-dk);font-weight:700;margin-top:32px;font-size:1rem;">
       Produto cada vez mais procurado em Portugal · Envio directamente do armazém oficial
@@ -970,16 +985,10 @@ body.modal-open { overflow: hidden; }
           Misturas uma colher medida em 250 ml de água e bebes de manhã. Mais nada. O sabor é agradável (frutos vermelhos), a toma é simples e cabe em qualquer rotina. Sem contar calorias, sem dietas rígidas.
         </p>
         <ul class="solution-feats">
-          <li><span class="ok">✓</span><span><strong>Apoia o controlo do apetite</strong> ao longo do dia, ajudando a evitar picos de fome entre refeições.</span></li>
-          <li><span class="ok">✓</span><span><strong>Reduz a vontade por doces</strong> e açúcar, especialmente ao fim da tarde.</span></li>
-          <li><span class="ok">✓</span><span><strong>Apoia a sensação de saciedade</strong> nas refeições, sem cortar prazeres.</span></li>
-          <li><span class="ok">✓</span><span><strong>Facilita a gestão do peso</strong> dentro de uma rotina equilibrada, sem dietas rígidas.</span></li>
-          <li><span class="ok">✓</span><span><strong>Mais energia ao longo do dia</strong> com B6 e B12 (contribuem para a redução do cansaço).</span></li>
-          <li><span class="ok">✓</span><span><strong>Apoia o metabolismo dos macronutrientes</strong> com Crómio, que contribui para o metabolismo normal.</span></li>
-          <li><span class="ok">✓</span><span><strong>Toma simples</strong> ao pequeno-almoço. 1 colher em água, sabor a frutos vermelhos.</span></li>
-          <li><span class="ok">✓</span><span><strong>100% natural</strong>, sem açúcar, vegan, sem glúten, sem lactose, sem OGM.</span></li>
-          <li><span class="ok">✓</span><span><strong>Produzido na União Europeia</strong> em conformidade com o DL 118/2015.</span></li>
-          <li><span class="ok">✓</span><span><strong>Entregue em casa</strong> pelos CTT em 24 a 48h. Envio grátis para todo Portugal.</span></li>
+          <li><span class="ok">✓</span><span><strong>100% natural</strong>, sem açúcar, vegan, sem glúten. Sabor a frutos vermelhos.</span></li>
+          <li><span class="ok">✓</span><span><strong>Sem substâncias sintéticas, psicotrópicas ou hormonais.</strong></span></li>
+          <li><span class="ok">✓</span><span><strong>Produzido na União Europeia</strong>, em conformidade com o DL 118/2015.</span></li>
+          <li><span class="ok">✓</span><span><strong>Entregue em casa</strong> pelos CTT em 24-48h. Envio grátis para todo Portugal.</span></li>
         </ul>
       </div>
     </div>
@@ -1495,102 +1504,6 @@ body.modal-open { overflow: hidden; }
   window.addEventListener('resize', onScroll, { passive: true });
   // Estado inicial
   update();
-})();
-</script>
-
-<!-- EXIT INTENT POPUP — 10% off primeira compra -->
-<div id="exitIntent" style="display:none;position:fixed;inset:0;z-index:9997;background:rgba(15,31,46,.78);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;font-family:Inter,sans-serif;">
-  <div style="position:relative;max-width:420px;width:100%;background:#fff;border-radius:18px;padding:32px 26px;text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:exitPop .35s cubic-bezier(.18,.89,.32,1.28);">
-    <button onclick="closeExitIntent()" aria-label="Fechar" style="position:absolute;top:10px;right:14px;background:transparent;border:none;font-size:1.6rem;color:#94A3B8;cursor:pointer;line-height:1;padding:6px;">×</button>
-    <div style="font-size:2.4rem;line-height:1;margin-bottom:6px;">🎁</div>
-    <div style="font-size:.7rem;font-weight:800;color:#16A34A;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Espera. Antes de saíres.</div>
-    <h3 style="font-size:1.5rem;font-weight:900;color:#0F1F2E;line-height:1.2;margin:0 0 10px;">Toma <span style="background:linear-gradient(120deg,transparent 0%,transparent 50%,#FEF3C7 50%,#FEF3C7 100%);padding:0 4px;">10% off</span> na tua primeira encomenda</h3>
-    <p style="font-size:.92rem;color:#475569;line-height:1.5;margin:0 0 18px;">Aplica-se a qualquer kit. Cupom válido por <strong>15 minutos</strong>. Sem letras pequenas.</p>
-    <div style="background:#F8FAFC;border:2px dashed #22C55E;border-radius:12px;padding:14px;margin-bottom:18px;">
-      <div style="font-size:.7rem;color:#64748B;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">O TEU CUPOM</div>
-      <div id="exitCouponCode" style="font-size:1.6rem;font-weight:900;color:#0F1F2E;letter-spacing:3px;">VOLTA10</div>
-      <div style="font-size:.72rem;color:#16A34A;font-weight:700;margin-top:4px;">Aplicado automaticamente no checkout</div>
-    </div>
-    <button onclick="claimCoupon()" style="width:100%;background:#22C55E;color:#fff;border:none;padding:16px;border-radius:12px;font-size:1.02rem;font-weight:800;cursor:pointer;box-shadow:0 6px 20px -4px rgba(34,197,94,.45);font-family:Inter,sans-serif;">Aplicar cupom e ver kits →</button>
-    <button onclick="closeExitIntent()" style="display:block;margin:14px auto 0;background:transparent;border:none;color:#94A3B8;font-size:.78rem;text-decoration:underline;cursor:pointer;font-family:Inter,sans-serif;">Não obrigado, prefiro pagar o preço cheio</button>
-  </div>
-</div>
-<style>
-  @keyframes exitPop {
-    0% { transform: scale(.85) translateY(20px); opacity: 0; }
-    100% { transform: scale(1) translateY(0); opacity: 1; }
-  }
-</style>
-<script>
-(function(){
-  // Não mostra se já claimou ou já viu hoje
-  function hasCoupon() {
-    try {
-      var c = JSON.parse(localStorage.getItem('coupon') || 'null');
-      return c && c.code && Date.now() < c.expires;
-    } catch(e) { return false; }
-  }
-  function alreadyShown() {
-    try { return sessionStorage.getItem('exit_shown') === '1'; } catch(e) { return false; }
-  }
-
-  var fired = false;
-  function showExit() {
-    if (fired || alreadyShown() || hasCoupon()) return;
-    fired = true;
-    try { sessionStorage.setItem('exit_shown', '1'); } catch(e){}
-    var el = document.getElementById('exitIntent');
-    if (el) el.style.display = 'flex';
-  }
-
-  // Desktop: cursor sai pelo topo
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY <= 0) showExit();
-  });
-
-  // Mobile: scroll up rápido + tempo no site (>20s) ou tentativa de back
-  var lastScroll = window.scrollY || 0;
-  var fastScrollUp = 0;
-  window.addEventListener('scroll', function() {
-    var cur = window.scrollY || 0;
-    if (cur < lastScroll - 60) fastScrollUp++;
-    lastScroll = cur;
-    if (fastScrollUp >= 2 && cur < 200) showExit();
-  }, { passive: true });
-
-  // Mobile fallback: 35s no site sem comprar
-  setTimeout(function() {
-    if (window.innerWidth <= 920) showExit();
-  }, 35000);
-
-  // Pressionar back no histórico
-  history.pushState({ exitGuard: 1 }, '');
-  window.addEventListener('popstate', function() {
-    if (!alreadyShown() && !hasCoupon()) {
-      history.pushState({ exitGuard: 1 }, '');
-      showExit();
-    }
-  });
-
-  window.closeExitIntent = function() {
-    var el = document.getElementById('exitIntent');
-    if (el) el.style.display = 'none';
-  };
-
-  window.claimCoupon = function() {
-    try {
-      localStorage.setItem('coupon', JSON.stringify({
-        code: 'VOLTA10',
-        discount: 0.10,
-        expires: Date.now() + 15 * 60 * 1000
-      }));
-    } catch(e) {}
-    if (typeof gtag !== 'undefined') {
-      try { gtag('event', 'coupon_claimed', { coupon_code: 'VOLTA10' }); } catch(e) {}
-    }
-    closeExitIntent();
-    document.getElementById('kits').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
 })();
 </script>
 

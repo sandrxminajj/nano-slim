@@ -1076,37 +1076,19 @@
   // ── Order Bumps removidos ────────────────────────────────────
   const bumps = {};
 
-  // ── Cupom (vindo do exit-intent na landing) ──────────────────
-  function getCoupon() {
-    try {
-      var c = JSON.parse(localStorage.getItem('coupon') || 'null');
-      if (c && c.code && Date.now() < c.expires) return c;
-    } catch(e) {}
-    return null;
-  }
-
   function calculateTotal() {
     const base = productData?.price || 0;
-    const c = getCoupon();
-    const discount = c ? base * (c.discount || 0) : 0;
-    return { base: base, discount: discount, total: base - discount, coupon: c };
+    return { base: base, discount: 0, total: base, coupon: null };
   }
 
   function updateTotal() {
     const t = calculateTotal();
     document.getElementById('bottomTotal').textContent = fmtEUR(t.total);
-    // Mostra badge do cupom no bottom bar (se aplicado)
-    var badge = document.getElementById('couponBadge');
-    if (t.coupon && !badge) {
-      badge = document.createElement('div');
-      badge.id = 'couponBadge';
-      badge.style.cssText = 'font-size:.68rem;color:#16A34A;font-weight:800;margin-top:2px;';
-      badge.textContent = '✓ Cupom ' + t.coupon.code + ' aplicado · -' + fmtEUR(t.discount);
-      var totalEl = document.querySelector('.ck-bottom-total');
-      if (totalEl) totalEl.parentNode.insertBefore(badge, totalEl.nextSibling);
-    }
   }
   updateTotal();
+
+  // Limpa cupom antigo se existir (feature removida)
+  try { localStorage.removeItem('coupon'); } catch(e) {}
 
   // ── Payment method ────────────────────────────────────────────
   let selectedMethod = 'mbway';
@@ -1231,9 +1213,8 @@
 
     const prodName = productData?.name || '-';
     const prodDesc = productData?.descricao ? ' · ' + productData.descricao : '';
-    const couponLine = t.coupon ? ' · Cupom ' + t.coupon.code + ' (-' + fmtEUR(t.discount) + ')' : '';
 
-    document.getElementById('sumProduct').textContent  = prodName + prodDesc + couponLine;
+    document.getElementById('sumProduct').textContent  = prodName + prodDesc;
     document.getElementById('sumCustomer').textContent = name + (nif ? ' · NIF ' + nif : '');
     document.getElementById('sumAddress').textContent  =
       address + (number ? ', ' + number : '') +
@@ -1461,7 +1442,6 @@
           amount: total,
           method: selectedMethod,
           shipping: { address, number, complement, postal, city, country: 'PT' },
-          coupon: calc.coupon ? { code: calc.coupon.code, discount: calc.discount } : null,
           product: { name: productData?.name, price: productData?.price, id: productData?.id },
           utm: utmData
         })
