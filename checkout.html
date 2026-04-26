@@ -786,14 +786,6 @@
           </div>
 
           <div class="ck-field">
-            <label>NIF <em>(opcional, necessário para fatura com contribuinte)</em></label>
-            <input class="ck-input" type="text" id="ck-doc" placeholder="000000000" maxlength="9" inputmode="numeric">
-            <div style="font-size:.72rem;color:#6b7280;margin-top:4px;line-height:1.4;">
-              Se quiser fatura com NIF, introduza-o agora. Após a finalização não é possível alterar.
-            </div>
-          </div>
-
-          <div class="ck-field">
             <label>Email *</label>
             <input class="ck-input" type="email" id="ck-email" placeholder="email@exemplo.com" autocomplete="email">
           </div>
@@ -803,6 +795,18 @@
             <div class="ck-phone-wrap" id="phoneWrap">
               <div class="ck-phone-prefix">+351</div>
               <input class="ck-phone-input" type="tel" id="ck-phone" placeholder="912 345 678" autocomplete="tel" inputmode="numeric">
+            </div>
+          </div>
+
+          <!-- NIF colapsável (poucos utilizam, fricção pra todos) -->
+          <div id="nifToggleWrap" style="margin-top:4px;">
+            <button type="button" id="nifToggle" onclick="toggleNif()" style="background:transparent;border:none;color:#1e40af;font-size:.78rem;font-weight:600;cursor:pointer;text-decoration:underline;font-family:Inter,sans-serif;padding:6px 0;">
+              + Quero fatura com NIF (opcional)
+            </button>
+            <div id="nifField" class="ck-field" style="display:none;margin-top:8px;">
+              <label>NIF</label>
+              <input class="ck-input" type="text" id="ck-doc" placeholder="000000000" maxlength="9" inputmode="numeric">
+              <div style="font-size:.7rem;color:#6b7280;margin-top:4px;">9 dígitos. Não pode ser alterado após a finalização.</div>
             </div>
           </div>
         </div>
@@ -829,20 +833,25 @@
             <input class="ck-input" type="text" id="ck-address" placeholder="Rua, Avenida..." autocomplete="address-line1">
           </div>
 
-          <div class="ck-row">
-            <div class="ck-field">
-              <label>Número *</label>
-              <input class="ck-input" type="text" id="ck-number" placeholder="12" autocomplete="address-line2">
-            </div>
-            <div class="ck-field">
-              <label>Andar / Fração <em>(opcional)</em></label>
-              <input class="ck-input" type="text" id="ck-complement" placeholder="Ex: 2º Dto, Lote 3, Bloco B">
-            </div>
+          <div class="ck-field">
+            <label>Número *</label>
+            <input class="ck-input" type="text" id="ck-number" placeholder="12" autocomplete="address-line2">
           </div>
 
           <div class="ck-field">
             <label>Cidade *</label>
             <input class="ck-input" type="text" id="ck-city" placeholder="Lisboa" autocomplete="address-level2">
+          </div>
+
+          <!-- Andar/Fração colapsável (raramente preenchido) -->
+          <div id="complementToggleWrap" style="margin-top:-4px;">
+            <button type="button" onclick="toggleComplement()" style="background:transparent;border:none;color:#1e40af;font-size:.78rem;font-weight:600;cursor:pointer;text-decoration:underline;font-family:Inter,sans-serif;padding:6px 0;">
+              + Adicionar andar / fração (opcional)
+            </button>
+            <div id="complementField" class="ck-field" style="display:none;margin-top:8px;">
+              <label>Andar / Fração</label>
+              <input class="ck-input" type="text" id="ck-complement" placeholder="Ex: 2º Dto, Lote 3, Bloco B">
+            </div>
           </div>
 
 
@@ -925,29 +934,6 @@
             <div class="ck-trust-item">
               <span class="material-symbols-outlined">workspace_premium</span> Garantia 30 dias
             </div>
-          </div>
-
-          <!-- ORDER BUMP — extras opcionais -->
-          <div id="ckBumpsWrap" style="margin-top:6px;">
-            <div style="font-size:.78rem;font-weight:800;color:#475569;text-transform:uppercase;letter-spacing:.6px;margin-bottom:10px;">Quer adicionar?</div>
-
-            <label id="bump-extra_pote" style="display:flex;align-items:center;gap:12px;padding:12px;background:#FFF8E7;border:2px solid #F59E0B;border-radius:12px;cursor:pointer;transition:all .2s;position:relative;">
-              <input type="checkbox" onchange="toggleBump('extra_pote')" style="width:22px;height:22px;flex-shrink:0;accent-color:#F59E0B;cursor:pointer;">
-              <img src="images/hero-produto.webp" alt="+1 Pote" style="width:54px;height:54px;object-fit:contain;flex-shrink:0;">
-              <div style="flex:1;min-width:0;">
-                <div style="font-size:.88rem;font-weight:800;color:#0F1F2E;line-height:1.3;">+1 Pote Nano Slim</div>
-                <div style="font-size:.72rem;color:#6b7280;margin-top:2px;line-height:1.4;">+1 mês de toma · Garantia 60 dias</div>
-                <div style="margin-top:4px;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;">
-                  <span style="font-size:.72rem;color:#9ca3af;text-decoration:line-through;">29,00 €</span>
-                  <span style="font-size:1rem;font-weight:900;color:#16a34a;">19,00 €</span>
-                  <span style="font-size:.7rem;background:#16a34a;color:#fff;padding:2px 8px;border-radius:4px;font-weight:800;">Poupa 10 €</span>
-                </div>
-              </div>
-            </label>
-
-            <style>
-              #bump-extra_pote.selected { background:#dcfce7 !important; border-color:#16a34a !important; box-shadow:0 4px 12px rgba(22,163,74,.18); }
-            </style>
           </div>
 
           <!-- Aviso discreto: ao confirmar, aceita Termos & Privacidade (RGPD/DL 24/2014) -->
@@ -1087,43 +1073,38 @@
     if (main) main.insertBefore(summary, main.firstChild);
   }
 
-  // ── Order Bumps (extras opcionais) ──────────────────────────
-  const bumps = {
-    extra_pote: {
-      key:     'extra_pote',
-      name:    '+1 Pote Nano Slim',
-      desc:    'Adiciona +1 mês de toma · Garantia estendida 60 dias',
-      price:   19.00,
-      price_old: 29.00,
-      img:     'images/hero-produto.webp',
-      selected: false
-    }
-  };
+  // ── Order Bumps removidos ────────────────────────────────────
+  const bumps = {};
 
-  function toggleBump(key) {
-    bumps[key].selected = !bumps[key].selected;
-    document.getElementById('bump-' + key).classList.toggle('selected', bumps[key].selected);
-    updateTotal();
-    // Refresh resumo do pedido se já estamos no step 3
-    if (typeof currentStep !== 'undefined' && currentStep === 3 && typeof populateOrderSummary === 'function') {
-      try { populateOrderSummary(); } catch(e) {}
-    }
-    // Track add_to_cart no Google Ads (sinal extra pra Smart Bidding)
+  // ── Cupom (vindo do exit-intent na landing) ──────────────────
+  function getCoupon() {
     try {
-      if (typeof gtag !== 'undefined' && bumps[key].selected) {
-        gtag('event', 'add_to_cart', {
-          currency: 'EUR',
-          value: bumps[key].price,
-          items: [{ item_id: 'bump_' + key, item_name: bumps[key].name, price: bumps[key].price, quantity: 1 }]
-        });
-      }
+      var c = JSON.parse(localStorage.getItem('coupon') || 'null');
+      if (c && c.code && Date.now() < c.expires) return c;
     } catch(e) {}
+    return null;
+  }
+
+  function calculateTotal() {
+    const base = productData?.price || 0;
+    const c = getCoupon();
+    const discount = c ? base * (c.discount || 0) : 0;
+    return { base: base, discount: discount, total: base - discount, coupon: c };
   }
 
   function updateTotal() {
-    const base  = productData?.price || 0;
-    const extra = Object.values(bumps).filter(b => b.selected).reduce((s,b) => s + b.price, 0);
-    document.getElementById('bottomTotal').textContent = fmtEUR(base + extra);
+    const t = calculateTotal();
+    document.getElementById('bottomTotal').textContent = fmtEUR(t.total);
+    // Mostra badge do cupom no bottom bar (se aplicado)
+    var badge = document.getElementById('couponBadge');
+    if (t.coupon && !badge) {
+      badge = document.createElement('div');
+      badge.id = 'couponBadge';
+      badge.style.cssText = 'font-size:.68rem;color:#16A34A;font-weight:800;margin-top:2px;';
+      badge.textContent = '✓ Cupom ' + t.coupon.code + ' aplicado · -' + fmtEUR(t.discount);
+      var totalEl = document.querySelector('.ck-bottom-total');
+      if (totalEl) totalEl.parentNode.insertBefore(badge, totalEl.nextSibling);
+    }
   }
   updateTotal();
 
@@ -1246,15 +1227,13 @@
     const complement = document.getElementById('ck-complement').value.trim();
     const city    = document.getElementById('ck-city').value.trim();
 
-    const bumpsSel = Object.entries(bumps).filter(([,b]) => b.selected).map(([,b]) => b);
-    const bumpTotal = bumpsSel.reduce((s,b) => s + b.price, 0);
-    const total = (productData?.price || 0) + bumpTotal;
+    const t = calculateTotal();
 
     const prodName = productData?.name || '-';
     const prodDesc = productData?.descricao ? ' · ' + productData.descricao : '';
-    const bumpList = bumpsSel.length ? ' + ' + bumpsSel.map(b => b.name).join(', ') : '';
+    const couponLine = t.coupon ? ' · Cupom ' + t.coupon.code + ' (-' + fmtEUR(t.discount) + ')' : '';
 
-    document.getElementById('sumProduct').textContent  = prodName + prodDesc + bumpList;
+    document.getElementById('sumProduct').textContent  = prodName + prodDesc + couponLine;
     document.getElementById('sumCustomer').textContent = name + (nif ? ' · NIF ' + nif : '');
     document.getElementById('sumAddress').textContent  =
       address + (number ? ', ' + number : '') +
@@ -1262,7 +1241,7 @@
       (postal ? ' · ' + postal : '') +
       (city ? ' · ' + city : '');
     document.getElementById('sumContact').textContent = email + (phone ? ' · +351 ' + phone : '');
-    document.getElementById('sumTotal').textContent   = fmtEUR(total);
+    document.getElementById('sumTotal').textContent   = fmtEUR(t.total);
   }
 
   function updateProgressBar(active) {
@@ -1411,6 +1390,28 @@
     document.getElementById('phoneWrap').classList.remove('err');
   });
 
+  // ── Toggle NIF e Complemento (campos opcionais colapsáveis) ─────
+  window.toggleNif = function() {
+    var f = document.getElementById('nifField');
+    var btn = document.getElementById('nifToggle');
+    if (!f) return;
+    var open = f.style.display !== 'none';
+    f.style.display = open ? 'none' : '';
+    if (btn) btn.textContent = open ? '+ Quero fatura com NIF (opcional)' : '− Esconder NIF';
+    if (!open) {
+      try { document.getElementById('ck-doc').focus(); } catch(e){}
+    }
+  };
+  window.toggleComplement = function() {
+    var f = document.getElementById('complementField');
+    if (!f) return;
+    var open = f.style.display !== 'none';
+    f.style.display = open ? 'none' : '';
+    if (!open) {
+      try { document.getElementById('ck-complement').focus(); } catch(e){}
+    }
+  };
+
   // ── Modal legal dentro do checkout (re-usa config do index) ─────
   window.openCkLegal = function(key) {
     // Redireciona pra index.html#abc-legal com key pra abrir modal lá
@@ -1432,9 +1433,8 @@
 
     const phone = rawPhone.replace(/[\s\-().]/g,'').replace(/^(\+|00)351/,'');
 
-    const selectedBumps = Object.entries(bumps).filter(([,b]) => b.selected).map(([,b]) => b);
-    const bumpTotal     = selectedBumps.reduce((s,b) => s + b.price, 0);
-    const total         = (productData?.price || 0) + bumpTotal;
+    const calc = calculateTotal();
+    const total = calc.total;
 
     const btn = document.getElementById('btnCta');
     btn.disabled    = true;
@@ -1461,7 +1461,7 @@
           amount: total,
           method: selectedMethod,
           shipping: { address, number, complement, postal, city, country: 'PT' },
-          bumps: selectedBumps.map(b => ({ name: b.name, price: b.price })),
+          coupon: calc.coupon ? { code: calc.coupon.code, discount: calc.discount } : null,
           product: { name: productData?.name, price: productData?.price, id: productData?.id },
           utm: utmData
         })

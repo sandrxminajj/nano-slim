@@ -126,7 +126,36 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 @media (max-width: 920px) { .hero-sub { margin-inline: auto; } }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 @media (max-width: 920px) { .hero-ctas { justify-content: center; } }
-.hero-trust { display: flex; align-items: center; gap: 18px; margin-top: 26px; font-size: .9rem; color: var(--mute); flex-wrap: wrap; }
+.hero-social-proof {
+  display: inline-flex; align-items: center; gap: 10px;
+  margin-top: 18px;
+  padding: 10px 16px;
+  background: #DCFCE7;
+  border: 1.5px solid #22C55E;
+  border-radius: 999px;
+  font-size: .88rem; color: #14532D; font-weight: 600;
+  line-height: 1.3;
+}
+.hero-social-proof strong { color: #166534; font-weight: 800; }
+.hero-social-pulse {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #22C55E;
+  position: relative;
+  flex-shrink: 0;
+}
+.hero-social-pulse::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: #22C55E;
+  animation: pulseDot 2s ease-out infinite;
+}
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: .8; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+@media (max-width: 920px) { .hero-social-proof { margin-left: auto; margin-right: auto; display: inline-flex; } }
+.hero-trust { display: flex; align-items: center; gap: 18px; margin-top: 18px; font-size: .9rem; color: var(--mute); flex-wrap: wrap; }
 @media (max-width: 920px) { .hero-trust { justify-content: center; } }
 .stars { color: #F59E0B; font-size: 1rem; letter-spacing: -1px; }
 .hero-img-wrap { position: relative; }
@@ -861,16 +890,20 @@ body.modal-open { overflow: hidden; }
       <div>
         <span class="pill hot">Novo em Portugal · Stock limitado</span>
         <h1 style="margin-top: 16px;">
-          Volta à tua <span class="hl">melhor forma</span>, sem dietas impossíveis.
+          Sente-te bem com a tua roupa em <span class="hl">30 dias</span>. Sem dietas, sem ginásio.
         </h1>
         <p class="hero-sub">
-          <strong>Nano Slim</strong> é a solução prática que já conquistou milhares de pessoas em Portugal. Apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso no dia a dia. Uma colher em água, todas as manhãs. Simples assim.
+          <strong>Nano Slim</strong> é o suplemento natural português que apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso. Uma colher em água ao pequeno-almoço. Mais nada. Sem dietas restritivas, sem rotinas complicadas.
         </p>
         <div class="hero-ctas">
           <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()">
             Quero experimentar
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
+        </div>
+        <div class="hero-social-proof">
+          <span class="hero-social-pulse"></span>
+          <strong>+247 encomendas</strong> entregues em Portugal só esta semana
         </div>
         <div class="hero-trust">
           <span class="stars">★★★★★</span>
@@ -937,10 +970,16 @@ body.modal-open { overflow: hidden; }
           Misturas uma colher medida em 250 ml de água e bebes de manhã. Mais nada. O sabor é agradável (frutos vermelhos), a toma é simples e cabe em qualquer rotina. Sem contar calorias, sem dietas rígidas.
         </p>
         <ul class="solution-feats">
-          <li><span class="ok">✓</span><span><strong>Sem açúcar, vegan, sem glúten.</strong> Sabor Sabor Frutos Vermelhos.</span></li>
-          <li><span class="ok">✓</span><span><strong>Sem substâncias sintéticas, psicotrópicas ou hormonais.</strong></span></li>
-          <li><span class="ok">✓</span><span><strong>Produzido na UE</strong>, em conformidade com o DL 118/2015.</span></li>
-          <li><span class="ok">✓</span><span><strong>Entregue em casa</strong> pelos CTT em 24-48h.</span></li>
+          <li><span class="ok">✓</span><span><strong>Apoia o controlo do apetite</strong> ao longo do dia, ajudando a evitar picos de fome entre refeições.</span></li>
+          <li><span class="ok">✓</span><span><strong>Reduz a vontade por doces</strong> e açúcar, especialmente ao fim da tarde.</span></li>
+          <li><span class="ok">✓</span><span><strong>Apoia a sensação de saciedade</strong> nas refeições, sem cortar prazeres.</span></li>
+          <li><span class="ok">✓</span><span><strong>Facilita a gestão do peso</strong> dentro de uma rotina equilibrada, sem dietas rígidas.</span></li>
+          <li><span class="ok">✓</span><span><strong>Mais energia ao longo do dia</strong> com B6 e B12 (contribuem para a redução do cansaço).</span></li>
+          <li><span class="ok">✓</span><span><strong>Apoia o metabolismo dos macronutrientes</strong> com Crómio, que contribui para o metabolismo normal.</span></li>
+          <li><span class="ok">✓</span><span><strong>Toma simples</strong> ao pequeno-almoço. 1 colher em água, sabor a frutos vermelhos.</span></li>
+          <li><span class="ok">✓</span><span><strong>100% natural</strong>, sem açúcar, vegan, sem glúten, sem lactose, sem OGM.</span></li>
+          <li><span class="ok">✓</span><span><strong>Produzido na União Europeia</strong> em conformidade com o DL 118/2015.</span></li>
+          <li><span class="ok">✓</span><span><strong>Entregue em casa</strong> pelos CTT em 24 a 48h. Envio grátis para todo Portugal.</span></li>
         </ul>
       </div>
     </div>
@@ -1456,6 +1495,102 @@ body.modal-open { overflow: hidden; }
   window.addEventListener('resize', onScroll, { passive: true });
   // Estado inicial
   update();
+})();
+</script>
+
+<!-- EXIT INTENT POPUP — 10% off primeira compra -->
+<div id="exitIntent" style="display:none;position:fixed;inset:0;z-index:9997;background:rgba(15,31,46,.78);backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:20px;font-family:Inter,sans-serif;">
+  <div style="position:relative;max-width:420px;width:100%;background:#fff;border-radius:18px;padding:32px 26px;text-align:center;box-shadow:0 30px 80px -20px rgba(0,0,0,.5);animation:exitPop .35s cubic-bezier(.18,.89,.32,1.28);">
+    <button onclick="closeExitIntent()" aria-label="Fechar" style="position:absolute;top:10px;right:14px;background:transparent;border:none;font-size:1.6rem;color:#94A3B8;cursor:pointer;line-height:1;padding:6px;">×</button>
+    <div style="font-size:2.4rem;line-height:1;margin-bottom:6px;">🎁</div>
+    <div style="font-size:.7rem;font-weight:800;color:#16A34A;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px;">Espera. Antes de saíres.</div>
+    <h3 style="font-size:1.5rem;font-weight:900;color:#0F1F2E;line-height:1.2;margin:0 0 10px;">Toma <span style="background:linear-gradient(120deg,transparent 0%,transparent 50%,#FEF3C7 50%,#FEF3C7 100%);padding:0 4px;">10% off</span> na tua primeira encomenda</h3>
+    <p style="font-size:.92rem;color:#475569;line-height:1.5;margin:0 0 18px;">Aplica-se a qualquer kit. Cupom válido por <strong>15 minutos</strong>. Sem letras pequenas.</p>
+    <div style="background:#F8FAFC;border:2px dashed #22C55E;border-radius:12px;padding:14px;margin-bottom:18px;">
+      <div style="font-size:.7rem;color:#64748B;font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px;">O TEU CUPOM</div>
+      <div id="exitCouponCode" style="font-size:1.6rem;font-weight:900;color:#0F1F2E;letter-spacing:3px;">VOLTA10</div>
+      <div style="font-size:.72rem;color:#16A34A;font-weight:700;margin-top:4px;">Aplicado automaticamente no checkout</div>
+    </div>
+    <button onclick="claimCoupon()" style="width:100%;background:#22C55E;color:#fff;border:none;padding:16px;border-radius:12px;font-size:1.02rem;font-weight:800;cursor:pointer;box-shadow:0 6px 20px -4px rgba(34,197,94,.45);font-family:Inter,sans-serif;">Aplicar cupom e ver kits →</button>
+    <button onclick="closeExitIntent()" style="display:block;margin:14px auto 0;background:transparent;border:none;color:#94A3B8;font-size:.78rem;text-decoration:underline;cursor:pointer;font-family:Inter,sans-serif;">Não obrigado, prefiro pagar o preço cheio</button>
+  </div>
+</div>
+<style>
+  @keyframes exitPop {
+    0% { transform: scale(.85) translateY(20px); opacity: 0; }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+  }
+</style>
+<script>
+(function(){
+  // Não mostra se já claimou ou já viu hoje
+  function hasCoupon() {
+    try {
+      var c = JSON.parse(localStorage.getItem('coupon') || 'null');
+      return c && c.code && Date.now() < c.expires;
+    } catch(e) { return false; }
+  }
+  function alreadyShown() {
+    try { return sessionStorage.getItem('exit_shown') === '1'; } catch(e) { return false; }
+  }
+
+  var fired = false;
+  function showExit() {
+    if (fired || alreadyShown() || hasCoupon()) return;
+    fired = true;
+    try { sessionStorage.setItem('exit_shown', '1'); } catch(e){}
+    var el = document.getElementById('exitIntent');
+    if (el) el.style.display = 'flex';
+  }
+
+  // Desktop: cursor sai pelo topo
+  document.addEventListener('mouseleave', function(e) {
+    if (e.clientY <= 0) showExit();
+  });
+
+  // Mobile: scroll up rápido + tempo no site (>20s) ou tentativa de back
+  var lastScroll = window.scrollY || 0;
+  var fastScrollUp = 0;
+  window.addEventListener('scroll', function() {
+    var cur = window.scrollY || 0;
+    if (cur < lastScroll - 60) fastScrollUp++;
+    lastScroll = cur;
+    if (fastScrollUp >= 2 && cur < 200) showExit();
+  }, { passive: true });
+
+  // Mobile fallback: 35s no site sem comprar
+  setTimeout(function() {
+    if (window.innerWidth <= 920) showExit();
+  }, 35000);
+
+  // Pressionar back no histórico
+  history.pushState({ exitGuard: 1 }, '');
+  window.addEventListener('popstate', function() {
+    if (!alreadyShown() && !hasCoupon()) {
+      history.pushState({ exitGuard: 1 }, '');
+      showExit();
+    }
+  });
+
+  window.closeExitIntent = function() {
+    var el = document.getElementById('exitIntent');
+    if (el) el.style.display = 'none';
+  };
+
+  window.claimCoupon = function() {
+    try {
+      localStorage.setItem('coupon', JSON.stringify({
+        code: 'VOLTA10',
+        discount: 0.10,
+        expires: Date.now() + 15 * 60 * 1000
+      }));
+    } catch(e) {}
+    if (typeof gtag !== 'undefined') {
+      try { gtag('event', 'coupon_claimed', { coupon_code: 'VOLTA10' }); } catch(e) {}
+    }
+    closeExitIntent();
+    document.getElementById('kits').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
 })();
 </script>
 
