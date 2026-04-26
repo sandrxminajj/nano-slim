@@ -332,7 +332,6 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 .testi-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .testi-avatar { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .98rem; flex-shrink: 0; }
-.testi-avatar-photo { object-fit: cover; display: block; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(15,31,46,.18); }
 .testi-name { font-weight: 800; font-size: .97rem; line-height: 1.2; }
 .testi-meta { font-size: .78rem; color: var(--mute); }
 .testi blockquote { font-size: .94rem; color: var(--ink-2); line-height: 1.6; font-style: italic; }
@@ -1036,7 +1035,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-1.webp" alt="Helena S." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#F472B6,#EC4899);">HS</div>
           <div>
             <div class="testi-name">Helena S.</div>
             <div class="testi-meta">39 anos · Porto</div>
@@ -1053,7 +1052,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-2.webp" alt="Vânia R." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#60A5FA,#3B82F6);">VR</div>
           <div>
             <div class="testi-name">Vânia R.</div>
             <div class="testi-meta">52 anos · Lisboa</div>
@@ -1070,7 +1069,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/homens-1.webp" alt="Tiago M." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#34D399,#10B981);">TM</div>
           <div>
             <div class="testi-name">Tiago M.</div>
             <div class="testi-meta">34 anos · Coimbra</div>
@@ -1087,7 +1086,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-3.webp" alt="Cristina N." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#FBBF24,#F59E0B);">CN</div>
           <div>
             <div class="testi-name">Cristina N.</div>
             <div class="testi-meta">47 anos · Braga</div>
@@ -1104,7 +1103,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pela cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/mulheres-4.webp" alt="Sofia C." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#A78BFA,#8B5CF6);">SC</div>
           <div>
             <div class="testi-name">Sofia C.</div>
             <div class="testi-meta">42 anos · Setúbal</div>
@@ -1121,7 +1120,7 @@ body.modal-open { overflow: hidden; }
           <span class="testi-photo-tag">Foto real · partilhada pelo cliente</span>
         </div>
         <div class="testi-header">
-          <img class="testi-avatar testi-avatar-photo" src="images/homens-2.webp" alt="Bruno A." loading="lazy" decoding="async" width="52" height="52">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#3B82F6,#1D4ED8);">BA</div>
           <div>
             <div class="testi-name">Bruno A.</div>
             <div class="testi-meta">36 anos · Faro</div>
@@ -1340,15 +1339,9 @@ body.modal-open { overflow: hidden; }
         </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q">Tem contraindicações?</summary>
+        <summary class="faq-q">É seguro de tomar todos os dias?</summary>
         <div class="faq-a">
-          Nano Slim é um suplemento alimentar sem substâncias sintéticas, psicotrópicas ou hormonais. Não é recomendado a grávidas, lactantes, menores de 18 anos. Em caso de condição clínica (diabetes, doença renal, cardíaca), consulte o seu médico antes de iniciar.
-        </div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-q">É vegan e sem glúten?</summary>
-        <div class="faq-a">
-          Sim. Fórmula 100% vegan, sem glúten, sem lactose, sem OGM. Zero açúcar, adoçado com estévia natural.
+          Sim. <strong>Fórmula 100% natural</strong>, vegan, sem glúten, sem lactose, sem OGM e sem açúcar (adoçado com estévia natural). Sem substâncias sintéticas, psicotrópicas ou hormonais. Produzido na União Europeia em conformidade com o DL 118/2015. A toma diária é simples, no pequeno-almoço, e cabe em qualquer rotina.
         </div>
       </details>
       </div>
