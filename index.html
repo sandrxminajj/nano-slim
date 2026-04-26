@@ -342,7 +342,34 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 .testi-lead { text-align: center; color: var(--mute); margin-bottom: 36px; max-width: 640px; margin-inline: auto; font-size: 1rem; line-height: 1.5; }
 .testi-header-block { text-align: center; }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-@media (max-width: 920px) { .testi-grid { grid-template-columns: 1fr; max-width: 520px; margin-inline: auto; } }
+/* Tablet: 2 colunas */
+@media (max-width: 920px) {
+  .testi-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; max-width: 720px; margin-inline: auto; }
+}
+/* Mobile: ainda 2 colunas, mas com cards mais compactos */
+@media (max-width: 640px) {
+  .testi-grid { gap: 10px; }
+  .testi-card { padding: 14px !important; border-radius: 12px; }
+  .testi-card:has(.testi-photo) { padding: 0 !important; }
+  .testi-card:has(.testi-photo) .testi-header,
+  .testi-card:has(.testi-photo) .testi-stars,
+  .testi-card:has(.testi-photo) blockquote,
+  .testi-card:has(.testi-photo) .testi-result { margin-left: 12px !important; margin-right: 12px !important; }
+  .testi-card:has(.testi-photo) .testi-result { margin-bottom: 12px !important; }
+  .testi-photo { aspect-ratio: 1/1 !important; margin-bottom: 10px !important; }
+  .testi-photo-tag { font-size: .55rem !important; padding: 2px 6px !important; top: 6px; left: 6px; }
+  .testi-header { gap: 8px !important; margin-bottom: 8px !important; }
+  .testi-avatar { width: 36px !important; height: 36px !important; font-size: .72rem !important; }
+  .testi-name { font-size: .82rem !important; }
+  .testi-meta { font-size: .68rem !important; }
+  .testi-stars { font-size: .76rem !important; margin-bottom: 5px !important; }
+  .testi blockquote { font-size: .76rem !important; line-height: 1.45 !important; }
+  .testi-result { font-size: .68rem !important; padding: 6px 8px !important; margin-top: 8px !important; }
+}
+/* Muito pequeno: 1 coluna */
+@media (max-width: 380px) {
+  .testi-grid { grid-template-columns: 1fr; max-width: 360px; }
+}
 .testi-card { background: var(--bg-alt); border: 1px solid var(--line); border-radius: var(--r-md); padding: 24px; overflow: hidden; }
 .testi-card:has(.testi-photo) { padding: 0; }
 .testi-card:has(.testi-photo) .testi-header,
