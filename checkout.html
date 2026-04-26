@@ -1250,7 +1250,7 @@
     updateBackLabel(step);
     const btn = document.getElementById('btnCta');
     if (step === 3) {
-      btn.textContent = 'Confirmar encomenda →';
+      btn.textContent = 'Receber em casa em 24-48h →';
     } else {
       btn.textContent = 'Continuar →';
     }
@@ -1452,7 +1452,7 @@
       if (!res.ok) {
         showErr('ckError3','ckErrorMsg3', data.error || 'Erro ao processar pagamento.');
         btn.disabled    = false;
-        btn.textContent = 'Confirmar encomenda →';
+        btn.textContent = 'Receber em casa em 24-48h →';
         return;
       }
 
@@ -1496,7 +1496,7 @@
     } catch(err) {
       showErr('ckError3','ckErrorMsg3','Erro de ligação. Tente novamente.');
       btn.disabled    = false;
-      btn.textContent = 'Confirmar encomenda →';
+      btn.textContent = 'Receber em casa em 24-48h →';
     }
   }
 </script>
