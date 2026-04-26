@@ -950,17 +950,13 @@
             </style>
           </div>
 
-          <!-- Aceitar Termos (RGPD + DL 24/2014) -->
-          <label style="display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:12px 14px;background:#F8FAFC;border:1.5px solid #E2E8F0;border-radius:10px;cursor:pointer;font-size:.82rem;line-height:1.5;color:#334155;">
-            <input type="checkbox" id="ck-terms" style="margin-top:3px;width:18px;height:18px;flex-shrink:0;accent-color:#22C55E;cursor:pointer;">
-            <span>
-              Li e aceito os
-              <a href="index.html?legal=termos" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Termos &amp; Condições</a>,
-              a <a href="index.html?legal=privacidade" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Política de Privacidade</a>
-              e a <a href="index.html?legal=reembolso" target="_blank" style="color:#1e40af;font-weight:700;text-decoration:underline;">Política de Reembolsos</a>.
-              Compreendo que estou a efectuar uma compra e que o pagamento é processado de forma segura.
-            </span>
-          </label>
+          <!-- Aviso discreto: ao confirmar, aceita Termos & Privacidade (RGPD/DL 24/2014) -->
+          <p style="margin-top:12px;font-size:.72rem;color:#64748B;line-height:1.5;text-align:center;">
+            Ao confirmar a encomenda aceitas os
+            <a href="index.html?legal=termos" target="_blank" style="color:#1e40af;text-decoration:underline;">Termos</a>,
+            a <a href="index.html?legal=privacidade" target="_blank" style="color:#1e40af;text-decoration:underline;">Política de Privacidade</a>
+            e a <a href="index.html?legal=reembolso" target="_blank" style="color:#1e40af;text-decoration:underline;">Política de Reembolsos</a>.
+          </p>
 
           <!-- Logos pagamento + Livro Reclamações -->
           <div style="margin-top:14px;padding-top:14px;border-top:1px dashed #e5e7eb;text-align:center;">
@@ -1433,11 +1429,6 @@
     const number     = document.getElementById('ck-number').value.trim();
     const complement = document.getElementById('ck-complement').value.trim();
     const city       = document.getElementById('ck-city').value.trim();
-    const termsOk    = document.getElementById('ck-terms') && document.getElementById('ck-terms').checked;
-
-    if (!termsOk) {
-      return showErr('ckError3','ckErrorMsg3','Tens de aceitar os Termos e a Política de Privacidade para continuar.','ck-terms');
-    }
 
     const phone = rawPhone.replace(/[\s\-().]/g,'').replace(/^(\+|00)351/,'');
 
