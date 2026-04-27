@@ -731,6 +731,82 @@
   </div>
 </header>
 
+<!-- COUNTDOWN BANNER · 20 min com persistência localStorage -->
+<div id="ckCountdown" class="ck-countdown" style="display:none;">
+  <span class="ck-countdown-icon">⏰</span>
+  <span class="ck-countdown-text">A tua reserva expira em</span>
+  <span class="ck-countdown-timer" id="ckCountdownTimer">20:00</span>
+</div>
+<div id="ckCountdownExpired" style="display:none;background:#FEF3C7;color:#92400E;text-align:center;padding:8px 12px;font-size:.82rem;font-weight:700;border-bottom:1px solid #F59E0B;">
+  ⓘ Tempo de reserva esgotado · finaliza para garantir o stock
+</div>
+<style>
+  .ck-countdown {
+    background: linear-gradient(90deg, #DC2626 0%, #B91C1C 100%);
+    color: #fff;
+    padding: 9px 12px;
+    text-align: center;
+    font-weight: 800;
+    font-size: .85rem;
+    letter-spacing: .3px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; flex-wrap: wrap;
+  }
+  .ck-countdown-icon { font-size: 1rem; }
+  .ck-countdown-timer {
+    background: rgba(0,0,0,.28); padding: 3px 10px; border-radius: 6px;
+    font-variant-numeric: tabular-nums; letter-spacing: 1px;
+    min-width: 60px; display: inline-block;
+  }
+  @media (max-width: 480px) {
+    .ck-countdown { font-size: .76rem; padding: 7px 10px; gap: 6px; }
+    .ck-countdown-timer { padding: 2px 8px; font-size: .82rem; }
+  }
+</style>
+<script>
+(function(){
+  var TOTAL_MS = 20 * 60 * 1000; // 20 minutos
+  var KEY = 'ck_reserve_start';
+
+  // Pega ou cria o tempo de início (persiste entre F5)
+  var startTs;
+  try {
+    startTs = parseInt(localStorage.getItem(KEY) || '0', 10);
+    if (!startTs || (Date.now() - startTs) > TOTAL_MS + 60000) {
+      // Nunca começou OU expirou há muito (>1min): reset
+      startTs = Date.now();
+      localStorage.setItem(KEY, String(startTs));
+    }
+  } catch(e) { startTs = Date.now(); }
+
+  var countdownEl = document.getElementById('ckCountdown');
+  var expiredEl = document.getElementById('ckCountdownExpired');
+  var timerEl = document.getElementById('ckCountdownTimer');
+
+  function pad(n) { return n < 10 ? '0' + n : n; }
+
+  function tick() {
+    var elapsed = Date.now() - startTs;
+    var remaining = TOTAL_MS - elapsed;
+    if (remaining <= 0) {
+      // Tempo expirou — mostra aviso amarelo, esconde countdown vermelho
+      if (countdownEl) countdownEl.style.display = 'none';
+      if (expiredEl) expiredEl.style.display = 'block';
+      return false;
+    }
+    if (countdownEl) countdownEl.style.display = '';
+    var m = Math.floor(remaining / 60000);
+    var s = Math.floor((remaining % 60000) / 1000);
+    if (timerEl) timerEl.textContent = pad(m) + ':' + pad(s);
+    return true;
+  }
+
+  if (tick()) {
+    setInterval(tick, 1000);
+  }
+})();
+</script>
+
 <!-- FREE SHIPPING BANNER -->
 <div style="background:linear-gradient(90deg,#16a34a,#15803d);color:#fff;text-align:center;padding:10px 12px;font-size:clamp(.78rem,2.3vw,.9rem);font-weight:800;letter-spacing:.3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
   Envio Rápido e Grátis · CTT 24-48h
