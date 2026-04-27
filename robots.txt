@@ -1,0 +1,33 @@
+# Nano Slim Portugal - https://nanoslimoficial.com
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /checkout.html
+Disallow: /obrigado.html
+Disallow: /*?kit=
+Disallow: /*?utm_
+
+# Bots agressivos / scrapers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Sitemap
+Sitemap: https://nanoslimoficial.com/sitemap.xml

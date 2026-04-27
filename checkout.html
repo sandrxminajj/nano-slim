@@ -15,7 +15,7 @@
 <script src="js/legal.js" defer></script>
 
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -724,7 +724,7 @@
 
 <!-- HEADER -->
 <header class="ck-header">
-  <a class="ck-header-logo" href="index.html"><span class="brand-text">Nano Slim</span></a>
+  <span class="ck-header-logo" style="cursor:default;"><span class="brand-text">Nano Slim</span></span>
   <div class="ck-header-secure">
     <span class="material-symbols-outlined filled">lock</span>
     Pagamento Seguro
@@ -1104,6 +1104,12 @@
   // ── Steps ──────────────────────────────────────────────────────
   let currentStep = 1;
 
+  // Esconde botão "Voltar" no estado inicial (step 1) pra reter cliente
+  document.addEventListener('DOMContentLoaded', function(){
+    var link = document.getElementById('backToShop');
+    if (link) link.style.display = 'none';
+  });
+
   function showErr(id, msgId, msg, fieldId) {
     const el = document.getElementById(id);
     document.getElementById(msgId).textContent = msg;
@@ -1257,21 +1263,25 @@
     btn.disabled = false;
   }
 
-  // Smart back: step 3 -> 2, step 2 -> 1, step 1 -> volta para index.html
+  // Smart back: step 3 -> 2, step 2 -> 1, step 1 -> NÃO sai (retém cliente)
   window.goBackSmart = function(e) {
     if (e) { e.preventDefault(); e.stopPropagation(); }
     var step = (typeof currentStep !== 'undefined' && currentStep) ? currentStep : 1;
     if (step > 1) {
       goStep(step - 1);
-    } else {
-      window.location.href = 'index.html' + (window.location.search || '');
     }
+    // Step 1: NÃO faz nada (não sai do checkout). Botão fica oculto.
     return false;
   };
 
   window.updateBackLabel = function(step) {
     var el = document.getElementById('backLabel');
-    if (el) el.textContent = 'Voltar';
+    var link = document.getElementById('backToShop');
+    if (link) {
+      // Esconde "Voltar" no step 1 (retém o cliente no checkout)
+      link.style.display = step > 1 ? '' : 'none';
+    }
+    if (el) el.textContent = step > 1 ? 'Voltar ao passo anterior' : 'Voltar';
   };
 
   function handleCtaClick() {

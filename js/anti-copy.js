@@ -1,9 +1,21 @@
 /* ===================================================================
-   Nano Slim — anti-cópia / anti-DevTools
-   Protege landing contra copy casual (não substitui segurança server-side)
+   Nano Slim — anti-cópia / anti-DevTools / anti-zoom mobile
+   Protege landing contra copy casual + ajuda retenção (sem substituir
+   segurança server-side)
 =================================================================== */
 (function(){
   'use strict';
+
+  // 0) CSS injection — desabilita callout iOS, seleção, e drag
+  try {
+    var st = document.createElement('style');
+    st.textContent = ''
+      + 'html, body { -webkit-touch-callout: none !important; -webkit-tap-highlight-color: transparent !important; touch-action: pan-x pan-y !important; }'
+      + 'body, body * { -webkit-user-drag: none; }'
+      + '.ck-input, .ck-phone-input, input, textarea, [contenteditable="true"] { -webkit-user-select: text !important; user-select: text !important; -webkit-touch-callout: default !important; }'
+      ;
+    document.head.appendChild(st);
+  } catch(e) {}
 
   // 1) Disable right-click (menu contextual)
   document.addEventListener('contextmenu', function(e){ e.preventDefault(); return false; });
@@ -26,6 +38,33 @@
     // Ctrl+Shift+I (inspect), Ctrl+Shift+J (console), Ctrl+Shift+C (inspector)
     if (ctrl && e.shiftKey && (k === 'I' || k === 'J' || k === 'C')) {
       e.preventDefault(); return false;
+    }
+    // Ctrl + roda do rato pra zoom (já bloqueado em wheel listener abaixo)
+  });
+
+  // 3.1) Pinch-zoom (iOS) e gesture events
+  document.addEventListener('gesturestart',  function(e){ e.preventDefault(); }, { passive: false });
+  document.addEventListener('gesturechange', function(e){ e.preventDefault(); }, { passive: false });
+  document.addEventListener('gestureend',    function(e){ e.preventDefault(); }, { passive: false });
+
+  // 3.2) Double-tap zoom mobile
+  var lastTouchEnd = 0;
+  document.addEventListener('touchend', function(e) {
+    var now = Date.now();
+    if (now - lastTouchEnd < 350) {
+      // 2º tap em <350ms = double-tap → bloqueia
+      e.preventDefault();
+    }
+    lastTouchEnd = now;
+  }, { passive: false });
+
+  // 3.3) Ctrl + roda do rato (zoom desktop) e Ctrl + +/-
+  document.addEventListener('wheel', function(e){
+    if (e.ctrlKey || e.metaKey) { e.preventDefault(); }
+  }, { passive: false });
+  document.addEventListener('keydown', function(e){
+    if ((e.ctrlKey || e.metaKey) && (e.key === '+' || e.key === '-' || e.key === '=' || e.key === '_' || e.key === '0')) {
+      e.preventDefault();
     }
   });
 
