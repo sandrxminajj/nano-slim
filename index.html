@@ -380,6 +380,15 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 }
 @media (max-width: 920px) { .hero-social-proof { margin-left: auto; margin-right: auto; display: inline-flex; } }
 .hero-trust { display: flex; align-items: center; gap: 18px; margin-top: 18px; font-size: .9rem; color: var(--mute); flex-wrap: wrap; }
+.hero-trust-link {
+  text-decoration: none;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 6px;
+  transition: background-color .15s;
+}
+.hero-trust-link:hover { background: rgba(245,158,11,.08); }
+.hero-trust-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 @media (max-width: 920px) { .hero-trust { justify-content: center; } }
 .stars { color: #F59E0B; font-size: 1rem; letter-spacing: -1px; }
 .hero-img-wrap { position: relative; }
@@ -643,6 +652,11 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   box-shadow: var(--shadow);
 }
 .kit:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.kit[role="button"]:hover { border-color: var(--cta); }
+.kit[role="button"]:active { transform: translateY(-2px); transition: transform .08s; }
+.kit[role="button"]:focus-visible { outline: 3px solid var(--cta); outline-offset: 4px; }
+.kit[role="button"] * { pointer-events: none; }
+.kit[role="button"] button.kit-cta { pointer-events: auto; }
 .kit-best { border-color: var(--cta); box-shadow: 0 22px 44px -10px rgba(34,197,94,.25); }
 @media (min-width: 921px) { .kit-best { transform: scale(1.03); } }
 /* No mobile, mantém ordem natural: Kit 1 (1 POTE) primeiro */
@@ -717,7 +731,12 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   box-shadow: 0 4px 12px -4px rgba(15,23,42,.08);
 }
 .pay-methods strong { color: var(--ink); font-size: 1.05rem; }
-.pay-logos { height: auto; max-height: 110px; width: auto; max-width: 100%; object-fit: contain; display: inline-block; }
+.pay-logos {
+  height: auto; max-height: 110px; width: auto; max-width: 100%;
+  object-fit: contain; display: inline-block;
+  pointer-events: none; -webkit-user-select: none; user-select: none;
+  -webkit-user-drag: none; -webkit-touch-callout: none;
+}
 @media (max-width: 540px) { .pay-logos { max-height: 80px; } }
 .pay-badge {
   display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
@@ -1156,10 +1175,10 @@ body.modal-open { overflow: hidden; }
           <span class="hero-social-pulse"></span>
           <strong>+247 encomendas</strong> entregues em Portugal só esta semana
         </div>
-        <div class="hero-trust">
+        <a href="#depoimentos" class="hero-trust hero-trust-link" aria-label="Ver avaliações dos clientes">
           <span class="stars">★★★★★</span>
           <span><strong style="color:var(--ink)">4,9/5</strong> · avaliação média de quem já experimentou em Portugal</span>
-        </div>
+        </a>
       </div>
 
       <div class="hero-img-wrap">
@@ -1173,6 +1192,107 @@ body.modal-open { overflow: hidden; }
           <div style="line-height:1.15;"><div style="font-size:.72rem;color:var(--mute);font-weight:600;">Garantia</div><div>30 dias</div></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- KITS · MOVIDO PARA LOGO APÓS HERO (oferta visível cedo) -->
+<section id="kits" class="kits reveal">
+  <div class="container">
+    <div class="kits-center">
+      <span class="pill">Opções Disponíveis · Envio Gratuito</span>
+    </div>
+    <h2 style="text-align:center;">Escolhe o teu kit Nano Slim</h2>
+    <p class="kits-lead">Preço por pote diminui com a quantidade. Todos os kits incluem envio gratuito para todo Portugal (continente + ilhas).</p>
+
+    <div class="kits-grid">
+      <!-- KIT 1 · CARD INTEIRO CLICÁVEL -->
+      <article class="kit" role="button" tabindex="0" onclick="irCheckout(1)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irCheckout(1);}" style="cursor:pointer;" aria-label="Encomendar Kit 1 Pote por 29 euros">
+        <div class="kit-title">1 POTE</div>
+        <div class="kit-sub">1 mês de toma</div>
+        <picture>
+          <source srcset="images/hero-produto.avif" type="image/avif">
+          <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
+        </picture>
+        <div class="kit-price" style="margin-top:14px;">29,00 €</div>
+        <div class="kit-per">29,00 €/pote</div>
+        <div class="kit-portes"><b>Envio GRÁTIS</b></div>
+        <span class="kit-off" style="background:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%);box-shadow:0 4px 14px -2px rgba(29,78,216,.45);">Experimentar 1 mês</span>
+        <button class="btn btn-cta kit-cta" type="button" onclick="event.stopPropagation();irCheckout(1)">Encomendar · 29,00 €</button>
+        <div class="kit-trust">
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- KIT 2 (destaque) · CARD INTEIRO CLICÁVEL -->
+      <article class="kit kit-best" role="button" tabindex="0" onclick="irCheckout(2)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irCheckout(2);}" style="cursor:pointer;" aria-label="Encomendar Kit 2 mais 1 grátis (3 potes) por 69 euros">
+        <div class="kit-tag">RECOMENDADO</div>
+        <div class="kit-title">2 POTES + 1 GRÁTIS</div>
+        <div class="kit-sub">3 potes · 3 meses de toma</div>
+        <picture>
+          <source srcset="images/pack3.avif" type="image/avif">
+          <img src="images/pack3.webp" alt="Kit 3 potes Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
+        </picture>
+        <div class="kit-price-old">117,00 €</div>
+        <div class="kit-price">69,00 €</div>
+        <div class="kit-per">23,00 €/pote</div>
+        <div class="kit-portes">
+          <b>1 POTE GRÁTIS</b> · <b>Envio GRÁTIS</b>
+        </div>
+        <span class="kit-off">Poupas 48 €</span>
+        <button class="btn btn-cta kit-cta btn-pulse" type="button" onclick="event.stopPropagation();irCheckout(2)">Encomendar · 69,00 €</button>
+        <div class="kit-trust">
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- KIT 3 · CARD INTEIRO CLICÁVEL -->
+      <article class="kit kit-pro" role="button" tabindex="0" onclick="irCheckout(3)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();irCheckout(3);}" style="cursor:pointer;" aria-label="Encomendar Kit 3 mais 2 grátis (5 potes) por 99 euros">
+        <div class="kit-tag">MAIOR POUPANÇA</div>
+        <div class="kit-title">3 POTES + 2 GRÁTIS</div>
+        <div class="kit-sub">5 potes · 5 meses de toma</div>
+        <picture>
+          <source srcset="images/pack5.avif" type="image/avif">
+          <img src="images/pack5.webp" alt="Kit 5 potes Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
+        </picture>
+        <div class="kit-price-old">195,00 €</div>
+        <div class="kit-price">99,00 €</div>
+        <div class="kit-per">19,80 €/pote</div>
+        <div class="kit-portes">
+          <b>2 POTES GRÁTIS</b> · <b>Envio GRÁTIS</b> · <b>Ebook</b>
+        </div>
+        <span class="kit-off">Poupas 96 €</span>
+        <button class="btn btn-cta kit-cta" type="button" onclick="event.stopPropagation();irCheckout(3)">Encomendar · 99,00 €</button>
+        <div class="kit-trust">
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <span>Garantia 30 dias · Reembolso integral</span>
+          </div>
+          <div class="kit-trust-item">
+            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
+            <span>Envio CTT em 24 a 48h</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="pay-methods">
+      <strong>Métodos aceites:</strong>
+      <img src="images/mbpags.webp" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80" draggable="false" aria-hidden="true">
     </div>
   </div>
 </section>
@@ -1440,107 +1560,6 @@ body.modal-open { overflow: hidden; }
     <p class="testi-disclaimer" style="text-align:center;font-size:.8rem;color:var(--mute);margin-top:28px;font-style:italic;max-width:640px;margin-inline:auto;padding:0 20px;line-height:1.55;">
       Resultados individuais variam. Este produto é um suplemento alimentar e não substitui uma alimentação variada e equilibrada nem um estilo de vida saudável.
     </p>
-  </div>
-</section>
-
-<!-- KITS -->
-<section id="kits" class="kits reveal">
-  <div class="container">
-    <div class="kits-center">
-      <span class="pill">Opções Disponíveis · Envio Gratuito</span>
-    </div>
-    <h2 style="text-align:center;">Opções disponíveis</h2>
-    <p class="kits-lead">Preço por pote diminui com a quantidade. Todos os kits incluem envio gratuito para todo Portugal (continente + ilhas).</p>
-
-    <div class="kits-grid">
-      <!-- KIT 1 -->
-      <article class="kit">
-        <div class="kit-title">1 POTE</div>
-        <div class="kit-sub">1 mês de toma</div>
-        <picture>
-          <source srcset="images/hero-produto.avif" type="image/avif">
-          <img src="images/hero-produto.webp" alt="1 pote Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
-        </picture>
-        <div class="kit-price" style="margin-top:14px;">29,00 €</div>
-        <div class="kit-per">29,00 €/pote</div>
-        <div class="kit-portes"><b>Envio GRÁTIS</b></div>
-        <span class="kit-off" style="background:linear-gradient(135deg,#3b82f6 0%,#1d4ed8 100%);box-shadow:0 4px 14px -2px rgba(29,78,216,.45);">Experimentar 1 mês</span>
-        <button class="btn btn-cta kit-cta" onclick="irCheckout(1)">Encomendar · 29,00 €</button>
-        <div class="kit-trust">
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            <span>Garantia 30 dias · Reembolso integral</span>
-          </div>
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
-            <span>Envio CTT em 24 a 48h</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- KIT 2 (destaque) -->
-      <article class="kit kit-best">
-        <div class="kit-tag">RECOMENDADO</div>
-        <div class="kit-title">2 POTES + 1 GRÁTIS</div>
-        <div class="kit-sub">3 potes · 3 meses de toma</div>
-        <picture>
-          <source srcset="images/pack3.avif" type="image/avif">
-          <img src="images/pack3.webp" alt="Kit 3 potes Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
-        </picture>
-        <div class="kit-price-old">117,00 €</div>
-        <div class="kit-price">69,00 €</div>
-        <div class="kit-per">23,00 €/pote</div>
-        <div class="kit-portes">
-          <b>1 POTE GRÁTIS</b> · <b>Envio GRÁTIS</b>
-        </div>
-        <span class="kit-off">Poupas 48 €</span>
-        <button class="btn btn-cta kit-cta btn-pulse" onclick="irCheckout(2)">Encomendar · 69,00 €</button>
-        <div class="kit-trust">
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            <span>Garantia 30 dias · Reembolso integral</span>
-          </div>
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
-            <span>Envio CTT em 24 a 48h</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- KIT 3 -->
-      <article class="kit kit-pro">
-        <div class="kit-tag">MAIOR POUPANÇA</div>
-        <div class="kit-title">3 POTES + 2 GRÁTIS</div>
-        <div class="kit-sub">5 potes · 5 meses de toma</div>
-        <picture>
-          <source srcset="images/pack5.avif" type="image/avif">
-          <img src="images/pack5.webp" alt="Kit 5 potes Nano Slim" class="kit-img" loading="lazy" decoding="async" width="320" height="240">
-        </picture>
-        <div class="kit-price-old">195,00 €</div>
-        <div class="kit-price">99,00 €</div>
-        <div class="kit-per">19,80 €/pote</div>
-        <div class="kit-portes">
-          <b>2 POTES GRÁTIS</b> · <b>Envio GRÁTIS</b> · <b>Ebook</b>
-        </div>
-        <span class="kit-off">Poupas 96 €</span>
-        <button class="btn btn-cta kit-cta" onclick="irCheckout(3)">Encomendar · 99,00 €</button>
-        <div class="kit-trust">
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-            <span>Garantia 30 dias · Reembolso integral</span>
-          </div>
-          <div class="kit-trust-item">
-            <svg class="kit-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="18.5" r="2"/></svg>
-            <span>Envio CTT em 24 a 48h</span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <div class="pay-methods">
-      <strong>Métodos aceites:</strong>
-      <img src="images/mbpags.webp" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80">
-    </div>
   </div>
 </section>
 
