@@ -5,6 +5,11 @@ const WAYMB_BASE    = "https://api.waymb.com";
 
 // Email helper (Resend) — load lazy
 const { sendOrderConfirmation } = require("./_email.js");
+// Tracking (Track n' Fast) — DESATIVADO automático.
+// Eliezer vai criar manualmente no painel quando expedir pelos CTT
+// (poupa créditos e não cria rastreio pra pedidos não pagos).
+// Pra reativar, descomentar e voltar a chamar createTrackingOrder().
+// const { createTrackingOrder } = require("./_tracking.js");
 // CALLBACK_URL auto-detectado pelo Vercel (VERCEL_URL = URL do deploy atual).
 // Pra usar domínio custom como callback, definir env var CALLBACK_URL no Vercel dashboard.
 const CALLBACK_URL  = process.env.CALLBACK_URL || `https://${process.env.VERCEL_URL}/api/webhook`;
@@ -48,7 +53,7 @@ module.exports = async (req, res) => {
     return res.status(429).json({ error: "Demasiadas tentativas. Aguarda um momento." });
   }
 
-  const { name, email, phone, document: doc, amount, method, product } = req.body || {};
+  const { name, email, phone, document: doc, amount, method, product, shipping } = req.body || {};
 
   if (!name || !email || !phone || !amount || !method) {
     return res.status(400).json({ error: "Campos obrigatórios em falta." });
@@ -114,18 +119,30 @@ module.exports = async (req, res) => {
       };
     }
 
-    // Envia email de confirmação (fire-and-forget — não bloqueia resposta).
-    // Se falhar, apenas loga e segue (cliente já viu o redirect pra obrigado.html).
+    // Envia email de confirmação (fire-and-forget — não bloqueia resposta)
+    // BCC pra apoio@nanoslimoficial.com → Eliezer recebe cópia de cada venda
+    // (com nome/email/morada/telemóvel completos), sem depender do WayMB.
     try {
       sendOrderConfirmation({
         email,
         name,
+        phone: fullPhone,
+        document: doc,
         productName: product?.name || `Nano Slim · ${amount} €`,
         amount,
         method,
         txId: response.id,
         mbEntity: response.referenceData?.entity || null,
-        mbRef:    response.referenceData?.reference || null
+        mbRef:    response.referenceData?.reference || null,
+        // Endereço completo (importante pra expedição CTT)
+        shipping: {
+          address:    shipping?.address    || "",
+          number:     shipping?.number     || "",
+          complement: shipping?.complement || "",
+          postal:     shipping?.postal     || "",
+          city:       shipping?.city       || "",
+          country:    "PT"
+        }
       }).catch(err => console.error("[email send fail]", err.message));
     } catch (e) {
       console.error("[email integration]", e.message);

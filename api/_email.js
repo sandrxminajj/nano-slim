@@ -48,9 +48,18 @@ function tpl(text, data) {
 
 // ─── Template do email de confirmação ────────────────────────────
 function orderConfirmationHtml(data) {
-  const { name, productName, amount, method, txId, mbEntity, mbRef } = data;
+  const { name, productName, amount, method, txId, mbEntity, mbRef, trackingCode, phone, document, shipping } = data;
   const cfg = CONFIG.orderConfirmation;
   const c = CONFIG.brand.color;
+
+  // Monta linha de morada combinada
+  const addr = shipping || {};
+  const addressLine = [
+    [addr.address, addr.number].filter(Boolean).join(", "),
+    addr.complement || "",
+    [addr.postal, addr.city].filter(Boolean).join(" "),
+    addr.country || ""
+  ].filter(Boolean).join(" · ");
 
   const firstName = (name || "").split(" ")[0] || "Cliente";
   const methodLabel = method === "multibanco" ? "Multibanco" : "MB Way";
@@ -103,6 +112,28 @@ function orderConfirmationHtml(data) {
         <div style="font-size:44px;line-height:1;margin-bottom:8px;">📱</div>
         <h3 style="margin:0 0 8px;font-size:18px;font-weight:900;color:${c.accentDark};line-height:1.25;">${escape(tpl(cfg.mbwayBox.title, ctx))}</h3>
         <p style="margin:0;font-size:14px;color:#166534;line-height:1.55;">${tpl(cfg.mbwayBox.body, ctx)}</p>
+      </td></tr>
+    </table>`;
+  }
+
+  // Bloco de tracking (só aparece se trackingCode existir)
+  let trackingBlock = "";
+  if (trackingCode && cfg.trackingBox) {
+    const tb = cfg.trackingBox;
+    trackingBlock = `
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="margin:0 0 24px;">
+      <tr><td style="background:linear-gradient(135deg,#EFF6FF 0%,#DBEAFE 100%);border:1.5px solid ${c.primary};border-radius:14px;padding:22px;text-align:center;">
+        <div style="font-size:34px;line-height:1;margin-bottom:8px;">📦</div>
+        <h3 style="margin:0 0 8px;font-size:17px;font-weight:900;color:${c.primaryDark};line-height:1.25;">${escape(tpl(tb.title, ctx))}</h3>
+        <p style="margin:0 0 14px;font-size:13.5px;color:#1E3A8A;line-height:1.55;">${escape(tpl(tb.body, ctx))}</p>
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto 14px;">
+          <tr><td style="background:#fff;border:2px dashed ${c.primary};border-radius:10px;padding:14px 24px;font-family:'SF Mono',Monaco,Menlo,Consolas,monospace;font-size:20px;font-weight:900;color:${c.primaryDark};letter-spacing:2px;">${escape(trackingCode)}</td></tr>
+        </table>
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:0 auto;">
+          <tr><td style="background:${c.primary};border-radius:10px;padding:0;">
+            <a href="${escape(tb.trackingPageUrl)}" target="_blank" style="display:inline-block;padding:11px 24px;color:#fff;text-decoration:none;font-size:14px;font-weight:700;letter-spacing:.3px;">${escape(tb.buttonLabel)} →</a>
+          </td></tr>
+        </table>
       </td></tr>
     </table>`;
   }
@@ -173,8 +204,25 @@ function orderConfirmationHtml(data) {
         </table>
       </td></tr>
 
+      <!-- Dados de entrega -->
+      <tr><td style="padding:0 28px 24px;">
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F8FAFC;border:1px solid #E2E8F0;border-radius:14px;padding:18px 20px;">
+          <tr><td colspan="2" style="padding-bottom:12px;border-bottom:1px solid #E2E8F0;">
+            <p style="margin:0;font-size:11px;font-weight:800;color:${c.textSoft};letter-spacing:.8px;text-transform:uppercase;">📍 Dados de entrega</p>
+          </td></tr>
+          <tr><td style="padding:12px 0 6px;font-size:13px;color:${c.textSoft};font-weight:500;width:90px;">Nome</td><td style="padding:12px 0 6px;font-size:13px;font-weight:600;color:${c.text};">${escape(name || "—")}</td></tr>
+          <tr><td style="padding:6px 0;font-size:13px;color:${c.textSoft};font-weight:500;border-top:1px dashed #CBD5E1;">Email</td><td style="padding:6px 0;font-size:13px;font-weight:600;color:${c.text};border-top:1px dashed #CBD5E1;word-break:break-all;">${escape(data.email || "—")}</td></tr>
+          ${phone ? `<tr><td style="padding:6px 0;font-size:13px;color:${c.textSoft};font-weight:500;border-top:1px dashed #CBD5E1;">Telemóvel</td><td style="padding:6px 0;font-size:13px;font-weight:600;color:${c.text};border-top:1px dashed #CBD5E1;">${escape(phone)}</td></tr>` : ""}
+          ${document ? `<tr><td style="padding:6px 0;font-size:13px;color:${c.textSoft};font-weight:500;border-top:1px dashed #CBD5E1;">NIF</td><td style="padding:6px 0;font-size:13px;font-weight:600;color:${c.text};border-top:1px dashed #CBD5E1;">${escape(document)}</td></tr>` : ""}
+          ${addressLine ? `<tr><td style="padding:6px 0;font-size:13px;color:${c.textSoft};font-weight:500;border-top:1px dashed #CBD5E1;vertical-align:top;">Morada</td><td style="padding:6px 0;font-size:13px;font-weight:600;color:${c.text};border-top:1px dashed #CBD5E1;line-height:1.5;">${escape(addressLine)}</td></tr>` : ""}
+        </table>
+      </td></tr>
+
       <!-- Caixa de pagamento (MB Way ou Multibanco) -->
       <tr><td style="padding:0 28px;">${paymentBox}</td></tr>
+
+      <!-- Bloco de tracking (só aparece se houver código) -->
+      ${trackingBlock ? `<tr><td style="padding:0 28px;">${trackingBlock}</td></tr>` : ""}
 
       <!-- Próximos passos -->
       <tr><td style="padding:8px 28px 24px;">
@@ -223,16 +271,37 @@ function orderConfirmationHtml(data) {
 
 // Versão texto plano (deliverability — Gmail/Outlook gostam de ter ambos)
 function orderConfirmationText(data) {
-  const { name, productName, amount, method, txId, mbEntity, mbRef } = data;
+  const { name, productName, amount, method, txId, mbEntity, mbRef, trackingCode, phone, document, shipping } = data;
   const cfg = CONFIG.orderConfirmation;
   const firstName = (name || "").split(" ")[0] || "Cliente";
   const methodLabel = method === "multibanco" ? "Multibanco" : "MB Way";
+
+  // Linha de morada
+  const addr = shipping || {};
+  const addressLine = [
+    [addr.address, addr.number].filter(Boolean).join(", "),
+    addr.complement || "",
+    [addr.postal, addr.city].filter(Boolean).join(" "),
+    addr.country || ""
+  ].filter(Boolean).join(" · ");
+
+  // Dados de entrega
+  const deliveryBlock = `
+DADOS DE ENTREGA
+Nome:       ${name || "—"}
+Email:      ${data.email || "—"}
+${phone ? `Telemóvel:  ${phone}\n` : ""}${document ? `NIF:        ${document}\n` : ""}${addressLine ? `Morada:     ${addressLine}\n` : ""}`;
 
   let mb = "";
   if (method === "multibanco" && mbEntity && mbRef) {
     mb = `\n${cfg.multibancoBox.title.toUpperCase()}\n${cfg.multibancoBox.body}\n\nEntidade:    ${mbEntity}\nReferência:  ${mbRef}\nValor:       ${fmtEUR(amount)}\n\n${cfg.multibancoBox.validityNote}\n`;
   } else {
     mb = `\n${cfg.mbwayBox.title.toUpperCase()}\n${cfg.mbwayBox.body}\n`;
+  }
+
+  let tracking = "";
+  if (trackingCode && cfg.trackingBox) {
+    tracking = `\n${cfg.trackingBox.title.toUpperCase()}\n${cfg.trackingBox.body}\n\nCódigo de rastreio: ${trackingCode}\nAcompanhar: ${cfg.trackingBox.trackingPageUrl}\n`;
   }
 
   const steps = cfg.nextSteps
@@ -253,7 +322,8 @@ Pagamento:  ${methodLabel}
 Nº Pedido:  ${txId || "—"}
 Total:      ${fmtEUR(amount)}
 ═══════════════════════════════════
-${mb}
+${deliveryBlock}═══════════════════════════════════
+${mb}${tracking}
 PRÓXIMOS PASSOS:
 ${steps}
 
@@ -286,10 +356,15 @@ async function sendOrderConfirmation(data) {
   const txShort = String(data.txId || "").slice(0, 8).toUpperCase();
   const ctx = { txShort };
 
+  // BCC: cópia interna pra Eliezer ter histórico completo de cada venda na inbox
+  // (evita depender do WayMB dashboard, que mostra dados errados)
+  const BCC = process.env.EMAIL_BCC || EMAIL_REPLY_TO;
+
   try {
     const result = await resend.emails.send({
       from: EMAIL_FROM,
       to: data.email,
+      bcc: BCC,
       replyTo: EMAIL_REPLY_TO,
       subject: tpl(cfg.subject, ctx),
       html: orderConfirmationHtml(data),
