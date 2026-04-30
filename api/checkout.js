@@ -90,9 +90,42 @@ module.exports = async (req, res) => {
     });
 
     rawText = await r.text();
-    // Log sanitizado — não expõe PII (email completo, telemóvel, morada)
-    const maskedEmail = email ? email.replace(/(.{2}).*(@.*)/, "$1***$2") : "?";
-    console.log("[WayMB create]", r.status, "email:", maskedEmail, "amount:", amount, "method:", method);
+
+    // Tenta extrair tx_id da resposta (mesmo se falhou)
+    let parsedResp = {};
+    try { parsedResp = JSON.parse(rawText); } catch(_) {}
+    const txid = parsedResp.transactionID || parsedResp.id || "no_tx";
+
+    // ═════════════════════════════════════════════════════════════
+    // LOG COMPLETO DE AUDITORIA · SEMPRE LOGA (sucesso ou falha)
+    // Email NÃO mascarado · uso interno pra contactar clientes
+    // Pesquisar nos Vercel Logs por: [ORDER] ou pelo email/nome
+    // ═════════════════════════════════════════════════════════════
+    const addr = req.body.shipping || {};
+    const orderRecord = {
+      tx: txid,
+      status: r.ok ? "created" : "failed",
+      http_status: r.status,
+      name,
+      email,
+      phone: fullPhone,
+      doc: doc || "",
+      method,
+      amount,
+      product: req.body.product?.name || "",
+      address: addr.address || "",
+      number: addr.number || "",
+      complement: addr.complement || "",
+      postal: addr.postal || "",
+      city: addr.city || "",
+      country: addr.country || "PT",
+      mb_entity: parsedResp.referenceData?.entity || "",
+      mb_ref:    parsedResp.referenceData?.reference || "",
+      ts: new Date().toISOString()
+    };
+    console.log("[ORDER]", JSON.stringify(orderRecord));
+    // Log curto pra leitura rápida (sem mascarar email)
+    console.log(`[CHECKOUT] ${r.status} ${name} <${email}> ${amount}€ ${method} → ${txid}`);
 
     let data = {};
     try { data = JSON.parse(rawText); } catch (_) {
