@@ -1,0 +1,12 @@
+{
+  "name": "nano-slim",
+  "version": "1.0.0",
+  "description": "Nano Slim Portugal - landing page + WayMB checkout",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}

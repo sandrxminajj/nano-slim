@@ -6,9 +6,9 @@
    ============================================================ */
 (function(){
   const NOME_PRODUTO   = 'Nano Slim';
-  const EMAIL          = 'contacto@nano-slim.pt';
-  const EMAIL_PRIV     = 'privacidade@nano-slim.pt';
-  const EMAIL_REEMB    = 'reembolso@nano-slim.pt';
+  const EMAIL          = 'apoio@nanoslimoficial.com';
+  const EMAIL_PRIV     = 'apoio@nanoslimoficial.com';
+  const EMAIL_REEMB    = 'apoio@nanoslimoficial.com';
   const DATA           = '18 de abril de 2026';
   const ANO            = '2026';
   const OBJETO         = 'venda online de suplementos alimentares à base de BHB e extratos vegetais para apoio à gestão de peso e ao processo de cetose';
