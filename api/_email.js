@@ -232,20 +232,6 @@ function orderConfirmationHtml(data) {
         </table>
       </td></tr>
 
-      <!-- Garantia 30 dias -->
-      <tr><td style="padding:0 28px 24px;">
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg,#F0FDF4 0%,#DCFCE7 100%);border:1.5px solid ${c.accent};border-radius:14px;padding:18px 20px;">
-          <tr>
-            <td style="vertical-align:top;width:46px;padding-right:14px;">
-              <div style="width:46px;height:46px;background:${c.accentDark};border-radius:50%;text-align:center;line-height:46px;color:#fff;font-size:22px;">🛡️</div>
-            </td>
-            <td style="vertical-align:top;">
-              <p style="margin:0 0 4px;font-size:14px;font-weight:800;color:#166534;">${escape(tpl(cfg.guarantee.title, ctx))}</p>
-              <p style="margin:0;font-size:13px;color:#166534;line-height:1.55;">${tpl(cfg.guarantee.body, ctx)}</p>
-            </td>
-          </tr>
-        </table>
-      </td></tr>
 
       <!-- Suporte -->
       <tr><td style="padding:0 28px 32px;text-align:center;">
@@ -326,9 +312,6 @@ ${deliveryBlock}═════════════════════�
 ${mb}${tracking}
 PRÓXIMOS PASSOS:
 ${steps}
-
-${cfg.guarantee.title.toUpperCase()}
-${cfg.guarantee.body.replace(/<[^>]*>/g, "").replace(/\{\{refundEmail\}\}/g, CONFIG.brand.refundEmail)}
 
 ${cfg.support.label}
 ${cfg.support.body.replace(/<[^>]*>/g, "").replace(/\{\{supportEmail\}\}/g, CONFIG.brand.supportEmail)}

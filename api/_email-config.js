@@ -64,7 +64,7 @@ module.exports = {
     nextSteps: [
       "Confirma o pagamento via {{methodLabel}}.",
       "Expedimos pelos CTT em <strong>24-48h</strong> (envio grátis para todo Portugal).",
-      "Recebes email + SMS com código de rastreio CTT.",
+      "Recebes email com código de rastreio CTT.",
       "Toma 1 colher em água ao pequeno-almoço durante 30 dias."
     ],
 
