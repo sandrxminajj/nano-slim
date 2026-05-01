@@ -152,11 +152,11 @@ module.exports = async (req, res) => {
       };
     }
 
-    // Envia email de confirmação (fire-and-forget — não bloqueia resposta)
-    // BCC pra apoio@nanoslimoficial.com → Eliezer recebe cópia de cada venda
-    // (com nome/email/morada/telemóvel completos), sem depender do WayMB.
+    // Envia email de confirmação · AWAIT obrigatório (Vercel serverless
+    // mata fire-and-forget quando a função termina). Adiciona ~500ms à
+    // resposta mas garante que o email é enviado antes de retornar.
     try {
-      sendOrderConfirmation({
+      await sendOrderConfirmation({
         email,
         name,
         phone: fullPhone,
@@ -176,9 +176,9 @@ module.exports = async (req, res) => {
           city:       shipping?.city       || "",
           country:    "PT"
         }
-      }).catch(err => console.error("[email send fail]", err.message));
+      });
     } catch (e) {
-      console.error("[email integration]", e.message);
+      console.error("[email send fail]", e.message);
     }
 
     return res.status(200).json(response);
