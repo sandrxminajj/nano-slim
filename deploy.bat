@@ -1,6 +1,6 @@
 @echo off
 chcp 65001 >nul
-cd /d "C:\Users\Eliezer\Desktop\nano-slim"
+cd /d "%~dp0"
 
 echo.
 echo ========================================

@@ -350,16 +350,27 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
 @media (max-width: 920px) { .hero-sub { margin-inline: auto; } }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 @media (max-width: 920px) { .hero-ctas { justify-content: center; } }
-.hero-social-proof {
+.hero-social-proof, .hero-official {
   display: inline-flex; align-items: center; gap: 10px;
   margin-top: 14px;
-  padding: 10px 16px;
-  background: #DCFCE7;
-  border: 1.5px solid #22C55E;
+  padding: 9px 16px 9px 11px;
+  background: #fff;
+  border: 1px solid var(--brand-soft);
   border-radius: 999px;
-  font-size: .88rem; color: #14532D; font-weight: 600;
+  font-size: .88rem; color: var(--ink-2); font-weight: 600;
   line-height: 1.3;
+  box-shadow: 0 4px 14px -8px rgba(11,31,51,.12);
 }
+.hero-official strong { color: var(--ink); font-weight: 800; }
+.hero-official-text { color: var(--ink-2); }
+.hero-official-mark {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
+  color: #fff; flex-shrink: 0;
+  box-shadow: 0 2px 6px -2px rgba(30,136,229,.55);
+}
+@media (max-width: 920px) { .hero-official { margin-left: auto; margin-right: auto; } }
 .hero-social-proof strong { color: #166534; font-weight: 800; }
 .hero-social-pulse {
   width: 10px; height: 10px; border-radius: 50%;
@@ -731,6 +742,20 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   box-shadow: 0 4px 12px -4px rgba(15,23,42,.08);
 }
 .pay-methods strong { color: var(--ink); font-size: 1.05rem; }
+.pay-methods--featured {
+  flex-direction: column; gap: 14px;
+  background: linear-gradient(180deg, #F8FAFC 0%, #fff 100%);
+  border: 1px solid var(--brand-soft);
+  box-shadow: 0 6px 18px -10px rgba(43,179,232,.25);
+}
+.pay-methods-head { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; }
+.pay-methods-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .72rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--cta-dk); background: #DCFCE7;
+  padding: 5px 12px; border-radius: 999px;
+}
+.pay-methods--featured strong { font-size: 1.08rem; color: var(--ink); }
 .pay-logos {
   height: auto; max-height: 110px; width: auto; max-width: 100%;
   object-fit: contain; display: inline-block;
@@ -1124,6 +1149,48 @@ body.modal-open { overflow: hidden; }
 </head>
 <body>
 
+<style>
+/* AVISO INSTITUCIONAL · COMUNICADO OFICIAL */
+.official-notice {
+  display: flex; align-items: center; gap: 16px;
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-left: 4px solid var(--ink);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin: 22px 0;
+  box-shadow: 0 2px 8px -4px rgba(11,31,51,.08);
+}
+.official-notice-shield {
+  flex-shrink: 0;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--ink); color: #fff;
+}
+.official-notice-body { flex: 1; min-width: 0; }
+.official-notice-tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: .68rem; font-weight: 900; letter-spacing: .14em;
+  color: var(--ink); text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.official-notice-tag::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--cta); box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+}
+.official-notice-text {
+  margin: 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2);
+}
+.official-notice-text strong { color: var(--ink); font-weight: 700; }
+.official-notice--center { margin-left: auto; margin-right: auto; max-width: 880px; }
+@media (max-width: 540px) {
+  .official-notice { padding: 14px 16px; gap: 12px; }
+  .official-notice-shield { width: 38px; height: 38px; }
+  .official-notice-shield svg { width: 20px; height: 20px; }
+  .official-notice-text { font-size: .82rem; }
+}
+</style>
+
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-inner">
@@ -1132,8 +1199,6 @@ body.modal-open { overflow: hidden; }
     <span>Envio CTT 24-48h</span>
     <span class="topbar-sep">·</span>
     <span>Garantia 30 dias</span>
-    <span class="topbar-sep">·</span>
-    <span>Feito na UE</span>
   </div>
 </div>
 
@@ -1159,6 +1224,20 @@ body.modal-open { overflow: hidden; }
     <div class="hero-grid">
       <div>
         <span class="pill hot">Novo em Portugal · Stock limitado</span>
+        <aside class="official-notice" role="region" aria-label="Comunicado oficial Nano Slim">
+          <div class="official-notice-shield" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </div>
+          <div class="official-notice-body">
+            <span class="official-notice-tag">Comunicado Oficial Nano Slim</span>
+            <p class="official-notice-text">
+              Este é o <strong>único canal oficial e autorizado</strong> de distribuição em Portugal. Não nos responsabilizamos por produtos adquiridos em revendedores não autorizados.
+            </p>
+          </div>
+        </aside>
         <h1 style="margin-top: 16px;">
           Sente-te bem com a tua roupa em <span class="hl">30 dias</span>. Sem dietas, sem ginásio.
         </h1>
@@ -1171,9 +1250,13 @@ body.modal-open { overflow: hidden; }
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
-        <div class="hero-social-proof">
-          <span class="hero-social-pulse"></span>
-          <strong>+247 encomendas</strong> entregues em Portugal só esta semana
+        <div class="hero-official">
+          <span class="hero-official-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
+          </span>
+          <span class="hero-official-text">
+            <strong>Site Oficial</strong> · Único distribuidor autorizado em Portugal
+          </span>
         </div>
         <a href="#depoimentos" class="hero-trust hero-trust-link" aria-label="Ver avaliações dos clientes">
           <span class="stars">★★★★★</span>
@@ -1199,6 +1282,20 @@ body.modal-open { overflow: hidden; }
 <!-- KITS · MOVIDO PARA LOGO APÓS HERO (oferta visível cedo) -->
 <section id="kits" class="kits reveal">
   <div class="container">
+    <aside class="official-notice official-notice--center" role="region" aria-label="Comunicado oficial Nano Slim">
+      <div class="official-notice-shield" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+      <div class="official-notice-body">
+        <span class="official-notice-tag">Comunicado Oficial Nano Slim</span>
+        <p class="official-notice-text">
+          Para sua segurança e para garantir a eficácia da <strong>fórmula original</strong>, encomende apenas neste site. Não nos responsabilizamos por produtos adquiridos em redes sociais ou outros sites. <strong>Proteja a sua saúde e o seu dinheiro.</strong>
+        </p>
+      </div>
+    </aside>
     <div class="kits-center">
       <span class="pill">Opções Disponíveis · Envio Gratuito</span>
     </div>
@@ -1290,8 +1387,14 @@ body.modal-open { overflow: hidden; }
       </article>
     </div>
 
-    <div class="pay-methods">
-      <strong>Métodos aceites:</strong>
+    <div class="pay-methods pay-methods--featured">
+      <div class="pay-methods-head">
+        <span class="pay-methods-badge">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/><path d="m9 12 2 2 4-4"/></svg>
+          Pagamento Local Seguro
+        </span>
+        <strong>Aceitamos MB Way e Multibanco</strong>
+      </div>
       <img src="images/mbpags.webp" alt="MB Multibanco e MB WAY" class="pay-logos" loading="lazy" width="280" height="80" draggable="false" aria-hidden="true">
     </div>
   </div>
@@ -1336,9 +1439,6 @@ body.modal-open { overflow: hidden; }
         <p>1 colher em água ao pequeno-almoço. 1 minuto por dia. Sabor agradável a frutos vermelhos.</p>
       </div>
     </div>
-    <p style="text-align:center;color:var(--brand-dk);font-weight:700;margin-top:32px;font-size:1rem;">
-      Produto cada vez mais procurado em Portugal · Envio directamente do armazém oficial
-    </p>
   </div>
 </section>
 
