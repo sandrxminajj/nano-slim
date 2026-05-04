@@ -1145,10 +1145,12 @@ body.modal-open { overflow: hidden; }
   background: #F4F9FF;
   border: 1px solid #D1E3F8;
   border-radius: 8px;
-  padding: 14px 16px;
+  padding: 16px 20px;
   margin: 18px auto;
   max-width: 720px;
   text-align: center;
+  hyphens: none; -webkit-hyphens: none;
+  word-break: normal; overflow-wrap: normal;
 }
 .official-notice-shield {
   flex-shrink: 0;
@@ -1162,13 +1164,21 @@ body.modal-open { overflow: hidden; }
   display: block;
   font-size: 14px; font-weight: 700;
   color: #1E3A8A; letter-spacing: .01em;
-  margin-bottom: 2px; line-height: 1.3;
+  margin-bottom: 4px; line-height: 1.3;
+  hyphens: none; -webkit-hyphens: none;
+  word-break: normal; overflow-wrap: normal;
 }
 .official-notice-text {
-  margin: 0; font-size: 12px; line-height: 1.5; color: #475569;
+  margin: 0; font-size: 13px; line-height: 1.55; color: #475569;
+  hyphens: none; -webkit-hyphens: none;
+  word-break: normal; overflow-wrap: normal;
 }
 .official-notice-text strong { color: #1E3A8A; font-weight: 700; }
 .official-notice--center { margin-left: auto; margin-right: auto; }
+@media (max-width: 480px) {
+  .official-notice { padding: 14px 14px; max-width: 100%; }
+  .official-notice-text { font-size: 12.5px; line-height: 1.5; }
+}
 </style>
 
 <!-- TOP BAR -->
@@ -1209,9 +1219,9 @@ body.modal-open { overflow: hidden; }
         </svg>
       </div>
       <div class="official-notice-body">
-        <span class="official-notice-tag">Comunicado Oficial Nano Slim</span>
+        <span class="official-notice-tag">Aviso Oficial</span>
         <p class="official-notice-text">
-          Único canal oficial e autorizado de distribuição em Portugal. Não nos responsabilizamos por produtos adquiridos em revendedores não autorizados ou <strong>falsificações</strong>.
+          Somos o <strong>único distribuidor autorizado em Portugal</strong>. A garantia de devolução não cobre produtos adquiridos com revendedores não autorizados. Garanta o seu Nano Slim original apenas por aqui.
         </p>
       </div>
     </aside>
