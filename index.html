@@ -336,41 +336,30 @@ section { padding: clamp(48px, 7vw, 96px) 0; }
   }
   .hero-grid > div:first-child { display: contents; }
   .hero-grid > div:first-child > * { width: 100%; }
-  /* Ordem mobile: +247 → foto → pill → headline → sub → CTA → 4,9/5 */
-  .hero-grid > div:first-child .hero-social-proof { order: 0; align-self: center; margin-top: 0; }
+  /* Ordem mobile: foto → pill → headline → sub → aviso oficial → CTA → 4,9/5 */
   .hero-img-wrap { order: 1; margin-bottom: 4px; margin-top: 4px; }
   .hero-grid > div:first-child .pill { order: 2; display: inline-block !important; align-self: center; margin-top: 4px; }
   .hero-grid > div:first-child h1 { order: 3; margin-top: 8px !important; }
   .hero-grid > div:first-child .hero-sub { order: 4; }
-  .hero-grid > div:first-child .hero-ctas { order: 5; }
-  .hero-grid > div:first-child .hero-trust { order: 6; margin-top: 8px; }
+  .hero-grid > div:first-child .official-notice { order: 5; }
+  .hero-grid > div:first-child .hero-ctas { order: 6; }
+  .hero-grid > div:first-child .hero-trust { order: 7; margin-top: 8px; }
 }
 .hero h1 .hl { background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .hero-sub { font-size: clamp(1.05rem, .5vw + .95rem, 1.3rem); color: var(--ink-2); margin-top: 20px; max-width: 560px; }
 @media (max-width: 920px) { .hero-sub { margin-inline: auto; } }
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
 @media (max-width: 920px) { .hero-ctas { justify-content: center; } }
-.hero-social-proof, .hero-official {
+.hero-social-proof {
   display: inline-flex; align-items: center; gap: 10px;
   margin-top: 14px;
-  padding: 9px 16px 9px 11px;
-  background: #fff;
-  border: 1px solid var(--brand-soft);
+  padding: 10px 16px;
+  background: #DCFCE7;
+  border: 1.5px solid #22C55E;
   border-radius: 999px;
-  font-size: .88rem; color: var(--ink-2); font-weight: 600;
+  font-size: .88rem; color: #14532D; font-weight: 600;
   line-height: 1.3;
-  box-shadow: 0 4px 14px -8px rgba(11,31,51,.12);
 }
-.hero-official strong { color: var(--ink); font-weight: 800; }
-.hero-official-text { color: var(--ink-2); }
-.hero-official-mark {
-  width: 22px; height: 22px; border-radius: 50%;
-  display: inline-grid; place-items: center;
-  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
-  color: #fff; flex-shrink: 0;
-  box-shadow: 0 2px 6px -2px rgba(30,136,229,.55);
-}
-@media (max-width: 920px) { .hero-official { margin-left: auto; margin-right: auto; } }
 .hero-social-proof strong { color: #166534; font-weight: 800; }
 .hero-social-pulse {
   width: 10px; height: 10px; border-radius: 50%;
@@ -1150,45 +1139,33 @@ body.modal-open { overflow: hidden; }
 <body>
 
 <style>
-/* AVISO INSTITUCIONAL · COMUNICADO OFICIAL */
+/* AVISO INSTITUCIONAL · COMUNICADO OFICIAL (alert banner clean) */
 .official-notice {
-  display: flex; align-items: center; gap: 16px;
-  background: #F8FAFC;
-  border: 1px solid #E2E8F0;
-  border-left: 4px solid var(--ink);
-  border-radius: 14px;
-  padding: 16px 20px;
-  margin: 22px 0;
-  box-shadow: 0 2px 8px -4px rgba(11,31,51,.08);
+  display: flex; align-items: flex-start; gap: 10px;
+  background: #F4F9FF;
+  border: 1px solid #D1E3F8;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 18px 0;
 }
 .official-notice-shield {
   flex-shrink: 0;
-  width: 44px; height: 44px; border-radius: 50%;
+  width: 26px; height: 26px; border-radius: 6px;
   display: grid; place-items: center;
-  background: var(--ink); color: #fff;
+  background: transparent; color: #1E3A8A;
 }
 .official-notice-body { flex: 1; min-width: 0; }
 .official-notice-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: .68rem; font-weight: 900; letter-spacing: .14em;
-  color: var(--ink); text-transform: uppercase;
-  margin-bottom: 4px;
-}
-.official-notice-tag::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--cta); box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+  display: block;
+  font-size: 13px; font-weight: 700;
+  color: #1E3A8A; letter-spacing: .01em;
+  margin-bottom: 2px; line-height: 1.3;
 }
 .official-notice-text {
-  margin: 0; font-size: .88rem; line-height: 1.55; color: var(--ink-2);
+  margin: 0; font-size: 12px; line-height: 1.5; color: #475569;
 }
-.official-notice-text strong { color: var(--ink); font-weight: 700; }
-.official-notice--center { margin-left: auto; margin-right: auto; max-width: 880px; }
-@media (max-width: 540px) {
-  .official-notice { padding: 14px 16px; gap: 12px; }
-  .official-notice-shield { width: 38px; height: 38px; }
-  .official-notice-shield svg { width: 20px; height: 20px; }
-  .official-notice-text { font-size: .82rem; }
-}
+.official-notice-text strong { color: #1E3A8A; font-weight: 700; }
+.official-notice--center { margin-left: auto; margin-right: auto; max-width: 720px; }
 </style>
 
 <!-- TOP BAR -->
@@ -1224,9 +1201,15 @@ body.modal-open { overflow: hidden; }
     <div class="hero-grid">
       <div>
         <span class="pill hot">Novo em Portugal · Stock limitado</span>
+        <h1 style="margin-top: 16px;">
+          Sente-te bem com a tua roupa em <span class="hl">30 dias</span>. Sem dietas, sem ginásio.
+        </h1>
+        <p class="hero-sub">
+          <strong>Nano Slim</strong> é o suplemento natural português que apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso. Uma colher em água ao pequeno-almoço. Mais nada. Sem dietas restritivas, sem rotinas complicadas.
+        </p>
         <aside class="official-notice" role="region" aria-label="Comunicado oficial Nano Slim">
           <div class="official-notice-shield" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2 4 5v6c0 5 3.5 9.3 8 11 4.5-1.7 8-6 8-11V5l-8-3z"/>
               <path d="m9 12 2 2 4-4"/>
             </svg>
@@ -1234,29 +1217,15 @@ body.modal-open { overflow: hidden; }
           <div class="official-notice-body">
             <span class="official-notice-tag">Comunicado Oficial Nano Slim</span>
             <p class="official-notice-text">
-              Este é o <strong>único canal oficial e autorizado</strong> de distribuição em Portugal. Não nos responsabilizamos por produtos adquiridos em revendedores não autorizados.
+              Único canal oficial e autorizado de distribuição em Portugal. Não nos responsabilizamos por produtos adquiridos em revendedores não autorizados.
             </p>
           </div>
         </aside>
-        <h1 style="margin-top: 16px;">
-          Sente-te bem com a tua roupa em <span class="hl">30 dias</span>. Sem dietas, sem ginásio.
-        </h1>
-        <p class="hero-sub">
-          <strong>Nano Slim</strong> é o suplemento natural português que apoia o <strong>controlo do apetite</strong>, reduz a vontade por doces e facilita a gestão do peso. Uma colher em água ao pequeno-almoço. Mais nada. Sem dietas restritivas, sem rotinas complicadas.
-        </p>
         <div class="hero-ctas">
           <button class="btn btn-cta btn-lg btn-pulse" onclick="scrollToKits()">
             Quero experimentar
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-        </div>
-        <div class="hero-official">
-          <span class="hero-official-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5L20 7"/></svg>
-          </span>
-          <span class="hero-official-text">
-            <strong>Site Oficial</strong> · Único distribuidor autorizado em Portugal
-          </span>
         </div>
         <a href="#depoimentos" class="hero-trust hero-trust-link" aria-label="Ver avaliações dos clientes">
           <span class="stars">★★★★★</span>
