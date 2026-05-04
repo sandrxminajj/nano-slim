@@ -94,5 +94,51 @@ module.exports = {
       legalLine: "Suplemento alimentar · Não substitui uma alimentação variada e equilibrada",
       copyright: "© {{year}} {{brandName}} · Todos os direitos reservados"
     }
+  },
+
+  // ─── EMAIL 2 · LEMBRETE PAGAMENTO MULTIBANCO (~20h depois) ─────
+  paymentReminder1: {
+    subject: "Lembrete · {{firstName}}, falta pagar a tua encomenda Nano Slim",
+    preheader: "A tua referência Multibanco {{mbRef}} ainda está pendente. Faltam {{hoursLeft}}h para expirar.",
+    greeting: "Olá {{firstName}}! 👋",
+    headline: "Lembrete amigável",
+    subheadline: "Notámos que a tua encomenda Nano Slim ainda não foi paga. Aqui estão os dados outra vez, para o caso de te ter passado:",
+    badgeText: "Pagamento ainda pendente",
+    multibancoBox: {
+      title: "Paga em 1 minuto · Multibanco",
+      body: "Abre a tua app do banco ou homebanking e paga referência. A tua encomenda começa a ser preparada assim que confirmar.",
+      validityNote: "Restam aproximadamente {{hoursLeft}}h antes da referência expirar."
+    },
+    helpBox: {
+      title: "Não consegues pagar agora?",
+      body: "Se preferires <strong>MB Way</strong> (instantâneo), responde a este email com a palavra <strong>MBWAY</strong> e geramos uma nova referência em 1 minuto. Sem custos, sem pressa."
+    },
+    support: {
+      label: "Mudaste de ideias?",
+      body: "Tudo bem. Responde a este email a dizer e ficamos por aqui. <a href=\"mailto:{{supportEmail}}\" style=\"color:#1E88E5;font-weight:600;\">{{supportEmail}}</a>"
+    }
+  },
+
+  // ─── EMAIL 3 · ÚLTIMA CHAMADA (~44h depois, antes de expirar) ──
+  paymentReminder2: {
+    subject: "⏰ Última chamada · A tua referência expira em poucas horas",
+    preheader: "A tua encomenda Nano Slim {{productName}} expira hoje. Não percas a promoção.",
+    greeting: "Olá {{firstName}}! 👋",
+    headline: "Última chamada",
+    subheadline: "A tua referência Multibanco expira em poucas horas. Se ainda queres receber o teu Nano Slim com envio grátis, paga agora:",
+    badgeText: "Expira em breve",
+    multibancoBox: {
+      title: "Pagar agora · Antes de expirar",
+      body: "A tua encomenda fica garantida assim que pagares. Expedimos no próprio dia se pagares até às 16h.",
+      validityNote: "Após este prazo, terás de fazer nova encomenda (e perdes esta promoção de lançamento)."
+    },
+    helpBox: {
+      title: "Mais fácil com MB Way?",
+      body: "Responde <strong>MBWAY</strong> a este email e geramos referência instantânea no teu telemóvel. Pagamento em 30 segundos."
+    },
+    support: {
+      label: "Dúvidas?",
+      body: "<a href=\"mailto:{{supportEmail}}\" style=\"color:#1E88E5;font-weight:600;\">{{supportEmail}}</a> · respondemos em minutos."
+    }
   }
 };
