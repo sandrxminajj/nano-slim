@@ -1175,7 +1175,17 @@ body.modal-open { overflow: hidden; }
   word-break: normal; overflow-wrap: normal;
 }
 .official-notice-text strong { color: #0F1F2E; font-weight: 800; }
-.official-notice-highlight { display: none; }
+.official-notice-highlight {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #DBEAFE;
+  font-size: 12.5px;
+  color: #64748B;
+}
+.official-notice-highlight strong { color: #1E88E5; font-weight: 700; }
+@media (max-width: 540px) {
+  .official-notice-highlight { font-size: 11.5px; }
+}
 .official-notice--center { margin-left: auto; margin-right: auto; }
 @media (max-width: 540px) {
   .official-notice { padding: 20px 18px 18px; max-width: 100%; gap: 10px; }
@@ -1225,9 +1235,12 @@ body.modal-open { overflow: hidden; }
         </svg>
       </div>
       <div class="official-notice-body">
-        <span class="official-notice-tag">Site Oficial · Único em Portugal</span>
+        <span class="official-notice-tag">Único Site Oficial</span>
         <p class="official-notice-text">
-          Este é o <strong>único site autorizado</strong> a vender Nano Slim em Portugal. <strong>Garantia de 30 dias, apoio ao cliente e produto original são exclusivos daqui</strong> — sites de terceiros e revendedores não autorizados podem vender cópias sem qualidade nem garantia.
+          Este é o <strong>único site autorizado</strong> a vender Nano Slim em Portugal. Garantia de 30 dias, apoio ao cliente e produto original <strong>só aqui</strong>.
+        </p>
+        <p class="official-notice-text official-notice-highlight">
+          Cuidado com sites de terceiros e revendedores não autorizados. Podem vender cópias sem qualidade nem garantia.
         </p>
       </div>
     </aside>
