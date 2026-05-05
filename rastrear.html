@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Rastrear Encomenda · Nano Slim Portugal</title>
+<meta name="description" content="Acompanha o estado da tua encomenda Nano Slim em tempo real. Insere o teu código de rastreio para veres onde está o teu pedido.">
+<meta name="theme-color" content="#2BB3E8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" type="image/png" href="images/favicon.png">
+<link rel="apple-touch-icon" href="images/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+<style>
+:root {
+  --brand: #2BB3E8;
+  --brand-dk: #1E88E5;
+  --brand-soft: #E3F6FD;
+  --cta: #22C55E;
+  --cta-dk: #16A34A;
+  --ink: #0B1F33;
+  --ink-2: #334155;
+  --mute: #64748B;
+  --line: #E2E8F0;
+  --bg: #FFFFFF;
+  --bg-alt: #F8FAFC;
+  --shadow: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px -10px rgba(15,23,42,.12);
+  --shadow-lg: 0 20px 40px -12px rgba(15,23,42,.18);
+  --r-md: 14px;
+  --r-lg: 22px;
+  --maxw: 1160px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; text-size-adjust: 100%; }
+html, body { max-width: 100vw; overflow-x: hidden; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--ink); background: var(--bg-alt); line-height: 1.55; font-size: 16px;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh; display: flex; flex-direction: column;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+h1, h2 { font-weight: 900; letter-spacing: -.02em; line-height: 1.1; color: var(--ink); }
+h1 { font-size: clamp(1.7rem, 3vw + 1rem, 2.4rem); }
+h2 { font-size: clamp(1.3rem, 1.8vw + .6rem, 1.6rem); }
+.container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
+
+/* TOPBAR */
+.topbar { background: var(--ink); color: #fff; font-size: .8rem; padding: 10px 12px; text-align: center; }
+.topbar-inner { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 18px; max-width: var(--maxw); margin-inline: auto; font-weight: 600; }
+.topbar-sep { opacity: .35; }
+@media (max-width: 580px) { .topbar-sep { display: none; } .topbar { font-size: .72rem; } }
+
+/* HEADER */
+.header { background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%); border-bottom: 1px solid rgba(255,255,255,.15); box-shadow: 0 2px 12px rgba(30,136,229,.18); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 20px; max-width: var(--maxw); margin-inline: auto; gap: 12px; }
+.brand { display: flex; align-items: center; font-weight: 900; font-size: 1.25rem; color: #fff; letter-spacing: -.01em; text-shadow: 0 1px 2px rgba(0,0,0,.1); text-decoration: none; }
+.nav-links { display: flex; gap: 22px; font-size: .92rem; font-weight: 700; color: #fff; }
+.nav-links a { color: #fff; text-decoration: none; transition: opacity .15s; opacity: .92; }
+.nav-links a:hover { opacity: 1; color: #FEF3C7; }
+.nav-links a.active { color: #FEF3C7; opacity: 1; }
+@media (max-width: 720px) { .nav-links { gap: 14px; font-size: .82rem; } .nav-links a:not(.active) { display: none; } }
+
+/* MAIN */
+main { flex: 1; padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 6vw, 80px); }
+
+.hero-track {
+  text-align: center; margin-bottom: 28px;
+}
+.hero-track .pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; background: var(--brand-soft); color: var(--brand-dk);
+  margin-bottom: 16px;
+}
+.hero-track h1 {
+  margin-bottom: 12px;
+}
+.hero-track h1 .hl {
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-track p {
+  font-size: 1.05rem; color: var(--ink-2); max-width: 620px; margin: 0 auto;
+}
+
+/* IFRAME WRAPPER */
+.tracker-card {
+  background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
+  padding: 18px; margin: 24px auto 0; max-width: 920px;
+  border: 1px solid var(--line);
+}
+.tracker-iframe {
+  width: 100%; height: 620px; border: none; border-radius: var(--r-md);
+  display: block; background: var(--bg-alt);
+}
+@media (max-width: 600px) {
+  .tracker-card { padding: 10px; border-radius: var(--r-md); }
+  .tracker-iframe { height: 560px; }
+}
+
+/* INFO CARDS abaixo do iframe */
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; max-width: 920px; margin-inline: auto; }
+@media (max-width: 760px) { .info-grid { grid-template-columns: 1fr; } }
+.info-card {
+  background: #fff; border-radius: var(--r-md); padding: 22px 20px;
+  border: 1px solid var(--line); box-shadow: var(--shadow);
+  text-align: left;
+}
+.info-card-icon {
+  width: 42px; height: 42px; border-radius: 10px;
+  background: var(--brand-soft); color: var(--brand-dk);
+  display: grid; place-items: center; margin-bottom: 12px;
+}
+.info-card h3 {
+  font-size: 1rem; font-weight: 800; margin-bottom: 6px; color: var(--ink);
+}
+.info-card p {
+  font-size: .9rem; color: var(--ink-2); line-height: 1.55; margin: 0;
+}
+
+/* HELP BOX */
+.help-box {
+  margin-top: 32px; padding: 22px 24px; background: #FEF3C7;
+  border: 1px solid #FCD34D; border-radius: var(--r-md);
+  max-width: 920px; margin-inline: auto;
+}
+.help-box h3 {
+  font-size: 1rem; font-weight: 800; color: #78350F; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.help-box p { font-size: .92rem; color: #78350F; line-height: 1.6; margin-bottom: 6px; }
+.help-box a { color: #78350F; font-weight: 700; }
+
+/* FOOTER */
+.footer { background: #0A1624; color: #94A3B8; font-size: .85rem; padding: 30px 20px 20px; margin-top: auto; }
+.footer-inner { max-width: 920px; margin-inline: auto; text-align: center; }
+.footer-links {
+  padding: 14px 0; border-top: 1px solid #1E293B; border-bottom: 1px solid #1E293B;
+  margin: 14px auto; display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 8px 14px; font-size: .82rem;
+}
+.footer-links a { color: #E2E8F0; text-decoration: none; padding: 4px; }
+.footer-links a:hover { color: #60A5FA; text-decoration: underline; }
+.footer-links span { color: #475569; }
+.footer-copy { font-size: .72rem; color: #475569; padding-top: 10px; }
+@media (max-width: 640px) { .footer-links span { display: none; } }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><strong style="color:#fff;">SITE OFICIAL</strong></span>
+    <span class="topbar-sep">·</span>
+    <span>Envio CTT 24-48h</span>
+    <span class="topbar-sep">·</span>
+    <span>Garantia 30 dias</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="brand" aria-label="Nano Slim, voltar à página inicial">
+      <span>Nano Slim</span>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Início</a>
+      <a href="/#kits">Ofertas</a>
+      <a href="/rastrear" class="active">Rastrear</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="container">
+    <div class="hero-track">
+      <span class="pill">📦 Acompanhamento de encomenda</span>
+      <h1>Rastreia a tua <span class="hl">encomenda</span></h1>
+      <p>Insere o código de rastreio que recebeste por email para veres o estado da tua encomenda em tempo real.</p>
+    </div>
+
+    <!-- IFRAME -->
+    <div class="tracker-card">
+      <iframe
+        class="tracker-iframe"
+        src="https://fastntrack.lovable.app/embed/track"
+        title="Página de rastreio Nano Slim"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="clipboard-write"></iframe>
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="11" rx="1"/><path d="M16 10h4l3 3v4h-7v-7z"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
+        </div>
+        <h3>Envio CTT</h3>
+        <p>Todas as encomendas são expedidas pelos CTT em 24-48h úteis para Portugal continental.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        </div>
+        <h3>Notificação SMS</h3>
+        <p>Receberás um SMS com o código CTT no momento em que a tua encomenda sair do armazém.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <h3>Atualizações em tempo real</h3>
+        <p>O sistema atualiza automaticamente o estado da tua encomenda à medida que avança nos CTT.</p>
+      </div>
+    </div>
+
+    <!-- HELP BOX -->
+    <div class="help-box">
+      <h3>⚠️ Ainda não recebeste o código?</h3>
+      <p>O código de rastreio é enviado por email <strong>após a expedição</strong> da encomenda (24-48h úteis após a confirmação do pagamento). Se já passaram 3 dias úteis e ainda não recebeste, contacta-nos:</p>
+      <p>📧 <a href="mailto:apoio@nanoslimoficial.com">apoio@nanoslimoficial.com</a> — respondemos em 24h úteis</p>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <p style="margin-bottom:6px;">Precisas de ajuda? <a href="mailto:apoio@nanoslimoficial.com" style="color:#60A5FA;text-decoration:underline;">apoio@nanoslimoficial.com</a></p>
+
+    <nav class="footer-links" aria-label="Links">
+      <a href="/">Início</a>
+      <span>·</span>
+      <a href="/#kits">Ofertas</a>
+      <span>·</span>
+      <a href="/rastrear">Rastrear Encomenda</a>
+      <span>·</span>
+      <a href="/#faq">FAQ</a>
+      <span>·</span>
+      <a href="https://www.livroreclamacoes.pt/Inicio/" target="_blank" rel="noopener nofollow">Livro de Reclamações</a>
+    </nav>
+
+    <div class="footer-copy">© 2026 Nano Slim · Portugal · Todos os direitos reservados</div>
+  </div>
+</footer>
+
+</body>
+</html>

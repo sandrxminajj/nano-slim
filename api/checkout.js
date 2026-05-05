@@ -6,9 +6,9 @@ const WAYMB_BASE    = "https://api.waymb.com";
 // Email helper (Resend) — load lazy
 const { sendOrderConfirmation } = require("./_email.js");
 // Tracking (Track n' Fast) — DESATIVADO automático.
-// Eliezer vai criar manualmente no painel quando expedir pelos CTT
-// (poupa créditos e não cria rastreio pra pedidos não pagos).
-// Pra reativar, descomentar e voltar a chamar createTrackingOrder().
+// Eliezer importa pedidos manualmente no painel Track n' Fast e depois
+// envia os códigos de rastreio aos clientes via página admin /admin/rastreio.
+// Pra reativar auto-criação, descomentar e voltar a chamar createTrackingOrder().
 // const { createTrackingOrder } = require("./_tracking.js");
 // CALLBACK_URL auto-detectado pelo Vercel (VERCEL_URL = URL do deploy atual).
 // Pra usar domínio custom como callback, definir env var CALLBACK_URL no Vercel dashboard.

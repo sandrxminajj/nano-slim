@@ -73,7 +73,7 @@ module.exports = {
       title: "Acompanha a tua encomenda",
       body: "Usa o código abaixo na nossa página de rastreio para veres o estado em tempo real:",
       buttonLabel: "Acompanhar encomenda",
-      trackingPageUrl: "https://fastntrack.lovable.app/embed/track"
+      trackingPageUrl: "https://nanoslimoficial.com/rastrear"
     },
 
     // Garantia (caixa verde)
