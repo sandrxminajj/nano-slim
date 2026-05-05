@@ -1138,52 +1138,51 @@ body.modal-open { overflow: hidden; }
 <body>
 
 <style>
-/* AVISO OFICIAL · clean warning amber card */
+/* AVISO OFICIAL · clean centered card brand-blue */
 .official-notice {
-  display: flex; align-items: flex-start; gap: 14px;
-  background: #FFFBEB;
-  border: 1.5px solid #F59E0B;
-  border-left: 5px solid #F59E0B;
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin: 20px auto;
-  max-width: 720px;
-  box-shadow: 0 4px 14px -8px rgba(245,158,11,.35);
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  gap: 12px;
+  max-width: 640px; margin: 24px auto;
+  padding: 24px 28px 22px;
+  background: #FFFFFF;
+  border: 1px solid #DBEAFE;
+  border-top: 4px solid #1E88E5;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -15px rgba(30,136,229,.25), 0 1px 0 rgba(255,255,255,.6) inset;
   hyphens: none; -webkit-hyphens: none;
   word-break: normal; overflow-wrap: normal;
 }
 .official-notice-shield {
   flex-shrink: 0;
-  width: 36px; height: 36px; border-radius: 10px;
+  width: 46px; height: 46px; border-radius: 50%;
   display: grid; place-items: center;
-  background: #F59E0B;
+  background: linear-gradient(135deg, #2BB3E8 0%, #1E88E5 100%);
   color: #fff;
-  box-shadow: 0 4px 10px -2px rgba(245,158,11,.45);
+  box-shadow: 0 8px 18px -6px rgba(30,136,229,.5), inset 0 1px 0 rgba(255,255,255,.3);
 }
-.official-notice-shield svg { width: 20px; height: 20px; }
-.official-notice-body { flex: 1; min-width: 0; }
+.official-notice-shield svg { width: 22px; height: 22px; }
+.official-notice-body { width: 100%; max-width: 520px; }
 .official-notice-tag {
   display: block;
-  font-size: 12.5px; font-weight: 900; letter-spacing: .5px;
-  color: #92400E; text-transform: uppercase;
-  margin-bottom: 6px; line-height: 1.2;
+  font-size: 11.5px; font-weight: 900; letter-spacing: 1.6px;
+  color: #1E88E5; text-transform: uppercase;
+  margin-bottom: 10px; line-height: 1.2;
 }
 .official-notice-text {
-  margin: 0; font-size: 13.5px; line-height: 1.55; color: #78350F;
+  margin: 0; font-size: 14px; line-height: 1.6; color: #334155;
   hyphens: none; -webkit-hyphens: none;
   word-break: normal; overflow-wrap: normal;
 }
-.official-notice-text strong { color: #92400E; font-weight: 800; }
-.official-notice-highlight {
-  display: none;
-}
+.official-notice-text strong { color: #0F1F2E; font-weight: 800; }
+.official-notice-highlight { display: none; }
 .official-notice--center { margin-left: auto; margin-right: auto; }
 @media (max-width: 540px) {
-  .official-notice { padding: 14px 16px; gap: 12px; max-width: 100%; }
-  .official-notice-shield { width: 32px; height: 32px; }
-  .official-notice-shield svg { width: 18px; height: 18px; }
-  .official-notice-tag { font-size: 11.5px; }
-  .official-notice-text { font-size: 12.5px; line-height: 1.5; }
+  .official-notice { padding: 20px 18px 18px; max-width: 100%; gap: 10px; }
+  .official-notice-shield { width: 42px; height: 42px; }
+  .official-notice-shield svg { width: 20px; height: 20px; }
+  .official-notice-tag { font-size: 11px; letter-spacing: 1.3px; }
+  .official-notice-text { font-size: 13px; line-height: 1.55; }
 }
 </style>
 
@@ -1226,12 +1225,9 @@ body.modal-open { overflow: hidden; }
         </svg>
       </div>
       <div class="official-notice-body">
-        <span class="official-notice-tag">Aviso Importante</span>
+        <span class="official-notice-tag">Site Oficial · Portugal</span>
         <p class="official-notice-text">
-          Somos o <strong>único distribuidor autorizado de Nano Slim em Portugal</strong>. A garantia de 30 dias e o apoio ao cliente só são válidos para encomendas feitas neste site oficial.
-        </p>
-        <p class="official-notice-text official-notice-highlight">
-          Produtos comprados a revendedores não autorizados ou em sites externos podem ser falsificações ou cópias, sem garantia de qualidade nem de origem. Encomenda o teu Nano Slim original apenas aqui.
+          Somos o <strong>único distribuidor autorizado de Nano Slim em Portugal</strong>. A garantia de 30 dias e o apoio ao cliente são exclusivos deste site oficial.
         </p>
       </div>
     </aside>
