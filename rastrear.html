@@ -38,6 +38,7 @@
   --maxw: 1160px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
 html { scroll-behavior: smooth; text-size-adjust: 100%; }
 html, body { max-width: 100vw; overflow-x: hidden; }
 body {
@@ -301,7 +302,6 @@ main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
   width: 18px; height: 18px; border-radius: 50%;
   border: 2.5px solid rgba(255,255,255,.4); border-top-color: #fff;
   animation: spin 0.7s linear infinite;
-  display: inline-block;
 }
 .track-btn.is-loading .track-btn-arrow,
 .track-btn.is-loading .track-btn-label { display: none; }
@@ -444,6 +444,9 @@ main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
   display: flex; align-items: flex-start; gap: 14px;
   animation: fadeUp .3s ease-out;
 }
+/* Garante que [hidden] esconde mesmo com display:flex/grid acima */
+.track-error[hidden],
+.track-result[hidden] { display: none !important; }
 .track-error-icon {
   flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
   background: #DC2626; color: #fff;
