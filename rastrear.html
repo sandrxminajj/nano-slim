@@ -861,6 +861,8 @@ main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
       }
       var data = await resp.json();
       console.log('[tracking response]', data);
+      console.log('[tracking response · JSON]', JSON.stringify(data, null, 2));
+      window.__lastTrackingResponse = data; // pra debug: type __lastTrackingResponse no console
       renderResult(code, data);
     } catch (err) {
       renderError(err.message || 'Erro ao consultar o código.');
@@ -876,12 +878,18 @@ main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
   }
 
   function normalizeStatus(raw) {
-    var s = String(raw || '').toLowerCase();
-    if (/deliver|entreg|complet|conclu|recebid/.test(s)) return 'delivered';
-    if (/transit|distribu|out_for|saiu|trânsit|transito/.test(s)) return 'in_transit';
-    if (/ship|expedid|enviad|process|preparand/.test(s)) return 'shipped';
-    if (/confirm|paid|pending|created|aguard|pago/.test(s)) return 'confirmed';
-    return 'confirmed'; // default
+    var s = String(raw || '').toLowerCase().replace(/[_\-\s]+/g, '_');
+    // Entregue / completed
+    if (/deliver|entreg|complet|conclu|recebid|received/.test(s)) return 'delivered';
+    // Em trânsito / em distribuição / saiu pra entrega
+    if (/transit|in_route|out_for|distribu|saiu|on_the_way|in_delivery/.test(s)) return 'in_transit';
+    // Enviado / expedido / saída do armazém
+    if (/ship|expedid|enviad|dispatched|sent|posted/.test(s)) return 'shipped';
+    // Em processamento / preparando — também "shipped" pra avançar timeline
+    if (/process|preparand|preparing|warehouse|armazém/.test(s)) return 'shipped';
+    // Confirmado / pago / aguardando
+    if (/confirm|paid|pending|created|aguard|pago|new|received_payment/.test(s)) return 'confirmed';
+    return 'confirmed'; // default fallback
   }
   function statusEyebrow(s) {
     return ({
@@ -940,29 +948,47 @@ main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
   }
 
   function renderResult(code, data) {
-    // Tenta encontrar campos comuns em várias estruturas possíveis
-    var rawStatus = data.status || data.tracking_status || data.current_status || data.state || (data.data && data.data.status) || '';
-    var status = normalizeStatus(rawStatus);
-    var activeIdx = activeStageIndex(status);
-    var trackingCode = data.tracking_code || data.code || code;
+    // A API devolve { success: true, tracking: {...} } — extrair o objeto correto
+    var t = data.tracking || data.data || data;
+    var rawStatus    = t.status || t.tracking_status || t.current_status || t.state || '';
+    var status       = normalizeStatus(rawStatus);
+    var activeIdx    = activeStageIndex(status);
+    var trackingCode = t.tracking_code || t.code || code;
+    var orderId      = t.order_id || t.orderId || '';
+    var customerName = t.customer_name || t.customerName || '';
+    var createdAt    = t.created_at || t.createdAt || '';
+    var updatedAt    = t.updated_at || t.updatedAt || '';
+    var shippingAddr = t.shipping_address || t.shippingAddress || {};
+    var customCity   = shippingAddr.city || '';
 
-    // Eventos / histórico — vários nomes possíveis
-    var events = data.events || data.history || data.timeline || data.tracking_events ||
-                 (data.data && (data.data.events || data.data.history)) || [];
+    // Eventos / histórico — pode não existir; constrói sintético com timestamps
+    var events = t.events || t.history || t.timeline || t.tracking_events || [];
     if (!Array.isArray(events)) events = [];
+    if (events.length === 0) {
+      // Fallback: usa created_at + updated_at como histórico mínimo
+      if (createdAt) events.push({ timestamp: createdAt, description: 'Encomenda registada no sistema' });
+      if (updatedAt && updatedAt !== createdAt) {
+        events.push({ timestamp: updatedAt, description: 'Estado actualizado: ' + (rawStatus || statusLabel(status)) });
+      }
+    }
+
+    var firstName = (customerName || '').split(' ')[0] || '';
+    var greeting = firstName ? 'Olá ' + escape(firstName) + '! 👋' : '';
 
     var statusBlock = ''
+      + (greeting ? '<div style="text-align:center;margin-bottom:14px;font-size:14px;color:var(--ink-2);font-weight:600;">' + greeting + '</div>' : '')
       + '<div class="result-status-card ' + statusClass(status) + '">'
       +   '<div class="result-status-icon">' + statusIconSvg(status) + '</div>'
       +   '<div class="result-status-text">'
       +     '<div class="result-status-eyebrow">' + escape(statusEyebrow(status)) + '</div>'
       +     '<div class="result-status-label">' + escape(statusLabel(status)) + '</div>'
+      +     (customCity ? '<div style="margin-top:4px;font-size:12.5px;color:var(--ink-2);font-weight:600;">📍 Destino: ' + escape(customCity) + '</div>' : '')
       +   '</div>'
       + '</div>';
 
     var codeBlock = ''
       + '<div class="result-code">'
-      +   '<span class="result-code-lbl">📦 Código de rastreio</span>'
+      +   '<span class="result-code-lbl">📦 Código de rastreio' + (orderId ? ' · Encomenda ' + escape(orderId) : '') + '</span>'
       +   '<strong class="result-code-val">' + escape(trackingCode) + '</strong>'
       + '</div>';
 
