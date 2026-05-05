@@ -18,9 +18,11 @@
 :root {
   --brand: #2BB3E8;
   --brand-dk: #1E88E5;
+  --brand-darker: #1565C0;
   --brand-soft: #E3F6FD;
   --cta: #22C55E;
   --cta-dk: #16A34A;
+  --gold: #F59E0B;
   --ink: #0B1F33;
   --ink-2: #334155;
   --mute: #64748B;
@@ -29,8 +31,10 @@
   --bg-alt: #F8FAFC;
   --shadow: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px -10px rgba(15,23,42,.12);
   --shadow-lg: 0 20px 40px -12px rgba(15,23,42,.18);
+  --shadow-brand: 0 30px 60px -20px rgba(30,136,229,.45), 0 10px 30px -10px rgba(30,136,229,.25);
   --r-md: 14px;
   --r-lg: 22px;
+  --r-xl: 28px;
   --maxw: 1160px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -45,9 +49,10 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
-h1, h2 { font-weight: 900; letter-spacing: -.02em; line-height: 1.1; color: var(--ink); }
-h1 { font-size: clamp(1.7rem, 3vw + 1rem, 2.4rem); }
-h2 { font-size: clamp(1.3rem, 1.8vw + .6rem, 1.6rem); }
+h1, h2, h3 { font-weight: 900; letter-spacing: -.02em; line-height: 1.1; color: var(--ink); }
+h1 { font-size: clamp(2rem, 4vw + .8rem, 3.2rem); }
+h2 { font-size: clamp(1.4rem, 2vw + .8rem, 1.9rem); }
+h3 { font-size: clamp(1rem, .6vw + .9rem, 1.15rem); }
 .container { max-width: var(--maxw); margin-inline: auto; padding-inline: 20px; }
 
 /* TOPBAR */
@@ -63,78 +68,288 @@ h2 { font-size: clamp(1.3rem, 1.8vw + .6rem, 1.6rem); }
 .nav-links { display: flex; gap: 22px; font-size: .92rem; font-weight: 700; color: #fff; }
 .nav-links a { color: #fff; text-decoration: none; transition: opacity .15s; opacity: .92; }
 .nav-links a:hover { opacity: 1; color: #FEF3C7; }
-.nav-links a.active { color: #FEF3C7; opacity: 1; }
+.nav-links a.active { color: #FEF3C7; opacity: 1; position: relative; }
+.nav-links a.active::after {
+  content: ''; position: absolute; left: 0; right: 0; bottom: -6px;
+  height: 2px; background: #FEF3C7; border-radius: 2px;
+}
 @media (max-width: 720px) { .nav-links { gap: 14px; font-size: .82rem; } .nav-links a:not(.active) { display: none; } }
 
 /* MAIN */
-main { flex: 1; padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 6vw, 80px); }
+main { flex: 1; padding-bottom: clamp(50px, 6vw, 90px); }
 
+/* HERO · backdrop com decoração */
 .hero-track {
-  text-align: center; margin-bottom: 28px;
+  position: relative; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(43,179,232,.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 30% 50%, rgba(34,197,94,.08) 0%, transparent 50%),
+    var(--bg-alt);
+  padding: clamp(40px, 5vw, 70px) 0 clamp(50px, 6vw, 80px);
+  text-align: center;
+  border-bottom: 1px solid var(--line);
 }
-.hero-track .pill {
-  display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
-  font-size: 13px; font-weight: 700; background: var(--brand-soft); color: var(--brand-dk);
-  margin-bottom: 16px;
+.hero-track::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--cta) 50%, var(--brand) 100%);
 }
+
+/* Pill com truck icon animado */
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 8px 18px; border-radius: 999px;
+  background: #fff; border: 1.5px solid var(--brand-soft);
+  box-shadow: 0 4px 12px -4px rgba(30,136,229,.15);
+  font-size: 13px; font-weight: 800; color: var(--brand-dk);
+  letter-spacing: .3px; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.hero-pill svg { width: 18px; height: 18px; }
+.hero-pill-pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cta);
+  position: relative; flex-shrink: 0;
+}
+.hero-pill-pulse::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--cta);
+  animation: pulseDot 2s ease-out infinite;
+}
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: .8; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
 .hero-track h1 {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  background: linear-gradient(135deg, var(--ink) 0%, var(--ink-2) 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .hero-track h1 .hl {
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.hero-track p {
-  font-size: 1.05rem; color: var(--ink-2); max-width: 620px; margin: 0 auto;
+.hero-track-sub {
+  font-size: clamp(1rem, .4vw + .95rem, 1.18rem);
+  color: var(--ink-2); max-width: 620px; margin: 0 auto 26px;
+  line-height: 1.6;
 }
 
-/* IFRAME WRAPPER */
+/* Trust strip abaixo do título */
+.trust-strip {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 10px 22px; margin-top: 18px;
+  font-size: 13px; color: var(--mute); font-weight: 600;
+}
+.trust-strip-item {
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.trust-strip-item svg { width: 16px; height: 16px; color: var(--cta); flex-shrink: 0; }
+.trust-strip-sep { color: var(--line); }
+@media (max-width: 540px) { .trust-strip-sep { display: none; } }
+
+/* TIMELINE · 4 fases de CTT */
+.ctt-timeline {
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  max-width: 920px;
+  padding: 0 8px;
+}
+.ctt-timeline-title {
+  text-align: center;
+  font-size: 11px; font-weight: 900; color: var(--mute);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.ctt-stages {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 8px; position: relative;
+}
+.ctt-stage {
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  position: relative;
+  padding: 0 6px;
+}
+.ctt-stage:not(:last-child)::after {
+  content: ''; position: absolute; top: 22px; left: calc(50% + 26px); right: calc(-50% + 26px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-soft) 100%);
+  z-index: 0;
+}
+.ctt-stage-num {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
+  color: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 14px -4px rgba(30,136,229,.45), inset 0 1px 0 rgba(255,255,255,.25);
+  position: relative; z-index: 1;
+}
+.ctt-stage-num svg { width: 20px; height: 20px; }
+.ctt-stage-label {
+  font-size: 12px; font-weight: 800; color: var(--ink); text-align: center;
+  line-height: 1.3;
+}
+.ctt-stage-time {
+  font-size: 10.5px; color: var(--mute); font-weight: 600; text-align: center;
+}
+@media (max-width: 580px) {
+  .ctt-stages { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .ctt-stage:not(:last-child)::after { display: none; }
+  .ctt-stage-num { width: 40px; height: 40px; }
+}
+
+/* SECTION · IFRAME WRAPPER (premium) */
+.tracker-section {
+  padding-top: clamp(40px, 5vw, 60px);
+}
+
+.tracker-wrap {
+  max-width: 940px; margin: 0 auto; position: relative;
+}
+.tracker-wrap::before {
+  content: ''; position: absolute; inset: -2px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--cta) 50%, var(--brand-dk) 100%);
+  border-radius: calc(var(--r-xl) + 2px);
+  z-index: 0; opacity: .25;
+  filter: blur(20px);
+}
 .tracker-card {
-  background: #fff; border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
-  padding: 18px; margin: 24px auto 0; max-width: 920px;
+  position: relative;
+  background: #fff;
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-brand);
+  overflow: hidden;
   border: 1px solid var(--line);
 }
+
+.tracker-card-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, var(--brand) 0%, var(--brand-dk) 100%);
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.tracker-card-head-title {
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 800; font-size: 15px; letter-spacing: -.01em;
+}
+.tracker-card-head-icon {
+  width: 32px; height: 32px; border-radius: 8px;
+  background: rgba(255,255,255,.18);
+  display: grid; place-items: center;
+}
+.tracker-card-head-icon svg { width: 18px; height: 18px; }
+.tracker-card-head-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 800; letter-spacing: .4px;
+  padding: 5px 11px; border-radius: 999px;
+  background: rgba(34,197,94,.25);
+  color: #fff; border: 1px solid rgba(34,197,94,.5);
+}
+.tracker-card-head-status::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 6px #4ADE80;
+}
+
 .tracker-iframe {
-  width: 100%; height: 620px; border: none; border-radius: var(--r-md);
+  width: 100%; height: 660px; border: none;
   display: block; background: var(--bg-alt);
 }
 @media (max-width: 600px) {
-  .tracker-card { padding: 10px; border-radius: var(--r-md); }
-  .tracker-iframe { height: 560px; }
+  .tracker-card-head { padding: 14px 18px; }
+  .tracker-card-head-title { font-size: 13.5px; }
+  .tracker-iframe { height: 620px; }
 }
 
 /* INFO CARDS abaixo do iframe */
-.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; max-width: 920px; margin-inline: auto; }
-@media (max-width: 760px) { .info-grid { grid-template-columns: 1fr; } }
+.info-section { padding-top: clamp(40px, 5vw, 64px); }
+.info-section-eyebrow {
+  text-align: center;
+  font-size: 11px; font-weight: 900; color: var(--brand-dk);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.info-section h2 { text-align: center; margin-bottom: clamp(24px, 3vw, 38px); }
+.info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 940px; margin-inline: auto; }
+@media (max-width: 760px) { .info-grid { grid-template-columns: 1fr; max-width: 460px; } }
 .info-card {
-  background: #fff; border-radius: var(--r-md); padding: 22px 20px;
+  background: #fff; border-radius: var(--r-lg); padding: 26px 24px;
   border: 1px solid var(--line); box-shadow: var(--shadow);
-  text-align: left;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+  position: relative; overflow: hidden;
 }
+.info-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--brand) 0%, var(--brand-dk) 100%);
+  opacity: 0; transition: opacity .25s;
+}
+.info-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 36px -14px rgba(30,136,229,.22);
+  border-color: var(--brand-soft);
+}
+.info-card:hover::before { opacity: 1; }
 .info-card-icon {
-  width: 42px; height: 42px; border-radius: 10px;
-  background: var(--brand-soft); color: var(--brand-dk);
-  display: grid; place-items: center; margin-bottom: 12px;
+  width: 48px; height: 48px; border-radius: 12px;
+  background: linear-gradient(135deg, var(--brand-soft) 0%, #BAE6FD 100%);
+  color: var(--brand-dk);
+  display: grid; place-items: center; margin-bottom: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9);
 }
-.info-card h3 {
-  font-size: 1rem; font-weight: 800; margin-bottom: 6px; color: var(--ink);
+.info-card-icon svg { width: 24px; height: 24px; }
+.info-card h3 { font-size: 1.05rem; font-weight: 800; margin-bottom: 8px; color: var(--ink); }
+.info-card p { font-size: .92rem; color: var(--ink-2); line-height: 1.6; margin: 0; }
+
+/* MINI FAQ */
+.faq-section { padding-top: clamp(40px, 5vw, 64px); }
+.faq-section h2 { text-align: center; margin-bottom: clamp(20px, 2vw, 28px); }
+.faq-list { max-width: 760px; margin-inline: auto; display: grid; gap: 10px; }
+.faq-item {
+  background: #fff; border: 1px solid var(--line); border-radius: var(--r-md);
+  overflow: hidden; transition: border-color .2s, box-shadow .2s;
 }
-.info-card p {
-  font-size: .9rem; color: var(--ink-2); line-height: 1.55; margin: 0;
+.faq-item[open] { border-color: var(--brand-soft); box-shadow: 0 8px 22px -10px rgba(30,136,229,.18); }
+.faq-q {
+  list-style: none; padding: 16px 20px; cursor: pointer; font-weight: 700;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  font-size: .96rem; color: var(--ink);
 }
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after {
+  content: '+'; font-size: 1.4rem; color: var(--brand-dk);
+  font-weight: 400; transition: transform .2s; line-height: 1;
+}
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a { padding: 0 20px 18px; color: var(--ink-2); font-size: .92rem; line-height: 1.7; }
 
 /* HELP BOX */
 .help-box {
-  margin-top: 32px; padding: 22px 24px; background: #FEF3C7;
-  border: 1px solid #FCD34D; border-radius: var(--r-md);
-  max-width: 920px; margin-inline: auto;
+  margin-top: clamp(36px, 4vw, 48px);
+  padding: 26px 28px;
+  background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+  border: 2px solid var(--gold);
+  border-radius: var(--r-lg);
+  max-width: 760px;
+  margin-inline: auto;
+  display: flex; align-items: center; gap: 18px;
+  box-shadow: 0 14px 30px -12px rgba(245,158,11,.35);
 }
-.help-box h3 {
-  font-size: 1rem; font-weight: 800; color: #78350F; margin-bottom: 8px;
-  display: flex; align-items: center; gap: 8px;
+.help-box-icon {
+  flex-shrink: 0; width: 52px; height: 52px; border-radius: 14px;
+  background: linear-gradient(135deg, var(--gold) 0%, #D97706 100%);
+  color: #fff;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 14px -4px rgba(245,158,11,.5), inset 0 1px 0 rgba(255,255,255,.3);
 }
-.help-box p { font-size: .92rem; color: #78350F; line-height: 1.6; margin-bottom: 6px; }
-.help-box a { color: #78350F; font-weight: 700; }
+.help-box-icon svg { width: 26px; height: 26px; }
+.help-box-content { flex: 1; min-width: 0; }
+.help-box h3 { font-size: 1rem; font-weight: 900; color: #78350F; margin-bottom: 4px; }
+.help-box p { font-size: .9rem; color: #78350F; line-height: 1.55; margin: 0; }
+.help-box a { color: #78350F; font-weight: 800; text-decoration: underline; }
+@media (max-width: 600px) {
+  .help-box { flex-direction: column; text-align: center; gap: 12px; padding: 22px 20px; }
+  .help-box-icon { width: 46px; height: 46px; }
+}
 
 /* FOOTER */
 .footer { background: #0A1624; color: #94A3B8; font-size: .85rem; padding: 30px 20px 20px; margin-top: auto; }
@@ -179,58 +394,176 @@ main { flex: 1; padding: clamp(28px, 4vw, 56px) 0 clamp(40px, 6vw, 80px); }
   </div>
 </header>
 
-<!-- MAIN -->
 <main>
-  <div class="container">
-    <div class="hero-track">
-      <span class="pill">📦 Acompanhamento de encomenda</span>
+  <!-- HERO -->
+  <section class="hero-track">
+    <div class="container">
+      <div class="hero-pill">
+        <span class="hero-pill-pulse"></span>
+        Sistema de Rastreio Ativo
+      </div>
       <h1>Rastreia a tua <span class="hl">encomenda</span></h1>
-      <p>Insere o código de rastreio que recebeste por email para veres o estado da tua encomenda em tempo real.</p>
-    </div>
+      <p class="hero-track-sub">Insere o código de rastreio que recebeste por email para veres em que fase está a tua encomenda Nano Slim — em tempo real, pelos CTT.</p>
 
-    <!-- IFRAME -->
-    <div class="tracker-card">
-      <iframe
-        class="tracker-iframe"
-        src="https://fastntrack.lovable.app/embed/track"
-        title="Página de rastreio Nano Slim"
-        loading="lazy"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="clipboard-write"></iframe>
-    </div>
+      <div class="trust-strip">
+        <span class="trust-strip-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Atualização em tempo real
+        </span>
+        <span class="trust-strip-sep">·</span>
+        <span class="trust-strip-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Envio CTT garantido
+        </span>
+        <span class="trust-strip-sep">·</span>
+        <span class="trust-strip-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Notificação SMS
+        </span>
+      </div>
 
-    <!-- INFO CARDS -->
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="11" rx="1"/><path d="M16 10h4l3 3v4h-7v-7z"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
+      <!-- CTT TIMELINE · 4 fases -->
+      <div class="ctt-timeline">
+        <p class="ctt-timeline-title">Fases do percurso CTT</p>
+        <div class="ctt-stages">
+          <div class="ctt-stage">
+            <div class="ctt-stage-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="ctt-stage-label">Confirmada</div>
+            <div class="ctt-stage-time">Após pagamento</div>
+          </div>
+          <div class="ctt-stage">
+            <div class="ctt-stage-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+            </div>
+            <div class="ctt-stage-label">Expedida</div>
+            <div class="ctt-stage-time">24-48h</div>
+          </div>
+          <div class="ctt-stage">
+            <div class="ctt-stage-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="14" height="11" rx="1"/><path d="M15 10h4l3 3v4h-7v-7z"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
+            </div>
+            <div class="ctt-stage-label">Em Trânsito</div>
+            <div class="ctt-stage-time">CTT em circulação</div>
+          </div>
+          <div class="ctt-stage">
+            <div class="ctt-stage-num">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 9v11h14V9"/></svg>
+            </div>
+            <div class="ctt-stage-label">Entregue</div>
+            <div class="ctt-stage-time">Em tua casa</div>
+          </div>
         </div>
-        <h3>Envio CTT</h3>
-        <p>Todas as encomendas são expedidas pelos CTT em 24-48h úteis para Portugal continental.</p>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <h3>Notificação SMS</h3>
-        <p>Receberás um SMS com o código CTT no momento em que a tua encomenda sair do armazém.</p>
-      </div>
-      <div class="info-card">
-        <div class="info-card-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
-        </div>
-        <h3>Atualizações em tempo real</h3>
-        <p>O sistema atualiza automaticamente o estado da tua encomenda à medida que avança nos CTT.</p>
       </div>
     </div>
+  </section>
 
-    <!-- HELP BOX -->
-    <div class="help-box">
-      <h3>⚠️ Ainda não recebeste o código?</h3>
-      <p>O código de rastreio é enviado por email <strong>após a expedição</strong> da encomenda (24-48h úteis após a confirmação do pagamento). Se já passaram 3 dias úteis e ainda não recebeste, contacta-nos:</p>
-      <p>📧 <a href="mailto:apoio@nanoslimoficial.com">apoio@nanoslimoficial.com</a> — respondemos em 24h úteis</p>
+  <!-- TRACKER · IFRAME -->
+  <section class="tracker-section">
+    <div class="container">
+      <div class="tracker-wrap">
+        <div class="tracker-card">
+          <div class="tracker-card-head">
+            <div class="tracker-card-head-title">
+              <span class="tracker-card-head-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </span>
+              <span>Consultar estado da encomenda</span>
+            </div>
+            <span class="tracker-card-head-status">SISTEMA ATIVO</span>
+          </div>
+          <iframe
+            class="tracker-iframe"
+            src="https://fastntrack.lovable.app/embed/track"
+            title="Página de rastreio Nano Slim"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="clipboard-write"></iframe>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
+
+  <!-- INFO CARDS -->
+  <section class="info-section">
+    <div class="container">
+      <p class="info-section-eyebrow">Como funciona o teu envio</p>
+      <h2>Tudo o que precisas saber</h2>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="11" rx="1"/><path d="M16 10h4l3 3v4h-7v-7z"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/></svg>
+          </div>
+          <h3>Envio gratuito CTT</h3>
+          <p>Todas as encomendas são expedidas pelos CTT em <strong>24-48h úteis</strong> para Portugal continental. Madeira e Açores em 3-5 dias úteis.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <h3>SMS de notificação</h3>
+          <p>Recebes <strong>SMS dos CTT</strong> no momento em que a tua encomenda sai do armazém e quando estiver pronta para entrega.</p>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+          </div>
+          <h3>Garantia 30 dias</h3>
+          <p>Recebes a tua encomenda e tens <strong>30 dias para experimentar</strong>. Se não ficares satisfeito, devolvemos 100% do valor pago.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MINI FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <p class="info-section-eyebrow">Dúvidas frequentes</p>
+      <h2>Perguntas sobre rastreio</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary class="faq-q">Quando recebo o código de rastreio?</summary>
+          <div class="faq-a">
+            O código é enviado por email <strong>após a expedição</strong> da tua encomenda — normalmente 24-48h após confirmação do pagamento. Se pagaste por MB Way confirmado até às 16h de dia útil, expedimos no próprio dia.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Em quanto tempo recebo a encomenda?</summary>
+          <div class="faq-a">
+            <strong>Portugal continental:</strong> 24-48h úteis depois da expedição CTT.<br>
+            <strong>Madeira e Açores:</strong> 3-5 dias úteis via CTT Expresso.<br>
+            Recebes SMS dos CTT um dia antes da entrega.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">O código aparece como "inválido". O que faço?</summary>
+          <div class="faq-a">
+            Pode demorar até <strong>24h após a expedição</strong> para o sistema dos CTT validar o código. Tenta novamente em algumas horas. Se passar 48h e continuar inválido, contacta-nos por email.
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary class="faq-q">Não estou em casa quando os CTT chegarem?</summary>
+          <div class="faq-a">
+            Os CTT deixam aviso na caixa do correio e tu podes <strong>levantar na estação CTT mais próxima</strong> em até 5 dias úteis. Também podes usar a app CTT para reagendar a entrega gratuitamente.
+          </div>
+        </details>
+      </div>
+
+      <!-- HELP BOX -->
+      <div class="help-box">
+        <div class="help-box-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        </div>
+        <div class="help-box-content">
+          <h3>Precisas de ajuda?</h3>
+          <p>Se tens dúvidas sobre a tua encomenda ou o rastreio, escreve-nos para <a href="mailto:apoio@nanoslimoficial.com">apoio@nanoslimoficial.com</a> — respondemos em 24h úteis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- FOOTER -->
